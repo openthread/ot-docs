@@ -7,17 +7,17 @@ OpenThread documentation lives in two locations:
 
 All documentation contributions are done on GitHub and mirrored on [openthread.io](https://openthread.io), and will be reviewed for clarity, accuracy, spelling, and grammar prior to acceptance.
 
-See [CONTRIBUTING.md](../CONTRIBUTING.md) for general information on contributing to this project.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for general information on contributing to this project.
 
 ## Location
 
-Place all documentation contributions in the appropriate location in the [`/doc/site/[locale]/`](./site) directory. Contributions should be added in a location that mirrors the structure of the openthread.io documentation site. Browse that site and use the URL paths to determine the proper directory.
+Place all documentation contributions in the appropriate location in the [`/site/[locale]/`](./site) directory. Contributions should be added in a location that mirrors the structure of the openthread.io documentation site. Browse that site and use the URL paths to determine the proper directory.
 
 If you are unsure of the best location for your contribution, create an Issue and ask, or let us know in your Pull Request.
 
 ### Updating the site menus
 
-When adding a new document, or moving one, also update the `_toc.yaml` file(s) in the related folders. For example, the `/doc/site/en/guides/_toc.yaml` file would be the menu for the [Guides section on openthread.io](https://openthread.io/guides). If a menu doesn't yet exist on GitHub, let the OpenThread Team know in a new Issue we will add it.
+When adding a new document, or moving one, also update the `_toc.yaml` file(s) in the related folders. For example, the `/site/en/guides/_toc.yaml` file would be the menu for the [Guides section on openthread.io](https://openthread.io/guides). If a menu doesn't yet exist on GitHub, let the OpenThread Team know in a new Issue we will add it.
 
 New documents should be added to existing site menu TOCs where appropriate. If you are unsure of where to place a document within the menu, let us know in your Pull Request.
 
@@ -155,4 +155,4 @@ If you wish have an author byline displayed on openthread.io for the content you
 
     Contributor: https://github.com/Vyrastas
 
-See the BeagleBone Black guide ([GitHub version](site/en/guides/border-router/beaglebone-black), [openthread.io version](https://openthread.io/guides/border-router/beaglebone-black)) for an example of what this looks like.
+See the BeagleBone Black guide ([GitHub version](site/en/guides/border-router/beaglebone-black.md), [openthread.io version](https://openthread.io/guides/border-router/beaglebone-black)) for an example of what this looks like.
