@@ -6,12 +6,11 @@ Documentation contributions in this repo may be mirrored on our [openthread.io](
 
 - [1 Code of Conduct](#code-of-conduct)
 - [2 Bugs](#bugs)
-- [3 New Features](#new-features)
-- [4 Contributing Code](#contributing-code)
+- [3 New Documentation](#new-documentation)
+- [4 Contributing Content](#contributing-content)
   - [4.1 Initial Setup](#initial-setup)
   - [4.2 Contributor License Agreement (CLA)](#contributor-license-agreement--cla-)
   - [4.3 Submitting a Pull Request](#submitting-a-pull-request)
-- [5 Contributing Documentation](#contributing-documentation)
 
 ## Code of Conduct
 
