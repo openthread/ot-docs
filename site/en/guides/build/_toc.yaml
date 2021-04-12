@@ -1,0 +1,16 @@
+toc:
+- title: Build
+  path: /guides/build/
+- title: Thread Commissioning
+  path: /guides/build/commissioning
+- title: Logs
+  path: /guides/build/logs
+- heading: Enhanced Features
+- title: Child Supervision
+  path: /guides/build/features/child-supervision
+- title: Inform Previous Parent on Reattach
+  path: /guides/build/features/inform-previous-parent-on-reattach
+- title: Jam Detection
+  path: /guides/build/features/jam-detection
+- title: Periodic Parent Search
+  path: /guides/build/features/periodic-parent-search
