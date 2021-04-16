@@ -70,7 +70,7 @@ Alternatively, use the `CHILD_SUPERVISION=1` build switch when [building
 OpenThread](/guides/build):
 
 ```
-$ make -f examples/Makefile-{platform CHILD_SUPERVISION=1}
+$ make -f examples/Makefile-{platform} CHILD_SUPERVISION=1
 ```
 
 ## Parameters
