@@ -22,7 +22,7 @@ This feature works in two ways, depending on the node type and which
 
 ### On the parent
 If a parent router does not transmit to its child SED within the
-<a href="#interval">`OPENTHREAD_CONFIG_CHILD_SUPERVISION_INTERVAL`</a>,
+[`OPENTHREAD_CONFIG_CHILD_SUPERVISION_INTERVAL`](#interval),
 the parent router enqueues and sends a Child Supervision message to the child
 SED. The Child Supervision message is a MAC frame containing the following
 information:
@@ -59,7 +59,18 @@ To enable Child Supervision, define
 file, prior to [building OpenThread](/guides/build):
 
 ```
-$ make -f examples/Makefile-<var>&lt;platform&gt; CHILD_SUPERVISION=1
+#ifndef OPENTHREAD_CONFIG_CHILD_SUPERVISION_ENABLE
+#define OPENTHREAD_CONFIG_CHILD_SUPERVISION_ENABLE 1
+#endif
+```
+
+### By switch
+
+Alternatively, use the `CHILD_SUPERVISION=1` build switch when [building
+OpenThread](/guides/build):
+
+```
+$ make -f examples/Makefile-{platform CHILD_SUPERVISION=1}
 ```
 
 ## Parameters
@@ -74,7 +85,7 @@ to customize this feature:
   </thead>
   <tbody>
     <tr>
-      <td id="interval">OPENTHREAD_CONFIG_CHILD_SUPERVISION_INTERVAL</td>
+      <td id="interval"><code>OPENTHREAD_CONFIG_CHILD_SUPERVISION_INTERVAL</code></td>
       <td>
         <table class="function param responsive">
           <tbody>
@@ -97,7 +108,7 @@ to customize this feature:
       </td>
     </tr>
     <tr>
-      <td id="check-timeout">OPENTHREAD_CONFIG_SUPERVISION_CHECK_TIMEOUT</td>
+      <td id="check-timeout"><code>OPENTHREAD_CONFIG_SUPERVISION_CHECK_TIMEOUT</code></td>
       <td>
         <table class="function param responsive">
           <tbody>
@@ -122,7 +133,7 @@ to customize this feature:
       </td>
     </tr>
     <tr>
-      <td id="msg-no-ack-request">OPENTHREAD_CONFIG_SUPERVISION_MSG_NO_ACK_REQUEST</td>
+      <td id="msg-no-ack-request"><code>OPENTHREAD_CONFIG_SUPERVISION_MSG_NO_ACK_REQUEST</code></td>
       <td>
         <table class="function param responsive">
           <tbody>
