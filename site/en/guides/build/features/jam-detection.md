@@ -21,12 +21,12 @@ When Jam Detection is enabled:
     configured [RSSI Threshold](#threshold) for every sample, that one second
     interval is considered jammed.
 1.  If an aggregate number of jammed one second intervals is _more than or_
-    _equal to_ the aggregate number of configured [Busy Period](#busy-period)
+    _equal to_ the aggregate number of configured [Busy Period](#busy_period)
     seconds within the preceding configured [Detection Window](#window) seconds
     at any point in time, the Jam Detection State at that point in time is set
     to `true`.
 1.  If an aggregate number of jammed one second intervals is _less than_ the
-    aggregate number of configured [Busy Period](#busy-period) seconds within
+    aggregate number of configured [Busy Period](#busy_period) seconds within
     the preceding configured [Detection Window](#window) seconds at any point in
     time, the Jam Detection State at that point in time is set to `false`.
 
@@ -157,7 +157,7 @@ Customize this feature using the following parameters:
       </td>
     </tr>
     <tr>
-      <td id="busy-period"><i>Busy Period</i></td>
+      <td id="busy_period"><i>Busy Period</i></td>
       <td>
         <table class="function param responsive">
           <tbody>
