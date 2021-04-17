@@ -55,7 +55,7 @@ energy scanning logic by setting the macro
 > Note:  This feature is optional.
 
 mbedTLS defines several macros in the main configuration header file,
-[`mbedtls-config.h`](https://github.com/openthread/openthread/blob/main/third_party/mbedtls/mbedtls-config.h),
+[`mbedtls-config.h`][mbedtls-config.h],
 to allow users to enable alternative implementations of AES, SHA1, SHA2, and
 other modules, as well as individual functions for the Elliptic curve
 cryptography (ECC) over GF(p) module. See
@@ -73,12 +73,15 @@ To enable hardware acceleration within OpenThread, the following mbedTLS
 configuration header files should be added to the compile option flags in the
 platform example's Makefile:
 
+[mbedtls-config.h]: https://github.com/openthread/openthread/blob/main/third_party/mbedtls/mbedtls-config.h
+
 -   Main configuration, which defines all necessary macros used in OpenThread:
-    `/openthread/third-party/mbedtls/mbedtls-config.h`
+    [`/openthread/third-party/mbedtls/mbedtls-config.h`][mbedtls-config.h]
 -   User-specific configuration, which defines alternate implementations of
     modules and functions: `/openthread/examples/platforms/{platform-name}/crypto/{platform-name}-mbedtls-config.h`
 
 Example:
+[//]: # (TODO: Update this code-block to show where in the CMake files this should be defined)
 
 ```
 EFR32_MBEDTLS_CPPFLAGS  = -DMBEDTLS_CONFIG_FILE='\"mbedtls-config.h\"'
@@ -89,7 +92,7 @@ Commented macros in `mbedtls-config.h` are not mandatory, and can be enabled in
 the user-specific configuration header file for hardware acceleration.
 
 For a complete example user-specific configuration, see the
-[`mbedtls_config_autogen.h`](https://github.com/openthread/openthread/blob/main/examples/platforms/efr32/efr32mg12/crypto/mbedtls_config_autogen.h)
+[`mbedtls_config_autogen.h`](https://github.com/openthread/ot-efr32/blob/main/src/efr32mg12/crypto/mbedtls_config_autogen.h)
 file.
 
 ### AES module
