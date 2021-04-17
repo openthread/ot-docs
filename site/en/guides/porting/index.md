@@ -1,8 +1,10 @@
 # Porting OpenThread to New Hardware Platforms
 
-Porting the OpenThread stack to a new hardware platform consists of five steps:
+Porting the OpenThread stack to a new hardware platform consists of a few steps:
 
 1.  [Set up the build environment](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/set-up-the-build-environment.md)
+1.  [Define top-level CMake rules](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/define-top-level-cmake-rules.md)
+1.  [Define the platform CMake files](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/define-the-platform-cmake-files.md)
 1.  [Implement Platform Abstraction Layer APIs](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/implement-platform-abstraction-layer-apis.md)
 1.  [Implement advanced features (Hardware Abstraction Layer)](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/implement-advanced-features.md)
 1.  [Validate the port](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/validate-the-port.md)
@@ -26,6 +28,9 @@ OpenThread requires the following platform services:
 
 Several example builds are provided in the OpenThread repository. For more
 information, see [Platforms](https://openthread.io/platforms).
+
+
+[//]: # (TODO: There really isn't an easy way to show this example for the broken-out vendor repos)
 
 For a complete end-to-end example of how to port OpenThread from scratch, see
 the [Add support for EFR32](https://github.com/openthread/openthread/pull/1592)
