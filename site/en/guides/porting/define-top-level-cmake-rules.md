@@ -33,7 +33,7 @@ set(OT_PLATFORM_LIB "openthread-${EFR32_PLATFORM}")
 ```
 
 
-## *(optional)* OpenThread CMake options
+## OpenThread CMake options *(optional)*
 
 Various features in OpenThread may be enabled/disabled/configured by defining CMake variables.
 
@@ -47,15 +47,18 @@ set(OT_MBEDTLS ${OT_EXTERNAL_MBEDTLS})
 > Note: For a list of OpenThread CMake options available, refer to [`openthread/etc/cmake/options.cmake`](https://github.com/openthread/openthread/blob/main/etc/cmake/options.cmake).
 
 
-## Define output directories
+## Define output directories *(optional)*
 
-[//]: # (TODO add more)
+The output directory for different target files can be configured using the variables below.
 
 ```cmake
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 ```
+
+> Note: Refer to [CMake's documentation](https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html) for a list of all variables provided or used by CMake.
+
 
 ## Add `openthread` to the build tree
 
@@ -95,13 +98,16 @@ target_include_directories(ot-config INTERFACE
 
 ## Adding subdirectories to the build tree
 
-Now that the top-level configuration is defined, it's time to add
+Now that the top-level configuration is defined, it's time to add other subdirectories to the build tree.
+
+The `src` folder is where the platform-abstration layer source code will be located. The `third_party` folder will contain any third-party code.
+
+If you would like to include sample applications in the repo, create an `examples` folder and add it to the build tree as well.
 
 ```cmake
 add_subdirectory(src)
 add_subdirectory(third_party)
 
+# Optional
 add_subdirectory(examples)
-```
-
 ```

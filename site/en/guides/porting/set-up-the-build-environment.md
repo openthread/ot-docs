@@ -16,7 +16,7 @@ examples in the guide use a `efr32` platform name.
 ## Step 1: Create a new repository
 
 The first step is set up a new home for your hardware platform. In this guide,
-we'll be creating a new repository named `ot-efr32` which will house the
+we'll be creating a new repo named `ot-efr32` which will house the
 platform-abstraction layer, the hardware platform's SDK, and a few useful
 scripts.
 
