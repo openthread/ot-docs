@@ -1,38 +1,5 @@
 # Build OpenThread
 
-## Toolchains
-
-The primary supported toolchain for building OpenThread is GNU Autotools.
-
-### GNU Autotools
-
-Instructions on building examples with GNU Autotools can be found in each example's [platform folder](https://github.com/openthread/openthread/tree/main/examples/platforms). Note that the intent of these examples is to show the minimal code necessary to run OpenThread on each respective platform. As such, they do not highlight the platform's full capabilities.
-
-Further configuration during builds might be necessary, depending on your use
-case.
-
-### GNU Autotools — Nest Labs build
-
-Nest Labs has created a customized, turnkey build system framework, based on GNU
-Autotools. This is used for standalone software packages that need to support:
-
-*   building on and targeting against standalone build host systems
-*   embedded target systems using GCC-based or -compatible toolchains
-
-The Nest Labs build of GNU Autotools is recommend for use with OpenThread
-because some build host systems might not have GNU Autotools, or might have
-different versions and distributions. This leads to inconsistent primary and
-secondary Autotools output, which results in a divergent user and support
-experience. The Nest Labs build avoids this by providing a pre-built,
-qualified set of GNU Autotools with associated scripts that do not rely on the
-versions of Autotools on the build host system.
-
-This project is typically subtreed (or git submoduled) into a target project
-repository and serves as the seed for that project's build system.
-
-To learn more, or to use this tool for your OpenThread builds, see the
-[`README`](https://github.com/openthread/openthread/tree/main/third_party/nlbuild-autotools/repo).
-
 ## How to build OpenThread
 
 The steps to build OpenThread vary depending on toolchain, user machine, and
@@ -53,6 +20,10 @@ The most common workflow is:
            $ git clone https://github.com/openthread/ot-nrf528xx.git --recursive
 
 1.  From the cloned repository's root directory:
+    1.  Install the toolchain:
+
+            $ ./script/bootstrap
+
     1.  Modify OpenThread compile-time constants in `/src/nrf52840/openthread-core-nrf52840-config.h` file.
     1.  Build the configuration:
 
@@ -82,22 +53,22 @@ Makefile build switches | Listed in [`openthread/examples/README.md`](https://gi
 ### Build examples
 
 Use a switch to enable functionality for an example platform. For example, to
-build the CC2538 example with Commissioner and Joiner support enabled:
+build the binary with Commissioner and Joiner support enabled:
 
 ```
-$ make -f examples/Makefile-cc2538 COMMISSIONER=1 JOINER=1
+$ ./script/build -DOT_COMMISSIONER=1 -DOT_JOINER=1
 ```
 
 Or, to build the nRF52840 example with the [Jam Detection
 feature](/guides/build/features/jam-detection) enabled:
 
 ```
-$ make -f examples/Makefile-nrf52840 JAM_DETECTION=1
+$ ./script/build nrf52840 UART_trans  -DOT_JAM_DETECTION=1
 ```
 
 ### Binaries
 
-The following binaries are generated in `/output/{platform}/bin` from the build process. To determine which binaries are generated, use configure option flags with the `./configure` command to generate an updated `Makefile` for building. For example, to build OpenThread and generate only the CLI binaries:
+The following binaries are generated in `/build/bin` from the build process. To determine which binaries are generated, use configure option flags with the `./configure` command to generate an updated `Makefile` for building. For example, to build OpenThread and generate only the CLI binaries:
 
 ```
 $ ./configure --enable-cli
