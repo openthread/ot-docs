@@ -48,32 +48,23 @@ The most common workflow is:
             $ docker pull openthread/environment:latest
             $ docker run -it --rm openthread/environment bash
 
-1.  Within your chosen environment, clone the OpenThread Git repository:
+1.  Within your chosen environment, clone the platform-specific OpenThread Git repository. Taking nrf52840 as an example:
 
-           $ git clone https://github.com/openthread/openthread
+           $ git clone https://github.com/openthread/ot-nrf528xx.git --recursive
 
 1.  From the cloned repository's root directory:
-    1.  Install the GNU toolchain and other dependencies (optional):
+    1.  Modify OpenThread compile-time constants in `/src/nrf52840/openthread-core-nrf52840-config.h` file.
+    1.  Build the configuration:
 
-            $ ./script/bootstrap
-
-    1.  Set up the environment:
-
-            $ ./bootstrap
-
-    1.  Configure and build, using pre-defined platform examples with optional customization via common switches:
-        1.  Modify OpenThread compile-time constants in the selected platform's `/examples/platforms/{platform}/openthread-core-{platform}-config.h` file
-        1.  Build the configuration:
-
-                $ make -f examples/Makefile-{platform} <switches>
+            ./script/build nrf52840 UART_trans <platform-specific-args> <cmake-switches>
 
 1.  Flash the desired binary to the target platform. All generated binaries are
-    located in `/output/{platform}/bin`.
+    located in `/build/bin`.
 
 Specific instructions on building supported platforms with GNU Autotools can be
 found in each example's [platform folder](https://github.com/openthread/openthread/tree/main/examples/platforms).
 
-> Note: Between builds in the same repository, run `make clean` or `make distclean` to ensure a clean build each time.
+> Note: Between builds in the same repository, run `rm -r build/` to ensure a clean build each time.
 
 ### Configuration
 
@@ -84,7 +75,7 @@ locations:
 Type | Location
 ---- | ----
 Compile-time constants | Listed in all the header files in [`/src/core/config`](https://github.com/openthread/openthread/tree/main/src/core/config)
-Makefile build switches | Listed in [`/examples/common-switches.mk`](https://github.com/openthread/openthread/tree/main/examples/common-switches.mk)
+Makefile build switches | Listed in [`openthread/examples/README.md`](https://github.com/openthread/openthread/blob/main/examples/README.md)
 
 > Note: Each example platform included in OpenThread specifies some, but not all, of the constants and flags that the platform supports. Modify the example platform's `/openthread-core-{platform}-config.h` file to enable or disable compile-time constants prior to building.
 
