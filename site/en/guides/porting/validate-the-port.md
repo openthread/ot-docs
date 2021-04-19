@@ -9,8 +9,7 @@ Demonstrate a successful build by compiling the example OpenThread application
 for the target platform.
 
 ```
-$ ./bootstrap
-$ make -f examples/Makefile-efr32 COMMISSIONER=1 JOINER=1
+$ ./script/build efr32mg12 -DBOARD=brd4161a
 ```
 
 ## Step 2: Interact with the CLI
@@ -71,7 +70,7 @@ leader
 Done
 ```
 
-## Step 4: Attach a second node 
+## Step 4: Attach a second node
 
 Demonstrate successful radio communication by attaching a second node to the
 newly formed Thread network, using the same Thread Master Key and PAN ID from
