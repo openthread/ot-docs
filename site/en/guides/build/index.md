@@ -53,7 +53,7 @@ Makefile build switches | Listed in [`openthread/examples/README.md`](https://gi
 ### Build examples
 
 Use a switch to enable functionality for an example platform. For example, to
-build the binary with Commissioner and Joiner support enabled:
+build the binary on CC2538 platform with Commissioner and Joiner support enabled:
 
 ```
 $ ./script/build -DOT_COMMISSIONER=1 -DOT_JOINER=1
