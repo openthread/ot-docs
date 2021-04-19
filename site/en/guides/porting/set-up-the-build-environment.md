@@ -44,7 +44,7 @@ nothing to commit, working tree clean
 
 ## Step 2: Download boiler-plate files
 
-[//]: # (TODO: Should we create a template repo that contains everything needed for porting? I'm thinking it would include a stubbed out PAL, stubbed out READMEs, scripts, etc. This would be a good way to keep the structure of these new repos relatively consistent with the existing repos.)
+[//]: # (TODO: Should we create a template repo that contains everything needed for porting? I'm thinking it would include a stubbed out PAL, stubbed out READMEs, CMake files, scripts, etc. This would be a good way to keep the structure of these new repos relatively consistent with the existing repos.)
 
 To give the new repo a jumpstart, go to [`ot-stubbed-platform`], download the repo as a `.zip` file, and extract it to your repo.
 
@@ -177,7 +177,6 @@ endif
 
 
 ### Toolchain startup code
-
 
 [//]: # (TODO Rewrite for CMake. Might not even be needed)
 
