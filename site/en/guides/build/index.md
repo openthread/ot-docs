@@ -15,25 +15,21 @@ The most common workflow is:
             $ docker pull openthread/environment:latest
             $ docker run -it --rm openthread/environment bash
 
-1.  Within your chosen environment, clone the platform-specific OpenThread Git repository. Taking nrf52840 as an example:
+1.  Within your chosen environment, clone the platform-specific OpenThread Git repository. Taking CC2538 as an example:
 
-           $ git clone https://github.com/openthread/ot-nrf528xx.git --recursive
+           $ git clone https://github.com/openthread/ot-cc2538.git --recursive
 
 1.  From the cloned repository's root directory:
     1.  Install the toolchain:
 
             $ ./script/bootstrap
 
-    1.  Modify OpenThread compile-time constants in `/src/nrf52840/openthread-core-nrf52840-config.h` file.
     1.  Build the configuration:
 
-            ./script/build nrf52840 UART_trans <platform-specific-args> <cmake-switches>
+            ./script/build <platform-specific-args> <cmake-switches>
 
 1.  Flash the desired binary to the target platform. All generated binaries are
     located in `/build/bin`.
-
-Specific instructions on building supported platforms with GNU Autotools can be
-found in each example's [platform folder](https://github.com/openthread/openthread/tree/main/examples/platforms).
 
 > Note: Between builds in the same repository, run `rm -r build/` to ensure a clean build each time.
 
@@ -53,7 +49,7 @@ Makefile build switches | Listed in [`openthread/examples/README.md`](https://gi
 ### Build examples
 
 Use a switch to enable functionality for an example platform. For example, to
-build the binary on CC2538 platform with Commissioner and Joiner support enabled:
+build the binary for the CC2538 platform with Commissioner and Joiner support enabled:
 
 ```
 $ ./script/build -DOT_COMMISSIONER=1 -DOT_JOINER=1
@@ -68,23 +64,22 @@ $ ./script/build nrf52840 UART_trans  -DOT_JAM_DETECTION=1
 
 ### Binaries
 
-The following binaries are generated in `/build/bin` from the build process. To determine which binaries are generated, use configure option flags with the `./configure` command to generate an updated `Makefile` for building. For example, to build OpenThread and generate only the CLI binaries:
+The following binaries are generated in `/build/bin` from the build process. To determine which binaries are generated, use flags with the `script/build` command. For example, to build OpenThread and generate only the FTD CLI binary:
 
 ```
-$ ./configure --enable-cli
-$ make
+$ ./script/build -DOT_APP_CLI=1 -DOT_FTD=1 -DOT_MTD=0 -DOT_APP_NCP=0 -DOT_APP_RCP=0 -DOT_RCP=0
 ```
 
-Binary | Description | Configure option flags
+Binary | Description | Flags
 ---- | ---- | ----
-`ot-cli-ftd` | Full Thread device for SoC designs | `--enable-cli`<br/> `--enable-ftd`
-`ot-cli-mtd` | Minimal Thread device for SoC designs | `--enable-cli`<br/> `--enable-mtd`
-`ot-ncp-ftd` | Full Thread device for Network Co-Processor (NCP) designs | `--enable-ncp`<br/> `--enable-ftd`
-`ot-ncp-mtd` | Minimal Thread device for NCP designs | `--enable-ncp`<br/> `--enable-mtd`
-`ot-rcp` | Radio Co-Processor (RCP) design | `--enable-ncp`<br/> `--enable-radio-only`
+`ot-cli-ftd` | Full Thread device for SoC designs | `-DOT_APP_CLI=1`<br/> `-DOT_FTD=1`
+`ot-cli-mtd` | Minimal Thread device for SoC designs | `-DOT_APP_CLI=1`<br/> `-DOT_MTD=1`
+`ot-ncp-ftd` | Full Thread device for Network Co-Processor (NCP) designs | `-DOT_APP_NCP=1`<br/> `-DOT_FTD=1`
+`ot-ncp-mtd` | Minimal Thread device for NCP designs | `-DOT_APP_NCP=1`<br/> `-DOT_MTD=1`
+`ot-rcp` | Radio Co-Processor (RCP) design | `-DOT_APP_RCP=1`<br/> `-DOT_RCP=1`
 
-If neither these flags nor a platform example are not used, applications are not
-built but OpenThread library files are still generated in `/output/{platform}/lib` for use in a project.
+By default, all above flags are enabled. If explicitly disable all flags, applications are not
+built but OpenThread library files are still generated in `/build/lib` for use in a project.
 
 Check the example Makefiles for each platform to see which flags each platform
 supports. For more information on FTDs and MTDs, see the
