@@ -65,7 +65,7 @@ This bitmap might be represented by the following graph, if -45 dBm was the
 configured RSSI Threshold:
 
 <figure>
-<a href="/guides/images/ot-jam-detection-graph_2x.png"><img src="/guides/images/ot-jam-detection-graph.png" srcset="/guides/images/ot-jam-detection-graph.png 1x, /guides/images/ot-jam-detection-graph_2x.png 2x" border="0" alt="OT Jam Detection" /></a>
+<a href="../../images/ot-jam-detection-graph_2x.png"><img src="../../images/ot-jam-detection-graph.png" srcset="../../images/ot-jam-detection-graph.png 1x, ../../images/ot-jam-detection-graph_2x.png 2x" border="0" alt="OT Jam Detection" /></a>
 </figure>
 
 ## How to enable
