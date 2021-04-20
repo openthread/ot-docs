@@ -26,7 +26,7 @@ The most common workflow is:
 
     1.  Build the configuration:
 
-            ./script/build <platform-specific-args> <cmake-switches>
+            ./script/build <platform-specific-args> <cmake-options>
 
 1.  Flash the desired binary to the target platform. All generated binaries are
     located in `/build/bin`.
@@ -42,21 +42,21 @@ locations:
 Type | Location
 ---- | ----
 Compile-time constants | Listed in all the header files in [`/src/core/config`](https://github.com/openthread/openthread/tree/main/src/core/config)
-Makefile build switches | Listed in [`openthread/examples/README.md`](https://github.com/openthread/openthread/blob/main/examples/README.md)
+cmake build options | Listed in [`openthread/examples/README.md`](https://github.com/openthread/openthread/blob/main/examples/README.md)
 
 > Note: Each example platform included in OpenThread specifies some, but not all, of the constants and flags that the platform supports. Modify the example platform's `/openthread-core-{platform}-config.h` file to enable or disable compile-time constants prior to building.
 
 ### Build examples
 
-Use a switch to enable functionality for an example platform. For example, to
+Use cmake build option to enable functionality for the platform. For example, to
 build the binary for the CC2538 platform with Commissioner and Joiner support enabled:
 
 ```
 $ ./script/build -DOT_COMMISSIONER=1 -DOT_JOINER=1
 ```
 
-Or, to build the nRF52840 example with the [Jam Detection
-feature](/guides/build/features/jam-detection) enabled:
+Or, to build the nRF52840 platform with the [Jam Detection
+feature](/guides/build/features/jam-detection) enabled in its repo:
 
 ```
 $ ./script/build nrf52840 UART_trans  -DOT_JAM_DETECTION=1
@@ -70,7 +70,7 @@ The following binaries are generated in `/build/bin` from the build process. To 
 $ ./script/build -DOT_APP_CLI=1 -DOT_FTD=1 -DOT_MTD=0 -DOT_APP_NCP=0 -DOT_APP_RCP=0 -DOT_RCP=0
 ```
 
-Binary | Description | Flags
+Binary | Description | Options
 ---- | ---- | ----
 `ot-cli-ftd` | Full Thread device for SoC designs | `-DOT_APP_CLI=1`<br/> `-DOT_FTD=1`
 `ot-cli-mtd` | Minimal Thread device for SoC designs | `-DOT_APP_CLI=1`<br/> `-DOT_MTD=1`
