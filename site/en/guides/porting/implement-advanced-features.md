@@ -81,7 +81,7 @@ platform example's Makefile:
     modules and functions: `/openthread/examples/platforms/{platform-name}/crypto/{platform-name}-mbedtls-config.h`
 
 Example:
-[//]: # (TODO: Update this code-block to show where in the CMake files this should be defined)
+> *TODO* : Update this code-block to show where in the CMake files this should be defined
 
 ```
 EFR32_MBEDTLS_CPPFLAGS  = -DMBEDTLS_CONFIG_FILE='\"mbedtls-config.h\"'

@@ -6,8 +6,8 @@ In this section, we will define a CMake target for your platform library. First,
 
 Here we'll be defining the platform library for `efr32mg12`.
 
-[//]: # (TODO: Add content)
+> *TODO* : Add content
 
 ## Restructuring `src` to support multiple platforms
 
-[//]: # (TODO: Add content)
+> *TODO* : Add content

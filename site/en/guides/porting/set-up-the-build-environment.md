@@ -20,7 +20,7 @@ we'll be creating a new repo named `ot-efr32` which will house the
 platform-abstraction layer, the hardware platform's SDK, and a few useful
 scripts.
 
-[//]: # (TODO: Do we want to demonstrate making a new git repo through GitHub?)
+> *TODO* : Do we want to demonstrate making a new git repo through GitHub?
 
 
 ```shell
@@ -44,7 +44,7 @@ nothing to commit, working tree clean
 
 ## Step 2: Download boiler-plate files
 
-[//]: # (TODO: Should we create a template repo that contains everything needed for porting? I'm thinking it would include a stubbed out PAL, stubbed out READMEs, CMake files, scripts, etc. This would be a good way to keep the structure of these new repos relatively consistent with the existing repos.)
+> *TODO* : Should we create a template repo that contains everything needed for porting? I'm thinking it would include a stubbed out PAL, stubbed out READMEs, CMake files, scripts, etc. This would be a good way to keep the structure of these new repos relatively consistent with the existing repos.
 
 To give the new repo a jumpstart, go to [`ot-stubbed-platform`], download the repo as a `.zip` file, and extract it to your repo.
 
@@ -114,29 +114,29 @@ As part of the boiler-plate files downloaded in a previous step, the `script` fo
 
 This script allows users to install all tools and packages required by your hardware platform. It also executes `openthread`'s bootstrap script, ensuring everything the user has everything needed to build.
 
-[//]: # (TODO add link to file in `ot-stubbed-platform`)
+> *TODO*  add link to file in `ot-stubbed-platform`
 
 
 ### `script/build`
 
 The [CMake][cmake-homepage] build script contains the basic system configuration options, including any platform-specific macro definitions.
 
-[//]: # (TODO add more)
-[//]: # (TODO add link to file in `ot-stubbed-platform`)
+> *TODO*  add more
+> *TODO*  add link to file in `ot-stubbed-platform`
 
 ### `script/test`
 
-[//]: # (TODO add link to file in `ot-stubbed-platform`)
+> *TODO*  add link to file in `ot-stubbed-platform`
 
 ### `script/make-pretty`
 
-[//]: # (TODO add description)
+> *TODO*  add description
 
 
 
 ### Linker script configuration
 
-[//]: # (TODO This should be moved somewhere else)
+> *TODO*  This should be moved somewhere else
 
 The [GNU Linker](http://www.ece.ufrgs.br/~fetter/eng04476/manuals/ld.pdf) script
 describes how to map all sections in the input files (`.o` "object" files
@@ -178,7 +178,7 @@ endif
 
 ### Toolchain startup code
 
-[//]: # (TODO Rewrite for CMake. Might not even be needed)
+> *TODO*  Rewrite for CMake. Might not even be needed
 
 Toolchain startup code is often provided along with the platform's BSP. This
 code typically:

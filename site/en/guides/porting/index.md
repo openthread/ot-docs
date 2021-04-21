@@ -30,7 +30,7 @@ Several example builds are provided in the OpenThread repository. For more
 information, see [Platforms](https://openthread.io/platforms).
 
 
-[//]: # (TODO: There really isn't an easy way to show this example for the broken-out vendor repos)
+> *TODO* : There really isn't an easy way to show this example for the broken-out vendor repos
 
 For a complete end-to-end example of how to port OpenThread from scratch, see
 the ~~[Add support for EFR32](https://github.com/openthread/openthread/pull/1592)
