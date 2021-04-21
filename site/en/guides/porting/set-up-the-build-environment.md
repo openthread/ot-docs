@@ -24,9 +24,9 @@ scripts.
 
 
 ```shell
-mason@bigboi:~$ mkdir -p ~/repos
-mason@bigboi:~$ cd ~/repos
-mason@bigboi:~/repos$ git clone git@github.com:SiliconLabs/ot-efr32.git
+~$ mkdir -p ~/repos
+~$ cd ~/repos
+~/repos$ git clone git@github.com:SiliconLabs/ot-efr32.git
 Cloning into 'ot-efr32'...
 remote: Enumerating objects: 99, done.
 remote: Counting objects: 100% (99/99), done.
@@ -35,7 +35,7 @@ remote: Total 333 (delta 65), reused 39 (delta 39), pack-reused 234
 Receiving objects: 100% (333/333), 170.78 KiB | 5.69 MiB/s, done.
 Resolving deltas: 100% (194/194), done.
 
-mason@bigboi:~/repos/ot-efr32$ git status
+~/repos/ot-efr32$ git status
 On branch main
 Your branch is up to date with 'origin/main'.
 
@@ -50,26 +50,26 @@ To give the new repo a jumpstart, go to [`ot-stubbed-platform`], download the re
 
 ```shell
 # TODO: This is just pseudocode at this point since the repo hasn't actually been created.
-mason@bigboi:~/repos/ot-efr32$ wget https://github.com/SiliconLabs/ot-stubbed-platform/archive/refs/heads/main.zip
-mason@bigboi:~/repos/ot-efr32$ unzip main.zip
-mason@bigboi:~/repos/ot-efr32$ ls -alh
+~/repos/ot-efr32$ wget https://github.com/SiliconLabs/ot-stubbed-platform/archive/refs/heads/main.zip
+~/repos/ot-efr32$ unzip main.zip
+~/repos/ot-efr32$ ls -alh
 total 64K
-drwxr-xr-x 10 mason www-data 4.0K Apr 13 16:17 .
-drwxr-xr-x 14 mason www-data 4.0K Apr 16 16:46 ..
-drwxr-xr-x  4 mason www-data 4.0K Apr 16 16:29 build
--rw-r--r--  1 mason www-data 3.2K Apr 12 18:19 .clang-format
--rw-r--r--  1 mason www-data 3.1K Apr 12 18:19 CMakeLists.txt
-drwxr-xr-x  3 mason www-data 4.0K Apr 12 18:19 examples
-drwxr-xr-x  9 mason www-data 4.0K Apr 13 16:49 .git
-drwxr-xr-x  3 mason www-data 4.0K Apr 12 18:19 .github
--rw-r--r--  1 mason www-data 1.4K Apr 12 18:19 .gitignore
--rw-r--r--  1 mason www-data  234 Apr 12 18:19 .gitmodules
--rw-r--r--  1 mason www-data 1.5K Apr 12 18:19 LICENSE
-drwxr-xr-x 12 mason www-data 4.0K Apr 13 16:49 openthread
--rw-r--r--  1 mason www-data 2.3K Apr 12 18:19 README.md
-drwxr-xr-x  2 mason www-data 4.0K Apr 12 18:19 script
-drwxr-xr-x  7 mason www-data 4.0K Apr 12 18:19 src
-drwxr-xr-x  4 mason www-data 4.0K Apr 12 18:19 third_party
+drwxr-xr-x 10 user user 4.0K Apr 13 16:17 .
+drwxr-xr-x 14 user user 4.0K Apr 16 16:46 ..
+drwxr-xr-x  4 user user 4.0K Apr 16 16:29 build
+-rw-r--r--  1 user user 3.2K Apr 12 18:19 .clang-format
+-rw-r--r--  1 user user 3.1K Apr 12 18:19 CMakeLists.txt
+drwxr-xr-x  3 user user 4.0K Apr 12 18:19 examples
+drwxr-xr-x  9 user user 4.0K Apr 13 16:49 .git
+drwxr-xr-x  3 user user 4.0K Apr 12 18:19 .github
+-rw-r--r--  1 user user 1.4K Apr 12 18:19 .gitignore
+-rw-r--r--  1 user user  234 Apr 12 18:19 .gitmodules
+-rw-r--r--  1 user user 1.5K Apr 12 18:19 LICENSE
+drwxr-xr-x 12 user user 4.0K Apr 13 16:49 openthread
+-rw-r--r--  1 user user 2.3K Apr 12 18:19 README.md
+drwxr-xr-x  2 user user 4.0K Apr 12 18:19 script
+drwxr-xr-x  7 user user 4.0K Apr 12 18:19 src
+drwxr-xr-x  4 user user 4.0K Apr 12 18:19 third_party
 ```
 
 ## Step 3: Add submodules
@@ -77,8 +77,8 @@ drwxr-xr-x  4 mason www-data 4.0K Apr 12 18:19 third_party
 The next step is to add [`openthread`](https://github.com/openthread/openthread) and any other required repos as submodules
 
 ```shell
-mason@bigboi:~/repos/ot-efr32$ git submodule add git@github.com:openthread/openthread.git
-Cloning into '/home/mason/repos/ot-efr32/openthread'...
+~/repos/ot-efr32$ git submodule add git@github.com:openthread/openthread.git
+Cloning into '/home/user/repos/ot-efr32/openthread'...
 remote: Enumerating objects: 78281, done.
 remote: Counting objects: 100% (1056/1056), done.
 remote: Compressing objects: 100% (488/488), done.
@@ -93,9 +93,9 @@ toolchain startup code) must be contained in the `third_party` directory.
 For this example, we'll be adding a lite version of the Silicon Labs Gecko SDK as a submodule.
 
 ```shell
-mason@bigboi:~/repos/ot-efr32$ cd third_party
-mason@bigboi:~/repos/ot-efr32/third_party$ git submodule add git@github.com:SiliconLabs/sdk_support.git
-Cloning into '/home/mason/repos/ot-efr32/third_party/sdk_support'...
+~/repos/ot-efr32$ cd third_party
+~/repos/ot-efr32/third_party$ git submodule add git@github.com:SiliconLabs/sdk_support.git
+Cloning into '/home/user/repos/ot-efr32/third_party/sdk_support'...
 remote: Enumerating objects: 32867, done.
 remote: Counting objects: 100% (8181/8181), done.
 remote: Compressing objects: 100% (3098/3098), done.
