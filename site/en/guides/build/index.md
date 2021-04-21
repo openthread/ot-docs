@@ -26,7 +26,7 @@ The most common workflow is:
 
     1.  Build the configuration:
 
-            ./script/build <platform-specific-args> <cmake-options>
+            $ ./script/build <platform-specific-args> <cmake-options>
 
 1.  Flash the desired binary to the target platform. All generated binaries are
     located in `/build/bin`.
@@ -78,7 +78,7 @@ Binary | Description | Options
 `ot-ncp-mtd` | Minimal Thread device for NCP designs | `-DOT_APP_NCP=1`<br/> `-DOT_MTD=1`
 `ot-rcp` | Radio Co-Processor (RCP) design | `-DOT_APP_RCP=1`<br/> `-DOT_RCP=1`
 
-By default, all above flags are enabled. If explicitly disable all flags, applications are not
+By default, all above flags are enabled. If you explicitly disable all flags, applications are not
 built but OpenThread library files are still generated in `/build/lib` for use in a project.
 
 Check the example Makefiles for each platform to see which flags each platform
