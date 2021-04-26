@@ -48,7 +48,7 @@ cmake build options | Listed in [`openthread/examples/README.md`](https://github
 
 ### Build examples
 
-Use cmake build option to enable functionality for the platform. For example, to
+Use cmake build options to enable functionality for the platform. For example, to
 build the binary for the CC2538 platform with Commissioner and Joiner support enabled:
 
 ```
@@ -59,7 +59,7 @@ Or, to build the nRF52840 platform with the [Jam Detection
 feature](/guides/build/features/jam-detection) enabled in its repo:
 
 ```
-$ ./script/build nrf52840 UART_trans  -DOT_JAM_DETECTION=ON
+$ ./script/build nrf52840 UART_trans -DOT_JAM_DETECTION=ON
 ```
 
 ### Binaries
