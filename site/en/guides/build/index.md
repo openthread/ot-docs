@@ -52,14 +52,14 @@ Use cmake build option to enable functionality for the platform. For example, to
 build the binary for the CC2538 platform with Commissioner and Joiner support enabled:
 
 ```
-$ ./script/build -DOT_COMMISSIONER=1 -DOT_JOINER=1
+$ ./script/build -DOT_COMMISSIONER=ON -DOT_JOINER=ON
 ```
 
 Or, to build the nRF52840 platform with the [Jam Detection
 feature](/guides/build/features/jam-detection) enabled in its repo:
 
 ```
-$ ./script/build nrf52840 UART_trans  -DOT_JAM_DETECTION=1
+$ ./script/build nrf52840 UART_trans  -DOT_JAM_DETECTION=ON
 ```
 
 ### Binaries
@@ -67,16 +67,16 @@ $ ./script/build nrf52840 UART_trans  -DOT_JAM_DETECTION=1
 The following binaries are generated in `./build/bin` from the build process. To determine which binaries are generated, use flags with the `./script/build` command. For example, to build OpenThread and generate only the FTD CLI binary:
 
 ```
-$ ./script/build -DOT_APP_CLI=1 -DOT_FTD=1 -DOT_MTD=0 -DOT_APP_NCP=0 -DOT_APP_RCP=0 -DOT_RCP=0
+$ ./script/build -DOT_APP_CLI=ON -DOT_FTD=ON -DOT_MTD=OFF -DOT_APP_NCP=OFF -DOT_APP_RCP=OFF -DOT_RCP=OFF
 ```
 
 Binary | Description | Options
 ---- | ---- | ----
-`ot-cli-ftd` | Full Thread device for SoC designs | `-DOT_APP_CLI=1`<br/> `-DOT_FTD=1`
-`ot-cli-mtd` | Minimal Thread device for SoC designs | `-DOT_APP_CLI=1`<br/> `-DOT_MTD=1`
-`ot-ncp-ftd` | Full Thread device for Network Co-Processor (NCP) designs | `-DOT_APP_NCP=1`<br/> `-DOT_FTD=1`
-`ot-ncp-mtd` | Minimal Thread device for NCP designs | `-DOT_APP_NCP=1`<br/> `-DOT_MTD=1`
-`ot-rcp` | Radio Co-Processor (RCP) design | `-DOT_APP_RCP=1`<br/> `-DOT_RCP=1`
+`ot-cli-ftd` | Full Thread device for SoC designs | `-DOT_APP_CLI=ON`<br/> `-DOT_FTD=ON`
+`ot-cli-mtd` | Minimal Thread device for SoC designs | `-DOT_APP_CLI=ON`<br/> `-DOT_MTD=ON`
+`ot-ncp-ftd` | Full Thread device for Network Co-Processor (NCP) designs | `-DOT_APP_NCP=ON`<br/> `-DOT_FTD=ON`
+`ot-ncp-mtd` | Minimal Thread device for NCP designs | `-DOT_APP_NCP=ON`<br/> `-DOT_MTD=ON`
+`ot-rcp` | Radio Co-Processor (RCP) design | `-DOT_APP_RCP=ON`<br/> `-DOT_RCP=ON`
 
 By default, all above flags are enabled. If you explicitly disable all flags, applications are not
 built but OpenThread library files are still generated in `./build/lib` for use in a project.
