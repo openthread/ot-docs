@@ -26,7 +26,7 @@ The most common workflow is:
 
     1.  Build the configuration:
 
-            $ ./script/build <platform-specific-args> <cmake-options>
+            $ ./script/build {platform-specific-args} {cmake-options}
 
 1.  Flash the desired binary to the target platform. All generated binaries are
     located in `./build/bin`.
