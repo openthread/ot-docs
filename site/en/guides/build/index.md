@@ -29,7 +29,7 @@ The most common workflow is:
             $ ./script/build <platform-specific-args> <cmake-options>
 
 1.  Flash the desired binary to the target platform. All generated binaries are
-    located in `/build/bin`.
+    located in `./build/bin`.
 
 > Note: Between builds in the same repository, run `rm -r build/` to ensure a clean build each time.
 
@@ -44,7 +44,7 @@ Type | Location
 Compile-time constants | Listed in all the header files in [`/src/core/config`](https://github.com/openthread/openthread/tree/main/src/core/config)
 cmake build options | Listed in [`openthread/examples/README.md`](https://github.com/openthread/openthread/blob/main/examples/README.md)
 .
-> Note: Each platform repo specifies some, but not all, of the constants and flags that the platform supports. Modify the platform's `openthread-core-{platform}-config.h` file to enable or disable compile-time constants prior to building.
+> Note: Each platform repository specifies some, but not all, of the constants and flags that the platform supports. Modify the platform's `openthread-core-{platform}-config.h` file to enable or disable compile-time constants prior to building.
 
 ### Build examples
 
@@ -64,7 +64,7 @@ $ ./script/build nrf52840 UART_trans  -DOT_JAM_DETECTION=1
 
 ### Binaries
 
-The following binaries are generated in `/build/bin` from the build process. To determine which binaries are generated, use flags with the `script/build` command. For example, to build OpenThread and generate only the FTD CLI binary:
+The following binaries are generated in `./build/bin` from the build process. To determine which binaries are generated, use flags with the `./script/build` command. For example, to build OpenThread and generate only the FTD CLI binary:
 
 ```
 $ ./script/build -DOT_APP_CLI=1 -DOT_FTD=1 -DOT_MTD=0 -DOT_APP_NCP=0 -DOT_APP_RCP=0 -DOT_RCP=0
@@ -79,7 +79,7 @@ Binary | Description | Options
 `ot-rcp` | Radio Co-Processor (RCP) design | `-DOT_APP_RCP=1`<br/> `-DOT_RCP=1`
 
 By default, all above flags are enabled. If you explicitly disable all flags, applications are not
-built but OpenThread library files are still generated in `/build/lib` for use in a project.
+built but OpenThread library files are still generated in `./build/lib` for use in a project.
 
 Check the example Makefiles for each platform to see which flags each platform
 supports. For more information on FTDs and MTDs, see the
