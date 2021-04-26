@@ -43,7 +43,7 @@ Type | Location
 ---- | ----
 Compile-time constants | Listed in all the header files in [`/src/core/config`](https://github.com/openthread/openthread/tree/main/src/core/config)
 cmake build options | Listed in [`openthread/examples/README.md`](https://github.com/openthread/openthread/blob/main/examples/README.md)
-.
+
 > Note: Each platform repository specifies some, but not all, of the constants and flags that the platform supports. Modify the platform's `openthread-core-{platform}-config.h` file to enable or disable compile-time constants prior to building.
 
 ### Build examples
