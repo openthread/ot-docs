@@ -1,38 +1,5 @@
 # Build OpenThread
 
-## Toolchains
-
-The primary supported toolchain for building OpenThread is GNU Autotools.
-
-### GNU Autotools
-
-Instructions on building examples with GNU Autotools can be found in each example's [platform folder](https://github.com/openthread/openthread/tree/main/examples/platforms). Note that the intent of these examples is to show the minimal code necessary to run OpenThread on each respective platform. As such, they do not highlight the platform's full capabilities.
-
-Further configuration during builds might be necessary, depending on your use
-case.
-
-### GNU Autotools — Nest Labs build
-
-Nest Labs has created a customized, turnkey build system framework, based on GNU
-Autotools. This is used for standalone software packages that need to support:
-
-*   building on and targeting against standalone build host systems
-*   embedded target systems using GCC-based or -compatible toolchains
-
-The Nest Labs build of GNU Autotools is recommend for use with OpenThread
-because some build host systems might not have GNU Autotools, or might have
-different versions and distributions. This leads to inconsistent primary and
-secondary Autotools output, which results in a divergent user and support
-experience. The Nest Labs build avoids this by providing a pre-built,
-qualified set of GNU Autotools with associated scripts that do not rely on the
-versions of Autotools on the build host system.
-
-This project is typically subtreed (or git submoduled) into a target project
-repository and serves as the seed for that project's build system.
-
-To learn more, or to use this tool for your OpenThread builds, see the
-[`README`](https://github.com/openthread/openthread/tree/main/third_party/nlbuild-autotools/repo).
-
 ## How to build OpenThread
 
 The steps to build OpenThread vary depending on toolchain, user machine, and
@@ -48,32 +15,23 @@ The most common workflow is:
             $ docker pull openthread/environment:latest
             $ docker run -it --rm openthread/environment bash
 
-1.  Within your chosen environment, clone the OpenThread Git repository:
+1.  Within your chosen environment, clone the platform-specific OpenThread Git repository. Taking CC2538 as an example:
 
-           $ git clone https://github.com/openthread/openthread
+           $ git clone https://github.com/openthread/ot-cc2538.git --recursive
 
 1.  From the cloned repository's root directory:
-    1.  Install the GNU toolchain and other dependencies (optional):
+    1.  Install the toolchain:
 
             $ ./script/bootstrap
 
-    1.  Set up the environment:
+    1.  Build the configuration:
 
-            $ ./bootstrap
-
-    1.  Configure and build, using pre-defined platform examples with optional customization via common switches:
-        1.  Modify OpenThread compile-time constants in the selected platform's `/examples/platforms/{platform}/openthread-core-{platform}-config.h` file
-        1.  Build the configuration:
-
-                $ make -f examples/Makefile-{platform} <switches>
+            $ ./script/build {platform-specific-args} {cmake-options}
 
 1.  Flash the desired binary to the target platform. All generated binaries are
-    located in `/output/{platform}/bin`.
+    located in `./build/bin`.
 
-Specific instructions on building supported platforms with GNU Autotools can be
-found in each example's [platform folder](https://github.com/openthread/openthread/tree/main/examples/platforms).
-
-> Note: Between builds in the same repository, run `make clean` or `make distclean` to ensure a clean build each time.
+> Note: Between builds in the same repository, run `rm -r build/` to ensure a clean build each time.
 
 ### Configuration
 
@@ -84,45 +42,44 @@ locations:
 Type | Location
 ---- | ----
 Compile-time constants | Listed in all the header files in [`/src/core/config`](https://github.com/openthread/openthread/tree/main/src/core/config)
-Makefile build switches | Listed in [`/examples/common-switches.mk`](https://github.com/openthread/openthread/tree/main/examples/common-switches.mk)
+cmake build options | Listed in [`openthread/examples/README.md`](https://github.com/openthread/openthread/blob/main/examples/README.md)
 
-> Note: Each example platform included in OpenThread specifies some, but not all, of the constants and flags that the platform supports. Modify the example platform's `/openthread-core-{platform}-config.h` file to enable or disable compile-time constants prior to building.
+> Note: Each platform repository specifies some, but not all, of the constants and flags that the platform supports. Modify the platform's `openthread-core-{platform}-config.h` file to enable or disable compile-time constants prior to building.
 
 ### Build examples
 
-Use a switch to enable functionality for an example platform. For example, to
-build the CC2538 example with Commissioner and Joiner support enabled:
+Use cmake build options to enable functionality for the platform. For example, to
+build the binary for the CC2538 platform with Commissioner and Joiner support enabled:
 
 ```
-$ make -f examples/Makefile-cc2538 COMMISSIONER=1 JOINER=1
+$ ./script/build -DOT_COMMISSIONER=ON -DOT_JOINER=ON
 ```
 
-Or, to build the nRF52840 example with the [Jam Detection
-feature](/guides/build/features/jam-detection) enabled:
+Or, to build the nRF52840 platform with the [Jam Detection
+feature](/guides/build/features/jam-detection) enabled in its repo:
 
 ```
-$ make -f examples/Makefile-nrf52840 JAM_DETECTION=1
+$ ./script/build nrf52840 UART_trans -DOT_JAM_DETECTION=ON
 ```
 
 ### Binaries
 
-The following binaries are generated in `/output/{platform}/bin` from the build process. To determine which binaries are generated, use configure option flags with the `./configure` command to generate an updated `Makefile` for building. For example, to build OpenThread and generate only the CLI binaries:
+The following binaries are generated in `./build/bin` from the build process. To determine which binaries are generated, use flags with the `./script/build` command. For example, to build OpenThread and generate only the FTD CLI binary:
 
 ```
-$ ./configure --enable-cli
-$ make
+$ ./script/build -DOT_APP_CLI=ON -DOT_FTD=ON -DOT_MTD=OFF -DOT_APP_NCP=OFF -DOT_APP_RCP=OFF -DOT_RCP=OFF
 ```
 
-Binary | Description | Configure option flags
+Binary | Description | Options
 ---- | ---- | ----
-`ot-cli-ftd` | Full Thread device for SoC designs | `--enable-cli`<br/> `--enable-ftd`
-`ot-cli-mtd` | Minimal Thread device for SoC designs | `--enable-cli`<br/> `--enable-mtd`
-`ot-ncp-ftd` | Full Thread device for Network Co-Processor (NCP) designs | `--enable-ncp`<br/> `--enable-ftd`
-`ot-ncp-mtd` | Minimal Thread device for NCP designs | `--enable-ncp`<br/> `--enable-mtd`
-`ot-rcp` | Radio Co-Processor (RCP) design | `--enable-ncp`<br/> `--enable-radio-only`
+`ot-cli-ftd` | Full Thread device for SoC designs | `-DOT_APP_CLI=ON`<br/> `-DOT_FTD=ON`
+`ot-cli-mtd` | Minimal Thread device for SoC designs | `-DOT_APP_CLI=ON`<br/> `-DOT_MTD=ON`
+`ot-ncp-ftd` | Full Thread device for Network Co-Processor (NCP) designs | `-DOT_APP_NCP=ON`<br/> `-DOT_FTD=ON`
+`ot-ncp-mtd` | Minimal Thread device for NCP designs | `-DOT_APP_NCP=ON`<br/> `-DOT_MTD=ON`
+`ot-rcp` | Radio Co-Processor (RCP) design | `-DOT_APP_RCP=ON`<br/> `-DOT_RCP=ON`
 
-If neither these flags nor a platform example are not used, applications are not
-built but OpenThread library files are still generated in `/output/{platform}/lib` for use in a project.
+By default, all above flags are enabled. If you explicitly disable all flags, applications are not
+built but OpenThread library files are still generated in `./build/lib` for use in a project.
 
 Check the example Makefiles for each platform to see which flags each platform
 supports. For more information on FTDs and MTDs, see the
