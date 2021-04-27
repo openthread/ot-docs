@@ -23,24 +23,24 @@ For an example of commissioning using virtual devices, see the
 
 ## Step 1: Enable roles
 
-To enable the Commissioner and Joiner roles, use the following build switches:
+To enable the Commissioner and Joiner roles, use the following cmake options:
 
-Switch | Description
+Option | Description
 ---- | ----
-`COMMISSIONER=1` | Enables the Commissioner role
-`JOINER=1` | Enables the Joiner role
+`-DOT_COMMISSIONER=ON` | Enables the Commissioner role
+`-DOT_JOINER=ON` | Enables the Joiner role
 
 For example, to build the CC2538 example platform for use as a Joiner only:
 
 ```
-$ make -f examples/Makefile-cc2538 JOINER=1
+$ ./script/build -DOT_JOINER=ON
 ```
 
 Flash each binary to the desired device. One device serves as the Commissioner,
 the other as the Joiner.
 
 Specific instructions on building and flashing supported platforms can be found
-in each example's [platform folder](https://github.com/openthread/openthread/tree/main/examples/platforms).
+in each platform's OpenThread repository. See https://github.com/openthread to find the repository.
 
 ## Step 2: Create a network
 
