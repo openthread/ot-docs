@@ -13,15 +13,18 @@ examples in the guide use a `efr32` platform name.
 
 [cmake-homepage]: https://cmake.org/
 
-## Step 1: Create a new repository
+## Create a new repository
 
 The first step is set up a new home for your hardware platform. In this guide,
 we'll be creating a new repo named `ot-efr32` which will house the
 platform-abstraction layer, the hardware platform's SDK, and a few useful
 scripts.
 
-> *TODO* : Do we want to demonstrate making a new git repo through GitHub?
+> Note: If you would like to host your repository in the OpenThread organization, you may [post an issue](https://github.com/openthread/openthread/issues/new/choose) to request a new repository for your platform or to request that the OpenThread organization fork your existing repository.
 
+In this example, we created the [SiliconLabs/ot-efr32][silabs-ot-efr32] repository via the GitHub website and clone it to `~/repos/ot-efr32`.
+
+[silabs-ot-efr32]: https://github.com/SiliconLabs/ot-efr32
 
 ```shell
 ~$ mkdir -p ~/repos
@@ -42,37 +45,32 @@ Your branch is up to date with 'origin/main'.
 nothing to commit, working tree clean
 ```
 
-## Step 2: Download boiler-plate files
+### Repo structure
 
-> *TODO* : Should we create a template repo that contains everything needed for porting? I'm thinking it would include a stubbed out PAL, stubbed out READMEs, CMake files, scripts, etc. This would be a good way to keep the structure of these new repos relatively consistent with the existing repos.
-
-To give the new repo a jumpstart, go to [`ot-stubbed-platform`], download the repo as a `.zip` file, and extract it to your repo.
+To help maintain consistency with [existing platform repositories](https://github.com/openthread?q=ot-&type=&language=&sort=) in the OpenThread GitHub organization, you may want to structure your repository as such:
 
 ```shell
-# TODO: This is just pseudocode at this point since the repo hasn't actually been created.
-~/repos/ot-efr32$ wget https://github.com/SiliconLabs/ot-stubbed-platform/archive/refs/heads/main.zip
-~/repos/ot-efr32$ unzip main.zip
-~/repos/ot-efr32$ ls -alh
-total 64K
-drwxr-xr-x 10 user user 4.0K Apr 13 16:17 .
-drwxr-xr-x 14 user user 4.0K Apr 16 16:46 ..
-drwxr-xr-x  4 user user 4.0K Apr 16 16:29 build
--rw-r--r--  1 user user 3.2K Apr 12 18:19 .clang-format
--rw-r--r--  1 user user 3.1K Apr 12 18:19 CMakeLists.txt
-drwxr-xr-x  3 user user 4.0K Apr 12 18:19 examples
-drwxr-xr-x  9 user user 4.0K Apr 13 16:49 .git
-drwxr-xr-x  3 user user 4.0K Apr 12 18:19 .github
--rw-r--r--  1 user user 1.4K Apr 12 18:19 .gitignore
--rw-r--r--  1 user user  234 Apr 12 18:19 .gitmodules
--rw-r--r--  1 user user 1.5K Apr 12 18:19 LICENSE
-drwxr-xr-x 12 user user 4.0K Apr 13 16:49 openthread
--rw-r--r--  1 user user 2.3K Apr 12 18:19 README.md
-drwxr-xr-x  2 user user 4.0K Apr 12 18:19 script
-drwxr-xr-x  7 user user 4.0K Apr 12 18:19 src
-drwxr-xr-x  4 user user 4.0K Apr 12 18:19 third_party
+~/repos/ot-efr32$ tree -F -L 1 --dirsfirst
+.
+├── examples/
+├── openthread/
+├── script/
+├── src/
+├── third_party/
+├── CMakeLists.txt
+├── LICENSE
+└── README.md
 ```
 
-## Step 3: Add submodules
+| Folder        | Description                                   |
+|---------------|-----------------------------------------------|
+| `examples`    | *optional* Example applications, if any       |
+| `openthread`  | The `openthread` repository as a submodule    |
+| `script`      | Scripts for building, testing, linting, etc   |
+| `src`         | The platform abstraction layer implementation |
+| `third_party` | Location for any third-party sources          |
+
+## Add submodules
 
 The next step is to add [`openthread`](https://github.com/openthread/openthread) and any other required repos as submodules
 
@@ -104,34 +102,50 @@ Receiving objects: 100% (32867/32867), 128.83 MiB | 30.91 MiB/s, done.
 Resolving deltas: 100% (19797/19797), done.
 ```
 
-## Step 4: Modifying scripts
+## Scripts
 
-As part of the boiler-plate files downloaded in a previous step, the `script` folder contains useful scripts for common tasks like bootstraping, building, running a code-linter, and a test script for GitHub CI checks.
+To make common tasks easier, you may want to create some scripts in the `script` folder. This may include scripts for tasks like bootstraping, building, running a code-linter, and a test script for GitHub CI checks.
+
+Below are some examples of scripts which are standard for most of the existing platform repositories.
+### [`script/bootstrap`][script-bootstrap]
+
+[script-bootstrap]: https://github.com/openthread/ot-efr32/blob/main/script/bootstrap
+
+This script should install all tools and packages required by your hardware platform. It should also execute `openthread`'s bootstrap script to ensure everything the user has everything needed to build the OpenThread stack.
+
+**Example** See the [bootstrap script][script-bootstrap] in [`ot-efr32`][silabs-ot-efr32]
+
+### [`script/build`][script-build]
+
+[script-build]: https://github.com/openthread/ot-efr32/blob/main/script/build
+
+The [CMake][cmake-homepage] build script should allow users to build the OpenThread stack for your platform. If your repository defines any example applications, this script should build those as well. This script will contain the basic system configuration options, including any platform-specific macro definitions.
+
+**Example** See the [build script][script-build] in [`ot-efr32`][silabs-ot-efr32]
+
+### [`script/test`][script-test]
+
+[script-test]: https://github.com/openthread/ot-efr32/blob/main/script/test
 
 
+A test script may be useful for users to test changes using any tests you have defined. This could be anything as simple as running sanity-check builds or as complicated as launching a unit-test suite.
 
-### `script/bootstrap`
+In [`ot-efr32`][silabs-ot-efr32], the script simply executes the `build` script for every supported board on each of the efr32 platforms.
 
-This script allows users to install all tools and packages required by your hardware platform. It also executes `openthread`'s bootstrap script, ensuring everything the user has everything needed to build.
+**Example** See the [test script][script-test] in [`ot-efr32`][silabs-ot-efr32]
 
-> *TODO*  add link to file in `ot-stubbed-platform`
+> Note: While this script is optional, a few of the existing platform repositories, including [`ot-efr32`][silabs-ot-efr32], [use it](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L105) as part of the GitHub CI checks which can be setup to gatekeep pull-requests into `main`. **Example** [ot-efr32#35](https://github.com/openthread/ot-efr32/pull/35/checks)
 
 
-### `script/build`
+### [`script/make-pretty`][script-make-pretty]
 
-The [CMake][cmake-homepage] build script contains the basic system configuration options, including any platform-specific macro definitions.
+[script-make-pretty]: https://github.com/openthread/ot-efr32/blob/main/script/make-pretty
 
-> *TODO*  add more
-> *TODO*  add link to file in `ot-stubbed-platform`
+To maintain consistent styling, this script should format code, scripts, and markdown files.
 
-### `script/test`
+You may define this script yourself, but it may be easiest to use the [`make-pretty`][script-make-pretty] script which existing platform repos are using. The script calls into the `openthread`'s style scripts and helps ensure consistent style across all OpenThread repositories.
 
-> *TODO*  add link to file in `ot-stubbed-platform`
-
-### `script/make-pretty`
-
-> *TODO*  add description
-
+> Note: If you plan on eventually hosting your repository on the OpenThread organization, it's required that you use this script to gatekeeps pull-requests into your `main` branch. An example of how to add this CI check can be seen [here](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L49-L63)
 
 
 ### Linker script configuration
