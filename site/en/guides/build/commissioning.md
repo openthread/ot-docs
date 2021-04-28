@@ -40,7 +40,7 @@ Flash each binary to the desired device. One device serves as the Commissioner,
 the other as the Joiner.
 
 Specific instructions on building and flashing supported platforms can be found
-in each platform's OpenThread repository. See https://github.com/openthread to find the repository.
+in each platform's OpenThread repository. See the [OpenThread GitHub organization](https://github.com/openthread) to find the repository.
 
 ## Step 2: Create a network
 
