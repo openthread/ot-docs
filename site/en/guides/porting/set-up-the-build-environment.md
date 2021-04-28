@@ -16,13 +16,13 @@ examples in the guide use a `efr32` platform name.
 ## Create a new repository
 
 The first step is set up a new home for your hardware platform. In this guide,
-we'll be creating a new repo named `ot-efr32` which will house the
+we'll be creating a new repository named `ot-efr32` which will house the
 platform-abstraction layer, the hardware platform's SDK, and a few useful
 scripts.
 
 > Note: If you would like to host your repository in the OpenThread organization, you may [post an issue](https://github.com/openthread/openthread/issues/new/choose) to request a new repository for your platform or to request that the OpenThread organization fork your existing repository.
 
-In this example, we created the [SiliconLabs/ot-efr32][silabs-ot-efr32] repository via the GitHub website and clone it to `~/repos/ot-efr32`.
+In this example, we created the [SiliconLabs/ot-efr32][silabs-ot-efr32] repository on GitHub and clone it to `~/repos/ot-efr32`.
 
 [silabs-ot-efr32]: https://github.com/SiliconLabs/ot-efr32
 
@@ -45,7 +45,7 @@ Your branch is up to date with 'origin/main'.
 nothing to commit, working tree clean
 ```
 
-### Repo structure
+### Repository structure
 
 To help maintain consistency with [existing platform repositories](https://github.com/openthread?q=ot-&type=&language=&sort=) in the OpenThread GitHub organization, you may want to structure your repository as such:
 
@@ -64,7 +64,7 @@ To help maintain consistency with [existing platform repositories](https://githu
 
 | Folder        | Description                                   |
 |---------------|-----------------------------------------------|
-| `examples`    | *optional* Example applications, if any       |
+| `examples`    | *optional* Example applications               |
 | `openthread`  | The `openthread` repository as a submodule    |
 | `script`      | Scripts for building, testing, linting, etc   |
 | `src`         | The platform abstraction layer implementation |
@@ -88,7 +88,7 @@ Resolving deltas: 100% (61292/61292), done.
 > Note: Any non-original derivative code (for example, linker script or
 toolchain startup code) must be contained in the `third_party` directory.
 
-For this example, we'll be adding a lite version of the Silicon Labs Gecko SDK as a submodule.
+For this example, we'll be adding a lite version of the Silicon Labs Gecko SDK as a submodule in `third_party`.
 
 ```shell
 ~/repos/ot-efr32$ cd third_party
@@ -134,7 +134,7 @@ In [`ot-efr32`][silabs-ot-efr32], the script simply executes the `build` script 
 
 **Example** See the [test script][script-test] in [`ot-efr32`][silabs-ot-efr32]
 
-> Note: While this script is optional, a few of the existing platform repositories, including [`ot-efr32`][silabs-ot-efr32], [use it](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L105) as part of the GitHub CI checks which can be setup to gatekeep pull-requests into `main`. **Example** [ot-efr32#35](https://github.com/openthread/ot-efr32/pull/35/checks)
+> Note: While this script is optional, a few of the existing platform repositories, including [`ot-efr32`][silabs-ot-efr32], use it as [part of](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L105) the GitHub CI checks which can be setup to gatekeep pull-requests into `main`. **Example** [ot-efr32#35](https://github.com/openthread/ot-efr32/pull/35/checks)
 
 
 ### [`script/make-pretty`][script-make-pretty]
@@ -149,8 +149,6 @@ You may define this script yourself, but it may be easiest to use the [`make-pre
 
 
 ### Linker script configuration
-
-> *TODO*  This should be moved somewhere else
 
 The [GNU Linker](http://www.ece.ufrgs.br/~fetter/eng04476/manuals/ld.pdf) script
 describes how to map all sections in the input files (`.o` "object" files
@@ -177,8 +175,6 @@ target_link_libraries(openthread-efr32mg12
 
 ### Toolchain startup code
 
-> *TODO*  Rewrite for CMake. Might not even be needed
-
 Toolchain startup code is often provided along with the platform's BSP. This
 code typically:
 
@@ -189,13 +185,13 @@ code typically:
 1.  Jumps to the application main function to execute the application logic
 
 The startup code (C or assembly source code) must be included in your platform's
-`openthread-{platform}` library, otherwise some key variables used in the linker
+`openthread-{platform-name}` library, otherwise some key variables used in the linker
 script cannot be quoted correctly:
 
 
 -   `src/CMakeLists.txt`
 
-Example: `startup-gcc.c` in `ot-cc2538` - [`src/CMakeLists.txt`](https://github.com/openthread/ot-cc2538/blob/4328e18faaaebe9b3151e0ba2b999ba9464f11bb/src/CMakeLists.txt#L36)
+**Example** `startup-gcc.c` in `ot-cc2538` - [`src/CMakeLists.txt`](https://github.com/openthread/ot-cc2538/blob/4328e18faaaebe9b3151e0ba2b999ba9464f11bb/src/CMakeLists.txt#L36)
 
 ```cmake
 add_library(openthread-cc2538
