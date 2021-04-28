@@ -3,8 +3,7 @@
 Porting the OpenThread stack to a new hardware platform consists of a few steps:
 
 1.  [Set up the build environment](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/set-up-the-build-environment.md)
-1.  [Define top-level CMake rules](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/define-top-level-cmake-rules.md)
-1.  [Define the platform CMake files](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/define-the-platform-cmake-files.md)
+1.  [Define CMake rules](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/define-cmake-rules.md)
 1.  [Implement Platform Abstraction Layer APIs](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/implement-platform-abstraction-layer-apis.md)
 1.  [Implement advanced features (Hardware Abstraction Layer)](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/implement-advanced-features.md)
 1.  [Validate the port](https://github.com/openthread/openthread/blob/main/doc/site/en/guides/porting/validate-the-port.md)

@@ -160,35 +160,20 @@ executable program, as well as the entry address. The platform-specific linker
 script is often provided with the platform's BSP.
 
 Configure the `ld` tool to point to the platform-specific linker script using
-the `-T` option of the `LDADD_COMMON` variable.
+`target_link_libraries` in on your platform CMake target in `src/CMakeLists.txt`
 
-Create
-`/openthread/examples/platforms/{platform-name}/Makefile.platform.am`
-and point the new platform to its linker script:
+```cmake
+set(LD_FILE "${CMAKE_CURRENT_SOURCE_DIR}/efr32mg12.ld")
 
-```
-if OPENTHREAD_EXAMPLES_EFR32
-    LDADD_COMMON                                                      += \
-    $(top_builddir)/examples/platforms/efr32/libopenthread-efr32.a       \
-    $(top_srcdir)/third_party/silabs/gecko_sdk_suite/v1.0/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg12_gcc_release.a \
-    $(NULL)
-
-LDFLAGS_COMMON                                                        += \
-    -T $(top_srcdir)/third_party/silabs/gecko_sdk_suite/v1.0/platform/Device/SiliconLabs/EFR32MG12P/Source/GCC/efr32mg12p.ld \
-    $(NULL)
-endif # OPENTHREAD_EXAMPLES_EFR32
-```
-
-Add the platform's linker script configuration to the
-[`/openthread/examples/platforms/Makefile.platform.am`](https://github.com/openthread/openthread/blob/main/examples/platforms/Makefile.platform.am)
-utility Makefile:
+target_link_libraries(openthread-efr32mg12
+    PRIVATE
+        ot-config
+    PUBLIC
+        -T${LD_FILE}
+        -Wl,--gc-sections -Wl,-Map=$<TARGET_PROPERTY:NAME>.map
+)
 
 ```
-if OPENTHREAD_EXAMPLES_EFR32
-include $(top_srcdir)/examples/platforms/efr32/Makefile.platform.am
-endif
-```
-
 
 ### Toolchain startup code
 
@@ -203,19 +188,25 @@ code typically:
 1.  Copies the `.data` section from non-volatile memory to RAM
 1.  Jumps to the application main function to execute the application logic
 
-The startup code (C or assembly source code) must be added to the
-platform-specific `Makefile.am`, otherwise some key variables used in the linker
+The startup code (C or assembly source code) must be included in your platform's
+`openthread-{platform}` library, otherwise some key variables used in the linker
 script cannot be quoted correctly:
 
--   `/openthread/examples/platforms/{platform-name}/Makefile.am`
 
-Example:
+-   `src/CMakeLists.txt`
 
-```
-libopenthread_efr32_a_SOURCES   =  \
-@top_builddir@/third_party/silabs/gecko_sdk_suite/v1.0/hardware/kit/common/bsp/bsp_bcc.c \
-@top_builddir@/third_party/silabs/gecko_sdk_suite/v1.0/hardware/kit/common/bsp/bsp_stk.c \
-@top_builddir@/third_party/silabs/gecko_sdk_suite/v1.0/platform/Device/SiliconLabs/EFR32MG12P/Source/system_efr32mg12p.c \
-@top_builddir@/third_party/silabs/gecko_sdk_suite/v1.0/platform/Device/SiliconLabs/EFR32MG12P/Source/GCC/startup_efr32mg12p.c \
+Example: `startup-gcc.c` in `ot-cc2538` - [`src/CMakeLists.txt`](https://github.com/openthread/ot-cc2538/blob/4328e18faaaebe9b3151e0ba2b999ba9464f11bb/src/CMakeLists.txt#L36)
+
+```cmake
+add_library(openthread-cc2538
+    alarm.c
+...
+    startup-gcc.c
+...
+    system.c
+    logging.c
+    uart.c
+    $<TARGET_OBJECTS:openthread-platform-utils>
+)
 ```
 

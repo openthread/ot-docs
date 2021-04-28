@@ -1,4 +1,4 @@
-# Define top-level CMake rules
+# Define CMake rules
 
 The CMake build system relies on `CMakeLists.txt` files which define build targets. The `CMakeLists.txt` at the root of your repo is the top of the build tree and is a good place to start defining the various targets, options, and macros which will be used in the build process.
 
@@ -33,7 +33,9 @@ set(OT_PLATFORM_LIB "openthread-${EFR32_PLATFORM}")
 ```
 
 
-## OpenThread CMake options *(optional)*
+## OpenThread CMake options
+
+> Note: This section is optional
 
 Various features in OpenThread may be enabled/disabled/configured by defining CMake variables.
 
@@ -47,7 +49,9 @@ set(OT_MBEDTLS ${OT_EXTERNAL_MBEDTLS})
 > Note: For a list of OpenThread CMake options available, refer to [`openthread/etc/cmake/options.cmake`](https://github.com/openthread/openthread/blob/main/etc/cmake/options.cmake).
 
 
-## Define output directories *(optional)*
+## Define output directories
+
+> Note: This section is optional
 
 The output directory for different target files can be configured using the variables below.
 
@@ -111,3 +115,21 @@ add_subdirectory(third_party)
 # Optional
 add_subdirectory(examples)
 ```
+
+## The `src` directory
+
+This is the heart of the repository and is where the platform abstraction layer will be implemented. It will also contain a few other required files.
+
+### `src/arm-none-eabi.cmake`
+
+This is a toolchain file which defines some variables that CMake will use in the build process. A good starting point would be to copy [the file](https://github.com/openthread/ot-efr32/blob/main/src/arm-none-eabi.cmake) from `ot-efr32` and modify it to fit your platform.
+
+
+### `src/CMakeLists.txt`
+
+This is where you will define the source files, include paths, compiler flags, etc. for your platform library. A good example of this file for a repository which supports only a single platform is from [`ot-cc2538`](https://github.com/openthread/ot-cc2538/blob/main/src/CMakeLists.txt).
+
+Support for multiple platforms in a single repository is possible and several platform repositories can be used as reference. See [ot-efr32][ot-efr32] and [ot-nrf528xx][ot-nrf528xx].
+
+[ot-efr32]: https://github.com/openthread/ot-efr32
+[ot-nrf528xx]: https://github.com/openthread/ot-nrf528xx
