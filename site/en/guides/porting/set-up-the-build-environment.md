@@ -13,7 +13,7 @@ examples in the guide use a `efr32` platform name.
 
 [cmake-homepage]: https://cmake.org/
 
-## Create a new repository
+## Step 1: Create a new repository
 
 The first step is set up a new home for your hardware platform. In this guide,
 we'll be creating a new repository named `ot-efr32` which will house the
@@ -22,7 +22,7 @@ scripts.
 
 > Note: If you would like to host your repository in the OpenThread organization, you may [post an issue](https://github.com/openthread/openthread/issues/new/choose) to request a new repository for your platform or to request that the OpenThread organization fork your existing repository.
 
-In this example, we created the [SiliconLabs/ot-efr32][silabs-ot-efr32] repository on GitHub and clone it to `~/repos/ot-efr32`.
+In this example, we created the [SiliconLabs/ot-efr32][silabs-ot-efr32] repository on GitHub and cloned it to `~/repos/ot-efr32`.
 
 [silabs-ot-efr32]: https://github.com/SiliconLabs/ot-efr32
 
@@ -66,11 +66,11 @@ To help maintain consistency with [existing platform repositories](https://githu
 |---------------|-----------------------------------------------|
 | `examples`    | *optional* Example applications               |
 | `openthread`  | The `openthread` repository as a submodule    |
-| `script`      | Scripts for building, testing, linting, etc   |
+| `script`      | Scripts for building, testing, linting        |
 | `src`         | The platform abstraction layer implementation |
 | `third_party` | Location for any third-party sources          |
 
-## Add submodules
+## Step 2: Add submodules
 
 The next step is to add [`openthread`](https://github.com/openthread/openthread) and any other required repos as submodules
 
@@ -102,42 +102,43 @@ Receiving objects: 100% (32867/32867), 128.83 MiB | 30.91 MiB/s, done.
 Resolving deltas: 100% (19797/19797), done.
 ```
 
-## Scripts
+## Step 3: Scripts
 
 To make common tasks easier, you may want to create some scripts in the `script` folder. This may include scripts for tasks like bootstraping, building, running a code-linter, and a test script for GitHub CI checks.
 
 Below are some examples of scripts which are standard for most of the existing platform repositories.
-### [`script/bootstrap`][script-bootstrap]
 
-[script-bootstrap]: https://github.com/openthread/ot-efr32/blob/main/script/bootstrap
+### `bootstrap`
 
 This script should install all tools and packages required by your hardware platform. It should also execute `openthread`'s bootstrap script to ensure everything the user has everything needed to build the OpenThread stack.
 
-**Example** See the [bootstrap script][script-bootstrap] in [`ot-efr32`][silabs-ot-efr32]
+See the [bootstrap script][script-bootstrap] in [`ot-efr32`][silabs-ot-efr32] for an example.
 
-### [`script/build`][script-build]
+[script-bootstrap]: https://github.com/openthread/ot-efr32/blob/main/script/bootstrap
+
+### `build`
+
+The [CMake][cmake-homepage] build script should allow users to build the OpenThread stack for your platform. If your repository defines any example applications, this script should build those as well. This script should contain the basic system configuration options, including any platform-specific macro definitions.
+
+See the [build script][script-build] in [`ot-efr32`][silabs-ot-efr32] for an example.
 
 [script-build]: https://github.com/openthread/ot-efr32/blob/main/script/build
 
-The [CMake][cmake-homepage] build script should allow users to build the OpenThread stack for your platform. If your repository defines any example applications, this script should build those as well. This script will contain the basic system configuration options, including any platform-specific macro definitions.
-
-**Example** See the [build script][script-build] in [`ot-efr32`][silabs-ot-efr32]
-
-### [`script/test`][script-test]
-
-[script-test]: https://github.com/openthread/ot-efr32/blob/main/script/test
+### `test`
 
 
 A test script may be useful for users to test changes using any tests you have defined. This could be anything as simple as running sanity-check builds or as complicated as launching a unit-test suite.
 
 In [`ot-efr32`][silabs-ot-efr32], the script simply executes the `build` script for every supported board on each of the efr32 platforms.
 
-**Example** See the [test script][script-test] in [`ot-efr32`][silabs-ot-efr32]
+See the [test script][script-test] in [`ot-efr32`][silabs-ot-efr32] for an example.
 
-> Note: While this script is optional, a few of the existing platform repositories, including [`ot-efr32`][silabs-ot-efr32], use it as [part of](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L105) the GitHub CI checks which can be setup to gatekeep pull-requests into `main`. **Example** [ot-efr32#35](https://github.com/openthread/ot-efr32/pull/35/checks)
+[script-test]: https://github.com/openthread/ot-efr32/blob/main/script/test
+
+> Note: While this script is optional, a few of the existing platform repositories, including [`ot-efr32`][silabs-ot-efr32], use it as part of [the GitHub CI checks](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L105) which can be setup to gatekeep pull-requests into `main`. **Example**: [ot-efr32#35](https://github.com/openthread/ot-efr32/pull/35/checks)
 
 
-### [`script/make-pretty`][script-make-pretty]
+### `make-pretty`
 
 [script-make-pretty]: https://github.com/openthread/ot-efr32/blob/main/script/make-pretty
 
@@ -145,10 +146,10 @@ To maintain consistent styling, this script should format code, scripts, and mar
 
 You may define this script yourself, but it may be easiest to use the [`make-pretty`][script-make-pretty] script which existing platform repos are using. The script calls into the `openthread`'s style scripts and helps ensure consistent style across all OpenThread repositories.
 
-> Note: If you plan on eventually hosting your repository on the OpenThread organization, it's required that you use this script to gatekeeps pull-requests into your `main` branch. An example of how to add this CI check can be seen [here](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L49-L63)
+> Note: If you plan on eventually hosting your repository on the OpenThread organization, it's required that you use this script to gatekeep pull-requests into your `main` branch. An example of how to add this CI check can be seen [here](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L49-L63).
 
 
-### Linker script configuration
+## Step 4: Linker script configuration
 
 The [GNU Linker](http://www.ece.ufrgs.br/~fetter/eng04476/manuals/ld.pdf) script
 describes how to map all sections in the input files (`.o` "object" files
@@ -158,7 +159,7 @@ executable program, as well as the entry address. The platform-specific linker
 script is often provided with the platform's BSP.
 
 Configure the `ld` tool to point to the platform-specific linker script using
-`target_link_libraries` in on your platform CMake target in `src/CMakeLists.txt`
+`target_link_libraries` in on your platform CMake target in `src/CMakeLists.txt`:
 
 ```cmake
 set(LD_FILE "${CMAKE_CURRENT_SOURCE_DIR}/efr32mg12.ld")
@@ -173,7 +174,7 @@ target_link_libraries(openthread-efr32mg12
 
 ```
 
-### Toolchain startup code
+## Step 5: Toolchain startup code
 
 Toolchain startup code is often provided along with the platform's BSP. This
 code typically:
@@ -188,10 +189,9 @@ The startup code (C or assembly source code) must be included in your platform's
 `openthread-{platform-name}` library, otherwise some key variables used in the linker
 script cannot be quoted correctly:
 
-
 -   `src/CMakeLists.txt`
 
-**Example** `startup-gcc.c` in `ot-cc2538` - [`src/CMakeLists.txt`](https://github.com/openthread/ot-cc2538/blob/4328e18faaaebe9b3151e0ba2b999ba9464f11bb/src/CMakeLists.txt#L36)
+**Example**: `startup-gcc.c` in `ot-cc2538` - [`src/CMakeLists.txt`](https://github.com/openthread/ot-cc2538/blob/4328e18faaaebe9b3151e0ba2b999ba9464f11bb/src/CMakeLists.txt#L36)
 
 ```cmake
 add_library(openthread-cc2538

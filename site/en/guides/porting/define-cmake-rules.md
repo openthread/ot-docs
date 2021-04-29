@@ -35,7 +35,7 @@ set(OT_PLATFORM_LIB "openthread-${EFR32_PLATFORM}")
 
 ## OpenThread CMake options
 
-> Note: This section is optional
+> Note: This section is optional.
 
 Various features in OpenThread may be enabled/disabled/configured by defining CMake variables.
 
@@ -51,7 +51,7 @@ set(OT_MBEDTLS ${OT_EXTERNAL_MBEDTLS})
 
 ## Define output directories
 
-> Note: This section is optional
+> Note: This section is optional.
 
 The output directory for different target files can be configured using the variables below.
 
@@ -64,17 +64,17 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 > Note: Refer to [CMake's documentation](https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html) for a list of all variables provided or used by CMake.
 
 
-## Add `openthread` to the build tree
+## Add OpenThread to the build tree
 
-To include the `openthread` submodule in the build tree
+To include the `openthread` submodule in the build tree:
 
 ```cmake
 add_subdirectory(openthread)
 ```
 
-### Passing build properties to OpenThread
+### Pass build properties to OpenThread
 
-The final section of this file allows you to define build properties (definitions, options, include dirs, etc) which you may want to add to the `openthread` build tree and to your platform libraries.
+The final section of this file allows you to define build properties (such as definitions, options, and include directories) which you may want to add to the `openthread` build tree and to your platform libraries.
 
 A convenient way to add these definitions is by using the `ot-config` target. This target is a phony target which is used solely for the purpose of defining configuration and is linked against by almost all CMake targets in `openthread`.
 
@@ -100,11 +100,11 @@ target_include_directories(ot-config INTERFACE
 )
 ```
 
-## Adding subdirectories to the build tree
+## Add subdirectories to the build tree
 
 Now that the top-level configuration is defined, it's time to add other subdirectories to the build tree.
 
-The `src` folder is where the platform-abstration layer source code will be located. The `third_party` folder will contain any third-party code.
+The `src` folder is where the platform-abstration layer source code will be located. The `third_party` folder contains any third-party code.
 
 If you would like to include sample applications in the repo, create an `examples` folder and add it to the build tree as well.
 
@@ -118,16 +118,16 @@ add_subdirectory(examples)
 
 ## The `src` directory
 
-This is the heart of the repository and is where the platform abstraction layer will be implemented. It will also contain a few other required files.
+This is the heart of the repository and is where the platform abstraction layer is implemented. It will also contain a few other required files.
 
 ### `src/arm-none-eabi.cmake`
 
-This is a toolchain file which defines some variables that CMake will use in the build process. A good starting point would be to copy [the file](https://github.com/openthread/ot-efr32/blob/main/src/arm-none-eabi.cmake) from `ot-efr32` and modify it to fit your platform.
+This is a toolchain file which defines some variables that CMake uses in the build process. A good starting point would be to copy [the `ot-efr32` version of this file](https://github.com/openthread/ot-efr32/blob/main/src/arm-none-eabi.cmake) and modify it to fit your platform.
 
 
 ### `src/CMakeLists.txt`
 
-This is where you will define the source files, include paths, compiler flags, etc. for your platform library. A good example of this file for a repository which supports only a single platform is from [`ot-cc2538`](https://github.com/openthread/ot-cc2538/blob/main/src/CMakeLists.txt).
+This is where you define the source files, include paths, and compiler flags for your platform library. A good example of this file for a repository which supports only a single platform is from [`ot-cc2538`](https://github.com/openthread/ot-cc2538/blob/main/src/CMakeLists.txt).
 
 Support for multiple platforms in a single repository is possible and several platform repositories can be used as reference. See [ot-efr32][ot-efr32] and [ot-nrf528xx][ot-nrf528xx].
 

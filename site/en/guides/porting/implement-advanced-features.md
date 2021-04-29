@@ -95,7 +95,7 @@ the user-specific configuration header file for hardware acceleration.
 
 For a complete example user-specific configuration, see the
 [`mbedtls_config_autogen.h`](https://github.com/openthread/ot-efr32/blob/main/src/efr32mg12/crypto/mbedtls_config_autogen.h)
-file in `ot-efr32`
+file in `ot-efr32`.
 
 ### AES module
 
