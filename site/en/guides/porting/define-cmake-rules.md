@@ -33,7 +33,7 @@ The next variable which needs to be defined is `OT_PLATFORM_LIB`. This variable 
 set(OT_PLATFORM_LIB "openthread-${EFR32_PLATFORM}")
 ```
 
-## OpenThread CMake options
+## Step 1: OpenThread CMake options
 
 > Note: This section is optional.
 
@@ -49,7 +49,7 @@ set(OT_MBEDTLS ${OT_EXTERNAL_MBEDTLS})
 
 > Note: For a list of OpenThread CMake options available, refer to [`openthread/etc/cmake/options.cmake`](https://github.com/openthread/openthread/blob/main/etc/cmake/options.cmake).
 
-## Define output directories
+## Step 2: Define output directories
 
 > Note: This section is optional.
 
@@ -63,7 +63,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
 > Note: Refer to [CMake's documentation](https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html) for a list of all variables provided or used by CMake.
 
-## Add OpenThread to the build tree
+## Step 3: Add OpenThread to the build tree
 
 To include the `openthread` submodule in the build tree:
 
@@ -99,7 +99,7 @@ target_include_directories(ot-config INTERFACE
 )
 ```
 
-## Add subdirectories to the build tree
+## Step 4: Add subdirectories to the build tree
 
 Now that the top-level configuration is defined, it's time to add other subdirectories to the build tree.
 
@@ -115,7 +115,7 @@ add_subdirectory(third_party)
 add_subdirectory(examples)
 ```
 
-## The `src` directory
+## Step 5: The `src` directory
 
 This is the heart of the repository and is where the platform abstraction layer is implemented. It will also contain a few other required files.
 
