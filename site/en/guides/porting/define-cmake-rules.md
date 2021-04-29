@@ -19,6 +19,7 @@ set(EFR32_PLATFORM_VALUES
 ```
 
 The `CMakeLists.txt` file includes a check that will prevent a build launched for an unsupported platform.
+
 ```cmake
 set_property(CACHE EFR32_PLATFORM PROPERTY STRINGS ${EFR32_PLATFORM_VALUES})
 if(NOT EFR32_PLATFORM IN_LIST EFR32_PLATFORM_VALUES)
@@ -31,7 +32,6 @@ The next variable which needs to be defined is `OT_PLATFORM_LIB`. This variable 
 ```cmake
 set(OT_PLATFORM_LIB "openthread-${EFR32_PLATFORM}")
 ```
-
 
 ## OpenThread CMake options
 
@@ -46,8 +46,8 @@ set(OT_BUILTIN_MBEDTLS_MANAGEMENT OFF CACHE BOOL "disable builtin mbedtls manage
 set(OT_EXTERNAL_MBEDTLS "silabs-mbedtls" CACHE STRING "use silabs mbedtls" FORCE)
 set(OT_MBEDTLS ${OT_EXTERNAL_MBEDTLS})
 ```
-> Note: For a list of OpenThread CMake options available, refer to [`openthread/etc/cmake/options.cmake`](https://github.com/openthread/openthread/blob/main/etc/cmake/options.cmake).
 
+> Note: For a list of OpenThread CMake options available, refer to [`openthread/etc/cmake/options.cmake`](https://github.com/openthread/openthread/blob/main/etc/cmake/options.cmake).
 
 ## Define output directories
 
@@ -62,7 +62,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 ```
 
 > Note: Refer to [CMake's documentation](https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html) for a list of all variables provided or used by CMake.
-
 
 ## Add OpenThread to the build tree
 
@@ -123,7 +122,6 @@ This is the heart of the repository and is where the platform abstraction layer 
 ### `src/arm-none-eabi.cmake`
 
 This is a toolchain file which defines some variables that CMake uses in the build process. A good starting point would be to copy [the `ot-efr32` version of this file](https://github.com/openthread/ot-efr32/blob/main/src/arm-none-eabi.cmake) and modify it to fit your platform.
-
 
 ### `src/CMakeLists.txt`
 

@@ -63,8 +63,8 @@ To help maintain consistency with [existing platform repositories](https://githu
 ```
 
 | Folder        | Description                                   |
-|---------------|-----------------------------------------------|
-| `examples`    | *optional* Example applications               |
+| ------------- | --------------------------------------------- |
+| `examples`    | _optional_ Example applications               |
 | `openthread`  | The `openthread` repository as a submodule    |
 | `script`      | Scripts for building, testing, linting        |
 | `src`         | The platform abstraction layer implementation |
@@ -126,7 +126,6 @@ See the [build script][script-build] in [`ot-efr32`][silabs-ot-efr32] for an exa
 
 ### `test`
 
-
 A test script may be useful for users to test changes using any tests you have defined. This could be anything as simple as running sanity-check builds or as complicated as launching a unit-test suite.
 
 In [`ot-efr32`][silabs-ot-efr32], the script simply executes the `build` script for every supported board on each of the efr32 platforms.
@@ -137,7 +136,6 @@ See the [test script][script-test] in [`ot-efr32`][silabs-ot-efr32] for an examp
 
 > Note: While this script is optional, a few of the existing platform repositories, including [`ot-efr32`][silabs-ot-efr32], use it as part of [the GitHub CI checks](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L105) which can be setup to gatekeep pull-requests into `main`. **Example**: [ot-efr32#35](https://github.com/openthread/ot-efr32/pull/35/checks)
 
-
 ### `make-pretty`
 
 [script-make-pretty]: https://github.com/openthread/ot-efr32/blob/main/script/make-pretty
@@ -147,7 +145,6 @@ To maintain consistent styling, this script should format code, scripts, and mar
 You may define this script yourself, but it may be easiest to use the [`make-pretty`][script-make-pretty] script which existing platform repos are using. The script calls into the `openthread`'s style scripts and helps ensure consistent style across all OpenThread repositories.
 
 > Note: If you plan on eventually hosting your repository on the OpenThread organization, it's required that you use this script to gatekeep pull-requests into your `main` branch. An example of how to add this CI check can be seen [here](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L49-L63).
-
 
 ## Step 4: Linker script configuration
 
@@ -189,7 +186,7 @@ The startup code (C or assembly source code) must be included in your platform's
 `openthread-{platform-name}` library, otherwise some key variables used in the linker
 script cannot be quoted correctly:
 
--   `src/CMakeLists.txt`
+- `src/CMakeLists.txt`
 
 **Example**: `startup-gcc.c` in `ot-cc2538` - [`src/CMakeLists.txt`](https://github.com/openthread/ot-cc2538/blob/4328e18faaaebe9b3151e0ba2b999ba9464f11bb/src/CMakeLists.txt#L36)
 
@@ -205,4 +202,3 @@ add_library(openthread-cc2538
     $<TARGET_OBJECTS:openthread-platform-utils>
 )
 ```
-
