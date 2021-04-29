@@ -15,10 +15,7 @@ examples in the guide use a `efr32` platform name.
 
 ## Step 1: Create a new repository
 
-The first step is set up a new home for your hardware platform. In this guide,
-we'll be creating a new repository named `ot-efr32` which will house the
-platform-abstraction layer, the hardware platform's SDK, and a few useful
-scripts.
+The first step is set up a new home for your hardware platform. In this guide, we'll be creating a new repository named `ot-efr32` which contains the platform abstraction layer, the hardware platform's SDK, and a few useful scripts.
 
 > Note: If you would like to host your repository in the OpenThread organization, you may [post an issue](https://github.com/openthread/openthread/issues/new/choose) to request a new repository for your platform or to request that the OpenThread organization fork your existing repository.
 

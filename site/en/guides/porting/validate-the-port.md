@@ -20,9 +20,7 @@ with the CLI.
 Open a terminal to `/dev/ttyACM0` (serial port settings: 115200 8-N-1). Type
 `help` for a list of commands.
 
-> Note:  The set of CLI commands will vary based on the features enabled in a
-particular build. The majority of them have been elided in the example output
-below.
+> Note:  The set of CLI commands varies based on the features enabled in a particular build. The majority of them have been elided in the example output below.
 
 ```
 > help

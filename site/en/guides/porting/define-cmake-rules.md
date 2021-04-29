@@ -1,6 +1,6 @@
 # Define CMake rules
 
-The CMake build system relies on `CMakeLists.txt` files which define build targets. The `CMakeLists.txt` at the root of your repository is the top of the build tree and is a good place to start defining the various targets, options, and macros which will be used in the build process.
+The CMake build system relies on `CMakeLists.txt` files which define build targets. The `CMakeLists.txt` at the root of your repository is the top of the build tree and is a good place to start defining the various targets, options, and macros used in the build process.
 
 The very first values to define are the project name and the supported platforms.
 
@@ -18,7 +18,7 @@ set(EFR32_PLATFORM_VALUES
 )
 ```
 
-The `CMakeLists.txt` file includes a check that will prevent a build launched for an unsupported platform.
+The `CMakeLists.txt` file includes a check that aborts builds launched for unsupported platforms.
 
 ```cmake
 set_property(CACHE EFR32_PLATFORM PROPERTY STRINGS ${EFR32_PLATFORM_VALUES})
@@ -103,7 +103,7 @@ target_include_directories(ot-config INTERFACE
 
 Now that the top-level configuration is defined, it's time to add other subdirectories to the build tree.
 
-The `src` folder is where the platform-abstration layer source code will be located. The `third_party` folder contains any third-party code.
+The `src` folder is where the platform-abstration layer source code is located. The `third_party` folder contains any third-party code.
 
 If you would like to include sample applications in the repo, create an `examples` folder and add it to the build tree as well.
 
@@ -117,7 +117,7 @@ add_subdirectory(examples)
 
 ## Step 5: The `src` directory
 
-This is the heart of the repository and is where the platform abstraction layer is implemented. It will also contain a few other required files.
+This is the heart of the repository and is where the platform abstraction layer is implemented. It also contains a few other required files.
 
 ### `src/arm-none-eabi.cmake`
 
