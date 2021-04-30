@@ -77,7 +77,7 @@ This feature is disabled by default.
 To enable Jam Detection, define
 `OPENTHREAD_CONFIG_JAM_DETECTION_ENABLE` as `1` in the
 [`/src/core/config/openthread-core-default-config.h`](https://github.com/openthread/openthread/tree/main/src/core/config/openthread-core-default-config.h)
-file, prior to [building OpenThread](/guides/build):
+file, prior to [building OpenThread](../../../guides/build/index.md):
 
 ```
 #ifndef OPENTHREAD_CONFIG_JAM_DETECTION_ENABLE
@@ -88,7 +88,7 @@ file, prior to [building OpenThread](/guides/build):
 ### By switch
 
 Alternatively, use the `JAM_DETECTION=1` build switch when [building
-OpenThread](/guides/build):
+OpenThread](../../../guides/build/index.md):
 
 ```
 $ make -f examples/Makefile-{platform} JAM_DETECTION=1
@@ -188,7 +188,7 @@ Customize this feature using the following parameters:
 
 ### OpenThread
 
-Use the [Jam Detection API](/reference/group/api-jam-detection) to
+Use the [Jam Detection API](https://openthread.io/reference/group/api-jam-detection) to
 manage the Jam Detection feature directly in your OpenThread application. The
 OpenThread API provides the following functionality:
 

@@ -4,7 +4,7 @@ OpenThread is OS and platform agnostic, with a narrow Platform Abstraction Layer
 (PAL). This PAL defines:
 
 <figure class="attempt-right">
-<img src="/guides/images/ot-arch-porting.png" srcset="/guides/images/ot-arch-porting.png 1x, /guides/images/ot-arch-porting_2x.png 2x" border="0" alt="Porting Architecture" />
+<img src="../../guides/images/ot-arch-porting.png" srcset="../../guides/images/ot-arch-porting.png 1x, ../../guides/images/ot-arch-porting_2x.png 2x" border="0" alt="Porting Architecture" />
 </figure>
 
 -   Alarm interface for free-running timer with alarm
@@ -198,7 +198,7 @@ implement the initialization of other modules (for example, UART, Radio, Random,
 Misc/Reset) in this source file.
 
 Implementation of this API depends on your use case. If you wish to use the
-generated [CLI and NCP applications](https://openthread.io/guides/build#binaries) for an [example
+generated [CLI and NCP applications](../../guides/build/index.md#binaries) for an [example
 platform](https://github.com/openthread/openthread/tree/main/examples/platforms),
 you must implement this API. Otherwise, any API can be implemented to integrate
 the example platform drivers into your system/RTOS.

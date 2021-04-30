@@ -27,7 +27,7 @@ the parent router enqueues and sends a Child Supervision message to the child
 SED. The Child Supervision message is a MAC frame containing the following
 information:
 
-*   The [RLOC16](/guides/thread-primer/ipv6-addressing#how_a_routing_locator_is_generated)
+*   The [RLOC16](../../../guides/thread-primer/ipv6-addressing.md#how_a_routing_locator_is_generated)
     of the SED as the destination in the MAC header.
 *   An empty payload.
 
@@ -41,7 +41,7 @@ If an SED does not hear from its parent router within the
 [`OPENTHREAD_CONFIG_CHILD_SUPERVISION_CHECK_TIMEOUT`](#check-timeout),
 it assumes that it has lost its connection to the parent router and initiates
 the [MLE
-Attach](/guides/thread-primer/network-discovery#join_an_existing_network)
+Attach](../../../guides/thread-primer/network-discovery.md#join_an_existing_network)
 process to reattach to the parent router.
 
 ## How to enable
@@ -56,7 +56,7 @@ type of end device.
 To enable Child Supervision, define
 `OPENTHREAD_CONFIG_CHILD_SUPERVISION_ENABLE` as `1` in the
 [`/src/core/config/child_supervision.h`](https://github.com/openthread/openthread/tree/main/src/core/config/child_supervision.h)
-file, prior to [building OpenThread](/guides/build):
+file, prior to [building OpenThread](../../../guides/build/index.md):
 
 ```
 #ifndef OPENTHREAD_CONFIG_CHILD_SUPERVISION_ENABLE
@@ -67,7 +67,7 @@ file, prior to [building OpenThread](/guides/build):
 ### By switch
 
 Alternatively, use the `CHILD_SUPERVISION=1` build switch when [building
-OpenThread](/guides/build):
+OpenThread](../../..//guides/build/index.md):
 
 ```
 $ make -f examples/Makefile-{platform} CHILD_SUPERVISION=1
@@ -162,7 +162,7 @@ to customize this feature:
 
 ## API
 
-Use the [Child Supervision API](/reference/group/api-child-supervision) to
+Use the [Child Supervision API](https://openthread.io/reference/group/api-child-supervision) to
 manage the supervision and check timeout intervals directly in your OpenThread
 application.
 

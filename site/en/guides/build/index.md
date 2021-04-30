@@ -56,7 +56,7 @@ $ ./script/build -DOT_COMMISSIONER=ON -DOT_JOINER=ON
 ```
 
 Or, to build the nRF52840 platform with the [Jam Detection
-feature](/guides/build/features/jam-detection) enabled in its repo:
+feature](../../guides/build/features/jam-detection.md) enabled in its repo:
 
 ```
 $ ./script/build nrf52840 UART_trans -DOT_JAM_DETECTION=ON
@@ -83,8 +83,8 @@ built but OpenThread library files are still generated in `./build/lib` for use 
 
 Check the example Makefiles for each platform to see which flags each platform
 supports. For more information on FTDs and MTDs, see the
-[Thread Primer](/guides/thread-primer/node-roles-and-types#device_types). For
-more information on SoC and NCP designs, see [Platforms](/platforms/).
+[Thread Primer](../../guides/thread-primer/node-roles-and-types.md#device_types). For
+more information on SoC and NCP designs, see [Platforms](https://openthread.io/platforms/).
 
 The process to flash these binaries varies across example platforms. See the
 READMEs in each platform's
@@ -94,12 +94,12 @@ READMEs in each platform's
 
 OpenThread Daemon (OT Daemon) is an OpenThread POSIX build mode that runs
 OpenThread as a service and is used with the RCP design. For more information on
-how to build and use it, see [OpenThread Daemon](/platforms/co-processor/ot-daemon).
+how to build and use it, see [OpenThread Daemon](https://openthread.io/platforms/co-processor/ot-daemon).
 
 ## Build Support Packages
 
 Build Support Packages (BSPs)  are found in
-[`/third_party`](https://github.com/openthread/openthread/tree/main/third_party). BSPs are additional third-party code used by OpenThread on each respective platform, generally included when [porting OpenThread](/guides/porting/) to a new hardware platform.
+[`/third_party`](https://github.com/openthread/openthread/tree/main/third_party). BSPs are additional third-party code used by OpenThread on each respective platform, generally included when [porting OpenThread](../../guides/porting/index.md) to a new hardware platform.
 
 ### License
 
