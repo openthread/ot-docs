@@ -115,7 +115,7 @@ add_subdirectory(third_party)
 add_subdirectory(examples)
 ```
 
-## Step 5: The `src` directory
+## Step 5: The <code>src</code> directory
 
 This is the heart of the repository and is where the platform abstraction layer is implemented. It also contains a few other required files.
 

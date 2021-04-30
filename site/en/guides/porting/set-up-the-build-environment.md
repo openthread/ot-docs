@@ -34,7 +34,6 @@ remote: Compressing objects: 100% (60/60), done.
 remote: Total 333 (delta 65), reused 39 (delta 39), pack-reused 234
 Receiving objects: 100% (333/333), 170.78 KiB | 5.69 MiB/s, done.
 Resolving deltas: 100% (194/194), done.
-
 ~/repos/ot-efr32$ git status
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -107,7 +106,7 @@ Below are some examples of scripts which are standard for most of the existing p
 
 ### `bootstrap`
 
-This script should install all tools and packages required by your hardware platform. It should also execute `openthread`'s bootstrap script to ensure everything the user has everything needed to build the OpenThread stack.
+This script should install all tools and packages required by your hardware platform. It should also execute `openthread`'s bootstrap script to ensure that the user has everything needed to build the OpenThread stack.
 
 See the [bootstrap script][script-bootstrap] in [`ot-efr32`][silabs-ot-efr32] for an example.
 
@@ -153,7 +152,7 @@ executable program, as well as the entry address. The platform-specific linker
 script is often provided with the platform's BSP.
 
 Configure the `ld` tool to point to the platform-specific linker script using
-`target_link_libraries` in on your platform CMake target in `src/CMakeLists.txt`:
+`target_link_libraries` on your platform CMake target in `src/CMakeLists.txt`:
 
 ```cmake
 set(LD_FILE "${CMAKE_CURRENT_SOURCE_DIR}/efr32mg12.ld")
