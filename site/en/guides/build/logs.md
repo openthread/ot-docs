@@ -35,7 +35,7 @@ listed in the following file:
 [`/include/openthread/platform/logging.h`](https://github.com/openthread/openthread/tree/main/include/openthread/platform/logging.h)
 
 The list of log levels are also available in the [Platform
-Logging Macros](/reference/group/plat-logging#macros) API reference.
+Logging Macros](https://openthread.io/reference/group/plat-logging#macros) API reference.
 
 The default log level is `OT_LOG_LEVEL_CRIT` which only outputs the most
 critical logs. Change the level to see more logs as desired. To see all
@@ -51,7 +51,7 @@ logging. The region enumeration is defined in the following file:
 [`/include/openthread/platform/logging.h`](https://github.com/openthread/openthread/tree/main/include/openthread/platform/logging.h)
 
 The list of log regions are also available in the [Platform
-Logging Enumerations](/reference/group/plat-logging#otlogregion) API reference.
+Logging Enumerations](https://openthread.io/reference/group/plat-logging#otlogregion) API reference.
 
 Log regions are commonly used as parameters in log functions. All regions are
 enabled by default.
@@ -62,7 +62,7 @@ The default function for logging within OpenThread is `otPlatLog`, defined as
 the compile-time configuration constant of
 `OPENTHREAD_CONFIG_PLAT_LOG_FUNCTION`.
 
-See the [Platform Logging](/reference/group/plat-logging#otplatlog) API
+See the [Platform Logging](https://openthread.io/reference/group/plat-logging#otplatlog) API
 reference for more information on this function.
 
 To use this function directly in the OpenThread example apps, use the `REFERENCE_DEVICE`
@@ -81,7 +81,7 @@ Alternatively, modify the `COMMONCFLAGS` variable in an [example
 ## How to enable logs
 
 Before enabling logs, make sure your environment is configured for building
-OpenThread. See [Build OpenThread](/guides/build) for more information.
+OpenThread. See [Build OpenThread](../../guides/build/index.md) for more information.
 
 ### Enable all logs
 
@@ -247,8 +247,8 @@ Log levels may be changed at run time if dynamic log level control is enabled.
     `OPENTHREAD_CONFIG_ENABLE_DYNAMIC_LOG_LEVEL` to `1`.
 
 1.  Change the log level depending on your implementation:
-    1.  For a [system-on-chip (SoC)](/platforms#single-chip-thread-only-soc),
-        use the [Logging API](/reference/group/api-logging) within your
+    1.  For a [system-on-chip (SoC)](https://openthread.io/platforms#single-chip-thread-only-soc),
+        use the [Logging API](https://openthread.io/reference/group/api-logging) within your
         OpenThread application.
     1.  For an NCP, use `wpanctl` on the command line. See [`wpan-properties.h`](https://github.com/openthread/wpantund/tree/master/src/wpantund/wpan-properties.h) in the `wpantund` repository for all the properties exposed to `wpanctl` and the  [Spinel API](https://github.com/openthread/openthread/blob/da12dca4d9e82cda08aba272567affa188bf8b12/src/ncp/spinel.h#L308) for its log level definitions.
 
