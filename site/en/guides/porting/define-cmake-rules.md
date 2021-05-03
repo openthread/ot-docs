@@ -1,4 +1,4 @@
-# Define CMake rules
+# Define CMake Rules
 
 The CMake build system relies on `CMakeLists.txt` files which define build targets. The `CMakeLists.txt` at the root of your repository is the top of the build tree and is a good place to start defining the various targets, options, and macros used in the build process.
 
