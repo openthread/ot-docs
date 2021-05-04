@@ -6,8 +6,9 @@ connectivity to the internet.
 ## Step 1: Form the Thread Network
 
 <figure class="attempt-right">
-<img src="/guides/images/otbr-gui-home-full.png" srcset="/guides/images/otbr-gui-home-full.png 1x, /guides/images/otbr-gui-home-full_2x.png 2x" border="0" alt="OTBR Web GUI Home" />
+<img src="../../../guides/images/otbr-gui-home-full.png" srcset="../../../guides/images/otbr-gui-home-full.png 1x, ../../../guides/images/otbr-gui-home-full_2x.png 2x" border="0" alt="OTBR Web GUI Home" />
 </figure>
+
 On the machine running OTBR Docker:
 
 1.  Open a browser window and navigate to 127.0.0.1:8080. If OTBR Docker is
@@ -16,41 +17,16 @@ On the machine running OTBR Docker:
 1.  Select the "Form" menu option and change some of the default credentials. We
     recommend leaving the default Channel and On-Mesh Prefix values. Whatever
     you use, make a note of them so you can test a separate Thread node later.
-<table>
-  <thead>
-    <th>Parameter</th><th>Sample Value</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Network Name</td>
-      <td>OTBR4444</td>
-    </tr>
-    <tr>
-      <td>PAN ID</td>
-      <td>0x4444</td>
-    </tr>
-    <tr>
-      <td>Network Key</td>
-      <td>33334444333344443333444433334444</td>
-    </tr>
-    <tr>
-      <td>Extended PAN ID</td>
-      <td>3333333344444444</td>
-    </tr>
-    <tr>
-      <td>Passphrase</td>
-      <td>444444</td>
-    </tr>
-    <tr>
-      <td>Channel</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <td>On-Mesh Prefix</td>
-      <td>fd11:22::</td>
-    </tr>
-  </tbody>
-</table>
+
+    | Parameter | Sample Value |
+    | -- | --- |
+    | Network name | OTBR4444
+    | PAN ID | 0x4444 |
+    | Network Key | 33334444333344443333444433334444 |
+    | Extended PAN ID | 3333333344444444 |
+    | Passphrase | 444444 |
+    | Channel | 15 |
+    | On-Mesh Prefix | fd11:22:: |
 
 1.  Select **FORM** to form the Thread network. Check the output in the terminal
     window running OTBR Docker. You should see `otbr-agent` log output for the
@@ -73,11 +49,11 @@ test.
 
 ### Physical Thread node
 
-Build and flash a standalone Thread node on the [supported platform](/platforms)
+Build and flash a standalone Thread node on the [supported platform](https://openthread.io/platforms)
 of your choice. This node does not have to be built with any specific build
 switches.
 
-See [Build OpenThread](/guides/build) for basic building instructions.
+See [Build OpenThread](../../../../guides/build.md) for basic building instructions.
 
 See the [Build a Thread network with nRF52840 boards and OpenThread
 Codelab](https://codelabs.developers.google.com/codelabs/openthread-hardware/#0) for 
@@ -156,7 +132,7 @@ you must translate it to IPv6 and combine it with the well-known prefix of
 `64:ff9b::/64` used by Network Address Translation (NAT) in OTBR.
 
 For more information on how NAT is configured in OTBR, see [Configure
-NAT](/guides/border-router/access-point#configure-nat).
+NAT](../../../..//guides/border-router/access-point.md#configure-nat).
 
 1.  To get a translated IPv4 address, use a website like
     [findipv6.com](https://findipv6.com/ipv4-toipv6/).
