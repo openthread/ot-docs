@@ -14,7 +14,7 @@ Thread Commissioning App is not supported.
 Install the [**Raspberry Pi OS with
 Desktop**](https://www.raspberrypi.org/downloads/raspberry-pi-os/)
 OS on the RPi. Follow the instructions in the [Download and Install the
-OS](../../../guides/border-router/raspberry-pi#download-and-install-the-os) step from
+OS](../../../../guides/border-router/raspberry-pi.md#download-and-install-the-os) step from
 the Raspberry Pi Overview, but make sure to use **Raspberry Pi OS with
 Desktop** as the OS. You cannot use the Lite version, as you need to access the
 OTBR Web GUI in a web browser.
@@ -88,8 +88,8 @@ Docker involves mounting virtual serial ports, which is only supported by Docker
 Toolbox on those systems.
 
 > Note: This guide does not provide complete instructions for running OTBR Docker
-on Mac or Windows. See [Contribute](/resources#contribute) if you are interested
-in contributing this content to openthread.io.
+on Mac or Windows. See [Contribute](https://openthread.io/resources#contribute) if 
+you are interested in contributing this content to openthread.io.
 
 ## Get the OTBR Docker image
 
