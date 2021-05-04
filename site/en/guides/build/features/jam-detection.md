@@ -402,7 +402,7 @@ repository](https://github.com/openthread/wpantund/tree/master/src/wpantund/wpan
 
 > Note: To learn more about managing an NCP using `wpantund` and `wpanctl`, see the [Build a Thread Network Codelab](https://openthread.io/codelabs/openthread-hardware/).
 
-### License
+## License
 
 Copyright (c) 2021, The OpenThread Authors.
 All rights reserved.

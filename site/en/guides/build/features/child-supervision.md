@@ -170,7 +170,7 @@ application.
 
 There are no CLI commands related to this feature.
 
-### License
+## License
 
 Copyright (c) 2021, The OpenThread Authors.
 All rights reserved.
