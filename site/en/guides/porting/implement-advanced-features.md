@@ -13,10 +13,10 @@ primarily for sleepy end devices (SEDs) which sleep most of the time,
 periodically waking to poll the parent for queued data.
 
 -   **Direct Transmission** — parent sends a data frame directly to the end device
-    <img src="/guides/images/ot-auto-frame-direct.png" srcset="/guides/images/ot-auto-frame-direct.png 1x, /guides/images/ot-auto-frame-direct_2x.png 2x" border="0" alt="Direct Transmission" width="400" />
+    <img src="../../guides/images/ot-auto-frame-direct.png" srcset="../../guides/images/ot-auto-frame-direct.png 1x, ../../guides/images/ot-auto-frame-direct_2x.png 2x" border="0" alt="Direct Transmission" width="400" />
 
 -   **Indirect Transmission** — parent holds data until requested by its intended end device
-    <img src="/guides/images/ot-auto-frame-indirect.png" srcset="/guides/images/ot-auto-frame-indirect.png 1x, /guides/images/ot-auto-frame-indirect_2x.png 2x" border="0" alt="Direct Transmission" width="400" />
+    <img src="../../guides/images/ot-auto-frame-indirect.png" srcset="../../guides/images/ot-auto-frame-indirect.png 1x, ../../guides/images/ot-auto-frame-indirect_2x.png 2x" border="0" alt="Direct Transmission" width="400" />
 
 In the Indirect case, a child end device must first poll the parent to determine
 whether any data is available for it. To do this, the child sends a data

@@ -27,7 +27,7 @@ particularly useful when a new router is added to an existing Thread network.
     a parent search is initiated:
     1.  If the parent search discovers a better parent router, the ED dissolves
         its current Child-Parent link and initiates the [MLE
-        Attach](/guides/thread-primer/network-discovery#join_an_existing_network)
+        Attach](../../../guides/thread-primer/network-discovery.md#join_an_existing_network)
         process with the new router.
     1.  If the parent search does not discover a better parent router, the
         existing Child-Parent link remains.
@@ -42,7 +42,7 @@ in RX mode to receive parent responses. Use the backoff interval to limit the
 impact of periodic parent searches on battery-powered devices.
 
 We recommend enabling the [Inform Previous Parent on
-Reattach](/guides/build/features/inform-previous-parent-on-reattach) feature
+Reattach](../../../guides/build/features/inform-previous-parent-on-reattach.md) feature
 in conjunction with this feature.
 
 ## How to enable
@@ -52,7 +52,7 @@ This feature is disabled by default.
 To enable Periodic Parent Search, define
 `OPENTHREAD_CONFIG_PARENT_SEARCH_ENABLE` as `1` in the
 [`/src/core/config/parent_search.h`](https://github.com/openthread/openthread/tree/main//src/core/config/parent_search.h)
-file, prior to [building OpenThread](/guides/build):
+file, prior to [building OpenThread](../../../guides/build/index.md):
 
 ```
 #ifndef OPENTHREAD_CONFIG_PARENT_SEARCH_ENABLE

@@ -1,7 +1,7 @@
 # Thread Commissioning
 
 <figure class="attempt-right">
-<a href="/guides/images/ot-primer-joiner_2x.png"><img src="/guides/images/ot-primer-joiner.png" srcset="/guides/images/ot-primer-joiner.png 1x, /guides/images/ot-primer-joiner_2x.png 2x" border="0" alt="Commissioner and Joiner" /></a>
+<a href="../../guides/images/ot-primer-joiner_2x.png"><img src="../../guides/images/ot-primer-joiner.png" srcset="../../guides/images/ot-primer-joiner.png 1x, ../../guides/images/ot-primer-joiner_2x.png 2x" border="0" alt="Commissioner and Joiner" /></a>
 </figure>
 
 Commissioning requires one device with the Commissioner role, and one device
@@ -16,7 +16,7 @@ key.
 
 This guide covers basic, on-mesh commissioning without an external Commissioner
 or Border Router. To learn how to use an external Commissioner, see [External
-Thread Commissioning](/guides/border-router/external-commissioning).
+Thread Commissioning](https://openthread.io/guides/border-router/external-commissioning).
 
 For an example of commissioning using virtual devices, see the
 [OpenThread Simulation Codelab](https://openthread.io/codelabs/openthread-simulation/#3).
