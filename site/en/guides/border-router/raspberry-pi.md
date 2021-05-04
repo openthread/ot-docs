@@ -55,7 +55,7 @@ If automatic setup of the Wi-Fi access point by Network Manager is skipped, see
 [Wi-Fi Access Point Setup](../../../guides/border-router/access-point.md) for manual
 configuration instructions.
 
-### License
+## License
 
 Copyright (c) 2021, The OpenThread Authors.
 All rights reserved.
