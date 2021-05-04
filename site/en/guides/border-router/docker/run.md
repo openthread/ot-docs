@@ -10,9 +10,9 @@ network, use a simulated RCP.
 
 ## Physical RCP
 
-Use any [supported OpenThread platform](../../../platforms) for the physical RCP. See
-the [Build and flash RCP](../../../guides/border-router/build#build-and-flash-rcp) step
-from the OpenThread Border Router Build and Configuration guide for more
+Use any [supported OpenThread platform](https://openthread.io/platforms) for the 
+physical RCP. See the [Build and flash RCP](../../../../guides/border-router/build.md#build-and-flash-rcp)
+step from the OpenThread Border Router Build and Configuration guide for more
 information.
 
 ### Attach the RCP
