@@ -216,7 +216,7 @@ device to serve IPv6 addresses.
 
 This script is located at [`/ot-br-posix/script/standalone_ipv6`](https://github.com/openthread/ot-br-posix/tree/master/script/standalone_ipv6).
 
-### License
+## License
 
 Copyright (c) 2021, The OpenThread Authors.
 All rights reserved.
