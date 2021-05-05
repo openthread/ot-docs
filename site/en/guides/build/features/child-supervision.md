@@ -55,7 +55,7 @@ type of end device.
 
 To enable Child Supervision, define
 `OPENTHREAD_CONFIG_CHILD_SUPERVISION_ENABLE` as `1` in the
-[`/src/core/config/child_supervision.h`](https://github.com/openthread/openthread/tree/main/src/core/config/child_supervision.h)
+[`openthread/src/core/config/child_supervision.h`](https://github.com/openthread/openthread/tree/main/src/core/config/child_supervision.h)
 file, prior to [building OpenThread](../../../guides/build/index.md):
 
 ```
@@ -64,19 +64,19 @@ file, prior to [building OpenThread](../../../guides/build/index.md):
 #endif
 ```
 
-### By switch
+### By option
 
-Alternatively, use the `CHILD_SUPERVISION=1` build switch when [building
+Alternatively, use the `OT_CHILD_SUPERVISION=ON` option when [building
 OpenThread](../../..//guides/build/index.md):
 
 ```
-$ make -f examples/Makefile-{platform} CHILD_SUPERVISION=1
+$ ./script/build -DOT_CHILD_SUPERVISION=ON
 ```
 
 ## Parameters
 
 Use the following parameters in
-[`/src/core/config/child_supervision.h`](https://github.com/openthread/openthread/tree/main/src/core/config/child_supervision.h)
+[`openthread/src/core/config/child_supervision.h`](https://github.com/openthread/openthread/tree/main/src/core/config/child_supervision.h)
 to customize this feature:
 
 <table class="details responsive">
