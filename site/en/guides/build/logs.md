@@ -3,7 +3,7 @@
 OpenThread logs are controlled by numerous compile-time configuration constants.
 Unless otherwise noted, these constants are defined in the following file:
 
-[`/openthread/src/core/config/logging.h`](https://github.com/openthread/openthread/tree/main/src/core/config/logging.h)
+[`openthread/src/core/config/logging.h`](https://github.com/openthread/openthread/tree/main/src/core/config/logging.h)
 
 Note: Platform-level configuration constants override the default core ones. If
 a constant is defined at both the core and the platform level, changing the
@@ -15,16 +15,16 @@ OpenThread supports different output logging methods, defined as the
 compile-time configuration constant of `OPENTHREAD_CONFIG_LOG_OUTPUT`. The
 logging method options are listed in the following file:
 
-[`/openthread/src/core/config/logging.h`](https://github.com/openthread/openthread/tree/main/src/core/config/logging.h)
+[`openthread/src/core/config/logging.h`](https://github.com/openthread/openthread/tree/main/src/core/config/logging.h)
 
 The default log output configuration is
 `OPENTHREAD_CONFIG_LOG_OUTPUT_PLATFORM_DEFINED`.
 
 The output method is an example of where you may need to update the
 platform-level configuration constant instead of the core one. For example, to
-change the output method in the sim example app, edit
-`/examples/platforms/simulation/openthread-core-simulation-config.h` instead of
-`/src/core/config/logging.h`.
+change the output method in the simulation example app, edit
+`openthread/examples/platforms/simulation/openthread-core-simulation-config.h` instead of
+`openthread/src/core/config/logging.h`.
 
 ## Log levels
 
@@ -32,7 +32,7 @@ Logs may output varying levels of information, defined as the compile-time
 configuration constant of `OPENTHREAD_CONFIG_LOG_LEVEL`. The level options are
 listed in the following file:
 
-[`/openthread/include/openthread/platform/logging.h`](https://github.com/openthread/openthread/tree/main/include/openthread/platform/logging.h)
+[`openthread/include/openthread/platform/logging.h`](https://github.com/openthread/openthread/tree/main/include/openthread/platform/logging.h)
 
 The list of log levels are also available in the [Platform
 Logging Macros](/reference/group/plat-logging#macros) API reference.
@@ -48,7 +48,7 @@ OpenThread logs, use `OT_LOG_LEVEL_DEBG`.
 The log regions determine what areas of the OpenThread code are enabled for
 logging. The region enumeration is defined in the following file:
 
-[`/openthread/include/openthread/platform/logging.h`](https://github.com/openthread/openthread/tree/main/include/openthread/platform/logging.h)
+[`openthread/include/openthread/platform/logging.h`](https://github.com/openthread/openthread/tree/main/include/openthread/platform/logging.h)
 
 The list of log regions are also available in the [Platform
 Logging Enumerations](/reference/group/plat-logging#otlogregion) API reference.
@@ -72,7 +72,7 @@ cmake option. For example, to use it within the CLI app for the CC2538 example:
 $ ./script/build -DOT_REFERENCE_DEVICE=ON
 ```
 
-Alternatively, update the [`/openthread/etc/cmake/options.cmake`](https://github.com/openthread/openthread/blob/main/etc/cmake/options.cmake) file to enable it by default when building.
+Alternatively, update the [`openthread/etc/cmake/options.cmake`](https://github.com/openthread/openthread/blob/main/etc/cmake/options.cmake) file to enable it by default when building.
 
 ## How to enable logs
 
@@ -92,7 +92,7 @@ flags.
 
 ### Enable a specific level of logs
 
-To enable a specific level of logs, edit `/openthread/src/core/config/logging.h` and update
+To enable a specific level of logs, edit `openthread/src/core/config/logging.h` and update
 `OPENTHREAD_CONFIG_LOG_LEVEL` to the desired level, then build OpenThread. For
 example, to enable logs up to `OT_LOG_LEVEL_INFO`:
 
@@ -181,7 +181,7 @@ Logs may be viewed directly in the OpenThread CLI example app.
 
 1.  Edit the configuration file for the example platform and change the log
     output to the app. For the simulation example, this is
-    `/openthread/examples/platforms/simulation/openthread-core-simulation-config.h`:
+    `openthread/examples/platforms/simulation/openthread-core-simulation-config.h`:
 
         #define OPENTHREAD_CONFIG_LOG_OUTPUT OPENTHREAD_CONFIG_LOG_OUTPUT_APP
 
@@ -218,7 +218,7 @@ For example, to enable this for an nrf52840 connected to a Linux host:
 
 1.  Edit the configuration file for the platform and change the log output to
     NCP Spinel. For nrf52840, this is
-    `/src/nrf52840/openthread-core-nrf52840-config.h`:
+    `./src/nrf52840/openthread-core-nrf52840-config.h` in [ot-nrf528xx](https://github.com/openthread/ot-nrf528xx) repository:
 
         #define OPENTHREAD_CONFIG_LOG_OUTPUT OPENTHREAD_CONFIG_LOG_OUTPUT_NCP_SPINEL
 
