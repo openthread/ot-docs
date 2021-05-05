@@ -11,8 +11,8 @@ If you are running a simulated RCP, also use `Ctrl+C` to stop the processes for
 ## Restart OTBR Docker
 
 Follow the same complete procedure in [Run OTBR
-Docker](../../../../guides/border-router/docker/run.md) and [Test
-Connectivity](../../../../guides/border-router/docker/test-connectivity.md) to restart OTBR
+Docker](../../../guides/border-router/docker/run.md) and [Test
+Connectivity](../../../guides/border-router/docker/test-connectivity.md) to restart OTBR
 Docker.
 
 Upon restart, even though OTBR Docker reforms a Thread network using the network
@@ -24,7 +24,7 @@ enabled.**
 If after joining a Thread node to the network it doesn't receive an on-mesh
 IPv6 address, factory reset it with the `factoryreset` CLI command and
 reconfigure it as detailed in [Join the second node to the Thread
-network](../../../../guides/border-router/docker/test-connectivity.md#join_the_second_node_to_the_thread_network).
+network](../../../guides/border-router/docker/test-connectivity.md#join_the_second_node_to_the_thread_network).
 
 ## Docker maintenance
 
@@ -76,7 +76,7 @@ $ docker image rm 98416559dcbd
 
 > Caution: If you remove a Docker image, you'll have to rebuild it from the
 Dockerfile or repull it from Docker Hub, as detailed in the [OTBR Docker
-Overview](../../../../guides/border-router/docker/index.md).
+Overview](../../../guides/border-router/docker/index.md).
 
 ## License
 
