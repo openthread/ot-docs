@@ -76,7 +76,7 @@ This feature is disabled by default.
 
 To enable Jam Detection, define
 `OPENTHREAD_CONFIG_JAM_DETECTION_ENABLE` as `1` in the
-[`/src/core/config/openthread-core-default-config.h`](https://github.com/openthread/openthread/tree/main/src/core/config/openthread-core-default-config.h)
+[`openthread/src/core/config/openthread-core-default-config.h`](https://github.com/openthread/openthread/tree/main/src/core/config/openthread-core-default-config.h)
 file, prior to [building OpenThread](../../../guides/build/index.md):
 
 ```
@@ -91,7 +91,7 @@ Alternatively, use the `JAM_DETECTION=1` build switch when [building
 OpenThread](../../../guides/build/index.md):
 
 ```
-$ make -f examples/Makefile-{platform} JAM_DETECTION=1
+$ ./script/build -DOT_JAM_DETECTION=ON
 ```
 
 ## Parameters
@@ -202,7 +202,7 @@ OpenThread API provides the following functionality:
 
 The Spinel protocol enables a host device to communicate directly with an NCP.
 This protocol exposes Jam Detection properties in
-[`/src/lib/spinel/spinel.h`](https://github.com/openthread/openthread/tree/main/src/lib/spinel/spinel.h)
+[`openthread/src/lib/spinel/spinel.h`](https://github.com/openthread/openthread/tree/main/src/lib/spinel/spinel.h)
 that provide the following functionality:
 
 *   Start and stop the feature
