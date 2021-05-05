@@ -12,14 +12,14 @@ Hardware requirements:
 *   A microSD card and microSD card reader ("SD card" in this guide)
 
 Access the RPi with an external monitor (via HDMI) and keyboard (via USB), or
-connect a [serial cable](../../../guides/border-router/serial-cables.md) from the RPi to
+connect a [serial cable](../../guides/border-router/serial-cables.md) from the RPi to
 your computer and enable the serial console.
 
 To use RPi with OTBR:
 
 1.  [Download and install the OS](#download-and-install-the-os).
-1.  [Build and install OTBR](../../../guides/border-router/build/index.md).
-1.  [Set up a Wi-Fi access point](../../../guides/border-router/access-point.md).
+1.  [Build and install OTBR](../../guides/border-router/build/index.md).
+1.  [Set up a Wi-Fi access point](../../guides/border-router/access-point.md).
 
 ## Step 1: Download and install the OS
 
@@ -29,7 +29,7 @@ with a bootable image to operate.
 1.  Download the [Raspberry Pi OS Lite
     image](https://www.raspberrypi.org/downloads/raspberry-pi-os/)
     to a local machine with a built-in or external SD card reader.
-    *   If using [OTBR Docker](../../../guides/border-router-docker/index.md) on the RPi,
+    *   If using [OTBR Docker](../../guides/border-router-docker/index.md) on the RPi,
         download [Raspberry Pi OS with
         Desktop](https://www.raspberrypi.org/downloads/raspberry-pi-os/)
         instead.
@@ -45,14 +45,14 @@ For more detailed information on setup and configuration, see the
 
 ## Step 2: Build and install OTBR
 
-See [Build and Configuration](../../../guides/border-router/build.md) for instructions on
+See [Build and Configuration](../../guides/border-router/build.md) for instructions on
 building and installing OTBR. This includes automatic setup of a Wi-Fi access
 point by Network Manager to connect the Thread network to the internet.
 
 ## Step 2: Set up a Wi-Fi access point
 
 If automatic setup of the Wi-Fi access point by Network Manager is skipped, see
-[Wi-Fi Access Point Setup](../../../guides/border-router/access-point.md) for manual
+[Wi-Fi Access Point Setup](../../guides/border-router/access-point.md) for manual
 configuration instructions.
 
 ## License
