@@ -201,7 +201,7 @@ If you have added custom logging and enabled all logs, the CLI line buffer or th
 buffer may not be large enough to handle the additional custom logs. If some logs are not 
 appearing when they should, try increasing the size of the CLI line
 buffer, defined as `OPENTHREAD_CONFIG_CLI_MAX_LINE_LENGTH` in
-`/openthread/src/cli/cli_config.h` or increasing the size of UART transmit buffer, defined as
+`/openthread/src/cli/cli_config.h` or increasing the size of the UART transmit buffer, defined as
 `OPENTHREAD_CONFIG_CLI_UART_TX_BUFFER_SIZE` in the platform's configuration file, such as
 `/src/nrf52840/openthread-core-nrf52840-config.h`.
 
