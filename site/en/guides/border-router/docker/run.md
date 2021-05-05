@@ -11,7 +11,7 @@ network, use a simulated RCP.
 ## Physical RCP
 
 Use any [supported OpenThread platform](https://openthread.io/platforms) for the 
-physical RCP. See the [Build and flash RCP](../../../../guides/border-router/build.md#build-and-flash-rcp)
+physical RCP. See the [Build and flash RCP](../../../guides/border-router/build.md#build-and-flash-rcp)
 step from the OpenThread Border Router Build and Configuration guide for more
 information.
 
@@ -92,7 +92,7 @@ OTBR Docker is now running. Leave this terminal window open and running in the
 background. If you quit the process or close the window, OTBR Docker will go
 down.
 
-Go to [Test Connectivity](../../../../guides/border-router/docker/test-connectivity.md) to
+Go to [Test Connectivity](../../../guides/border-router/docker/test-connectivity.md) to
 continue with the OTBR Docker setup.
 
 ## Simulated RCP
