@@ -53,7 +53,7 @@ Build and flash a standalone Thread node on the [supported platform](https://ope
 of your choice. This node does not have to be built with any specific build
 switches.
 
-See [Build OpenThread](../../../../guides/build.md) for basic building instructions.
+See [Build OpenThread](../../../guides/build.md) for basic building instructions.
 
 See the [Build a Thread network with nRF52840 boards and OpenThread
 Codelab](https://codelabs.developers.google.com/codelabs/openthread-hardware/#0) for 
@@ -132,7 +132,7 @@ you must translate it to IPv6 and combine it with the well-known prefix of
 `64:ff9b::/64` used by Network Address Translation (NAT) in OTBR.
 
 For more information on how NAT is configured in OTBR, see [Configure
-NAT](../../../..//guides/border-router/access-point.md#configure-nat).
+NAT](../../../guides/border-router/access-point.md#configure-nat).
 
 1.  To get a translated IPv4 address, use a website like
     [findipv6.com](https://findipv6.com/ipv4-toipv6/).
