@@ -93,7 +93,7 @@ you are interested in contributing this content to openthread.io.
 
 ## Get the OTBR Docker image
 
-> Going forward, all steps apply to a supported platform, either the RPi or a Linux machine.
+> Note: Going forward, all steps apply to a supported platform, either the RPi or a Linux machine.
 
 Get the OTBR Docker image by pulling it directly from the [OpenThread Docker
 Hub](https://hub.docker.com/u/openthread/), or by cloning the OTBR repository
