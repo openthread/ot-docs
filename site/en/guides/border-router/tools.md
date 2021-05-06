@@ -27,7 +27,7 @@ The PSKc is generated from the following parameters:
 Syntax:
 
 ```
-pskc {<commissioner-credential> <extpanid> <network-name>}
+pskc {&lt;commissioner-credential&rt; &lt;extpanid&rt; &lt;network-name&rt;}
 ```
 
 Example:
@@ -63,7 +63,7 @@ The steering data is generated from the following parameters:
 Syntax:
 
 ```
-steering-data {[length] <joiner-id>}
+steering-data {[length] &lt;joiner-id&rt;}
 ```
 
 Example:
@@ -201,7 +201,6 @@ $ ./otbr-commissioner --network-name MyOTBRNetwork --network-password J01NME \
       --xpanid 1234AAAA1234BBBB --joiner-eui64 0000b57fffe15d68 \
       --joiner-pskd J01NU5 --agent-host 192.168.1.2 --agent-port 49191
 ```
-
 For a shell script example, see the
 [`meshcop` test script](https://github.com/openthread/ot-br-posix/tree/master/tests/scripts/meshcop).
 
