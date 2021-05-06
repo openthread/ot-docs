@@ -198,9 +198,7 @@ Use `--help` for a full list of parameters.
 ### Usage
 
 ```
-$ ./otbr-commissioner --network-name MyOTBRNetwork --network-password J01NME \
-      --xpanid 1234AAAA1234BBBB --joiner-eui64 0000b57fffe15d68 \
-      --joiner-pskd J01NU5 --agent-host 192.168.1.2 --agent-port 49191
+$ ./otbr-commissioner --network-name MyOTBRNetwork --network-password J01NME --xpanid 1234AAAA1234BBBB --joiner-eui64 0000b57fffe15d68 --joiner-pskd J01NU5 --agent-host 192.168.1.2 --agent-port 49191
 ```
 
 For a shell script example, see the
