@@ -31,11 +31,7 @@ In a new terminal window, start OTBR Docker, referencing the RCP's serial port.
 For example, if the RCP is mounted at `/dev/ttyACM0`:
 
 ```
-$ docker run --sysctl "net.ipv6.conf.all.disable_ipv6=0 \
-        net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" \
-        -p 8080:80 --dns=127.0.0.1 -it --volume \
-        /dev/ttyACM0:/dev/ttyACM0 --privileged openthread/otbr \
-        --radio-url spinel+hdlc+uart:///dev/ttyACM0
+$ docker run --sysctl "net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" -p 8080:80 --dns=127.0.0.1 -it --volume /dev/ttyACM0:/dev/ttyACM0 --privileged openthread/otbr --radio-url spinel+hdlc+uart:///dev/ttyACM0
 ```
 
 Upon success, you should have output similar to this:
@@ -172,10 +168,7 @@ In a new terminal window, start OTBR Docker, using the second serial port in the
 `socat` output. For example, if using `/dev/pts/7` from the `socat` output:
 
 ```
-$ docker run --sysctl "net.ipv6.conf.all.disable_ipv6=0 \
-        net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" \
-        -p 8080:80 --dns=127.0.0.1 -it --volume \
-        /dev/pts/7:/dev/ttyUSB0 --privileged openthread/otbr
+$ docker run --sysctl "net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" -p 8080:80 --dns=127.0.0.1 -it --volume /dev/pts/7:/dev/ttyUSB0 --privileged openthread/otbr
 ```
 
 Note that the command is also using the `/dev/ttyUSB0` port. This is the default
