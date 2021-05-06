@@ -101,7 +101,6 @@ The Thread Commissioning App is not supported.
     ```
     > ifconfig up
     Done
-    <code class="devsite-terminal" data-terminal-prefix="&gt; ">
     > thread start
     Done
     ```
