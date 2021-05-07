@@ -11,31 +11,28 @@ connectivity to the internet.
 
 On the machine running OTBR Docker:
 
-1.  Open a browser window and navigate to 127.0.0.1:8080. If OTBR Docker is
-    running correctly, the OTBR Web GUI loads.
+Open a browser window and navigate to 127.0.0.1:8080. If OTBR Docker is running correctly, the OTBR Web GUI loads.
     
-1.  Select the "Form" menu option and change some of the default credentials. We
-    recommend leaving the default Channel and On-Mesh Prefix values. Whatever
-    you use, make a note of them so you can test a separate Thread node later.
-    ```
-    Parameter = Sample Value
-    Network name = OTBR4444
-    PAN ID = 0x4444
-    Network Key = 33334444333344443333444433334444
-    Extended PAN ID = 3333333344444444
-    Passphrase = 444444
-    Channel = 15
-    On-Mesh Prefix = fd11:22::
-    ```
-    
-1.  Select **FORM** to form the Thread network. Check the output in the terminal
-    window running OTBR Docker. You should see `otbr-agent` log output for the
-    addition of the on-mesh prefix and a SLAAC address:
-    ```
-    otbr-agent[224]: [INFO]-CLI-----: execute command: prefix add fd11:22::/64 pasor
-    ```
+Select the "Form" menu option and change some of the default credentials. We recommend leaving the default Channel and On-Mesh Prefix values. Whatever you use, make a note of them so you can test a separate Thread node later.
 
-    This output is required for internet connectivty for the Thread network.
+```
+Parameter = Sample Value
+Network name = OTBR4444
+PAN ID = 0x4444
+Network Key = 33334444333344443333444433334444
+Extended PAN ID = 3333333344444444
+Passphrase = 444444
+Channel = 15
+On-Mesh Prefix = fd11:22::
+```
+
+Select **FORM** to form the Thread network. Check the output in the terminal window running OTBR Docker. You should see `otbr-agent` log output for the addition of the on-mesh prefix and a SLAAC address:
+
+```
+otbr-agent[224]: [INFO]-CLI-----: execute command: prefix add fd11:22::/64 pasor
+```
+
+This output is required for internet connectivty for the Thread network.
 
 ## Step 2: Bring up a second Thread node
 
