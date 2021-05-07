@@ -85,9 +85,9 @@ file, prior to [building OpenThread](../../../guides/build/index.md):
 #endif
 ```
 
-### By switch
+### By option
 
-Alternatively, use the `JAM_DETECTION=1` build switch when [building
+Alternatively, use the `-DOT_JAM_DETECTION=ON` build option when [building
 OpenThread](../../../guides/build/index.md):
 
 ```
