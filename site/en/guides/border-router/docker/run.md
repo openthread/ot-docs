@@ -155,8 +155,7 @@ Leave this terminal window open and running in the background.
 1.  Using the first serial port in the `socat` output, start the simulated RCP
     application. For example, if using `/dev/pts/2` from the `socat` output:
     ```
-    $ ~/openthread/output/simulation/bin/ot-rcp 1 \
-        > /dev/pts/2 < /dev/pts/2
+    $ ~/openthread/output/simulation/bin/ot-rcp 1 > /dev/pts/2 < /dev/pts/2
     ```
 
 There is no output from this command. Leave this terminal window open and
