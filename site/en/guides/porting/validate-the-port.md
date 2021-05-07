@@ -9,8 +9,7 @@ Demonstrate a successful build by compiling the example OpenThread application
 for the target platform.
 
 ```
-$ ./bootstrap
-$ make -f examples/Makefile-efr32 COMMISSIONER=1 JOINER=1
+$ ./script/build efr32mg12 -DBOARD=brd4161a
 ```
 
 ## Step 2: Interact with the CLI
@@ -21,9 +20,7 @@ with the CLI.
 Open a terminal to `/dev/ttyACM0` (serial port settings: 115200 8-N-1). Type
 `help` for a list of commands.
 
-> Note:  The set of CLI commands will vary based on the features enabled in a
-particular build. The majority of them have been elided in the example output
-below.
+> Note:  The set of CLI commands varies based on the features enabled in a particular build. The majority of them have been elided in the example output below.
 
 ```
 > help
@@ -71,7 +68,7 @@ leader
 Done
 ```
 
-## Step 4: Attach a second node 
+## Step 4: Attach a second node
 
 Demonstrate successful radio communication by attaching a second node to the
 newly formed Thread network, using the same Thread Master Key and PAN ID from
