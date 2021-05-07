@@ -17,7 +17,6 @@ On the machine running OTBR Docker:
 1.  Select the "Form" menu option and change some of the default credentials. We
     recommend leaving the default Channel and On-Mesh Prefix values. Whatever
     you use, make a note of them so you can test a separate Thread node later.
-    
     ```
     Parameter = Sample Value
     Network name = OTBR4444
@@ -32,7 +31,6 @@ On the machine running OTBR Docker:
 1.  Select **FORM** to form the Thread network. Check the output in the terminal
     window running OTBR Docker. You should see `otbr-agent` log output for the
     addition of the on-mesh prefix and a SLAAC address:
-
     ```
     otbr-agent[224]: [INFO]-CLI-----: execute command: prefix add fd11:22::/64 pasor
     ```
