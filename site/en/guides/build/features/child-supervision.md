@@ -66,7 +66,7 @@ file, prior to [building OpenThread](../../../guides/build/index.md):
 
 ### By option
 
-Alternatively, use the `OT_CHILD_SUPERVISION=ON` option when [building
+Alternatively, use the `-DOT_CHILD_SUPERVISION=ON` build option when [building
 OpenThread](../../..//guides/build/index.md):
 
 ```
