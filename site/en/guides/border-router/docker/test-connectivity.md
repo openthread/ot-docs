@@ -17,6 +17,7 @@ On the machine running OTBR Docker:
 1.  Select the "Form" menu option and change some of the default credentials. We
     recommend leaving the default Channel and On-Mesh Prefix values. Whatever
     you use, make a note of them so you can test a separate Thread node later.
+    
     ```
     Parameter = Sample Value
     Network name = OTBR4444
