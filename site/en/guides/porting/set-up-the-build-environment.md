@@ -1,121 +1,148 @@
 # Set Up the Build Environment
 
-To promote free and open development, OpenThread uses GNU Autotools in the build
-toolchain. Currently, this toolchain is required for porting OpenThread to a new
-hardware platform.
+To promote free and open development, OpenThread uses [CMake][cmake-homepage] in
+the build toolchain. Currently, this toolchain is required for porting
+OpenThread to a new hardware platform.
 
 Other build toolchains might be supported in the future, but they are not within
 the scope of this porting guide.
 
-> Note: For all path and code examples in this porting
-guide, always replace {platform-name} with the name of
-your new platform example. Most of the examples in the guide use a `efr32` platform
-name.
+> Note: For all path and code examples in this porting guide, always replace
+`{platform-name}` with the name of your new platform example. Most of the
+examples in the guide use a `efr32` platform name.
 
-## Step 1: GNU Autoconf
+[cmake-homepage]: https://cmake.org/
 
-The [Autoconf](https://www.gnu.org/software/autoconf/autoconf.html) script
-contains the basic system configuration options, including specific
-platform-relative macro definitions. These macros can be exposed for
-conditional compilation in other Makefiles during the pre-compiling phase.
+## Step 1: Create a new repository
 
-The OpenThread Autoconf script is located at:
-[`/openthread/configure.ac`](https://github.com/openthread/openthread/blob/main/configure.ac)
+The first step is set up a new home for your hardware platform. In this guide, we'll be creating a new repository named `ot-efr32` which contains the platform abstraction layer, the hardware platform's SDK, and a few useful scripts.
 
-### Platform example name
+> Note: If you would like to host your repository in the OpenThread organization, you may [post an issue](https://github.com/openthread/openthread/issues/new/choose) to request a new repository for your platform or to request that the OpenThread organization fork your existing repository.
 
-In the `AC_ARG_WITH(examples ...)` macro, add the new hardware platform example name. The name
-should be added in alphabetical order.
+In this example, we created the [SiliconLabs/ot-efr32][silabs-ot-efr32] repository on GitHub and cloned it to `~/repos/ot-efr32`.
 
-Example:
+[silabs-ot-efr32]: https://github.com/SiliconLabs/ot-efr32
 
-```
-AC_ARG_WITH(examples,
-    [AS_HELP_STRING([--with-examples=TARGET],
-        [Specify the examples from one of: none, simulation, cc2538, cc2650, efr32, nrf52840 @&lt;:@default=none@:&gt;@.])],
-    [
-        case "${with_examples}" in 
-        none)
-            ;;
-        simulation|cc2538|cc2650|efr32|nrf52840)
-            if test ${enable_posix_app} = "yes"; then
-                AC_MSG_ERROR([--with-examples must be none when POSIX apps are enabled by --enable-posix-app])
-            fi
-            ;;
-        *)
-            AC_MSG_ERROR([Invalid value ${with_examples} for --with-examples])
-            ;;
-        esac
-    ],
-    [with_examples=none])
+```shell
+~$ mkdir -p ~/repos
+~$ cd ~/repos
+~/repos$ git clone git@github.com:SiliconLabs/ot-efr32.git
+Cloning into 'ot-efr32'...
+remote: Enumerating objects: 99, done.
+remote: Counting objects: 100% (99/99), done.
+remote: Compressing objects: 100% (60/60), done.
+remote: Total 333 (delta 65), reused 39 (delta 39), pack-reused 234
+Receiving objects: 100% (333/333), 170.78 KiB | 5.69 MiB/s, done.
+Resolving deltas: 100% (194/194), done.
+~/repos/ot-efr32$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
 ```
 
-### Platform-specific C preprocessor symbol
+### Repository structure
 
-Define a platform-specific C preprocessor symbol for the platform example and
-expose it.
+To help maintain consistency with [existing platform repositories](https://github.com/openthread?q=ot-&type=&language=&sort=) in the OpenThread GitHub organization, you may want to structure your repository as such:
 
-The platform-specific C preprocessor symbol is exposed at
-`include/openthread-config.h`. By including the symbol in this header file, we
-can leverage it in our source code for preprocessor conditional compilation
-cases.
-
-Example:
-
-```
-case ${with_examples} in
- 
-    ...
- 
-    efr32)
-        OPENTHREAD_EXAMPLES_EFR32=1
-        AC_DEFINE_UNQUOTED([OPENTHREAD_EXAMPLES_EFR32],[${OPENTHREAD_EXAMPLES_EFR32}],[Define to 1 if you want to use efr32 examples])
-        ;;
- 
-...
- 
-esac
- 
-...
- 
-AC_SUBST(OPENTHREAD_EXAMPLES_EFR32)
-AM_CONDITIONAL([OPENTHREAD_EXAMPLES_EFR32], [test "${OPENTHREAD_EXAMPLES}" = "efr32"])
+```shell
+~/repos/ot-efr32$ tree -F -L 1 --dirsfirst
+.
+├── examples/
+├── openthread/
+├── script/
+├── src/
+├── third_party/
+├── CMakeLists.txt
+├── LICENSE
+└── README.md
 ```
 
-### Makefile output directory
+| Folder        | Description                                   |
+| ------------- | --------------------------------------------- |
+| `examples`    | _optional_ Example applications               |
+| `openthread`  | The `openthread` repository as a submodule    |
+| `script`      | Scripts for building, testing, linting        |
+| `src`         | The platform abstraction layer implementation |
+| `third_party` | Location for any third-party sources          |
 
-In the `AC_CONFIG_FILES` macro, add a Makefile output directory for the
-platform example.
+## Step 2: Add submodules
 
-Example:
+The next step is to add [`openthread`](https://github.com/openthread/openthread) and any other required repos as submodules
 
+```shell
+~/repos/ot-efr32$ git submodule add git@github.com:openthread/openthread.git
+Cloning into '/home/user/repos/ot-efr32/openthread'...
+remote: Enumerating objects: 78281, done.
+remote: Counting objects: 100% (1056/1056), done.
+remote: Compressing objects: 100% (488/488), done.
+remote: Total 78281 (delta 639), reused 864 (delta 556), pack-reused 77225
+Receiving objects: 100% (78281/78281), 76.62 MiB | 35.24 MiB/s, done.
+Resolving deltas: 100% (61292/61292), done.
 ```
-AC_CONFIG_FILES ([
-       examples/platforms/efr32/Makefile
-])
+
+> Note: Any non-original derivative code (for example, linker script or
+toolchain startup code) must be contained in the `third_party` directory.
+
+For this example, we'll be adding a lite version of the Silicon Labs Gecko SDK as a submodule in `third_party`.
+
+```shell
+~/repos/ot-efr32$ cd third_party
+~/repos/ot-efr32/third_party$ git submodule add git@github.com:SiliconLabs/sdk_support.git
+Cloning into '/home/user/repos/ot-efr32/third_party/sdk_support'...
+remote: Enumerating objects: 32867, done.
+remote: Counting objects: 100% (8181/8181), done.
+remote: Compressing objects: 100% (3098/3098), done.
+remote: Total 32867 (delta 4945), reused 7469 (delta 4732), pack-reused 24686
+Receiving objects: 100% (32867/32867), 128.83 MiB | 30.91 MiB/s, done.
+Resolving deltas: 100% (19797/19797), done.
 ```
 
-## Step 2: GNU Automake
+## Step 3: Scripts
 
-Create and modify [Automake](https://www.gnu.org/software/automake/) files to
-support the new platform example.
+To make common tasks easier, you may want to create some scripts in the `script` folder. This may include scripts for tasks like bootstraping, building, running a code-linter, and a test script for GitHub CI checks.
 
-The following platform-specific Automake files need to be created: 
+Below are some examples of scripts which are standard for most of the existing platform repositories.
 
--   `/openthread/examples/Makefile-{platform-name}`
--   `/openthread/examples/platforms/{platform-name}/Makefile.am`
--   `/openthread/examples/platforms/{platform-name}/Makefile.platform.am`
+### `bootstrap`
 
-See [`/examples`](https://github.com/openthread/openthread/tree/main/examples/) for sample implementations of
-these files.
+This script should install all tools and packages required by your hardware platform. It should also execute `openthread`'s bootstrap script to ensure that the user has everything needed to build the OpenThread stack.
 
-The following Automake files also need to be updated with your platform
-information:
+See the [bootstrap script][script-bootstrap] in [`ot-efr32`][silabs-ot-efr32] for an example.
 
--   [`/openthread/examples/platforms/Makefile.am`](https://github.com/openthread/openthread/blob/main/examples/platforms/Makefile.am)
--   [`/openthread/examples/platforms/Makefile.platform.am`](https://github.com/openthread/openthread/blob/main/examples/platforms/Makefile.platform.am)
+[script-bootstrap]: https://github.com/openthread/ot-efr32/blob/main/script/bootstrap
 
-### Linker script configuration
+### `build`
+
+The [CMake][cmake-homepage] build script should allow users to build the OpenThread stack for your platform. If your repository defines any example applications, this script should build those as well. This script should contain the basic system configuration options, including any platform-specific macro definitions.
+
+See the [build script][script-build] in [`ot-efr32`][silabs-ot-efr32] for an example.
+
+[script-build]: https://github.com/openthread/ot-efr32/blob/main/script/build
+
+### `test`
+
+A test script may be useful for users to test changes using any tests you have defined. This could be anything as simple as running sanity-check builds or as complicated as launching a unit-test suite.
+
+In [`ot-efr32`][silabs-ot-efr32], the script simply executes the `build` script for every supported board on each of the efr32 platforms.
+
+See the [test script][script-test] in [`ot-efr32`][silabs-ot-efr32] for an example.
+
+[script-test]: https://github.com/openthread/ot-efr32/blob/main/script/test
+
+> Note: While this script is optional, a few of the existing platform repositories, including [`ot-efr32`][silabs-ot-efr32], use it as part of [the GitHub CI checks](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L105) which can be setup to gatekeep pull-requests into `main`. **Example**: [ot-efr32#35](https://github.com/openthread/ot-efr32/pull/35/checks)
+
+### `make-pretty`
+
+[script-make-pretty]: https://github.com/openthread/ot-efr32/blob/main/script/make-pretty
+
+To maintain consistent styling, this script should format code, scripts, and markdown files.
+
+You may define this script yourself, but it may be easiest to use the [`make-pretty`][script-make-pretty] script which existing platform repos are using. The script calls into the `openthread`'s style scripts and helps ensure consistent style across all OpenThread repositories.
+
+> Note: If you plan on eventually hosting your repository on the OpenThread organization, it's required that you use this script to gatekeep pull-requests into your `main` branch. An example of how to add this CI check can be seen [here](https://github.com/openthread/ot-efr32/blob/859f50e515e0ab9840064302f6bfbeaf9e9cbd0d/.github/workflows/build.yml#L49-L63).
+
+## Step 4: Linker script configuration
 
 The [GNU Linker](http://www.ece.ufrgs.br/~fetter/eng04476/manuals/ld.pdf) script
 describes how to map all sections in the input files (`.o` "object" files
@@ -125,67 +152,22 @@ executable program, as well as the entry address. The platform-specific linker
 script is often provided with the platform's BSP.
 
 Configure the `ld` tool to point to the platform-specific linker script using
-the `-T` option of the `LDADD_COMMON` variable.
+`target_link_libraries` on your platform CMake target in `src/CMakeLists.txt`:
 
-Create
-`/openthread/examples/platforms/{platform-name}/Makefile.platform.am`
-and point the new platform to its linker script:
+```cmake
+set(LD_FILE "${CMAKE_CURRENT_SOURCE_DIR}/efr32mg12.ld")
 
-```
-if OPENTHREAD_EXAMPLES_EFR32
-    LDADD_COMMON                                                      += \
-    $(top_builddir)/examples/platforms/efr32/libopenthread-efr32.a       \
-    $(top_srcdir)/third_party/silabs/gecko_sdk_suite/v1.0/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg12_gcc_release.a \
-    $(NULL)
- 
-LDFLAGS_COMMON                                                        += \
-    -T $(top_srcdir)/third_party/silabs/gecko_sdk_suite/v1.0/platform/Device/SiliconLabs/EFR32MG12P/Source/GCC/efr32mg12p.ld \
-    $(NULL)
-endif # OPENTHREAD_EXAMPLES_EFR32
-```
-
-Add the platform's linker script configuration to the
-[`/openthread/examples/platforms/Makefile.platform.am`](https://github.com/openthread/openthread/blob/main/examples/platforms/Makefile.platform.am)
-utility Makefile:
+target_link_libraries(openthread-efr32mg12
+    PRIVATE
+        ot-config
+    PUBLIC
+        -T${LD_FILE}
+        -Wl,--gc-sections -Wl,-Map=$<TARGET_PROPERTY:NAME>.map
+)
 
 ```
-if OPENTHREAD_EXAMPLES_EFR32
-include $(top_srcdir)/examples/platforms/efr32/Makefile.platform.am
-endif
-```
 
-### Subdirectory configuration
-
-Modify [`/openthread/examples/platforms/Makefile.am`](https://github.com/openthread/openthread/blob/main/examples/platforms/Makefile.platform.am)
-to configure the package subdirectories for the new platform example.
-
-Add the platform subdirectory name in the list for `make dist`, in alphabetical
-order:
-
-```
-# Always package (e.g. for 'make dist') these subdirectories.
- 
-DIST_SUBDIRS                           = \
-    cc2538                               \
-    cc2650                               \
-    efr32                                \
-    nrf52840                             \
-    simulation                           \
-    utils                                \
-    $(NULL)
-```
-
-Append platform subdirectory name to the `SUBDIRS` variable:
-
-```
-# Always build (e.g. for 'make all') these subdirectories.
- 
-if OPENTHREAD_EXAMPLES_EFR32
-    SUBDIRS                           += efr32
-endif
-```
-
-### Toolchain startup code
+## Step 5: Toolchain startup code
 
 Toolchain startup code is often provided along with the platform's BSP. This
 code typically:
@@ -196,22 +178,23 @@ code typically:
 1.  Copies the `.data` section from non-volatile memory to RAM
 1.  Jumps to the application main function to execute the application logic
 
-The startup code (C or assembly source code) must be added to the
-platform-specific `Makefile.am`, otherwise some key variables used in the linker
+The startup code (C or assembly source code) must be included in your platform's
+`openthread-{platform-name}` library, otherwise some key variables used in the linker
 script cannot be quoted correctly:
 
--   `/openthread/examples/platforms/{platform-name}/Makefile.am`
+- `src/CMakeLists.txt`
 
-Example:
+**Example**: `startup-gcc.c` in `ot-cc2538` - [`src/CMakeLists.txt`](https://github.com/openthread/ot-cc2538/blob/4328e18faaaebe9b3151e0ba2b999ba9464f11bb/src/CMakeLists.txt#L36)
 
+```cmake
+add_library(openthread-cc2538
+    alarm.c
+...
+    startup-gcc.c
+...
+    system.c
+    logging.c
+    uart.c
+    $<TARGET_OBJECTS:openthread-platform-utils>
+)
 ```
-libopenthread_efr32_a_SOURCES   =  \
-@top_builddir@/third_party/silabs/gecko_sdk_suite/v1.0/hardware/kit/common/bsp/bsp_bcc.c \
-@top_builddir@/third_party/silabs/gecko_sdk_suite/v1.0/hardware/kit/common/bsp/bsp_stk.c \
-@top_builddir@/third_party/silabs/gecko_sdk_suite/v1.0/platform/Device/SiliconLabs/EFR32MG12P/Source/system_efr32mg12p.c \
-@top_builddir@/third_party/silabs/gecko_sdk_suite/v1.0/platform/Device/SiliconLabs/EFR32MG12P/Source/GCC/startup_efr32mg12p.c \
-```
-
-> Note: Any non-original derivative code (for example, linker script or
-toolchain startup code) must be contained in
-[`/openthread/third_party`](https://github.com/openthread/openthread/tree/main/third_party).

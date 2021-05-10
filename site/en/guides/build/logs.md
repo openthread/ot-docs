@@ -254,7 +254,7 @@ Log levels may be changed at run time if dynamic log level control is enabled.
 
             $ wpanctl set OpenThread:LogLevel 5
 
-### License
+## License
 
 Copyright (c) 2021, The OpenThread Authors.
 All rights reserved.

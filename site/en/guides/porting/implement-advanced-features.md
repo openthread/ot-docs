@@ -55,7 +55,7 @@ energy scanning logic by setting the macro
 > Note:  This feature is optional.
 
 mbedTLS defines several macros in the main configuration header file,
-[`mbedtls-config.h`](https://github.com/openthread/openthread/blob/main/third_party/mbedtls/mbedtls-config.h),
+[`mbedtls-config.h`][mbedtls-config.h],
 to allow users to enable alternative implementations of AES, SHA1, SHA2, and
 other modules, as well as individual functions for the Elliptic curve
 cryptography (ECC) over GF(p) module. See
@@ -70,27 +70,32 @@ experience, we recommend enabling hardware acceleration instead of software to
 implement the above operations.
 
 To enable hardware acceleration within OpenThread, the following mbedTLS
-configuration header files should be added to the compile option flags in the
-platform example's Makefile:
+configuration header files should be added to the `ot-config` compile
+definitions in the platform's CMake files:
+
+[mbedtls-config.h]: https://github.com/openthread/openthread/blob/main/third_party/mbedtls/mbedtls-config.h
 
 -   Main configuration, which defines all necessary macros used in OpenThread:
-    `/openthread/third-party/mbedtls/mbedtls-config.h`
+    [`/openthread/third-party/mbedtls/mbedtls-config.h`][mbedtls-config.h]
 -   User-specific configuration, which defines alternate implementations of
-    modules and functions: `/openthread/examples/platforms/{platform-name}/crypto/{platform-name}-mbedtls-config.h`
+    modules and functions: `src/{platform-name}-mbedtls-config.h`
 
-Example:
+[nrf52811.cmake]: (https://github.com/openthread/ot-nrf528xx/blob/2b19d73a9bf4526de4745190dc73728b12edd923/src/nrf52811/nrf52811.cmake#L51-L53)
+
+Example from [`nrf52811.cmake`][nrf52811.cmake]:
 
 ```
-EFR32_MBEDTLS_CPPFLAGS  = -DMBEDTLS_CONFIG_FILE='\"mbedtls-config.h\"'
-EFR32_MBEDTLS_CPPFLAGS += -DMBEDTLS_USER_CONFIG_FILE='\"efr32-mbedtls-config.h\"'
+target_compile_definitions(ot-config INTERFACE
+    "MBEDTLS_USER_CONFIG_FILE=\"nrf52811-mbedtls-config.h\""
+)
 ```
 
 Commented macros in `mbedtls-config.h` are not mandatory, and can be enabled in
 the user-specific configuration header file for hardware acceleration.
 
 For a complete example user-specific configuration, see the
-[`mbedtls_config_autogen.h`](https://github.com/openthread/openthread/blob/main/examples/platforms/efr32/efr32mg12/crypto/mbedtls_config_autogen.h)
-file.
+[`mbedtls_config_autogen.h`](https://github.com/openthread/ot-efr32/blob/main/src/efr32mg12/crypto/mbedtls_config_autogen.h)
+file in `ot-efr32`.
 
 ### AES module
 

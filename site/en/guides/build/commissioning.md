@@ -164,7 +164,7 @@ router
 Done
 ```
 
-### License
+## License
 
 Copyright (c) 2021, The OpenThread Authors.
 All rights reserved.
