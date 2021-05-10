@@ -16,7 +16,8 @@ Two sets of boards are used for this example:
 - *2x* BRD4161A (radio board; any EFR32MG work for this     case)
 - *2x* BRD4001A (development board)
 
-![image-20210510135855643](C:\Users\yanecib\AppData\Roaming\Typora\typora-user-images\image-20210510135855643.png)
+<img src="./img/wstk.png" alt="wstk.png"  width="524.00" />
+
 
 ## Software
 
@@ -27,8 +28,7 @@ Load the Zigbee examples Z3Switch in one radio board and Z3Light in the other.
 Once your network is ready make sure the *Network Analyzer* is set to decode the correct protocol. Select *Window > Preferences > Network Analyzer >*
 
 *Decoding > Stack Versions*, and verify it is set correctly. If you need to change it, click the correct stack then click *Apply* and *OK*.
-
-![image-20210510135925207](C:\Users\yanecib\AppData\Roaming\Typora\typora-user-images\image-20210510135925207.png)
+<img src="./img/preferences.png" alt="preferences.png"  width="524.00" />
 
 You will also need to get your network key (NWK key) to decrypt packets. Connect to one of your boards and launch the console. Under *Serial1* use the following command:
 
@@ -36,11 +36,11 @@ You will also need to get your network key (NWK key) to decrypt packets. Connect
 
 The console command should produce a display similar to this:
 
-![image-20210510140002820](C:\Users\yanecib\AppData\Roaming\Typora\typora-user-images\image-20210510140002820.png)
+<img src="./img/nwk.png" alt="nwk.png"  width="424.00" />
 
 In *Window > Preferences > Network Analyzer > Decoding > Security Keys*, click *New*, name the new entry and paste the copied key into it. Click *Apply and Close*.
 
-![image-20210510140139133](C:\Users\yanecib\AppData\Roaming\Typora\typora-user-images\image-20210510140139133.png)
+<img src="./img/window_nwk.png" alt="window_nwk.png"  width="524.00" />
 
 Now your analyzer is ready to display packets obtained from monitoring your network. 
 
@@ -57,13 +57,13 @@ To monitor with more features:
 
 ·    By right-clicking on a device, you can also show connectivity and add labels (here we added Switch and Light).
 
-![image-20210510140259924](C:\Users\yanecib\AppData\Roaming\Typora\typora-user-images\image-20210510140259924.png)
+<img src="./img/NA.png" alt="NA.png"  width="524.00" />
 
 # Turning any EFR32 into a Zigbee or Thread Sniffer
 
 ## Hardware Setup
 
-![image-20210510140325307](C:\Users\yanecib\AppData\Roaming\Typora\typora-user-images\image-20210510140325307.png)
+<img src="./img/OTBR.png" alt="OTBR.png"  width="524.00" />
 
 We are going to use :
 
@@ -151,4 +151,4 @@ For a ZigBee sniffer, return to *[Configure the Network Analyzer](https://conflu
 
 # Results (Thread example)
 
-![image-20210510140451442](C:\Users\yanecib\AppData\Roaming\Typora\typora-user-images\image-20210510140451442.png)
+<img src="./img/result.png" alt="result.png"  width="524.00" />
