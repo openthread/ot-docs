@@ -101,7 +101,7 @@ how to build and use it, see [OpenThread Daemon](https://openthread.io/platforms
 Build Support Packages (BSPs)  are found in
 [`/third_party`](https://github.com/openthread/openthread/tree/main/third_party). BSPs are additional third-party code used by OpenThread on each respective platform, generally included when [porting OpenThread](../../guides/porting/index.md) to a new hardware platform.
 
-### License
+## License
 
 Copyright (c) 2021, The OpenThread Authors.
 All rights reserved.

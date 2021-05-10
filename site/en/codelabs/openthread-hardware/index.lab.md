@@ -1,31 +1,3 @@
-/*
- *  Copyright (c) 2021, The OpenThread Authors.
- *  All rights reserved.
- *
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are met:
- *  1. Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  2. Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  3. Neither the name of the copyright holder nor the
- *     names of its contributors may be used to endorse or promote products
- *     derived from this software without specific prior written permission.
- *
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- *  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
- *  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- *  POSSIBILITY OF SUCH DAMAGE.
- */
- 
 ---
 id: openthread-hardware
 summary: In this Codelab, you'll program OpenThread on real hardware, create and manage a Thread network, and pass messages between nodes.
@@ -33,13 +5,13 @@ status: [final]
 authors: Jeff Bumgardner
 categories: Nest
 tags: web
-feedback link: https://github.com/openthread/openthread/issues
+feedback link: https://github.com/openthread/ot-docs/issues
 
 ---
 
 # Build a Thread network with nRF52840 boards and OpenThread
 
-[Codelab Feedback](https://github.com/openthread/openthread/issues)
+[Codelab Feedback](https://github.com/openthread/ot-docs/issues)
 
 
 ## Introduction
@@ -48,7 +20,7 @@ feedback link: https://github.com/openthread/openthread/issues
 
 <img src="img/26b7f4f6b3ea0700.png" alt="26b7f4f6b3ea0700.png" width="624.00" />
 
-[OpenThread](https://openthread.io) released by Google is an open-source
+[OpenThread](https://openthread.io/) released by Google is an open-source
 implementation of the  [Thread®](http://threadgroup.org/) networking protocol.
 Google Nest has released OpenThread to make the technology used in Nest products
 broadly available to developers to accelerate the development of products for
@@ -144,7 +116,7 @@ The nRF5x Command Line Tools allow you to flash the OpenThread binaries to the
 nRF52840 boards. Install the appropriate nRF5x-Command-Line-Tools-&lt;OS&gt;
 build on your Linux machine.
 
-<button>[Download nRF5x Command Line Tools](https://www.nordicsemi.com/DocLib/Content/User_Guides/getting_started/latest/UG/common/nordic_tools)</button>
+<button>[Download nRF5x Command Line Tools](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download)</button>
 
 Place the extracted package in the root folder `~/`
 
@@ -225,7 +197,7 @@ $ script/build nrf52840 USB_trans
 > aside positive
 >
 > For more information on building and configuring OpenThread, see
-[Build OpenThread](https://openthread.io/guides/build/).
+[Build OpenThread](../../guides/build/index.md).
 
 Navigate to the directory with the OpenThread RCP binary, and convert it to
 hex format:
@@ -682,7 +654,7 @@ fe80:0:0:0:1cd6:87a9:cb9d:4b1d         # Link-Local Address (LLA)
 > aside positive
 >
 > A single Thread node has multiple IPv6 addresses. For more information, see
-[IPv6 Addressing](https://openthread.io/guides/thread-primer/ipv6-addressing#unicast_address_types).
+[IPv6 Addressing](../../guides/thread-primer/ipv6-addressing.md#unicast-address-types).
 
 The "codelab" network is now visible when scanned from other Thread devices.
 
@@ -1509,20 +1481,20 @@ Building off of this Codelab, try the following exercises:
   addresses
 * Use  [pyspinel](https://github.com/openthread/pyspinel) to control the NCP
 * Convert the NCP into a Border Router using
-  [OpenThread Border Router](https://openthread.io/guides/border-router/build)
+  [OpenThread Border Router](../../guides/border-router/build/index.md)
   and connect your Thread network to the internet
 
 ### Further reading
 
-Check out  [openthread.io](https://openthread.io) and
+Check out [openthread.io](https://openthread.io/) and
 [GitHub](https://github.com/openthread) for a variety of OpenThread resources,
 including:
 
 *  [Supported Platforms](https://openthread.io/platforms/)
     — discover all the platforms that support OpenThread
-*  [Build OpenThread](https://openthread.io/guides/build/)
+*  [Build OpenThread](../../guides/build/index.md)
     — further details on building and configuring OpenThread
-*  [Thread Primer](https://openthread.io/guides/thread-primer/)
+*  [Thread Primer](../../guides/thread-primer/index.md)
     — covers all the Thread concepts featured in this Codelab
 
 Reference:
@@ -1532,4 +1504,31 @@ Reference:
 *  [OpenThread Daemon reference](https://openthread.io/platforms/co-processor/ot-daemon)
 *  [OpenThread UDP API reference](https://openthread.io/reference/group/api-udp)
 *  [GNU Screen quick reference](http://aperiodic.net/screen/quick_reference)
-*  
+
+## License
+
+Copyright (c) 2021, The OpenThread Authors.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+3. Neither the name of the copyright holder nor the
+   names of its contributors may be used to endorse or promote products
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
