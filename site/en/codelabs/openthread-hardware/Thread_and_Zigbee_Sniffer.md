@@ -92,9 +92,10 @@ wpanctl:wpan0> status
 
 The status command should give you this result: 
 
-**wpan0 => [**
+
 
 ```
+wpan0 => [
 "NCP:State" => "associated"
 "Daemon:Enabled" => true
 "NCP:Version" => "SL-OPENTHREAD/1.0.0.2 GitHub-f411a412bee; EFR32; Oct 6 2020 12:05:18"
@@ -110,9 +111,10 @@ The status command should give you this result:
 "IPv6:MeshLocalAddress" => "fdf4:5b7f:4a9c:0:b12f:2650:befc:262d"
 "IPv6:MeshLocalPrefix" => "fdf4:5b7f:4a9c::/64"
 "com.nestlabs.internal:Network:AllowingJoin" => false
+]
 ```
 
-**]**
+
 
 ## Sniffer (for Thread or ZigBee)
 
@@ -122,23 +124,34 @@ Load the built binary image onto your chosen *EFR32* dev board.
 
 Connect to the console of your *EFR32*. In order to turn the *Railtest* image into a sniffer for 802.15.4 protocols like ZigBee and Thread you will need to issue the following commands over the console:
 
+
+*This will place the radio into an idle state so that you can configure it.*
 ```
-This will place the radio into an idle state so that you can configure it.
- rx 0
+rx 0
+```
  
-This command configures the radio for the 802.15.4 PHY.
+*This command configures the radio for the 802.15.4 PHY.*
+```
 config2p4GHz802154
- 
-Sets the radio into the right mode for 802.15.4 packet capture.
+```
+
+*Sets the radio into the right mode for 802.15.4 packet capture.*
+```
 enable802154 rx 100 192 864
+```
  
-Sets the radio into promiscuous capture mode so it can act as a sniffer.
+*Sets the radio into promiscuous capture mode so it can act as a sniffer.*
+```
 setPromiscuousMode 1
+```
  
-Sets the desired channel you wish to sniff.
+*Sets the desired channel you wish to sniff.*
+```
 setChannel 26
- 
-Sets the radio back into receive mode.
+```
+
+*Sets the radio back into receive mode.*
+```
 rx 1
 ```
 
