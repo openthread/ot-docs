@@ -58,8 +58,11 @@ ID = 1 and Child ID = 1):
 
 The RLOC16 is part of the Interface Identifier (IID), which corresponds to the
 last 64 bits of the IPv6 address. Some IIDs can be used to identify some types
-of Thread interfaces. For example, the IID for RLOCs is always of the form
-<code>0000:00ff:fe00:<var>RLOC16</var></code>.
+of Thread interfaces. For example, the IID for RLOCs is always in this form:
+
+```
+0000:00ff:fe00:{RLOC16}
+```
 
 The IID, combined with a Mesh-Local Prefix, results in the RLOC. For example,
 using a Mesh-Local Prefix of `fde5:8dba:82e1:1::/64`, the RLOC for a node where
@@ -242,7 +245,7 @@ devices.
 Anycast is used to route traffic to a Thread interface when the RLOC of a
 destination is not known. An Anycast Locator (ALOC) identifies the location of
 multiple interfaces within a Thread partition. The last 16 bits of an ALOC,
-called the ALOC16, is in the format of <code>0xfc<var>XX</var></code>, which
+called the ALOC16, is in the format of `0xfc{XX}`, which
 represents the type of ALOC.
 
 For example, an ALOC16 between `0xfc01` and `0xfc0f` is reserved for DHCPv6
