@@ -27,7 +27,7 @@ The PSKc is generated from the following parameters:
 Syntax:
 
 ```
-pskc {&lt;commissioner-credential&gt; &lt;extpanid&gt; &lt;network-name&gt;}
+pskc {commissioner-credential} {extpanid} {network-name}
 ```
 
 Example:
@@ -63,7 +63,7 @@ The steering data is generated from the following parameters:
 Syntax:
 
 ```
-steering-data {[length] &lt;joiner-id&gt;}
+steering-data [{length}] {joiner-id}
 ```
 
 Example:
