@@ -136,7 +136,9 @@ NAT](../../../guides/border-router/access-point.md#configure-nat).
 
 1.  Using only the last 4 bytes of the resulting IPv6 address, combine it with
     the well-known prefix of `64:ff9b::/64` to get a new IPv6 address:
-    ```64:ff9b::acd9:a46e```
+    ```
+    64:ff9b::acd9:a46e
+    ```
 
 1.  Ping this new IPv6 address from the CLI of the standalone Thread node to
     test it's internet connectivity. Pinging this address is akin to pinging the
