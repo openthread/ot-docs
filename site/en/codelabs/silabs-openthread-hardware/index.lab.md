@@ -1,7 +1,7 @@
 ---
 id: silabs-openthread-hardware
 summary: In this Codelab, you'll program OpenThread on real hardware, create and manage a Thread network, and pass messages between nodes.
-status: [draft]
+status: [publish]
 authors: Mithil Raut
 categories:
 tags:
@@ -29,7 +29,9 @@ The  [Thread specification](http://threadgroup.org/ThreadSpec) defines an IPv6-b
 
 This guide describes how to get started developing OpenThread applications using the Silicon Labs OpenThread SDK and Simplicity Studio 5. The image below shows the boards (BRDs) and the hardware set up with an OT Border Router (OTBR) and two Thread devices used in the codelab.
 
-> You can adapt this codelab to use any of the boards listed under hardware in the prerequisite section.
+> aside positive
+>
+> **Note:** You can adapt this codelab to use any of the boards listed under hardware in the prerequisite section.
 
 ![EFR32MG Hardware set up](./img/EFR32MG_hardware_setup.jpg)
 
@@ -48,7 +50,7 @@ Duration: 3:00
 
 Hardware:
 
-1. 3 EFR32MGxx radio boards - you can use any combination of these devices. I used a BRD4166A as the RCP and two BRD4168As as Full Thread Devices.
+1. 3 EFR32MGxx radio boards - any combination of these devices can be used. This codelab uses a BRD4166A as the RCP and two BRD4168As as Full Thread Devices.
 
    * EFR32MG12 (BRD**4161A**, BRD**4166A**, BRD**4170A**, BRD**4304**A)
    * EFR32MG13 (BRD**4168A**)
@@ -58,7 +60,9 @@ Hardware:
 
 2. BRD4001A: Wireless starter main boards (WSTK) to host the radio boards. Except for BRD4166A, all the radio boards need a starter main board each. Mini USB cables to connect and power the main boards or micro USB cable for BRD4166A.
 
-> Note: Ensure the 3 way switch on your main board is in AEM position as shown below. The BRD4166A doesn't have this switch.
+> aside positive
+>
+> **Important:** Ensure the 3 way switch on your main board is in AEM position as shown below. The BRD4166A doesn't have this switch.
 
 ![WSTK AEM](./img/WSTK_AEM.jpg)
 
@@ -70,13 +74,17 @@ Hardware:
 
 Software:
 
-* [Simplicity Studio v5](https://www.silabs.com/developers/simplicity-studio) installed and updated on the Windows/Linux/Mac Host system with
+* Simplicity Studio v5 installed and updated on the Windows/Linux/Mac Host system with
 
   * GNU ARM v7.2.1 toolchain 
-
   * Gecko SDK Suite 3.1.0 or later and Silicon Labs OpenThread SDK.
+  
 
-    > Note: The IAR Embedded Workbench for ARM (IAR EWARM) Compiler is currently not supported with OpenThread.
+<button>[Download Simplicity Studio 5](https://www.silabs.com/developers/simplicity-studio)</button>
+
+> aside positive
+>
+> **Important:** The IAR Embedded Workbench for ARM (IAR EWARM) Compiler is currently not supported with OpenThread.
 
 
 
@@ -94,7 +102,9 @@ This Codelab was created using
 
  ![](img/BRD4166A.jpeg)![BRD4168A](./img/BRD4168A.jpeg)
 
-> Note: You can update the GSDK or toolchain from **Studio -> Help -> Update Software -> SDKs/Toolchains**
+> aside positive
+>
+> **Note:** You can update the GSDK or toolchain from **Studio -> Help -> Update Software -> SDKs/Toolchains**
 
 Connect each Wireless Starter Kit main board to the host computer by USB as shown in the image below. These connections will permit programming and network analysis of the RCP and end devices. We will first use the host computer to program the BRD4166A with the ot-rcp firmware and eventually connect it to the Raspberry Pi. Optionally, end devices may be connected to the host computer via a common Ethernet switch. The starter kits also support programming and network analysis over IPv4.
 
@@ -128,7 +138,9 @@ We will create two projects. The `ot-rcp` project for BRD4166A and the `ot-cli-f
 
    * IDE/ Toolchain: The toolchain that will be used for compiling the OT project. We use GNU ARM 7.2.1.
 
-> Note: The IAR Embedded Workbench for ARM (IAR EWARM) Compiler is currently not supported with OpenThread.
+> aside positive
+>
+> **Note:** The IAR Embedded Workbench for ARM (IAR EWARM) Compiler is currently not supported with OpenThread.
 
 ![New project wizard](./img/new_project_wizard.jpg)
 
@@ -150,7 +162,7 @@ The project is configured from the **Software Components** tab by installing and
 
 For this demo we are going to use the default configuration of the sample applications. Repeat the above steps to create the `ot-rcp` project for your other board.
 
-### Build and Flash the projects
+### Build and Flash the projects
 
 Build and flash both `ot-rcp` and `ot-cli-ftd` projects.
 
@@ -174,11 +186,11 @@ At this point you should have created, compiled and flashed the appropriate firm
 
 After completing this section, your Thread network hardware set up will look like this.
 
-> Not shown in the image is the WSTKs connected to a Windows/Linux/Mac Host system via USB and the Raspberry Pi 3B+ is connected to the internet using an Ethernet cable. 
+> aside positive
+>
+> **Note:** Not shown in the image is the WSTKs connected to a Windows/Linux/Mac Host system via USB and the Raspberry Pi 3B+ is connected to the internet using an Ethernet cable. 
 
 ![EFR32MG set up](./img/EFR32MG_hardware_setup.jpg)
-
-
 
 ## Set up the Serial console for `ot-cli-ftd` devices
 
@@ -186,7 +198,9 @@ Duration: 1:00
 
 To launch the Console interface, in the Simplicity IDE perspective **right-click on your J-Link device** in the Devices View / Debug Adapters Window. Choose **Launch Console**. To get a prompt on the Console, choose **Serial 1** tab and **press Enter**. Check the state of the FTD node.
 
-> Note: For convenience, I also right clicked and renamed the debug adapters as `ot-cli-ftd 1` and `ot-cli-ftd 2`. 
+> aside positive
+>
+> **Note:** For convenience, right click and rename the debug adapters as `ot-cli-ftd 1` and `ot-cli-ftd 2`. 
 
 ![FTD Studio Console View](./img/console_ftds.png)
 
@@ -210,7 +224,9 @@ https://hub.docker.com/r/siliconlabsinc/openthread-backbone-border-router/tags
 2. You can either SSH onto the Raspberry Pi or choose to work with the Raspbian Desktop directly. Open a terminal.
 3. Make sure to update your local repositories and package manager (**apt-get update** and **apt-get upgrade** prior to installing Docker).
 
-> Note: Make sure to reboot the Raspberry Pi after any updates.
+> aside positive
+>
+> **Important:** Make sure to reboot the Raspberry Pi after any updates.
 
 ### Install docker image
 
@@ -333,7 +349,9 @@ With the out-of-band method, we know all security information and add the node m
 |       |                                                      | Wait 20 seconds while the device joins and configures itself. |                   |
 | 6     | `state`                                              | View network configuration.                                  | child<br/>Done    |
 
-> Note: Because of the self configuring nature of a Thread network and these being Full Thread devices, either or both the FTDs may eventually become  routers. This can be found out using the `state` command.
+> aside positive
+>
+> **Note:** Because of the self configuring nature of a Thread network and these being Full Thread devices, either or both the FTDs may eventually become  routers. This can be found out using the `state` command.
 
 ### Communication between Thread devices
 
@@ -419,17 +437,13 @@ Precompiled demo application images provided with the OpenThread SDK are compati
 
 5. BRD4304a
 
-   This list may be updated in the future SDK releases to include more radio boards. Please refer to the Silicon Labs OpenThread SDK release notes under Documentation for a full list of supported parts.
+This list may be updated in the future SDK releases to include more radio boards. Please refer to the Silicon Labs OpenThread SDK release notes under Documentation for a full list of supported parts.
 
 Flash the following demos on the respective boards. To flash, select your board under Debug Adapters on the left and click on RUN for the corresponding sample applications. A pop up window will show the flash progress.
 
-1. BRD4166A: **ot-rcp**
+1. BRD4166A: **ot-rcp** — This device will function as a Radio Co Processor to the OT Border Router. We will use this device to create a Thread network and onboard the other two devices on the Thread network. Being a Border Router this device also acts as a gateway for the devices in the Thread network to communicate over the internet.
 
-   This device will function as a Radio Co Processor to the OT Border Router. We will use this device to create a Thread network and onboard the other two devices on the Thread network. Being a Border Router this device also acts as a gateway for the devices in the Thread network to communicate over the internet.
-
-2. Two BRD4168A: **ot-cli-ftd**
-
-   These two devices will act as Full Thread Devices. They will join the Thread network created by the OTBR.
+2. Two BRD4168A: **ot-cli-ftd** — These two devices will act as Full Thread Devices. They will join the Thread network created by the OTBR.
 
 ## License
 
