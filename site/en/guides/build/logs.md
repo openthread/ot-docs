@@ -211,16 +211,16 @@ Logs for an NCP may be sent through `wpantund` to the `syslog` of a host. For a
 Linux host, this is `/var/log/syslog.`
 
 Use an `OPENTHREAD_CONFIG_LOG_OUTPUT` value of
-`OPENTHREAD_CONFIG_LOG_OUTPUT_NCP_SPINEL` to enable NCP logging. Change this in
+`OPENTHREAD_CONFIG_LOG_OUTPUT_APP` to enable NCP logging. Change this in
 the platform's configuration file.
 
 For example, to enable this for an nrf52840 connected to a Linux host:
 
 1.  Edit the configuration file for the platform and change the log output to
-    NCP Spinel. For nrf52840, this is
+    the app. For nrf52840, this is
     `./src/nrf52840/openthread-core-nrf52840-config.h` in [ot-nrf528xx](https://github.com/openthread/ot-nrf528xx) repository:
 
-        #define OPENTHREAD_CONFIG_LOG_OUTPUT OPENTHREAD_CONFIG_LOG_OUTPUT_NCP_SPINEL
+        #define OPENTHREAD_CONFIG_LOG_OUTPUT OPENTHREAD_CONFIG_LOG_OUTPUT_APP
 
 1.  Build the nrf52840 example with the desired level of logs and other
     NCP-specific flags. To build a joiner with all logs enabled:
@@ -228,11 +228,11 @@ For example, to enable this for an nrf52840 connected to a Linux host:
         $ ./script/build nrf52840 UART_trans -DOT_JOINER=ON -DOT_FULL_LOGS=ON
 
 1.  Flash the NCP, connect it to the Linux host, and start `wpantund` as
-    detailed in the [OpenThread Hardware Codelab](https://openthread.io/codelabs/openthread-hardware/#3).
+    detailed in the [wpantund](https://github.com/openthread/wpantund/blob/master/INSTALL.md#configuring-and-using-wpantund) repository.
 
 1.  Once the NCP is running, check the `syslog` on the Linux machine:
 
-        $ tail -F /var/log/syslog | grep "ot-ncp-ftd"
+        $ tail -F /var/log/syslog | grep "wpantund"
 
 1.  You should see OpenThread logs display in real time for the NCP. You may
     also see them in the `wpantund` output.
@@ -241,8 +241,9 @@ For example, to enable this for an nrf52840 connected to a Linux host:
 
 Log levels may be changed at run time if dynamic log level control is enabled.
 
-1.  Edit `/src/core/config/logging.h` and set
-    `OPENTHREAD_CONFIG_ENABLE_DYNAMIC_LOG_LEVEL` to `1`.
+1.  Build the app with option `-DOT_LOG_LEVEL_DYNAMIC=ON`. For example,
+
+        $ ./script/build nrf52840 UART_trans -DOT_JOINER=ON -DOT_FULL_LOGS=ON -DOT_LOG_LEVEL_DYNAMIC=ON
 
 1.  Change the log level depending on your implementation:
     1.  For a [system-on-chip (SoC)](/platforms#single-chip-thread-only-soc),
