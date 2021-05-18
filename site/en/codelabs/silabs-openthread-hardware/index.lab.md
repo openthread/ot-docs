@@ -1,7 +1,7 @@
 ---
 id: silabs-openthread-hardware
 summary: In this Codelab, you'll program OpenThread on real hardware, create and manage a Thread network, and pass messages between nodes.
-status: [publish]
+status: [final]
 authors: Mithil Raut
 categories:
 tags:
@@ -11,7 +11,7 @@ feedback link: https://github.com/openthread/ot-docs/issues
 
 # Build a Thread network with Silicon Labs EFR32 boards and OpenThread using Simplicity Studio v5
 
-[Codelab Feedback](https://github.com/openthread/openthread/issues)
+[Codelab Feedback](https://github.com/openthread/ot-docs/issues)
 
 ## Introduction
 
@@ -21,7 +21,7 @@ Duration: 3:00
 
 <img src="img/26b7f4f6b3ea0700.png" alt="26b7f4f6b3ea0700.png" width="624.00" />
 
-Google's [OpenThread](https://openthread.io) (OT) is an open-source implementation of Thread. Google has released OpenThread to make the networking technology used in Google Nest products more broadly available to developers, in order to accelerate the development of products for the connected home and commercial buildings. With a narrow platform abstraction layer and a small memory footprint, OpenThread is highly portable. It supports both system-on-chip (SoC) and network co-processor (NCP) designs.
+Google's [OpenThread](https://openthread.io/) (OT) is an open-source implementation of Thread. Google has released OpenThread to make the networking technology used in Google Nest products more broadly available to developers, in order to accelerate the development of products for the connected home and commercial buildings. With a narrow platform abstraction layer and a small memory footprint, OpenThread is highly portable. It supports both system-on-chip (SoC) and network co-processor (NCP) designs.
 
 The  [Thread specification](http://threadgroup.org/ThreadSpec) defines an IPv6-based reliable, secure, and low-power wireless device-to-device communication protocol for home and commercial building applications.
 
@@ -359,16 +359,16 @@ We will use the `ping` command to check if devices can communicate with each oth
 
 ```console
 > ipaddr
-fd5c:c6b:3a17:40b9:0:ff:fe00:fc00					# Leader Anycast Locator (ALOC)
-fd5c:c6b:3a17:40b9:0:ff:fe00:1800					# Routing Locator (RLOC)
+fd5c:c6b:3a17:40b9:0:ff:fe00:fc00		# Leader Anycast Locator (ALOC)
+fd5c:c6b:3a17:40b9:0:ff:fe00:1800		# Routing Locator (RLOC)
 fd5c:c6b:3a17:40b9:84e2:bae8:bd5b:fa03		# Mesh-Local EID (ML-EID)
-fe80:0:0:0:c449:ca4a:101f:5d16						# Link-Local Address (LLA)
+fe80:0:0:0:c449:ca4a:101f:5d16		# Link-Local Address (LLA)
 ```
 
 From both FTDs ping the OTBR using the OTBR's RLOC address.
 
 ```console
-ping fd5c:c6b:3a17:40b9:0:ff:fe00:1800
+> ping fd5c:c6b:3a17:40b9:0:ff:fe00:1800
 Done
 > 
 > 16 bytes from fd5c:c6b:3a17:40b9:0:ff:fe00:1800: icmp_seq=3 hlim=64 time=30ms
