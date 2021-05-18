@@ -362,7 +362,7 @@ We will use the `ping` command to check if devices can communicate with each oth
 fd5c:c6b:3a17:40b9:0:ff:fe00:fc00		# Leader Anycast Locator (ALOC)
 fd5c:c6b:3a17:40b9:0:ff:fe00:1800		# Routing Locator (RLOC)
 fd5c:c6b:3a17:40b9:84e2:bae8:bd5b:fa03		# Mesh-Local EID (ML-EID)
-fe80:0:0:0:c449:ca4a:101f:5d16		# Link-Local Address (LLA)
+fe80:0:0:0:c449:ca4a:101f:5d16			# Link-Local Address (LLA)
 ```
 
 From both FTDs ping the OTBR using the OTBR's RLOC address.
