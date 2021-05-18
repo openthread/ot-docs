@@ -3,7 +3,7 @@
 OpenThread logs are controlled by numerous compile-time configuration constants.
 Unless otherwise noted, these constants are defined in the following file:
 
-[`/src/core/config/logging.h`](https://github.com/openthread/openthread/tree/main/src/core/config/logging.h)
+[`openthread/src/core/config/logging.h`](https://github.com/openthread/openthread/tree/main/src/core/config/logging.h)
 
 Note: Platform-level configuration constants override the default core ones. If
 a constant is defined at both the core and the platform level, changing the
@@ -15,16 +15,16 @@ OpenThread supports different output logging methods, defined as the
 compile-time configuration constant of `OPENTHREAD_CONFIG_LOG_OUTPUT`. The
 logging method options are listed in the following file:
 
-[`/src/core/config/logging.h`](https://github.com/openthread/openthread/tree/main/src/core/config/logging.h)
+[`openthread/src/core/config/logging.h`](https://github.com/openthread/openthread/tree/main/src/core/config/logging.h)
 
 The default log output configuration is
 `OPENTHREAD_CONFIG_LOG_OUTPUT_PLATFORM_DEFINED`.
 
 The output method is an example of where you may need to update the
 platform-level configuration constant instead of the core one. For example, to
-change the output method in the sim example app, edit
-`/examples/platforms/sim/openthread-core-sim-config.h` instead of
-`/src/core/config/logging.h`.
+change the output method in the simulation example app, edit
+`openthread/examples/platforms/simulation/openthread-core-simulation-config.h` instead of
+`openthread/src/core/config/logging.h`.
 
 ## Log levels
 
@@ -32,7 +32,7 @@ Logs may output varying levels of information, defined as the compile-time
 configuration constant of `OPENTHREAD_CONFIG_LOG_LEVEL`. The level options are
 listed in the following file:
 
-[`/include/openthread/platform/logging.h`](https://github.com/openthread/openthread/tree/main/include/openthread/platform/logging.h)
+[`openthread/include/openthread/platform/logging.h`](https://github.com/openthread/openthread/tree/main/include/openthread/platform/logging.h)
 
 The list of log levels are also available in the [Platform
 Logging Macros](https://openthread.io/reference/group/plat-logging#macros) API reference.
@@ -48,7 +48,7 @@ OpenThread logs, use `OT_LOG_LEVEL_DEBG`.
 The log regions determine what areas of the OpenThread code are enabled for
 logging. The region enumeration is defined in the following file:
 
-[`/include/openthread/platform/logging.h`](https://github.com/openthread/openthread/tree/main/include/openthread/platform/logging.h)
+[`openthread/include/openthread/platform/logging.h`](https://github.com/openthread/openthread/tree/main/include/openthread/platform/logging.h)
 
 The list of log regions are also available in the [Platform
 Logging Enumerations](https://openthread.io/reference/group/plat-logging#otlogregion) API reference.
@@ -65,18 +65,14 @@ the compile-time configuration constant of
 See the [Platform Logging](https://openthread.io/reference/group/plat-logging#otplatlog) API
 reference for more information on this function.
 
-To use this function directly in the OpenThread example apps, use the `REFERENCE_DEVICE`
-build switch. For example, to use it within the CLI app
-(`examples/apps/cli/main.c`) for the nRF52840 example:
+To use this function directly in the OpenThread example apps, use the `OT_REFERENCE_DEVICE`
+cmake option. For example, to use it within the CLI app for the CC2538 example:
 
 ```
-$ make -f examples/Makefile-nrf52840 REFERENCE_DEVICE=1
+$ ./script/build -DOT_REFERENCE_DEVICE=ON
 ```
 
-Alternatively, modify the `COMMONCFLAGS` variable in an [example
-`Makefile`](https://github.com/openthread/openthread/tree/main/examples) to enable it by default when building.
-
-> Note: In the simulation example app, `REFERENCE_DEVICE` is enabled by default.
+Alternatively, update the [`openthread/etc/cmake/options.cmake`](https://github.com/openthread/openthread/blob/main/etc/cmake/options.cmake) file to enable it by default when building.
 
 ## How to enable logs
 
@@ -85,10 +81,10 @@ OpenThread. See [Build OpenThread](../../guides/build/index.md) for more informa
 
 ### Enable all logs
 
-To quickly enable all log levels and regions, use the `FULL_LOGS` build switch:
+To quickly enable all log levels and regions, use the `OT_FULL_LOGS` cmake option:
 
 ```
-$ make -f examples/Makefile-simulation FULL_LOGS=1
+$ ./script/build -DOT_FULL_LOGS=ON
 ```
 
 This switch sets the log level to `OT_LOG_LEVEL_DEBG` and turns on all region
@@ -96,7 +92,7 @@ flags.
 
 ### Enable a specific level of logs
 
-To enable a specific level of logs, edit `/src/core/config/logging.h` and update
+To enable a specific level of logs, edit `openthread/src/core/config/logging.h` and update
 `OPENTHREAD_CONFIG_LOG_LEVEL` to the desired level, then build OpenThread. For
 example, to enable logs up to `OT_LOG_LEVEL_INFO`:
 
@@ -105,7 +101,7 @@ example, to enable logs up to `OT_LOG_LEVEL_INFO`:
 ```
 
 ```
-$ make -f examples/Makefile-simulation
+$ ./script/build
 ```
 
 ### View logs in syslog
@@ -114,11 +110,12 @@ Logs are sent to the `syslog` by default. On Linux, this is `/var/log/syslog.`
 
 1.  Build the simulation example with all logs enabled:
 
-        $ make -f examples/Makefile-simulation FULL_LOGS=1
+        $ cd openthread
+        $ ./script/cmake-build simulation -DOT_FULL_LOGS=ON
 
 1.  Start a simulated node:
 
-        $ ./output/simulation/bin/ot-cli-ftd 1
+        $ ./build/simulation/examples/apps/cli/ot-cli-ftd 1
 
 1.  In a new terminal window, set up a real-time output of the OT logs:
 
@@ -184,28 +181,29 @@ Logs may be viewed directly in the OpenThread CLI example app.
 
 1.  Edit the configuration file for the example platform and change the log
     output to the app. For the simulation example, this is
-    `/examples/platforms/sim/openthread-core-sim-config.h`:
+    `openthread/examples/platforms/simulation/openthread-core-simulation-config.h`:
 
         #define OPENTHREAD_CONFIG_LOG_OUTPUT OPENTHREAD_CONFIG_LOG_OUTPUT_APP
 
 1.  Build the simulation example with the desired level of logs. To enable all
     logs:
 
-        $ make -f examples/Makefile-simulation FULL_LOGS=1
+        $ ./script/cmake-build simulation -DOT_FULL_LOGS=ON
 
 1.  Start a simulated node:
 
-        $ ./output/simulation/bin/ot-cli-ftd 1
+        $ ./build/simulation/examples/apps/cli/ot-cli-ftd 1
 
 1.  You should see log output in the same window as the OpenThread CLI as
     commands are processed.
 
-If you have added custom logging and enabled all logs, the UART transmit buffer
-may not be large enough to handle the additional custom logs. If some logs are
-not appearing when they should, try increasing the size of the UART transmit
-buffer, defined as `OPENTHREAD_CONFIG_CLI_UART_TX_BUFFER_SIZE` in
-`/src/cli/cli_config.h` or the platform's configuration file, such as
-`/examples/platforms/nrf528xx/nrf52840/openthread-core-nrf52840-config.h`.
+If you have added custom logging and enabled all logs, the CLI line buffer or the UART transmit 
+buffer may not be large enough to handle the additional custom logs. If some logs are not 
+appearing when they should, try increasing the size of the CLI line
+buffer, defined as `OPENTHREAD_CONFIG_CLI_MAX_LINE_LENGTH` in
+`/openthread/src/cli/cli_config.h` or increasing the size of the UART transmit buffer, defined as
+`OPENTHREAD_CONFIG_CLI_UART_TX_BUFFER_SIZE` in the platform's configuration file, such as
+`/src/nrf52840/openthread-core-nrf52840-config.h`.
 
 ### View logs for an NCP
 
@@ -213,28 +211,28 @@ Logs for an NCP may be sent through `wpantund` to the `syslog` of a host. For a
 Linux host, this is `/var/log/syslog.`
 
 Use an `OPENTHREAD_CONFIG_LOG_OUTPUT` value of
-`OPENTHREAD_CONFIG_LOG_OUTPUT_NCP_SPINEL` to enable NCP logging. Change this in
+`OPENTHREAD_CONFIG_LOG_OUTPUT_APP` to enable NCP logging. Change this in
 the platform's configuration file.
 
 For example, to enable this for an nrf52840 connected to a Linux host:
 
 1.  Edit the configuration file for the platform and change the log output to
-    NCP Spinel. For nrf52840, this is
-    `/examples/platforms/nrf528xx/nrf52840/openthread-core-nrf52840-config.h`:
+    the app. For nrf52840, this is
+    `./src/nrf52840/openthread-core-nrf52840-config.h` in [ot-nrf528xx](https://github.com/openthread/ot-nrf528xx) repository:
 
-        #define OPENTHREAD_CONFIG_LOG_OUTPUT OPENTHREAD_CONFIG_LOG_OUTPUT_NCP_SPINEL
+        #define OPENTHREAD_CONFIG_LOG_OUTPUT OPENTHREAD_CONFIG_LOG_OUTPUT_APP
 
 1.  Build the nrf52840 example with the desired level of logs and other
     NCP-specific flags. To build a joiner with all logs enabled:
 
-        $ make -f examples/Makefile-nrf52840 JOINER=1 USB=1 FULL_LOGS=1
+        $ ./script/build nrf52840 UART_trans -DOT_JOINER=ON -DOT_FULL_LOGS=ON
 
 1.  Flash the NCP, connect it to the Linux host, and start `wpantund` as
-    detailed in the [OpenThread Hardware Codelab](https://openthread.io/codelabs/openthread-hardware/#3).
+    detailed in the [wpantund](https://github.com/openthread/wpantund/blob/master/INSTALL.md#configuring-and-using-wpantund) repository.
 
 1.  Once the NCP is running, check the `syslog` on the Linux machine:
 
-        $ tail -F /var/log/syslog | grep "ot-ncp-ftd"
+        $ tail -F /var/log/syslog | grep "wpantund"
 
 1.  You should see OpenThread logs display in real time for the NCP. You may
     also see them in the `wpantund` output.
@@ -243,8 +241,9 @@ For example, to enable this for an nrf52840 connected to a Linux host:
 
 Log levels may be changed at run time if dynamic log level control is enabled.
 
-1.  Edit `/src/core/config/logging.h` and set
-    `OPENTHREAD_CONFIG_ENABLE_DYNAMIC_LOG_LEVEL` to `1`.
+1.  Build the app with option `-DOT_LOG_LEVEL_DYNAMIC=ON`. For example,
+
+        $ ./script/build nrf52840 UART_trans -DOT_JOINER=ON -DOT_FULL_LOGS=ON -DOT_LOG_LEVEL_DYNAMIC=ON
 
 1.  Change the log level depending on your implementation:
     1.  For a [system-on-chip (SoC)](https://openthread.io/platforms#single-chip-thread-only-soc),
