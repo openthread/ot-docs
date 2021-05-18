@@ -33,7 +33,7 @@ before use.
 <figure>
 <a href="../../guides/images/otbr-cables-adafruit.png"><img src="../../guides/images/otbr-cables-adafruit.png" width="600" border="0" alt="BeagleBone Black Adafruit" /></a><figcaption>Adafruit serial cable</figcaption>
 </figure>
-
+<br/>
 <figure>
 <a href="../../guides/images/otbr-cables-ftdi.png"><img src="../../guides/images/otbr-cables-ftdi.png" width="600" border="0" alt="BeagleBone Black FTDI" /></a><figcaption>FTDI serial cable</figcaption>
 </figure>
