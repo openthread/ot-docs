@@ -1,5 +1,7 @@
 # Set Up the Build Environment
 
+Contributor: https://github.com/lmnotran
+
 To promote free and open development, OpenThread uses [CMake][cmake-homepage] in
 the build toolchain. Currently, this toolchain is required for porting
 OpenThread to a new hardware platform.

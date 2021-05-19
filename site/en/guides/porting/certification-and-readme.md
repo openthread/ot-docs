@@ -1,5 +1,7 @@
 # Certification and README
 
+Contributor: https://github.com/lmnotran
+
 ## Thread Certification
 
 To achieve Thread Certification, the port must be tested against the official

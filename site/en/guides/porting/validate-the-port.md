@@ -1,5 +1,7 @@
 # Validate the Port
 
+Contributor: https://github.com/lmnotran
+
 Basic validation is necessary to verify a successful port of OpenThread to a new
 hardware platform example.
 
