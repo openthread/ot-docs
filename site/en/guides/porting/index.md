@@ -1,5 +1,7 @@
 # Porting OpenThread to New Hardware Platforms
 
+Contributor: https://github.com/lmnotran
+
 Porting the OpenThread stack to a new hardware platform consists of a few steps:
 
 1.  [Set up the build environment](https://github.com/openthread/ot-docs/blob/main/site/en/guides/porting/set-up-the-build-environment.md)

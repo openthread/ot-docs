@@ -1,5 +1,7 @@
 # Implement Advanced Features
 
+Contributor: https://github.com/lmnotran
+
 Some advanced features are optional, depending on whether or not they are
 supported on the target hardware platform.
 
