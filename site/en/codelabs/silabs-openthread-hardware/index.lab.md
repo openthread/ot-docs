@@ -256,7 +256,7 @@ https://hub.docker.com/r/siliconlabsinc/openthread-backbone-border-router/tags
 
    ```console
    docker run -d --name "otbr" \
-    --sysctl "net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" \ 
+    --sysctl "net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" \
     -p 8080:80 --dns=127.0.0.1 -it \
     --volume /dev/ttyACM0:/dev/ttyACM0 \
     --privileged siliconlabsinc/openthread-border-router:gsdk-3.1.0 \
