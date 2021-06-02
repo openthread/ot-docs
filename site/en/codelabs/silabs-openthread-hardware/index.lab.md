@@ -3,8 +3,8 @@ id: silabs-openthread-hardware
 summary: In this Codelab, you'll program OpenThread on real hardware, create and manage a Thread network, and pass messages between nodes.
 status: [final]
 authors: Mithil Raut
-categories:
-tags:
+categories: Nest
+tags: web
 feedback link: https://github.com/openthread/ot-docs/issues
 
 ---
