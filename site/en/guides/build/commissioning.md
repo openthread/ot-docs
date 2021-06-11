@@ -11,7 +11,7 @@ mobile phone) that performs the Commissioner role. The Joiner is the device
 wishing to join the Thread network.
 
 A Thread Commissioner is used to authenticate a device onto the network. It does
-not transfer or have possession of Thread network credentials such as the master
+not transfer or have possession of Thread network credentials such as the network
 key.
 
 This guide covers basic, on-mesh commissioning without an external Commissioner

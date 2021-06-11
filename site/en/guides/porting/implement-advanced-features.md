@@ -116,7 +116,7 @@ To utilize an alternative AES module implementation:
 ### SHA256 module
 
 OpenThread Security applies HMAC and SHA256 hash algorithms to calculate the
-hash value for master key management and PSKc generation according to the Thread
+hash value for network key management and PSKc generation according to the Thread
 Specification.
 
 To utilize an alternative basic SHA256 module implementation:
