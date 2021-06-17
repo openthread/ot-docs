@@ -10,7 +10,7 @@ PSKc is used to authenticate an external Thread Commissioner to a Thread
 network. Build and install OTBR to use this tool.
 
 After building, `pskc` is located at
-[`/ot-br-posix/tools`](https://github.com/openthread/ot-br-posix/tree/master/tools/README.md).
+[`/ot-br-posix/tools`](https://github.com/openthread/ot-br-posix/tree/main/tools/README.md).
 
 ### Parameters
 
@@ -49,7 +49,7 @@ networks advertising steering data that includes the Joiner itself. Build and
 install OTBR to use this tool.
 
 After building, `steering-data` is located at
-[`/ot-br-posix/tools`](https://github.com/openthread/ot-br-posix/tree/master/tools/README.md).
+[`/ot-br-posix/tools`](https://github.com/openthread/ot-br-posix/tree/main/tools/README.md).
 
 ### Parameters
 
@@ -95,7 +95,7 @@ This tool is used in MeshCop (Mesh Commissioning Protocol) tests during
 continuous integration. Build and install OTBR to use this tool.
 
 After building, `otbr-commissioner` is located at
-[`/src/commissioner`](https://github.com/openthread/ot-br-posix/tree/master/src/commissioner).
+[`/src/commissioner`](https://github.com/openthread/ot-br-posix/tree/main/src/commissioner).
 
 ### Parameters
 
@@ -202,7 +202,7 @@ $ ./otbr-commissioner --network-name MyOTBRNetwork --network-password J01NME --x
 ```
 
 For a shell script example, see the
-[`meshcop` test script](https://github.com/openthread/ot-br-posix/tree/master/tests/scripts/meshcop).
+[`meshcop` test script](https://github.com/openthread/ot-br-posix/tree/main/tests/scripts/meshcop).
 
 ## standalone_ipv6 script
 
@@ -213,7 +213,7 @@ example, if your network is not connected to an upstream IPv6 provider).
 This script installs extra features on the platform running OTBR to enable the
 device to serve IPv6 addresses.
 
-This script is located at [`/ot-br-posix/script/standalone_ipv6`](https://github.com/openthread/ot-br-posix/tree/master/script/standalone_ipv6).
+This script is located at [`/ot-br-posix/script/standalone_ipv6`](https://github.com/openthread/ot-br-posix/tree/main/script/standalone_ipv6).
 
 ## License
 

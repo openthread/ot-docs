@@ -331,23 +331,23 @@ To create the network, we start with `ot-ctl` shell on the OTBR which is used to
 | 4     | `thread start`          | Enable and attach Thread protocol operation.                 | Done                                                         |
 |       |                         | Wait 10 seconds for the thread interface to be up.           |                                                              |
 | 5     | `state`                 | Check the device state. It should be the leader.<br/>Other possible states: offline, disabled, detached,<br/> child, router, or leader | Leader<br/>Done                                              |
-| 6     | `dataset`               | View network configuration.<br/>Your values will differ from this codelab.<br/>Make a note of the channel, master key, <br/>network name and the PAN ID. | Active Timestamp: 1<br/>Channel: 20<br/>Channel Mask: 0x07fff800<br/>Ext PAN ID: 39ba71f7fc367160<br/>Mesh Local Prefix: fd5c:c6b:3a17:40b9::/64<br/>Master Key: 81ae2c2c17368d585dee71eaa8cf1e90<br/>Network Name: OpenThread-008c<br/>PAN ID: 0x008c<br/>PSKc: c98f0193d4236025d22dd0ee614e641f<br/>Security Policy: 0, onrcb<br/>Done |
+| 6     | `dataset`               | View network configuration.<br/>Your values will differ from this codelab.<br/>Make a note of the channel, network key, <br/>network name and the PAN ID. | Active Timestamp: 1<br/>Channel: 20<br/>Channel Mask: 0x07fff800<br/>Ext PAN ID: 39ba71f7fc367160<br/>Mesh Local Prefix: fd5c:c6b:3a17:40b9::/64<br/>Network Key: 81ae2c2c17368d585dee71eaa8cf1e90<br/>Network Name: OpenThread-008c<br/>PAN ID: 0x008c<br/>PSKc: c98f0193d4236025d22dd0ee614e641f<br/>Security Policy: 0, onrcb<br/>Done |
 
-We will use the channel number and the master key on the `ot-cli-ftd` to join the two FTDs to this thread network.
+We will use the channel number and the network key on the `ot-cli-ftd` to join the two FTDs to this thread network.
 
 ### Set up and add FTD to our Thread network (out of band method)
 
 With the out-of-band method, we know all security information and add the node manually. In the Simplicity consoles add both FTDs to our network using the following commands in the order shown below.
 
-| Index | Command                                              | Command description                                          | Expected Response |
-| :---- | ---------------------------------------------------- | ------------------------------------------------------------ | ----------------- |
-| 1     | `dataset channel 20`                                 | Set the channel used by the OTBR.                            | Done              |
-| 2     | `dataset masterkey 81ae2c2c17368d585dee71eaa8cf1e90` | Only the Master Key is required for a device to attach to a Thread network. | Done              |
-| 3     | `dataset commit active`                              | Commit new dataset to the Active Operational Dataset.        | Done              |
-| 4     | `ifconfig up`                                        | Enable Thread interface.                                     | Done              |
-| 5     | `thread start`                                       | Enable and attach Thread protocol operation.                 | Done              |
-|       |                                                      | Wait 20 seconds while the device joins and configures itself. |                   |
-| 6     | `state`                                              | View network configuration.                                  | child<br/>Done    |
+| Index | Command                                               | Command description                                          | Expected Response |
+| :---- | ----------------------------------------------------- | ------------------------------------------------------------ | ----------------- |
+| 1     | `dataset channel 20`                                  | Set the channel used by the OTBR.                            | Done              |
+| 2     | `dataset networkkey 81ae2c2c17368d585dee71eaa8cf1e90` | Only the Network Key is required for a device to attach to a Thread network. | Done              |
+| 3     | `dataset commit active`                               | Commit new dataset to the Active Operational Dataset.        | Done              |
+| 4     | `ifconfig up`                                         | Enable Thread interface.                                     | Done              |
+| 5     | `thread start`                                        | Enable and attach Thread protocol operation.                 | Done              |
+|       |                                                       | Wait 20 seconds while the device joins and configures itself. |                   |
+| 6     | `state`                                               | View network configuration.                                  | child<br/>Done    |
 
 > aside positive
 >
