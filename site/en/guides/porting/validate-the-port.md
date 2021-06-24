@@ -1,5 +1,7 @@
 # Validate the Port
 
+Contributor: https://github.com/lmnotran
+
 Basic validation is necessary to verify a successful port of OpenThread to a new
 hardware platform example.
 
@@ -46,7 +48,7 @@ Channel: 13
 Channel Mask: 07fff800
 Ext PAN ID: d63e8e3e495ebbc3
 Mesh Local Prefix: fd3d:b50b:f96d:722d/64
-Master Key: dfd34f0f05cad978ec4e32b0413038ff
+Network Key: dfd34f0f05cad978ec4e32b0413038ff
 Network Name: OpenThread-8f28
 PAN ID: 0x8f28
 PSKc: c23a76e98f1a6483639b1ac1271e2e27
@@ -71,11 +73,11 @@ Done
 ## Step 4: Attach a second node
 
 Demonstrate successful radio communication by attaching a second node to the
-newly formed Thread network, using the same Thread Master Key and PAN ID from
+newly formed Thread network, using the same Thread Network Key and PAN ID from
 the first node:
 
 ```
-> dataset masterkey dfd34f0f05cad978ec4e32b0413038ff
+> dataset networkkey dfd34f0f05cad978ec4e32b0413038ff
 Done
 > dataset panid 0x8f28
 Done
@@ -136,7 +138,7 @@ Channel: 13
 Channel Mask: 07fff800
 Ext PAN ID: d63e8e3e495ebbc3
 Mesh Local Prefix: fd3d:b50b:f96d:722d/64
-Master Key: dfd34f0f05cad978ec4e32b0413038ff
+Network Key: dfd34f0f05cad978ec4e32b0413038ff
 Network Name: OpenThread-8f28
 PAN ID: 0x8f28
 PSKc: c23a76e98f1a6483639b1ac1271e2e27
@@ -160,7 +162,7 @@ Channel: 13
 Channel Mask: 07fff800
 Ext PAN ID: d63e8e3e495ebbc3
 Mesh Local Prefix: fd3d:b50b:f96d:722d/64
-Master Key: dfd34f0f05cad978ec4e32b0413038ff
+Network Key: dfd34f0f05cad978ec4e32b0413038ff
 Network Name: OpenThread-8f28
 PAN ID: 0x8f28
 PSKc: c23a76e98f1a6483639b1ac1271e2e27

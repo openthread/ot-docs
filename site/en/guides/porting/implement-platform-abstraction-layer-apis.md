@@ -1,5 +1,7 @@
 # Implement Platform Abstraction Layer APIs
 
+Contributor: https://github.com/lmnotran
+
 OpenThread is OS and platform agnostic, with a narrow Platform Abstraction Layer
 (PAL). This PAL defines:
 

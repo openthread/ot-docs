@@ -86,7 +86,7 @@ The Thread Commissioning App is not supported.
 1.  Update the Thread network credentials for the node, using the minimum
     required values from OTBR Docker:
     ```
-    > dataset masterkey 33334444333344443333444433334444
+    > dataset networkkey 33334444333344443333444433334444
     Done
     > dataset commit active
     Done

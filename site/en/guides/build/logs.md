@@ -132,7 +132,7 @@ Channel: 13
 Channel Mask: 07fff800
 Ext PAN ID: d63e8e3e495ebbc3
 Mesh Local Prefix: fd3d:b50b:f96d:722d/64
-Master Key: dfd34f0f05cad978ec4e32b0413038ff
+Network Key: dfd34f0f05cad978ec4e32b0413038ff
 Network Name: OpenThread-8f28
 PAN ID: 0x8f28
 PSKc: c23a76e98f1a6483639b1ac1271e2e27
@@ -228,7 +228,7 @@ For example, to enable this for an nrf52840 connected to a Linux host:
         $ ./script/build nrf52840 UART_trans -DOT_JOINER=ON -DOT_FULL_LOGS=ON
 
 1.  Flash the NCP, connect it to the Linux host, and start `wpantund` as
-    detailed in the [wpantund](https://github.com/openthread/wpantund/blob/master/INSTALL.md#configuring-and-using-wpantund) repository.
+    detailed in the [wpantund](https://github.com/openthread/wpantund/blob/main/INSTALL.md#configuring-and-using-wpantund) repository.
 
 1.  Once the NCP is running, check the `syslog` on the Linux machine:
 

@@ -591,7 +591,7 @@ Channel: 11
 Channel Mask: 07fff800
 Ext PAN ID: c0de7ab5c0de7ab5
 Mesh Local Prefix: fdc0:de7a:b5c0/64
-Master Key: 1234c0de7ab51234c0de7ab51234c0de
+Network Key: 1234c0de7ab51234c0de7ab51234c0de
 Network Name: OpenThread-c0de
 PAN ID: 0xc0de
 PSKc: ebb4f2f8a68026fc55bcf3d7be3e6fe4
@@ -599,7 +599,7 @@ Security Policy: 0, onrcb
 Done
 ```
 
-Make note of the Master Key `1234c0de7ab51234c0de7ab51234c0de` which will be
+Make note of the Network Key `1234c0de7ab51234c0de7ab51234c0de` which will be
 used later.
 
 Commit this dataset as the active one:
@@ -687,7 +687,7 @@ If the "codelab" network doesn't appear in the list, try scanning again.
 You may note that in both scans, the network seems to be not joinable
 (*J* column on the RCP Joiner and FTD Joiner). This only
 means that Thread Commissioning is not active on the network. It can still be
-joined out-of-band, by entering the network master key in the joiner device
+joined out-of-band, by entering the network key in the joiner device
 manually.
 
 > aside positive
@@ -714,13 +714,13 @@ out-of-band process. Scan for networks on the **RCP Joiner**:
 | 0 | OpenThread-c0de  | c0de7ab5c0de7ab5 | c0de | 1ed687a9cb9d4b1d | 11 | -38 | 229 |
 ```
 
-To join, set the network master key (we just obtained from the FTD commissioner)
+To join, set the network key (we just obtained from the FTD commissioner)
 on the RCP Joiner in its active dataset.
 ```console
 ## RCP Joiner ##
 ----------------
 
-> dataset masterkey 1234c0de7ab51234c0de7ab51234c0de
+> dataset networkkey 1234c0de7ab51234c0de7ab51234c0de
 Done
 > dataset commit active
 Done
@@ -733,7 +733,7 @@ Check the dataset to ensure that it's set correctly.
 ----------------
 
 > dataset
-Master Key: 1234c0de7ab51234c0de7ab51234c0de
+Network Key: 1234c0de7ab51234c0de7ab51234c0de
 ```
 
 Bring up Thread so the RCP Joiner joins the "codelab" network. Wait a few
@@ -1499,8 +1499,8 @@ including:
 
 Reference:
 
-*  [OpenThread CLI reference](https://github.com/openthread/openthread/blob/master/src/cli/README.md)
-*  [OpenThread UDP CLI reference](https://github.com/openthread/openthread/blob/master/src/cli/README_UDP.md)
+*  [OpenThread CLI reference](https://github.com/openthread/openthread/blob/main/src/cli/README.md)
+*  [OpenThread UDP CLI reference](https://github.com/openthread/openthread/blob/main/src/cli/README_UDP.md)
 *  [OpenThread Daemon reference](https://openthread.io/platforms/co-processor/ot-daemon)
 *  [OpenThread UDP API reference](https://openthread.io/reference/group/api-udp)
 *  [GNU Screen quick reference](http://aperiodic.net/screen/quick_reference)
