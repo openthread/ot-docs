@@ -1,3 +1,14 @@
+---
+id: openthread-apis
+summary: In this Codelab, you'll use OpenThread APIs to start a Thread network, monitor  and react to changes in device roles, and send UDP messages on real hardware.
+status: [final]
+authors: Jeff Bumgardner
+categories: Nest
+tags: web
+feedback link: https://github.com/openthread/ot-docs/issues
+
+---
+
 # Developing with OpenThread APIs
 
 [Codelab Feedback](https://github.com/openthread/openthread/issues)
