@@ -1,3 +1,14 @@
+---
+id: openthread-simulation-posix
+summary: In this codelab, you'll simulate a Thread network on virtual devices using OpenThread on a Linux or Mac OS machine.
+status: [final]
+authors: Jeff Bumgardner
+categories: Nest
+tags: web
+feedback link:  https://github.com/openthread/ot-docs/issues
+
+---
+
 # Simulating a Thread network with OpenThread
 
 [Codelab Feedback](https://github.com/openthread/openthread/issues)
