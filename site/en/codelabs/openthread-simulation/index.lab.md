@@ -1,3 +1,14 @@
+---
+id: openthread-simulation
+summary: In this codelab, you'll simulate a Thread network on virtual devices using OpenThread in Docker.
+status: [final]
+authors: Jeff Bumgardner
+categories: Nest
+tags: io2017,web
+feedback link: https://github.com/openthread/ot-docs/issues
+
+---
+
 # Simulating a Thread network using OpenThread in Docker
 
 [Codelab Feedback](https://github.com/openthread/openthread/issues)
