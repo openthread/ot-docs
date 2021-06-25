@@ -1,3 +1,14 @@
+---
+id: openthread-network-simulator
+summary: In this codelab, you'll use the OTNS CLI and web visualization to add/move/delete nodes in a simulated Thread network and observe how the network adapts to topology changes.
+status: [final]
+authors: Simon Lin, Colin Tan
+categories: Nest
+tags: web
+feedback link: https://github.com/openthread/ot-ns/issues
+
+---
+
 # Simulate Thread Networks using OTNS
 
 [Codelab Feedback](https://github.com/openthread/ot-ns/issues)
