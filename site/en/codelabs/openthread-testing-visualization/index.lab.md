@@ -1,3 +1,14 @@
+---
+id: openthread-testing-visualization
+summary: In this codelab, you'll run OpenThread functional tests with visualization using a web interface.
+status: [final]
+authors: Colin Tan
+categories: Nest
+tags: web
+feedback link: https://github.com/openthread/silk/issues
+
+---
+
 # Testing a Thread Network with Visualization
 
 [Codelab Feedback](https://github.com/openthread/silk/issues)
