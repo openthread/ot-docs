@@ -20,7 +20,7 @@ feedback link: https://github.com/openthread/ot-docs/issues
 
 <img src="img/26b7f4f6b3ea0700.png" alt="26b7f4f6b3ea0700.png" width="624.00" />
 
-[OpenThread](https://openthread.io) released by Nest is an open-source
+[OpenThread](https://openthread.io/) released by Nest is an open-source
 implementation of the  [Thread®](http://threadgroup.org/) networking protocol.
 Nest has released OpenThread to make the technology used in Nest products
 broadly available to developers to accelerate the development of products for
@@ -1341,7 +1341,7 @@ Building off of this Codelab, try the following exercises:
 
 ### Further reading
 
-Check out  [openthread.io](https://openthread.io) and
+Check out  [openthread.io](https://openthread.io/) and
 [GitHub](https://github.com/openthread) for a variety of OpenThread resources,
 including:
 
