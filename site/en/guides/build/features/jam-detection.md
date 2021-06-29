@@ -398,7 +398,7 @@ JamDetection:RssiThreshold = -45
 ```
 
 For more information on `wpantund` properties, see the [`wpantund` GitHub
-repository](https://github.com/openthread/wpantund/tree/master/src/wpantund/wpan-properties.h).
+repository](https://github.com/openthread/wpantund/tree/main/src/wpantund/wpan-properties.h).
 
 > Note: To learn more about managing an NCP using `wpantund` and `wpanctl`, see the [Build a Thread Network Codelab](https://openthread.io/codelabs/openthread-hardware/).
 
