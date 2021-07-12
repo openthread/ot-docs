@@ -16,7 +16,7 @@ message containing the following information to its previous parent router:
 
 *   The [Mesh-Local EID](../../../guides/thread-primer/ipv6-addressing.md#mesh-local-eid-ml-eid) of the ED
     as the source address.
-*   The Mesh-Local EID of the previous parent router as the destination address.
+*   The [Routing Locator](../../../guides/thread-primer/ipv6-addressing.md#routing-locator-rloc) of the previous parent router as the destination address.
 *   An empty payload.
 
 This type of IPv6 message prompts the old parent router to immediately remove
