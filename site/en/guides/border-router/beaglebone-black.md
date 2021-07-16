@@ -196,18 +196,6 @@ system is having difficulty bringing up the interface.
 See [Build and Configuration](https://openthread.io/guides/border-router/build)
 for instructions on building and installing OTBR. 
 
-> Note: If your BeagleBone has Wi-Fi capabilities, you can enable the OTBR
-build scripts to configure it as an access point by passing
-`NETWORK_MANAGER_WIFI=1` to the build scripts.
-
-## Step 4: Set up a Wi-Fi access point
-
-If your BeagleBone is Wi-Fi enabled and automatic setup of the Wi-Fi access
-point by Network Manager is skipped, see [Wi-Fi Access Point
-Setup](https://openthread.io/guides/border-router/access-point) for manual
-configuration instructions. The guide is written for Raspberry Pi, but most of
-the configuration steps are applicable to the BeagleBone Debian distribution.
-
 ## License
 
 Copyright (c) 2021, The OpenThread Authors.
