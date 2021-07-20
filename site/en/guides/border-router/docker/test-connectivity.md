@@ -125,9 +125,6 @@ node at this point. Since Thread only uses IPv6, to ping a public IPv4 address
 you must translate it to IPv6 and combine it with the well-known prefix of
 `64:ff9b::/64` used by Network Address Translation (NAT) in OTBR.
 
-For more information on how NAT is configured in OTBR, see [Configure
-NAT](../../../guides/border-router/access-point.md#configure-nat).
-
 1.  To get a translated IPv4 address, use a website like
     [findipv6.com](https://findipv6.com/ipv4-toipv6/).
 

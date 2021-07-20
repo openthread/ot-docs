@@ -19,7 +19,6 @@ To use RPi with OTBR:
 
 1.  [Download and install the OS](#download-and-install-the-os).
 1.  [Build and install OTBR](../../guides/border-router/build/index.md).
-1.  [Set up a Wi-Fi access point](../../guides/border-router/access-point.md).
 
 ## Step 1: Download and install the OS
 
@@ -46,14 +45,7 @@ For more detailed information on setup and configuration, see the
 ## Step 2: Build and install OTBR
 
 See [Build and Configuration](../../guides/border-router/build.md) for instructions on
-building and installing OTBR. This includes automatic setup of a Wi-Fi access
-point by Network Manager to connect the Thread network to the internet.
-
-## Step 2: Set up a Wi-Fi access point
-
-If automatic setup of the Wi-Fi access point by Network Manager is skipped, see
-[Wi-Fi Access Point Setup](../../guides/border-router/access-point.md) for manual
-configuration instructions.
+building and installing OTBR.
 
 ## License
 
