@@ -18,7 +18,6 @@ Steps to enable:
 1. Download and install the OS.
 1. Prepare the Debian Environment for OTBR
 1. Build and install OTBR
-1. Set up a Wi-Fi access point
 
 > Note: The BBB does not have built-in Wi-Fi support. This guide was built and
 tested with a BBONE-GATEWAY-CAPE for Wi-Fi AP operation. Some BeagleBone
