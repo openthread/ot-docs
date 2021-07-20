@@ -77,7 +77,7 @@ Software:
 * Simplicity Studio v5 installed and updated on the Windows/Linux/Mac Host system with
 
   * GNU ARM v7.2.1 toolchain 
-  * Gecko SDK Suite 3.1.0 or later and Silicon Labs OpenThread SDK.
+  * Gecko SDK Suite 3.2.0 or later and Silicon Labs OpenThread SDK.
   
 
 <button>[Download Simplicity Studio 5](https://www.silabs.com/developers/simplicity-studio)</button>
@@ -97,7 +97,7 @@ This Codelab was created using
 1. EFR32MG12 [BRD4166A Thunderboard Sense 2](https://www.silabs.com/development-tools/thunderboard/thunderboard-sense-two-kit) as shown on the left.
 2. Two EFR32MG13 [BRD4168A](https://www.silabs.com/documents/public/user-guides/ug280-brd4168a-user-guide.pdf) as shown on the right. 
 3. Simplicity Studio v5 installed on a macOS Catalina 10.15.7 with
-   1. Gecko SDK 3.1.2 
+   1. Gecko SDK 3.2.0 
    2. GNU ARM v7.2.1
 
  ![](img/BRD4166A.jpeg)![BRD4168A](./img/BRD4168A.jpeg)
@@ -134,7 +134,7 @@ We will create two projects. The `ot-rcp` project for BRD4166A and the `ot-cli-f
 
    * Target Device: This field shows the microcontroller chip (MCU) onboard. The BRD4168A has an EFR32MG13 MCU onboard.
 
-   * SDK: Here you can select the SDK version of OT that you are working with. For this codelab we use OpenThread 1.1.2.0.
+   * SDK: Here you can select the SDK version of OT that you are working with. For this codelab we use OpenThread 1.2.0.0.
 
    * IDE/ Toolchain: The toolchain that will be used for compiling the OT project. We use GNU ARM 7.2.1.
 
@@ -242,10 +242,10 @@ https://hub.docker.com/r/siliconlabsinc/openthread-backbone-border-router/tags
    sudo usermod -aG docker $USER
    ```
 
-3. Issue the following commands to install the containers. Note that you can have only one Border Router container running at one time with your RCP. Also, be sure to verify the RCP version (Thread version 1.1) that should be run against this container.
+3. Issue the following commands to install the containers. Note that you can have only one Border Router container running at one time with your RCP. Also, be sure to verify the RCP version (Thread version 1.2) that should be run against this container.
 
    ```console
-   docker pull siliconlabsinc/openthread-border-router:gsdk-3.1.0
+   docker pull siliconlabsinc/openthread-border-router:gsdk-3.2.0
    ```
 
 ### Configure and run docker
@@ -259,8 +259,9 @@ https://hub.docker.com/r/siliconlabsinc/openthread-backbone-border-router/tags
     --sysctl "net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" \
     -p 8080:80 --dns=127.0.0.1 -it \
     --volume /dev/ttyACM0:/dev/ttyACM0 \
-    --privileged siliconlabsinc/openthread-border-router:gsdk-3.1.0 \
-    --radio-url spinel+hdlc+uart:///dev/ttyACM0?uart-baudrate=460800
+    --privileged siliconlabsinc/openthread-border-router:gsdk-3.2.0 \
+    --radio-url spinel+hdlc+uart:///dev/ttyACM0?uart-baudrate=460800 \
+    --backbone-interface eth0
    ```
 
    - `-d` ensures that the container runs in detached mode.
