@@ -332,7 +332,7 @@ Commissioner and Joiner roles enabled:
 ```console
 $ cd ~/src/ot-nrf528xx
 $ rm -rf build
-$ script/build nrf52840 UART_trans -DOT_JOINER=ON -DOT_COMMISSIONER=ON
+$ script/build nrf52840 USB_trans -DOT_JOINER=ON -DOT_COMMISSIONER=ON
 ```
 
 > aside positive
@@ -375,6 +375,24 @@ $ ./nrfjprog -f nrf52 -s 683704924 --chiperase --program \
 ```
 
 Label the board "Commissioner."
+
+### Connect to native USB
+
+Because the OpenThread FTD build enables use of native USB CDC ACM as a serial
+transport, you must use the **nRF USB** port on the nRF52840 board to
+communicate with the RCP host (Linux machine).
+
+Detach the Micro-USB end of the USB cable from the debug port of the flashed
+nRF52840 board, then reattach it to the Micro-USB **nRF USB** port next to the
+**RESET** button. Set the **nRF power source** switch to **USB**.
+
+<img src="img/46e7b670d2464842.png" alt="46e7b670d2464842.png" width="624.00" />
+
+> aside positive
+>
+> **Note:** When the nRF52840 board is properly connected to a host via the nRF
+USB port, none of the LED indicators light up, even though the board is
+operational.
 
 ### Verify build
 
