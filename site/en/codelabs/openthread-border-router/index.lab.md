@@ -252,7 +252,7 @@ Then, start the Thread interface:
 ```console
 > ifconfig up
 Done
-> Thread start
+> thread start
 Done
 ```
 
