@@ -63,7 +63,7 @@ Duration: 05:00
 
 ### Setup Raspberry Pi
 
-It is simple to set up a fresh Raspberry Pi device with the `rpi-imager` tool by following the instructions on  [raspberrypi.org](https://www.raspberrypi.org/software/) (instead of using the latest Raspberry Pi OS in the tool, download  [raspbian-2020-02-14](https://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-14) by yourself). To complete the mobile phone steps in this codelab, you need to connect the Raspberry Pi to a Wi-Fi AP. Follow  [this](https://www.raspberrypi.org/documentation/configuration/wireless/) guide to set up wireless connectivity. It is convenient to login to the Raspberry Pi with SSH, you can find instructions  [here](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md).
+It is simple to set up a fresh Raspberry Pi device with the `rpi-imager` tool by following the instructions on  [raspberrypi.org](https://www.raspberrypi.org/software/) (instead of using the latest Raspberry Pi OS in the tool, download  [2021-05-07-raspios-buster-armhf-lite](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/2021-05-07-raspios-buster-armhf-lite.zip) by yourself). To complete the mobile phone steps in this codelab, you need to connect the Raspberry Pi to a Wi-Fi AP. Follow  [this](https://www.raspberrypi.org/documentation/configuration/wireless/) guide to set up wireless connectivity. It is convenient to login to the Raspberry Pi with SSH, you can find instructions  [here](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md).
 
 > aside positive
 > 
