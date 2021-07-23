@@ -117,7 +117,7 @@ $ mkdir -p ~/src
 $ cd ~/src
 $ git clone --recurse-submodules --depth 1 https://github.com/openthread/ot-nrf528xx.git
 $ cd ot-nrf528xx/
-$ script/build nrf52840 UART_trans -DOT_MLR=ON -DOT_THREAD_VERSION=1.2
+$ script/build nrf52840 USB_trans -DOT_MLR=ON -DOT_THREAD_VERSION=1.2
 $ arm-none-eabi-objcopy -O ihex build/bin/ot-cli-ftd ot-cli-ftd.hex
 ```
 
