@@ -55,6 +55,12 @@ Duration: 06:00
 This Codelab is designed to use Docker on a Linux, Mac OS X, or Windows machine.
 Linux is the recommended environment.
 
+> aside negative
+>
+> **Note:** This Codelab does not support running Docker in [rootless
+mode](https://docs.docker.com/engine/security/rootless/). You must run it as root
+with the commands provided in order to create OpenThread nodes.
+
 ### Install Docker
 
 Install Docker on the OS of your choice.
@@ -778,6 +784,9 @@ ot-daemon[228024]: RCP version: OPENTHREAD/20191113-00831-gfb399104; SIMULATION;
 terminal windows connected to the same container. You can ignore that, it is
 normal.
 
+Leave this terminal open and running in the background. You will not enter
+any further commands in it.
+
 #### 3. Use ot-ctl to join the network
 
 We haven't commissioned Node 2 (the `ot-daemon` RCP) to any Thread network yet.
@@ -799,7 +808,9 @@ root@c0f3912a74ff:/# ./output/posix/bin/ot-ctl
 >
 ```
 
-Check the `state` of Node 2 (the RCP node) you started with `ot-daemon`:
+You'll use `ot-ctl` in this third terminal window to manage Node 2 (the RCP node)
+that you started in the second terminal window with `ot-daemon`. Check the `state` of
+Node 2:
 
 ```console
 > state
@@ -815,7 +826,8 @@ Get Node 2's `eui64`, to restrict joining to the specific Joiner:
 Done
 ```
 
-On Node 1, start the Commissioner and restrict joining to only that eui64:
+On Node 1 (first terminal window), start the Commissioner and restrict joining to only
+that eui64:
 
 ```console
 > commissioner start
@@ -824,7 +836,7 @@ Done
 Done
 ```
 
-On Node 2, bring up the network interface and join the network:
+On Node 2 (third terminal window), bring up the network interface and join the network:
 
 ```console
 > ifconfig up
@@ -947,6 +959,13 @@ the container in each terminal:
 ```console
 $ docker exec -it codelab_otsim_ctnr bash
 ```
+
+### "Operation not permitted" errors
+
+If you run into `Operation not permitted` errors when creating new OpenThread nodes
+(using the `mknod` command), make sure you are running Docker as the root user according
+to the commands provided in this Codelab. This Codelab does not support running Docker
+in [rootless mode](https://docs.docker.com/engine/security/rootless/).
 
 
 ## Congratulations!
