@@ -738,6 +738,9 @@ ot-daemon[228024]: Thread version: 2
 ot-daemon[228024]: RCP version: OPENTHREAD/20191113-00831-gfb399104; SIMULATION; Jun 7 2020 18:06:08
 ```
 
+Leave this terminal open and running in the background. You will not enter
+any further commands in it.
+
 ####  3. Use ot-ctl to join the network
 
 We haven't commissioned Node 2 (the `ot-daemon` RCP) to any Thread network yet.
@@ -752,7 +755,9 @@ $ ./output/posix/bin/ot-ctl
 >
 ```
 
-Check the `state` of Node 2 (the RCP node) you started with `ot-daemon`:
+You'll use `ot-ctl` in this third terminal window to manage Node 2 (the RCP node)
+that you started in the second terminal window with `ot-daemon`. Check the `state` of
+Node 2:
 
 ```console
 > state
@@ -768,7 +773,8 @@ Get Node 2's `eui64`, to restrict joining to the specific Joiner:
 Done
 ```
 
-On Node 1, start the Commissioner and restrict joining to only that eui64:
+On Node 1 (first terminal window), start the Commissioner and restrict joining to only
+that eui64:
 
 ```console
 > commissioner start
@@ -777,7 +783,7 @@ Done
 Done
 ```
 
-On Node 2, bring up the network interface and join the network:
+On Node 2 (third terminal window), bring up the network interface and join the network:
 
 ```console
 > ifconfig up
