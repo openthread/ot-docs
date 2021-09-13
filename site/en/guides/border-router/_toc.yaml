@@ -1,0 +1,43 @@
+toc:
+- title: Overview
+  path: /guides/border-router/
+- heading: Platforms
+- title: BeagleBone Black
+  path: /guides/border-router/beaglebone-black
+- title: Raspberry Pi
+  path: /guides/border-router/raspberry-pi
+- heading: Setup
+- title: Build and Configuration
+  path: /guides/border-router/build
+  step_group: otbr_setup
+- title: Web GUI
+  path: /guides/border-router/web-gui
+  step_group: otbr_setup
+- title: External Commissioning
+  path: /guides/border-router/external-commissioning
+  step_group: otbr_setup
+- heading: Other
+- title: Tools and Scripts
+  path: /guides/border-router/tools
+- title: Serial Cables
+  path: /guides/border-router/serial-cables
+- heading: Docker Support
+- title: Overview
+  path: /guides/border-router/docker/
+  step_group: otbr_docker
+- title: Run OTBR Docker
+  path: /guides/border-router/docker/run
+  step_group: otbr_docker
+- title: Test Connectivity
+  path: /guides/border-router/docker/test-connectivity
+  step_group: otbr_docker
+- title: Cleanup and Docker Basics
+  path: /guides/border-router/docker/cleanup-and-basics
+  step_group: otbr_docker
+- heading: Codelabs
+- title: OpenThread Border Router
+  status: external
+  path: /codelabs/openthread-border-router/
+- title: OpenThread Border Router Thread 1.2 Multicast
+  status: external
+  path: /codelabs/openthread-border-router-ipv6-multicast
