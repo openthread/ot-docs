@@ -1,0 +1,38 @@
+toc:
+- title: Get Started
+  path: /guides/
+- heading: Thread Primer
+- title: What is Thread?
+  path: /guides/thread-primer/
+  step_group: thread_primer
+- title: Node Roles and Types
+  path: /guides/thread-primer/node-roles-and-types
+  step_group: thread_primer
+- title: IPv6 Addressing
+  path: /guides/thread-primer/ipv6-addressing
+  step_group: thread_primer
+- title: Network Discovery and Formation
+  path: /guides/thread-primer/network-discovery
+  step_group: thread_primer
+- title: Router Selection
+  path: /guides/thread-primer/router-selection
+  step_group: thread_primer
+- heading: Codelabs
+- title: Simulation with Docker
+  path: /codelabs/openthread-simulation/
+- title: Simulation with Toolchain
+  path: /codelabs/openthread-simulation-posix/
+- title: Build a Thread Network (Nordic)
+  path: /codelabs/openthread-hardware/
+- title: Build a Thread Network (Silicon Labs)
+  path: /codelabs/silabs-openthread-hardware/
+- title: OpenThread APIs
+  path: /codelabs/openthread-apis/
+- title: OpenThread Border Router
+  path: /codelabs/openthread-border-router/
+- title: OpenThread Border Router Thread 1.2 Multicast
+  path: /codelabs/openthread-border-router-ipv6-multicast
+- title: OpenThread Network Simulator
+  path: /codelabs/openthread-network-simulator/
+- title: Testing and Visualization
+  path: /codelabs/openthread-testing-visualization/
