@@ -6,6 +6,8 @@ toc:
   path: /guides/border-router/beaglebone-black
 - title: Raspberry Pi
   path: /guides/border-router/raspberry-pi
+- title: ESP Thread Border Router
+  path: /guides/border-router/esp-br
 - heading: Setup
 - title: Build and Configuration
   path: /guides/border-router/build

@@ -75,7 +75,7 @@ Done
 * SRP service registration and advertising proxy.
 * mDNS discovery proxy.
 
-To setup a SRP client on a Thread end device and reach it from the Wi-Fi network, follow the border router codelab from [step 4](https://openthread.io/codelabs/openthread-border-router#3).
+To set up a SRP client on a Thread end device and reach it from the Wi-Fi network, follow the border router codelab from [step 4](https://openthread.io/codelabs/openthread-border-router#3).
 
 Note that all the `ot-ctl` commands in the codelab need to be directly entered in the border router's command line.
 
