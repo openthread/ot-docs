@@ -22,13 +22,13 @@ The ESP32-H2 RCP will be connected to the border router via UART.
 * Connect PIN 4 of ESP32 to PIN TX of ESP32-H2
 * Connect PIN 5 of ESP32 to PIN RX of ESP32-H2
 
-## Step1: Set up ESP-IDF
+## Step 1: Set up ESP-IDF
 
 The code for running the ESP Thread border router is shipped with the Espressif development framework, ESP-IDF.
 
 To set up the environment, please follow the [official installation guide](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html#installation-step-by-step).
 
-## Step2: Build and flash the RCP
+## Step 2: Build and flash the RCP
 
 ```
 cd ${IDF_PATH}/examples/openthread/ot_rcp
@@ -36,7 +36,7 @@ idf.py --preview set-target esp32h2
 idf.py build flash
 ```
 
-## Configure the Thread and the Wi-Fi network
+## Step 3: Configure the Thread and the Wi-Fi network
 
 The border router will automatically join the Wi-Fi network and create a new Thread network if there is not one in its storage.
 The network parameters can be configured in the config menu:
@@ -47,11 +47,11 @@ idf.py menuconfig
 ```
 
 The network configuration items are:
-* Wi-Fi ssid and psk: **Example Connection Configuration > connect using Wi-Fi interface**
+* Wi-Fi SSID and PSK: **Example Connection Configuration > connect using Wi-Fi interface**
 * Thread network parameters: **OpenThread network parameters**
 
 
-## Build and run the border router
+## Step 4: Build and run the border router
 
 ```
 cd ${IDF_PATH}/examples/openthread/ot_br

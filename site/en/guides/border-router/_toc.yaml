@@ -1,13 +1,14 @@
 toc:
 - title: Overview
   path: /guides/border-router/
-- heading: Platforms
+- heading: Platforms - Linux
 - title: BeagleBone Black
   path: /guides/border-router/beaglebone-black
 - title: Raspberry Pi
   path: /guides/border-router/raspberry-pi
-- title: ESP Thread Border Router
-  path: /guides/border-router/esp-br
+- heading: Platforms - FreeRTOS
+- title: Espressif ESP32 Series
+  path: /guides/border-router/espressif-esp32
 - heading: Setup
 - title: Build and Configuration
   path: /guides/border-router/build
