@@ -31,9 +31,9 @@ To set up the environment, please follow the [official installation guide](https
 ## Step 2: Build and flash the RCP
 
 ```
-cd ${IDF_PATH}/examples/openthread/ot_rcp
-idf.py --preview set-target esp32h2
-idf.py build flash
+$ cd ${IDF_PATH}/examples/openthread/ot_rcp
+$ idf.py --preview set-target esp32h2
+$ idf.py build flash
 ```
 
 ## Step 3: Configure the Thread and the Wi-Fi network
@@ -42,11 +42,12 @@ The border router will automatically join the Wi-Fi network and create a new Thr
 The network parameters can be configured in the config menu:
 
 ```
-cd ${IDF_PATH}/examples/openthread/ot_br
-idf.py menuconfig
+$ cd ${IDF_PATH}/examples/openthread/ot_br
+$ idf.py menuconfig
 ```
 
 The network configuration items are:
+
 * Wi-Fi SSID and PSK: **Example Connection Configuration > connect using Wi-Fi interface**
 * Thread network parameters: **OpenThread network parameters**
 
@@ -54,8 +55,8 @@ The network configuration items are:
 ## Step 4: Build and run the border router
 
 ```
-cd ${IDF_PATH}/examples/openthread/ot_br
-idf.py build flash monitor
+$ cd ${IDF_PATH}/examples/openthread/ot_br
+$ idf.py build flash monitor
 ```
 
 Now you'll see the border router output in the ESP32 monitor. It also provides an interactive OpenThread command line:
