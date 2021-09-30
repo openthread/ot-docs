@@ -162,15 +162,15 @@ Category | Contents
 ----- | -----
 [Build](https://github.com/openthread/ot-docs/blob/main/site/en/guides/build/index.md) | How to build and configure OpenThread and enable enhanced features
 [Porting](https://github.com/openthread/ot-docs/blob/main/site/en/guides/porting/index.md) | How to port OpenThread to a new hardware platform
-[Border Router](https://github.com/openthread/ot-docs/blob/main/site/en/guides/border-router/index.md) | How to connect your OpenThread network to other IPv6 networks with a Border Router, or use external Thread commissioning
-[Commissioner](https://openthread.io/commissioner/) | How to build and use OT Commissioner to commission devices onto a Thread network
+[Border Router](https://openthread.io/guides/border-router) | How to connect your OpenThread network to other IPv6 networks with a Border Router, or use external Thread commissioning
+[Commissioner](https://openthread.io/guides/commissioner) | How to build and use OT Commissioner to commission devices onto a Thread network
 [Pyspinel](https://openthread.io/guides/pyspinel/) | How to use Pyspinel to build a Thread packet sniffer.
 [Certification](https://openthread.io/certification/) | How to test your platform against all certification test cases
 
 ## Application APIs
 
 Developing an application to run on top of OpenThread? Try our [Developing with
-OpenThread APIs Codelab](https://github.com/openthread/ot-docs/blob/main/site/en/openthread-apis/index.codelab.md) to
+OpenThread APIs Codelab](https://github.com/openthread/ot-docs/tree/main/site/en/codelabs/openthread-apis/index.lab.md) to
 learn the basics, or dig into the [API Reference](https://openthread.io/reference/) documentation to
 see what OpenThread services are available.
 
