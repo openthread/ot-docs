@@ -3,7 +3,7 @@
 ## Learn about Thread
 
 Are you new to Thread<sup>®</sup>? Or simply need to refresh your knowledge?
-Check out our [Thread Primer](/guides/thread-primer/), which covers all the
+Check out our [Thread Primer](https://github.com/openthread/ot-docs/blob/main/site/en/guides/thread-primer/index.md), which covers all the
 basics of Thread and how it works.
 
 ## Try OpenThread
@@ -21,7 +21,7 @@ Linux machine, learn how to:
 *   Use OpenThread Daemon to manage a simulated Thread network featuring an RCP
 
 <a class="button button-primary"
-   href="/codelabs/openthread-simulation/">Try the Simulation Codelab with
+   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-simulation/index.lab.md">Try the Simulation Codelab with
   Docker</a>
 
 ### Simulation Codelab with build toolchain
@@ -31,7 +31,7 @@ Docker, you set up the OpenThread build toolchain and build OpenThread directly
 on a Mac or Linux machine.
 
 <a class="button button-primary"
-   href="/codelabs/openthread-simulation-posix/">Try the Simulation Codelab
+   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-simulation-posix/index.lab.md">Try the Simulation Codelab
   with build toolchain</a>
 
 ### Hardware Codelabs
@@ -44,9 +44,10 @@ Dive right into hardware, where you will learn how to:
 *   Use the OpenThread CLI for Multicast and UDP (Nordic only)
 
 <a class="button button-primary"
-   href="/codelabs/openthread-hardware/">Try the Nordic Hardware Codelab</a>
+   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-hardware/index.lab.md">Try the Nordic Hardware Codelab</a>
+
 <a class="button button-primary"
-   href="/codelabs/silabs-openthread-hardware/">Try the Silicon Labs Hardware
+   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/silabs-openthread-hardware/index.lab.md">Try the Silicon Labs Hardware
     Codelab</a>
 
 ### API Codelab
@@ -60,7 +61,7 @@ to:
 *   Send UDP messages to all devices in a Thread network
 
 <a class="button button-primary"
-   href="/codelabs/openthread-apis/">Try the API Codelab</a>
+   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-apis/index.lab.md">Try the API Codelab</a>
 
 ### Network Simulator Codelab
 
@@ -74,7 +75,7 @@ machine, learn how to:
 *   Use OTNS-CLI to further control the simulation
 
 <a class="button button-primary"
-   href="/codelabs/openthread-network-simulator/">Try the Network Simulator
+   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-network-simulator/index.lab.md">Try the Network Simulator
   Codelab</a>
 
 ### Testing and Visualization Codelab
