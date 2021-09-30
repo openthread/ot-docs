@@ -741,13 +741,13 @@ void initUdp(otInstance *aInstance)
     listenSockAddr.mPort    = UDP_PORT;
 
     otUdpOpen(aInstance, &sUdpSocket, handleUdpReceive, aInstance);
-    otUdpBind(aInstance, &sUdpSocket, &listenSockAddr);
+    otUdpBind(aInstance, &sUdpSocket, &listenSockAddr, OT_NETIF_THREAD);
 }
 ```
 
 `UDP_PORT` is the port you defined earlier (1212). The `otUdpOpen`
 function opens the socket and registers a callback function
-(`handleUdpReceive`) for when a UDP message is received.
+(`handleUdpReceive`) for when a UDP message is received. `otUdpBind` binds the socket to the Thread network interface by passing `OT_NETIF_THREAD`. For other network interface options, refer to [UDP API Reference](https://openthread.io/reference/group/api-udp). 
 
 **ACTION: Implement UDP messaging**
 
