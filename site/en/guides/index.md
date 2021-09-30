@@ -142,10 +142,10 @@ OpenThread Border Router, OpenThread RTOS, and OpenThread Commissioner.
 OpenThread has been ported to several devices and platforms by both the
 OpenThread team, silicon vendors, and the community.
 
-See the list of vendor-supported platforms at [Vendor Support](/vendors).
+See the list of vendor-supported platforms at [Vendor Support](https://openthread.io/vendors).
 
 Learn more about the system architecture and platform designs on the
-[Platforms](/platforms/) overview.
+[Platforms](https://openthread.io/platforms) overview.
 
 ## Docker support
 
@@ -160,33 +160,33 @@ Need help with a specific task or feature? Our guides can help.
 
 Category | Contents
 ----- | -----
-[Build](/guides/build/) | How to build and configure OpenThread and enable enhanced features
-[Porting](/guides/porting/) | How to port OpenThread to a new hardware platform
-[Border Router](/guides/border-router/) | How to connect your OpenThread network to other IPv6 networks with a Border Router, or use external Thread commissioning
-[Commissioner](/guides/commissioner) | How to build and use OT Commissioner to commission devices onto a Thread network
-[Pyspinel](/guides/pyspinel/) | How to use Pyspinel to build a Thread packet sniffer.
-[Certification](/certification/) | How to test your platform against all certification test cases
+[Build](https://github.com/openthread/ot-docs/blob/main/site/en/guides/build/index.md) | How to build and configure OpenThread and enable enhanced features
+[Porting](https://github.com/openthread/ot-docs/blob/main/site/en/guides/porting/index.md) | How to port OpenThread to a new hardware platform
+[Border Router](https://github.com/openthread/ot-docs/blob/main/site/en/guides/border-router/index.md) | How to connect your OpenThread network to other IPv6 networks with a Border Router, or use external Thread commissioning
+[Commissioner](https://openthread.io/commissioner/) | How to build and use OT Commissioner to commission devices onto a Thread network
+[Pyspinel](https://openthread.io/guides/pyspinel/) | How to use Pyspinel to build a Thread packet sniffer.
+[Certification](https://openthread.io/certification/) | How to test your platform against all certification test cases
 
 ## Application APIs
 
 Developing an application to run on top of OpenThread? Try our [Developing with
-OpenThread APIs Codelab]({{ codelabs }}/openthread-apis/) to
-learn the basics, or dig into the [API Reference](/reference/) documentation to
+OpenThread APIs Codelab](https://github.com/openthread/ot-docs/blob/main/site/en/openthread-apis/index.codelab.md) to
+learn the basics, or dig into the [API Reference](https://openthread.io/reference/) documentation to
 see what OpenThread services are available.
 
 ## Testing and certification
 
 Learn how we test OpenThread and what user testing tools are available on our
-[Testing](/testing/) page, and browse the latest OpenThread peformance quality
-metrics on our [Quality Dashboards](/testing/quality-dashboard).
+[Testing](https://openthread.io/testing/) page, and browse the latest OpenThread peformance quality
+metrics on our [Quality Dashboards](https://openthread.io/testing/quality-dashboard).
 
 If you're interested in Thread Certification for your product or component, see
-the [Certification](/certification/) page.
+the [Certification](https://openthread.io/certification/) page.
 
 ## Get help or contribute
 
 Have a question about OpenThread? Want to contribute to its ongoing development?
-Our [Resources](/resources/) page explains all the ways to get help, or to
+Our [Resources](https://openthread.io/resources/) page explains all the ways to get help, or to
 help out.
 
 ## License
