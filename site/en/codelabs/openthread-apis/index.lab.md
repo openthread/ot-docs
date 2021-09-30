@@ -747,7 +747,10 @@ void initUdp(otInstance *aInstance)
 
 `UDP_PORT` is the port you defined earlier (1212). The `otUdpOpen`
 function opens the socket and registers a callback function
-(`handleUdpReceive`) for when a UDP message is received. `otUdpBind` binds the socket to the Thread network interface by passing `OT_NETIF_THREAD`. For other network interface options, refer to [UDP API Reference](https://openthread.io/reference/group/api-udp). 
+(`handleUdpReceive`) for when a UDP message is received. `otUdpBind`
+binds the socket to the Thread network interface by passing `OT_NETIF_THREAD`.
+For other network interface options, refer to the `otNetifIdentifier`
+enumeration in [UDP API Reference](https://openthread.io/reference/group/api-udp). 
 
 **ACTION: Implement UDP messaging**
 
