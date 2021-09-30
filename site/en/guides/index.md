@@ -89,7 +89,7 @@ with real devices. With a Mac or Linux machine, learn how to:
     Silk test cases
 
 <a class="button button-primary"
-   href="/codelabs/openthread-testing-visualization/">Try the Testing and
+   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-testing-visualization/index.lab.md">Try the Testing and
   Visualization Codelab</a>
 
 ### Border Router Codelab
@@ -107,7 +107,7 @@ With a Mac or Linux machine, learn how to:
 *   Discover and reach a Thread end device
 
 <a class="button button-primary"
-   href="/codelabs/openthread-border-router/">Try the Border Router
+   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-border-router/index.lab.md">Try the Border Router
   Codelab</a>
 
 ### Border Router Thread 1.2 Multicast Codelab
@@ -120,14 +120,14 @@ network segments. With a Mac or Linux machine and a Raspberry Pi, learn how to:
 *   Subscribe to IPv6 multicast addresses on Thread devices
 
 <a class="button button-primary"
-   href="/codelabs/openthread-border-router-ipv6-multicast">Try the Border
+   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-border-router-ipv6-multicast/index.lab.md">Try the Border
   Router Thread 1.2 Multicast Codelab</a>
 
 ### Border Router with Docker
 
 You can also run OTBR in a Docker container on any Linux-based machine.
 
-<a class="button button-primary" href="/guides/border-router/docker">Try the
+<a class="button button-primary" href="https://github.com/openthread/ot-docs/blob/main/site/en/guides/border-router/docker/index.md">Try the
   OTBR Docker guide</a>
 
 ## Get the code
