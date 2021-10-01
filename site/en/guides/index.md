@@ -3,7 +3,7 @@
 ## Learn about Thread
 
 Are you new to Thread<sup>®</sup>? Or simply need to refresh your knowledge?
-Check out our [Thread Primer](https://github.com/openthread/ot-docs/blob/main/site/en/guides/thread-primer/index.md), which covers all the
+Check out our [Thread Primer](thread-primer/index.md), which covers all the
 basics of Thread and how it works.
 
 ## Try OpenThread
@@ -21,7 +21,7 @@ Linux machine, learn how to:
 *   Use OpenThread Daemon to manage a simulated Thread network featuring an RCP
 
 <a class="button button-primary"
-   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-simulation/index.lab.md">Try the Simulation Codelab with
+   href="../codelabs/openthread-simulation/index.lab.md">Try the Simulation Codelab with
   Docker</a>
 
 ### Simulation Codelab with build toolchain
@@ -31,7 +31,7 @@ Docker, you set up the OpenThread build toolchain and build OpenThread directly
 on a Mac or Linux machine.
 
 <a class="button button-primary"
-   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-simulation-posix/index.lab.md">Try the Simulation Codelab
+   href="../codelabs/openthread-simulation-posix/index.lab.md">Try the Simulation Codelab
   with build toolchain</a>
 
 ### Hardware Codelabs
@@ -44,10 +44,10 @@ Dive right into hardware, where you will learn how to:
 *   Use the OpenThread CLI for Multicast and UDP (Nordic only)
 
 <a class="button button-primary"
-   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-hardware/index.lab.md">Try the Nordic Hardware Codelab</a>
+   href="../codelabs/openthread-hardware/index.lab.md">Try the Nordic Hardware Codelab</a>
 
 <a class="button button-primary"
-   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/silabs-openthread-hardware/index.lab.md">Try the Silicon Labs Hardware
+   href="../codelabs/silabs-openthread-hardware/index.lab.md">Try the Silicon Labs Hardware
     Codelab</a>
 
 ### API Codelab
@@ -61,7 +61,7 @@ to:
 *   Send UDP messages to all devices in a Thread network
 
 <a class="button button-primary"
-   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-apis/index.lab.md">Try the API Codelab</a>
+   href="../codelabs/openthread-apis/index.lab.md">Try the API Codelab</a>
 
 ### Network Simulator Codelab
 
@@ -75,7 +75,7 @@ machine, learn how to:
 *   Use OTNS-CLI to further control the simulation
 
 <a class="button button-primary"
-   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-network-simulator/index.lab.md">Try the Network Simulator
+   href="../codelabs/openthread-network-simulator/index.lab.md">Try the Network Simulator
   Codelab</a>
 
 ### Testing and Visualization Codelab
@@ -89,7 +89,7 @@ with real devices. With a Mac or Linux machine, learn how to:
     Silk test cases
 
 <a class="button button-primary"
-   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-testing-visualization/index.lab.md">Try the Testing and
+   href="../codelabs/openthread-testing-visualization/index.lab.md">Try the Testing and
   Visualization Codelab</a>
 
 ### Border Router Codelab
@@ -107,7 +107,7 @@ With a Mac or Linux machine, learn how to:
 *   Discover and reach a Thread end device
 
 <a class="button button-primary"
-   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-border-router/index.lab.md">Try the Border Router
+   href="../codelabs/openthread-border-router/index.lab.md">Try the Border Router
   Codelab</a>
 
 ### Border Router Thread 1.2 Multicast Codelab
@@ -120,14 +120,14 @@ network segments. With a Mac or Linux machine and a Raspberry Pi, learn how to:
 *   Subscribe to IPv6 multicast addresses on Thread devices
 
 <a class="button button-primary"
-   href="https://github.com/openthread/ot-docs/blob/main/site/en/codelabs/openthread-border-router-ipv6-multicast/index.lab.md">Try the Border
+   href="../codelabs/openthread-border-router-ipv6-multicast/index.lab.md">Try the Border
   Router Thread 1.2 Multicast Codelab</a>
 
 ### Border Router with Docker
 
 You can also run OTBR in a Docker container on any Linux-based machine.
 
-<a class="button button-primary" href="https://github.com/openthread/ot-docs/blob/main/site/en/guides/border-router/docker/index.md">Try the
+<a class="button button-primary" href="border-router/docker/index.md">Try the
   OTBR Docker guide</a>
 
 ## Get the code
@@ -160,8 +160,8 @@ Need help with a specific task or feature? Our guides can help.
 
 Category | Contents
 ----- | -----
-[Build](https://github.com/openthread/ot-docs/blob/main/site/en/guides/build/index.md) | How to build and configure OpenThread and enable enhanced features
-[Porting](https://github.com/openthread/ot-docs/blob/main/site/en/guides/porting/index.md) | How to port OpenThread to a new hardware platform
+[Build](build/index.md) | How to build and configure OpenThread and enable enhanced features
+[Porting](porting/index.md) | How to port OpenThread to a new hardware platform
 [Border Router](https://openthread.io/guides/border-router) | How to connect your OpenThread network to other IPv6 networks with a Border Router, or use external Thread commissioning
 [Commissioner](https://openthread.io/guides/commissioner) | How to build and use OT Commissioner to commission devices onto a Thread network
 [Pyspinel](https://openthread.io/guides/pyspinel/) | How to use Pyspinel to build a Thread packet sniffer.
@@ -170,7 +170,7 @@ Category | Contents
 ## Application APIs
 
 Developing an application to run on top of OpenThread? Try our [Developing with
-OpenThread APIs Codelab](https://github.com/openthread/ot-docs/tree/main/site/en/codelabs/openthread-apis/index.lab.md) to
+OpenThread APIs Codelab](../codelabs/openthread-apis/index.lab.md) to
 learn the basics, or dig into the [API Reference](https://openthread.io/reference/) documentation to
 see what OpenThread services are available.
 
