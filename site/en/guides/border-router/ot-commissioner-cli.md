@@ -26,28 +26,29 @@ OpenThread POSIX, using `ot-ctl`.
 
 1.  Initialize a new operational dataset:
 
-    ```
+    ``` 
     sudo ot-ctl dataset init new
     Done
-    ```
+    ````
+   
 1.  Set the network credentials:
 
-    ```
+    ```  
     sudo ot-ctl dataset panid 0xdead
     Done
     ```
-
+        
     ```
     sudo ot-ctl dataset extpanid dead1111dead2222
     Done
     ```
-
+        
     ```
     sudo ot-ctl dataset networkname OpenThreadGuide
     Done
     ```
-
-    ```
+    
+    ```       
     sudo ot-ctl dataset networkkey 11112233445566778899DEAD1111DEAD
     Done
     ```
@@ -56,13 +57,18 @@ OpenThread POSIX, using `ot-ctl`.
     the Extended PAN ID, and the Network Name with the PSKc Generator tool on
     the OTBR. Make sure to use the same Extended PAN ID and Network Name that
     was used in the operational dataset:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">cd ~/ot-br-posix/build/otbr/tools</code>
-<code class="devsite-terminal">./pskc J01NME DEAD1111DEAD2222 OpenThreadGuide</code>
-<code>198886f519a8fd7c981fee95d72f4ba7</code></pre>
+    
+    ````
+    $ cd ~/ot-br-posix/build/otbr/tools
+    $ ./pskc J01NME DEAD1111DEAD2222 OpenThreadGuide
+    198886f519a8fd7c981fee95d72f4ba7
+    ```
+    
 1.  Set the PSKc:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl dataset pskc 198886f519a8fd7c981fee95d72f4ba7</code>
-Done
-</pre>
+
+    sudo ot-ctl dataset pskc 198886f519a8fd7c981fee95d72f4ba7</code>
+    Done
+    
 1.  Commit the active dataset, set the on-mesh prefix, and form the Thread
     network:
 <pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl dataset commit active</code>
