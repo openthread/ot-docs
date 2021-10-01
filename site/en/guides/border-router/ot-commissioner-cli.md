@@ -27,29 +27,29 @@ OpenThread POSIX, using `ot-ctl`.
 1.  Initialize a new operational dataset:
 
     ``` 
-    sudo ot-ctl dataset init new
+    $ sudo ot-ctl dataset init new
     Done
     ```
    
 1.  Set the network credentials:
 
     ```  
-    sudo ot-ctl dataset panid 0xdead
+    $ sudo ot-ctl dataset panid 0xdead
     Done
     ```
         
     ```
-    sudo ot-ctl dataset extpanid dead1111dead2222
+    $ sudo ot-ctl dataset extpanid dead1111dead2222
     Done
     ```
         
     ```
-    sudo ot-ctl dataset networkname OpenThreadGuide
+    $ sudo ot-ctl dataset networkname OpenThreadGuide
     Done
     ```
     
     ```       
-    sudo ot-ctl dataset networkkey 11112233445566778899DEAD1111DEAD
+    $ sudo ot-ctl dataset networkkey 11112233445566778899DEAD1111DEAD
     Done
     ```
 
@@ -67,7 +67,7 @@ OpenThread POSIX, using `ot-ctl`.
 1.  Set the PSKc:
 
     ```
-    sudo ot-ctl dataset pskc 198886f519a8fd7c981fee95d72f4ba7</code>
+    $ sudo ot-ctl dataset pskc 198886f519a8fd7c981fee95d72f4ba7</code>
     Done
     ```
     
@@ -75,41 +75,44 @@ OpenThread POSIX, using `ot-ctl`.
     network:
 
     ```
-    sudo ot-ctl dataset commit active
+    $ sudo ot-ctl dataset commit active
     Done
     ```
 
     ```
-    sudo ot-ctl prefix add fd11:22::/64 pasor
+    $ sudo ot-ctl prefix add fd11:22::/64 pasor
     Done
     ```
     
     ```
-    sudo ot-ctl ifconfig up
+    $ sudo ot-ctl ifconfig up
     Done 
     ```
 
     ```
-    sudo ot-ctl thread start
+    $ sudo ot-ctl thread start
     Done
     ```
     
     ```
-    sudo ot-ctl netdata register
+    $ sudo ot-ctl netdata register
     Done
     ```
     
 1.  Confirm the network configuration:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl state</code>
-leader
-Done
-</pre>
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl pskc</code>
-198886f519a8fd7c981fee95d72f4ba7
-Done
-</pre>
 
-<h2 class="numbered">Prepare the Joiner device</h2>
+    ```
+    $ sudo ot-ctl state
+    leader
+    Done
+    ```
+    
+    ```
+    $ sudo ot-ctl pskc
+    198886f519a8fd7c981fee95d72f4ba7
+    Done
+
+## Prepare the Joiner device
 
 Build and flash a device with OpenThread, to function as the Joiner. For an
 overview of building OpenThread, see the [Building Guide](/guides/build/).
