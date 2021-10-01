@@ -29,7 +29,7 @@ OpenThread POSIX, using `ot-ctl`.
     ``` 
     sudo ot-ctl dataset init new
     Done
-    ````
+    ```
    
 1.  Set the network credentials:
 
@@ -66,26 +66,39 @@ OpenThread POSIX, using `ot-ctl`.
     
 1.  Set the PSKc:
 
+    ```
     sudo ot-ctl dataset pskc 198886f519a8fd7c981fee95d72f4ba7</code>
     Done
+    ```
     
 1.  Commit the active dataset, set the on-mesh prefix, and form the Thread
     network:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl dataset commit active</code>
-Done
-</pre>
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl prefix add fd11:22::/64 pasor</code>
-Done
-</pre>
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl ifconfig up</code>
-Done
-</pre>
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl thread start</code>
-Done
-</pre>
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl netdata register</code>
-Done
-</pre>
+
+    ```
+    sudo ot-ctl dataset commit active
+    Done
+    ```
+
+    ```
+    sudo ot-ctl prefix add fd11:22::/64 pasor
+    Done
+    ```
+    
+    ```
+    sudo ot-ctl ifconfig up
+    Done 
+    ```
+
+    ```
+    sudo ot-ctl thread start
+    Done
+    ```
+    
+    ```
+    sudo ot-ctl netdata register
+    Done
+    ```
+    
 1.  Confirm the network configuration:
 <pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl state</code>
 leader
