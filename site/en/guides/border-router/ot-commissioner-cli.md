@@ -16,8 +16,8 @@ Credential and is used (along with the Extended PAN ID and Network Name) to
 generate the Pre-Shared Key for the Commissioner (PSKc). The PSKc is needed to
 authenticate the Thread Commissioner (the external device) to the network.
 
-<aside class="note"><strong>Note:</strong> The Commissioner Credential is a
-  user-defined string between 6 and 255 characters, UTF-8 encoded.</aside>
+**Note:** The Commissioner Credential is a user-defined string between 6
+and 255 characters, UTF-8 encoded.
 
 ### Manual
 
@@ -25,24 +25,33 @@ The Thread network can also be formed manually on the command line of
 OpenThread POSIX, using `ot-ctl`.
 
 1.  Initialize a new operational dataset:
-```
-sudo ot-ctl dataset init new
-```
-Done
-</pre>
+
+    ```
+    sudo ot-ctl dataset init new
+    Done
+    ```
 1.  Set the network credentials:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl dataset panid 0xdead</code>
-Done
-</pre>
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl dataset extpanid dead1111dead2222</code>
-Done
-</pre>
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl dataset networkname OpenThreadGuide</code>
-Done
-</pre>
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl dataset networkkey 11112233445566778899DEAD1111DEAD</code>
-Done
-</pre>
+
+    ```
+    sudo ot-ctl dataset panid 0xdead
+    Done
+    ```
+
+    ```
+    sudo ot-ctl dataset extpanid dead1111dead2222
+    Done
+    ```
+
+    ```
+    sudo ot-ctl dataset networkname OpenThreadGuide
+    Done
+    ```
+
+    ```
+    sudo ot-ctl dataset networkkey 11112233445566778899DEAD1111DEAD
+    Done
+    ```
+
 1.  Generate a hex-encoded PSKc by using a Passphrase (Commissioner Credential),
     the Extended PAN ID, and the Network Name with the PSKc Generator tool on
     the OTBR. Make sure to use the same Extended PAN ID and Network Name that
