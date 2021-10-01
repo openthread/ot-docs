@@ -58,7 +58,7 @@ OpenThread POSIX, using `ot-ctl`.
     the OTBR. Make sure to use the same Extended PAN ID and Network Name that
     was used in the operational dataset:
     
-    ````
+    ```
     $ cd ~/ot-br-posix/build/otbr/tools
     $ ./pskc J01NME DEAD1111DEAD2222 OpenThreadGuide
     198886f519a8fd7c981fee95d72f4ba7
@@ -111,21 +111,24 @@ OpenThread POSIX, using `ot-ctl`.
     $ sudo ot-ctl pskc
     198886f519a8fd7c981fee95d72f4ba7
     Done
+    ```
 
 ## Prepare the Joiner device
 
 Build and flash a device with OpenThread, to function as the Joiner. For an
-overview of building OpenThread, see the [Building Guide](/guides/build/).
+overview of building OpenThread, see the [Building Guide](../build/index.md).
 
 Use the `-DOT_JOINER=ON` build option to enable the Joiner role.
 
 For example, to build the CC2538 example platform for use as a Joiner:
 
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">./script/build -DOT_JOINER=ON</code></pre>
+```
+$ ./script/build -DOT_JOINER=ON
+```
 
 Specific instructions on building supported platforms with GNU Autotools can be
 found in each example's
-[platform folder]({{ github_core }})/examples/platforms).
+[platform folder](https://github.com/openthread/openthread/tree/master/examples/platforms).
 
 Once the Joiner device is ready, obtain its factory-assigned IEEE EUI-64. Use
 the `eui64` command in the OpenThread CLI:
