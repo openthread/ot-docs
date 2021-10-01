@@ -1,9 +1,13 @@
-<h2 class="numbered" style="clear:right">Form the Thread network</h2>
+#  OT Commissioner CLI
+
+{{intro paragraph}}
+
+## Form the Thread network
 
 ### Web GUI
 
 The recommended way to form a Thread network is via the [OTBR Web
-GUI](/guides/border-router/web-gui#form_a_thread_network). When doing so, change
+GUI](https://openthread.io/guides/border-router/web-gui). When doing so, change
 all the default values on the **Form** menu option, except for the On-Mesh
 Prefix.
 
@@ -12,7 +16,8 @@ Credential and is used (along with the Extended PAN ID and Network Name) to
 generate the Pre-Shared Key for the Commissioner (PSKc). The PSKc is needed to
 authenticate the Thread Commissioner (the external device) to the network.
 
-{{ comm_cred }}
+<aside class="note"><strong>Note:</strong> The Commissioner Credential is a
+  user-defined string between 6 and 255 characters, UTF-8 encoded.</aside>
 
 ### Manual
 
@@ -20,7 +25,9 @@ The Thread network can also be formed manually on the command line of
 OpenThread POSIX, using `ot-ctl`.
 
 1.  Initialize a new operational dataset:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">sudo ot-ctl dataset init new</code>
+```
+sudo ot-ctl dataset init new
+```
 Done
 </pre>
 1.  Set the network credentials:
@@ -290,3 +297,31 @@ To delete local application data:
 1.  Close the Settings app and restart the Thread app
 
 {% dynamic endif %}
+
+## License
+
+Copyright (c) 2021, The OpenThread Authors.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+3. Neither the name of the copyright holder nor the
+   names of its contributors may be used to endorse or promote products
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
