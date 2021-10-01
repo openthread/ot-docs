@@ -80,7 +80,7 @@ machine, learn how to:
 
 ### Testing and Visualization Codelab
 
-OTNS can be used with [Silk]({{ github_repo_silk }}), a fully automated test
+OTNS can be used with [Silk](https://github.com/openthread/silk), a fully automated test
 platform for validating OpenThread function, feature, and system performance
 with real devices. With a Mac or Linux machine, learn how to:
 
@@ -133,7 +133,7 @@ You can also run OTBR in a Docker container on any Linux-based machine.
 ## Get the code
 
 Already know what you're doing and want to get started with the code? Visit the
-[OpenThread GitHub site]({{ github_org }}), where you can
+[OpenThread GitHub site](https://github.com/openthread/openthread), where you can
 find the OpenThread repository, along with other support repositories, like
 OpenThread Border Router, OpenThread RTOS, and OpenThread Commissioner.
 
