@@ -178,99 +178,37 @@ Configuration](https://openthread.io/guides/commissioner/build) for instructions
     >
     ```
 
-<h2 class="numbered">Commission the Joiner</h2>
+## Commission the Joiner
 
 Once connected to the Border Router, OT Commissioner can commission the Joiner
 device.
 
-1.  In OT Commissioner, enable Thread 1.1 MeshCoP joiner for all Joiners with a
+1.  In OT Commissioner, enable Thread MeshCoP joiner for all Joiners with a
     password of `J01NU5`:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">joiner enableall meshcop J01NU5</code>
-[done]
-<code class="devsite-terminal" data-terminal-prefix="&gt; "></code></pre>
+    
+    ```
+    > joiner enableall meshcop J01NU5
+    [done]
+    >
+    ```
+    
 1.  On the Joiner device, start the Joiner role with the password configured in
     OT Commissioner:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">ifconfig up
-Done</code>
-<code class="devsite-terminal" data-terminal-prefix="&gt; ">joiner start J01NU5
-Done</code></pre>
+    
+    ```
+    > ifconfig up
+    Done
+    > joiner start J01NU5
+    Done
+    ```
+
 1.  Wait a minute for the DTLS handshake to complete between the Commissioner
-    and Joiner:<br>
-<div class="ot-inline"><pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">
-Join success!</code></pre></div>
-
-{% dynamic else %}
-
-<h2 class="numbered">Download the app</h2>
-
-External commissioning is supported by the
-[{% dynamic print setvar.app_name %}]({% dynamic print setvar.app_link %}){:target="_blank"},
-available for download at the {% dynamic print setvar.download %}.
-
-Note: The {% dynamic print setvar.app_name %} is only available for Android.
-
-<h2 class="numbered">Connect to the Border Router</h2>
-
-<figure class="attempt-right">
-<a href="../images/{% dynamic print setvar.img_br %}.png"><img src="../images/{% dynamic print setvar.img_br %}.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
-</figure>
-
-1.  With both devices on the same network, connect the device with the
-    {% dynamic print setvar.app_name %} to the Border Router.
-1.  Open the {% dynamic print setvar.app_name %} and select the desired Border
-    Router from the available list. The name is the same as the Thread network
-    created by the OTBR Web GUI.
-1.  Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
-    used to generate the PSKc) when prompted for a password.
-
-<h2 class="numbered" style="clear:right">Commission the Joiner</h2>
-
-<style type='text/css'>
-.ot-inline { overflow: hidden !important; }
-</style>
-
-Once connected to the Border Router, the app provides the option to scan a
-Connect QR Code or enter a Join Passphrase manually. The Join Passphrase is also
-called the Joiner Credential, and is used (along with the Extended PAN ID and
-Network Name) to generate the Pre-Shared Key for the Device (PSKd). The PSKd is
-then used to authenticate a device during Thread Commissioning. The Joiner
-Credential should be unique to each device.
-
-Thread Connect QR Codes are created with the following text string format:
-
-<pre>v=1&&eui=0000b57fffe15d68&&cc=J01NU5</pre>
-
-Where `eui` is the Joiner device's EUI64 value and `cc` is the Joiner
-Credential. Use this text string with an online QR Code generator to create a QR
-Code for scanning.
-
-{{ joiner_cred }}
-
-<figure class="attempt-right">
-<a href="../images/{% dynamic print setvar.img_comm %}.png"><img src="../images/{% dynamic print setvar.img_comm %}.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
-</figure>
-
-1.  In the {% dynamic print setvar.app_name %}, scan the Connect QR Code of the
-    Joiner device, or enter the EUI64 and Joiner Credential manually. This
-    generates the PSKd, propagates the steering data through the Thread network,
-    and establishes a DTLS session.
-1.  While the app is waiting, enter the OpenThread CLI on the Joiner device and
-    start the Joiner role with that same Joiner Credential:
-<div class="ot-inline"><pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">ifconfig up
-Done</code>
-<code class="devsite-terminal" data-terminal-prefix="&gt; ">joiner start J01NU5
-Done</code></pre></div>
-1.  Wait a minute for the DTLS handshake to complete between the Commissioner
-    and Joiner:<br>
-<div class="ot-inline"><pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">
-Join success!</code></pre></div>
-1.  The {% dynamic print setvar.app_name %} also updates with an
-    "{% dynamic print setvar.confirm %}" confirmation message.
-
-The Joiner has obtained the Thread network credentials, and can now join the
-network.
-
-{% dynamic endif %}
+    and Joiner:
+    
+    ```
+    >
+    Join success!
+    ```
 
 <h2 class="numbered">Join the network</h2>
 
