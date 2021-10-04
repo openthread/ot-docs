@@ -16,12 +16,13 @@ Commissioner Android App to the Border Router.
 1. Open the OT Commissioner Android App and select the desired Border
 Router from the available list. The name is the same as the Thread network
 created by the OTBR Web GUI.
+
+    <figure class="attempt-right">
+    <a href="../images/comm-app-border-router-guide.png"><img src="../images/comm-app-border-router-guide.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
+    </figure>
+
 1. Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
 used to generate the PSKc) when prompted for a password.
-
-<figure class="attempt-right">
-<a href="../images/comm-app-border-router.png"><img src="../images/comm-app-border-router.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
-</figure>
 
 ## Commission the Joiner
 
