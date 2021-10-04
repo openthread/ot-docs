@@ -139,7 +139,7 @@ the `eui64` command in the OpenThread CLI:
 Done
 ```
 
-## Build and install OT Commissioner</h2>
+## Build and install OT Commissioner
 
 Build and install OT Commissioner. See [OT Commissioner Build and
 Configuration](https://openthread.io/guides/commissioner/build) for instructions.
@@ -241,7 +241,7 @@ fe80:0:0:0:6006:41ca:c822:c337
 fdde:ad11:11de:0:ed8c:1681:24c4:3562
 ```
 
-## Ping the external internet</h2>
+## Ping the external internet
 
 Test the connectivity between the Joiner device in the Thread network and the
 external internet by pinging a public IPv4 address.
@@ -264,27 +264,6 @@ Ping the synthesized IPv6 address `64:ff9b::808:808` from the OpenThread CLI on 
 > ping 64:ff9b::808:808
 16 bytes from 64:ff9b:0:0:0:0:808:808: icmp_seq=3 hlim=45 time=72ms
 ```
-
-{% dynamic if request.query_string.comm == "android-app" %}
-
-## Thread Commissioning App troubleshooting
-
-You may encounter issues with the Thread Commissioning App, due to changed or
-stale network information. The app retains OTBR network information locally and
-does not always prompt for updates.
-
-To resolve these issues, delete all local application data, restart the app, and
-try the commissioning process again.
-
-To delete local application data:
-
-1.  On the Android device, open the Settings app
-1.  Go to **Apps & notifications** > **App info** > **Thread** > **Storage**
-1.  Select **CLEAR DATA**
-1.  Go back to **App info** and select **FORCE STOP**
-1.  Close the Settings app and restart the Thread app
-
-{% dynamic endif %}
 
 ## License
 
