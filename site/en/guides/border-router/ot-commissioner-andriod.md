@@ -1,11 +1,15 @@
 # OT Commissioner Android App
 
-Use the OT Commissioner CLI to {{intro}}.
+Once you've set up your Thread environment and prepared your device, you can use
+the [OT Commissioner Android App](https://github.com/openthread/ot-commissioner/tree/master/android) to externally commission your device.
+
+Before you begin, make sure that you've completed all of the steps in the [External
+Commissioning guide](external-commissioning.md).
 
 ## Download the OT Commissioner Android App
 
-You can download and build the OT Commissioner Android App from OpenThread's [GitHub
-repository](https://github.com/openthread/ot-commissioner/tree/master/android).
+You can download and build the OT Commissioner Android App from the OpenThread
+Commissioner [GitHub repository](https://github.com/openthread/ot-commissioner/tree/master/android).
 
 **Note:** The OT Commissioner App is only available for Android.
 
@@ -76,78 +80,6 @@ network.
 <figure class="attempt-right">
 <a href="../images/comm-app-commissioning.png"><img src="../images/comm-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
 </figure>
-
-<h2 class="numbered">Join the network</h2>
-
-On the Joiner device, start the Thread protocol to automatically join the
-network.
-
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">thread start
-Done</code>
-</pre>
-
-Check the state after a few moments to confirm. It may initially start as a
-child, but within two minutes it should upgrade to a router.
-
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">state
-router
-Done</code>
-</pre>
-
-Also check the device's IPv6 addresses. It should have a Global address using
-the On-Mesh Prefix specified during formation of the Thread network through the
-OTBR Web GUI.
-
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">ipaddr
-fdde:ad11:11de:0:0:ff:fe00:9400
-<b>fd11:22:0:0:3a15:3211:2723:dbe1</b>
-fe80:0:0:0:6006:41ca:c822:c337
-fdde:ad11:11de:0:ed8c:1681:24c4:3562</code>
-</pre>
-
-<h2 class="numbered">Ping the external internet</h2>
-
-Test the connectivity between the Joiner device in the Thread network and the
-external internet by pinging a public IPv4 address.
-
-For example, the Well-Known NAT64 prefix of `64:ff9b::/96` and an IPv4 address
-of `8.8.8.8` combine to form an IPv6 address of `64:ff9b::808:808`.
-
-Add an external route for the NAT64 Prefix:
-
-<pre class="devsite-click-to-copy">
-<code class="devsite-terminal">sudo ot-ctl route add 64:ff9b::/96 s med</code>
-Done
-<code class="devsite-terminal">sudo ot-ctl netdata register</code>
-Done
-</pre>
-
-Ping the synthesized IPv6 address `64:ff9b::808:808` from the OpenThread CLI on the Joiner device:
-
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">ping 64:ff9b::808:808</code>
-16 bytes from 64:ff9b:0:0:0:0:808:808: icmp_seq=3 hlim=45 time=72ms
-</pre>
-
-{% dynamic if request.query_string.comm == "android-app" %}
-
-## Thread Commissioning App troubleshooting
-
-You may encounter issues with the Thread Commissioning App, due to changed or
-stale network information. The app retains OTBR network information locally and
-does not always prompt for updates.
-
-To resolve these issues, delete all local application data, restart the app, and
-try the commissioning process again.
-
-To delete local application data:
-
-1.  On the Android device, open the Settings app
-1.  Go to **Apps & notifications** > **App info** > **Thread** > **Storage**
-1.  Select **CLEAR DATA**
-1.  Go back to **App info** and select **FORCE STOP**
-1.  Close the Settings app and restart the Thread app
-
-{% dynamic endif %}
 
 ## License
 
