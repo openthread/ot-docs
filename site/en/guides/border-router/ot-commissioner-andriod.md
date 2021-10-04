@@ -2,13 +2,12 @@
 
 Use the OT Commissioner CLI to {{intro}}.
 
-<h2 class="numbered">Download the app</h2>
+## Download the OT Commissioner Android App
 
-External commissioning is supported by the
-[{% dynamic print setvar.app_name %}]({% dynamic print setvar.app_link %}){:target="_blank"},
-available for download at the {% dynamic print setvar.download %}.
+You can download and build the OT Commissioner Android App from OpenThread's [GitHub
+repository](https://github.com/openthread/ot-commissioner/tree/master/android).
 
-Note: The {% dynamic print setvar.app_name %} is only available for Android.
+**Note:** The OT Commissioner Android App is only available for Android.
 
 <h2 class="numbered">Connect to the Border Router</h2>
 
