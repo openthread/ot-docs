@@ -7,27 +7,23 @@ Use the OT Commissioner CLI to {{intro}}.
 You can download and build the OT Commissioner Android App from OpenThread's [GitHub
 repository](https://github.com/openthread/ot-commissioner/tree/master/android).
 
-**Note:** The OT Commissioner Android App is only available for Android.
+**Note:** The OT Commissioner App is only available for Android.
 
-<h2 class="numbered">Connect to the Border Router</h2>
+## Connect to the Border Router
+
+1. With both devices on the same network, connect the device with the OT
+Commissioner Android App to the Border Router.
+1. Open the OT Commissioner Android App and select the desired Border
+Router from the available list. The name is the same as the Thread network
+created by the OTBR Web GUI.
+1. Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
+used to generate the PSKc) when prompted for a password.
 
 <figure class="attempt-right">
-<a href="../images/{% dynamic print setvar.img_br %}.png"><img src="../images/{% dynamic print setvar.img_br %}.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
+<a href="../images/comm-app-border-router.png"><img src="../images/comm-app-border-router.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
 </figure>
 
-1.  With both devices on the same network, connect the device with the
-    {% dynamic print setvar.app_name %} to the Border Router.
-1.  Open the {% dynamic print setvar.app_name %} and select the desired Border
-    Router from the available list. The name is the same as the Thread network
-    created by the OTBR Web GUI.
-1.  Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
-    used to generate the PSKc) when prompted for a password.
-
-<h2 class="numbered" style="clear:right">Commission the Joiner</h2>
-
-<style type='text/css'>
-.ot-inline { overflow: hidden !important; }
-</style>
+## Commission the Joiner
 
 Once connected to the Border Router, the app provides the option to scan a
 Connect QR Code or enter a Join Passphrase manually. The Join Passphrase is also
@@ -44,7 +40,9 @@ Where `eui` is the Joiner device's EUI64 value and `cc` is the Joiner
 Credential. Use this text string with an online QR Code generator to create a QR
 Code for scanning.
 
-{{ joiner_cred }}
+**Note:** The Joiner Credential is a device-specific string of all uppercase
+alphanumeric characters (0-9 and A-Y, excluding I, O, Q, and Z for readability),
+with a length between 6 and 32 characters.
 
 <figure class="attempt-right">
 <a href="../images/{% dynamic print setvar.img_comm %}.png"><img src="../images/{% dynamic print setvar.img_comm %}.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
