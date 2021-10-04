@@ -133,38 +133,50 @@ found in each example's
 Once the Joiner device is ready, obtain its factory-assigned IEEE EUI-64. Use
 the `eui64` command in the OpenThread CLI:
 
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">eui64
+```
+> eui64
 0000b57fffe15d68
-Done</code>
-</pre>
+Done
+```
 
-{% dynamic if request.query_string.comm == "ot-commissioner" %}
-
-<h2 class="numbered">Build and install OT Commissioner</h2>
+## Build and install OT Commissioner</h2>
 
 Build and install OT Commissioner. See [OT Commissioner Build and
-Configuration](/guides/commissioner/build) for instructions.
+Configuration](https://openthread.io/guides/commissioner/build) for instructions.
 
-<h2 class="numbered">Connect to the Border Router</h2>
+## Connect to the Border Router
 
-Note: OT Commissioner must be running on the same host machine as OTBR.
+**Note:** OT Commissioner must be running on the same host machine as OTBR.
 
 1.  Open the Non-CCM configuration file located at
     `/usr/local/etc/commissioner/non-ccm-config.json` and change the `PSKc` to
     `198886f519a8fd7c981fee95d72f4ba7`:
-<pre class="devsite-click-to-copy">"PSKc" : "198886f519a8fd7c981fee95d72f4ba7"</pre>
+    
+    `"PSKc" : "198886f519a8fd7c981fee95d72f4ba7"`   
+    
 1.  Start the OT Commissioner CLI with the Non-CCM configuration:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal">commissioner-cli /usr/local/etc/commissioner/non-ccm-config.json</code>
-<code class="devsite-terminal" data-terminal-prefix="&gt; "></code></pre>
+
+    ```
+    $ commissioner-cli /usr/local/etc/commissioner/non-ccm-config.json
+    >
+    ```
+    
 1.  Connect to OTBR:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">start :: 49191</code>
-[done]
-<code class="devsite-terminal" data-terminal-prefix="&gt; "></code></pre>
+
+    ```
+    > start :: 49191
+    [done]
+    >
+    ```
+    
 1.  Verify that the Commissioner is active:
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">active</code>
-true
-[done]
-<code class="devsite-terminal" data-terminal-prefix="&gt; "></code></pre>
+
+    ```
+    >active
+    true
+    [done]
+    >
+    ```
 
 <h2 class="numbered">Commission the Joiner</h2>
 
