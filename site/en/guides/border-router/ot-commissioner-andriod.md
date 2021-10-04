@@ -44,31 +44,37 @@ Code for scanning.
 alphanumeric characters (0-9 and A-Y, excluding I, O, Q, and Z for readability),
 with a length between 6 and 32 characters.
 
-<figure class="attempt-right">
-<a href="../images/{% dynamic print setvar.img_comm %}.png"><img src="../images/{% dynamic print setvar.img_comm %}.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
-</figure>
+1. In the OT Commissioner Android App, scan the Connect QR Code of the Joiner
+device, or enter the EUI64 and Joiner Credential manually. This generates the
+PSKd, propagates the steering data through the Thread network, and establishes
+a DTLS session.
+1. While the app is waiting, enter the OpenThread CLI on the Joiner device and
+start the Joiner role with that same Joiner Credential:
 
-1.  In the {% dynamic print setvar.app_name %}, scan the Connect QR Code of the
-    Joiner device, or enter the EUI64 and Joiner Credential manually. This
-    generates the PSKd, propagates the steering data through the Thread network,
-    and establishes a DTLS session.
-1.  While the app is waiting, enter the OpenThread CLI on the Joiner device and
-    start the Joiner role with that same Joiner Credential:
-<div class="ot-inline"><pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">ifconfig up
-Done</code>
-<code class="devsite-terminal" data-terminal-prefix="&gt; ">joiner start J01NU5
-Done</code></pre></div>
-1.  Wait a minute for the DTLS handshake to complete between the Commissioner
-    and Joiner:<br>
-<div class="ot-inline"><pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">
-Join success!</code></pre></div>
-1.  The {% dynamic print setvar.app_name %} also updates with an
-    "{% dynamic print setvar.confirm %}" confirmation message.
+    ```
+    > ifconfig up
+    Done
+    > joiner start J01NU5
+    Done
+    ```
+
+1. Wait a minute for the DTLS handshake to complete between the Commissioner
+and Joiner:
+
+    ```
+    >
+    Join success!
+    ```
+
+1. The OT Commissioner Android App also updates with an "Commission Succeed"
+confirmation message.
 
 The Joiner has obtained the Thread network credentials, and can now join the
 network.
 
-{% dynamic endif %}
+<figure class="attempt-right">
+<a href="../images/comm-app-commissioning.png"><img src="../images/comm-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
+</figure>
 
 <h2 class="numbered">Join the network</h2>
 
