@@ -210,35 +210,38 @@ device.
     Join success!
     ```
 
-<h2 class="numbered">Join the network</h2>
+## Join the network
 
 On the Joiner device, start the Thread protocol to automatically join the
 network.
 
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">thread start
-Done</code>
-</pre>
+```
+> thread start
+Done
+```
 
 Check the state after a few moments to confirm. It may initially start as a
 child, but within two minutes it should upgrade to a router.
 
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">state
+```
+> state
 router
-Done</code>
-</pre>
+Done
+```
 
 Also check the device's IPv6 addresses. It should have a Global address using
 the On-Mesh Prefix specified during formation of the Thread network through the
 OTBR Web GUI.
 
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">ipaddr
+```
+> ipaddr
 fdde:ad11:11de:0:0:ff:fe00:9400
-<b>fd11:22:0:0:3a15:3211:2723:dbe1</b>
+fd11:22:0:0:3a15:3211:2723:dbe1 #Global address with on-mesh prefix
 fe80:0:0:0:6006:41ca:c822:c337
-fdde:ad11:11de:0:ed8c:1681:24c4:3562</code>
-</pre>
+fdde:ad11:11de:0:ed8c:1681:24c4:3562
+```
 
-<h2 class="numbered">Ping the external internet</h2>
+## Ping the external internet</h2>
 
 Test the connectivity between the Joiner device in the Thread network and the
 external internet by pinging a public IPv4 address.
@@ -248,18 +251,19 @@ of `8.8.8.8` combine to form an IPv6 address of `64:ff9b::808:808`.
 
 Add an external route for the NAT64 Prefix:
 
-<pre class="devsite-click-to-copy">
-<code class="devsite-terminal">sudo ot-ctl route add 64:ff9b::/96 s med</code>
+```
+$ sudo ot-ctl route add 64:ff9b::/96 s med</code>
 Done
-<code class="devsite-terminal">sudo ot-ctl netdata register</code>
+$ sudo ot-ctl netdata register
 Done
-</pre>
+```
 
 Ping the synthesized IPv6 address `64:ff9b::808:808` from the OpenThread CLI on the Joiner device:
 
-<pre class="devsite-click-to-copy"><code class="devsite-terminal" data-terminal-prefix="&gt; ">ping 64:ff9b::808:808</code>
+```
+> ping 64:ff9b::808:808
 16 bytes from 64:ff9b:0:0:0:0:808:808: icmp_seq=3 hlim=45 time=72ms
-</pre>
+```
 
 {% dynamic if request.query_string.comm == "android-app" %}
 
