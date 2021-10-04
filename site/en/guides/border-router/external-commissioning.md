@@ -177,13 +177,9 @@ Done
 
 ## Commission the Joiner device
 
-{{draft}}
-you can use the OT Commissioner CLI to commission the device from the same host machine as your OTBR, or you can find the Joiner device from a mobile app.
-
-OT Commissioner must be running on the same host machine as OTBR.
-
-Now that your device is ready, you 
+To commission your new device with an external Commissioner, you have several options. You can use the OT Commissioner CLI from the same host machine as your OTBR, or you can commission your Joiner using the OT Commissioner App for Android. To learn more about these options, refer to the following guides:
 
 * [OT Commissioner CLI](/guides/commissioner)
 * [OT Commissioner App for Android]({{ github_otc }}/android){:target="_blank"}
-* [Thread Commissioning App for Android](https://play.google.com/store/apps/details?id=org.threadgroup.commissioner&hl=en){:target="_blank"}
+
+If you're running a Thread 1.1 network, you can use Thread Group's Thread 1.1 Commissioning App for Android.
