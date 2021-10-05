@@ -1,7 +1,7 @@
 # Joiner
 
-Now that the DTLS handshake is complete, it's time to join the Thread
-Network and test network connectivity. 
+After your device is commissioned and the DTLS handshake is successful,
+your device is ready to join the Thread Network and test network connectivity. 
 
 ## Join the network
 
