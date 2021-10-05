@@ -81,6 +81,98 @@ network.
 <a href="../images/comm-app-commissioning.png"><img src="../images/comm-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
 </figure>
 
+## Download the Thread Group Android App
+
+External commissioning is supported by the [Thread Group Android App](https://play.google.com/store/apps/details?id=org.threadgroup.commissioner&hl=en), available
+for download at the at the Google Play Store for Android devices.
+
+**Note:** The Thread Group Android App is only available for Android.
+
+## Connect to the Border Router
+
+1. With both devices on the same network, connect the device with the
+Thread Group Android App to the Border Router.
+3. Open the Thread Group Android App and select the desired Border
+Router from the available list. The name is the same as the Thread network
+created by the OTBR Web GUI.
+
+    <figure class="attempt-right">
+    <a href="../images/thread-app-border-router.png"><img src="../images/thread-app-border-router.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
+    </figure>
+
+1. Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
+used to generate the PSKc) when prompted for a password.
+
+## Commission the Joiner
+
+Once connected to the Border Router, the app provides the option to scan a
+Connect QR Code or enter a Join Passphrase manually. The Join Passphrase is also
+called the Joiner Credential, and is used (along with the Extended PAN ID and
+Network Name) to generate the Pre-Shared Key for the Device (PSKd). The PSKd is
+then used to authenticate a device during Thread Commissioning. The Joiner
+Credential should be unique to each device.
+
+Thread Connect QR Codes are created with the following text string format:
+
+<pre>v=1&&eui=0000b57fffe15d68&&cc=J01NU5</pre>
+
+Where `eui` is the Joiner device's EUI64 value and `cc` is the Joiner
+Credential. Use this text string with an online QR Code generator to create a QR
+Code for scanning.
+
+**Note:** The Joiner Credential is a device-specific string of all uppercase
+alphanumeric characters (0-9 and A-Y, excluding I, O, Q, and Z for readability),
+with a length between 6 and 32 characters.
+
+1. In the Thread Group Android App, scan the Connect QR Code of the Joiner
+device, or enter the EUI64 and Joiner Credential manually. This generates the
+PSKd, propagates the steering data through the Thread network, and establishes
+a DTLS session.
+1. While the app is waiting, enter the OpenThread CLI on the Joiner device and
+start the Joiner role with that same Joiner Credential:
+
+    ```
+    > ifconfig up
+    Done
+    > joiner start J01NU5
+    Done
+    ```
+
+1. Wait a minute for the DTLS handshake to complete between the Commissioner
+and Joiner:
+
+    ```
+    >
+    Join success!
+    ```
+
+1. The Thread Group Android App also updates with an "Added My Thread Product"
+confirmation message.
+
+The Joiner has obtained the Thread network credentials, and can now join the
+network.
+
+<figure class="attempt-right">
+<a href="../images/thread-app-commissioning.png"><img src="../images/thread-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
+</figure>
+
+## Thread Commissioning App troubleshooting
+
+You may encounter issues with the Thread Commissioning App, due to changed or
+stale network information. The app retains OTBR network information locally and
+does not always prompt for updates.
+
+To resolve these issues, delete all local application data, restart the app, and
+try the commissioning process again.
+
+To delete local application data:
+
+1.  On the Android device, open the Settings app
+1.  Go to **Apps & notifications** > **App info** > **Thread** > **Storage**
+1.  Select **CLEAR DATA**
+1.  Go back to **App info** and select **FORCE STOP**
+1.  Close the Settings app and restart the Thread app
+
 ## License
 
 Copyright (c) 2021, The OpenThread Authors.
