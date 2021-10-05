@@ -21,12 +21,7 @@ are transferred between devices over the radio.
 possession of the network key.
 
 This guide details how to commission an OpenThread device onto a network created
-and managed by the OTBR Web GUI, using the following steps:
-
-* [Set up OTBR](#build-otbr) and [prepare a Joiner device](#prepare-the-joiner-device)
-* Use [OT Commissioner CLI](https://openthread.io/guides/commissioner) or [OT Commissioner Android App](https://github.com/openthread/ot-commissioner/tree/master/android) to externally commission
-your device
-* [Join the Thread network after commissioning](joiner-start-thread.md) and test network connectivity
+and managed by the OTBR Web GUI. 
 
 To learn how to commission without an external Commissioner, see
 [Thread Commissioning](/guides/build/commissioning).
