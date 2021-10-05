@@ -1,4 +1,4 @@
-# OT Commissioner Android App
+# External Commissioning for Android
 
 Once you've set up your Thread environment and prepared your device, you can use
 the [OT Commissioner Android App](https://github.com/openthread/ot-commissioner/tree/master/android) to externally commission your device.
@@ -6,14 +6,16 @@ the [OT Commissioner Android App](https://github.com/openthread/ot-commissioner/
 Before you begin, make sure that you've completed all of the steps in the [External
 Commissioning guide](external-commissioning.md).
 
-## Download the OT Commissioner Android App
+> To use the Thread Group Android App for Thread 1.1, refer to [Use Thread Group's Android app](#threadgroup).
+
+## Use OpenThread's OT Commissioner Android App
 
 You can download and build the OT Commissioner Android App from the OpenThread
 Commissioner [GitHub repository](https://github.com/openthread/ot-commissioner/tree/master/android).
 
 **Note:** The OT Commissioner App is only available for Android.
 
-## Connect to the Border Router
+### Connect to the Border Router
 
 1. With both devices on the same network, connect the device with the OT
 Commissioner Android App to the Border Router.
@@ -28,7 +30,7 @@ created by the OTBR Web GUI.
 1. Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
 used to generate the PSKc) when prompted for a password.
 
-## Commission the Joiner
+### Commission the Joiner
 
 Once connected to the Border Router, the app provides the option to scan a
 Connect QR Code or enter a Join Passphrase manually. The Join Passphrase is also
@@ -81,14 +83,14 @@ network.
 <a href="../images/comm-app-commissioning.png"><img src="../images/comm-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
 </figure>
 
-## Download the Thread Group Android App
+## <a name="threadgroup"></a>Use Thread Group's Android App for Thread 1.1
 
 External commissioning is supported by the [Thread Group Android App](https://play.google.com/store/apps/details?id=org.threadgroup.commissioner&hl=en), available
 for download at the at the Google Play Store for Android devices.
 
 **Note:** The Thread Group Android App is only available for Android.
 
-## Connect to the Border Router
+### Connect to the Border Router
 
 1. With both devices on the same network, connect the device with the
 Thread Group Android App to the Border Router.
@@ -103,7 +105,7 @@ created by the OTBR Web GUI.
 1. Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
 used to generate the PSKc) when prompted for a password.
 
-## Commission the Joiner
+### Commission the Joiner
 
 Once connected to the Border Router, the app provides the option to scan a
 Connect QR Code or enter a Join Passphrase manually. The Join Passphrase is also
@@ -156,7 +158,7 @@ network.
 <a href="../images/thread-app-commissioning.png"><img src="../images/thread-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
 </figure>
 
-## Thread Commissioning App troubleshooting
+### Thread Commissioning App troubleshooting
 
 You may encounter issues with the Thread Commissioning App, due to changed or
 stale network information. The app retains OTBR network information locally and
