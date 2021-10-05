@@ -26,14 +26,7 @@ and managed by the OTBR Web GUI.
 To learn how to commission without an external Commissioner, see
 [Thread Commissioning](/guides/build/commissioning).
 
-## Build OTBR 
-
-To commission a device, first you need to [build your OTBR](https://openthread.io/guides/border-router/build).
-
 ## Form the Thread network
-
-Now that you've set up your border router and verified the OTBR services, it's
-time to form the Thread network.
 
 ### Web GUI
 
@@ -170,11 +163,21 @@ the `eui64` command in the OpenThread CLI:
 Done
 ```
 
-## Commission the Joiner device
+## Select Commissioner type
 
-OT Commissioner CLI runs on the same same host machine as your OTBR. In the next guide, you'll learn how to use [OT Commissioner CLI](ot-commissioner-cli.md) to connect to the border router and commission your new device. If you'd like to use your Android device for external commissioning, skip to [External Commissioning for Android](ot-commissioner-andriod.md).
 
-For Thread 1.1 networks, additional options include Thread Group's Thread 1.1 Commissioning App for Android.
+
+* [OT Commissioner CLI](https://openthread.io/guides/commissioner) 
+* [OT Commissioner Android App](https://github.com/openthread/ot-commissioner/tree/master/android)
+
+
+OT Commissioner CLI runs on the same same host machine as your OTBR. In the
+next guide, you'll learn how to use [OT Commissioner CLI](ot-commissioner-cli.md) to connect
+to a border router and commission a new device. To use an Android device for
+external commissioning, skip to [External Commissioning for Android](ot-commissioner-andriod.md).
+
+For Thread 1.1 networks, additional options include Thread Group's Thread 1.1
+Commissioning App for Android.
 
 ## License
 
