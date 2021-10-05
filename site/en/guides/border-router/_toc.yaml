@@ -22,11 +22,9 @@ toc:
 - title: OT Commissioner CLI
   path: /guides/border-router/ot-commissioner-cli
   step_group: otbr_setup  
-  
-- title: External Commissioning
-  path: /guides/border-router/external-commissioning
+- title: External Commissioning for Android
+  path: /guides/border-router/ot-commissioner-andriod
   step_group: otbr_setup  
-  
 - title: Join After Commissioning
   path: /guides/border-router/joiner-start-thread
   step_group: otbr_setup 
