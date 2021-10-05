@@ -1,7 +1,10 @@
-# Joiner
+# Join After Commissioning
 
-After your device is commissioned and the DTLS handshake is successful,
-your device is ready to join the Thread Network and test network connectivity. 
+After you commission your device using the [OT Commissioner CLI](ot-commissioner-cli.md) or the
+[OT Commissioner Android App](ot-commissioner-andriod.md), it's ready to join the Thread network.
+
+In this final [External Commissioning](external-commissioning.md) guide, you'll start Thread on your Joiner
+Device and test network connectivity. 
 
 ## Join the network
 
