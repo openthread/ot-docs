@@ -21,7 +21,7 @@ Linux machine, learn how to:
 *   Use OpenThread Daemon to manage a simulated Thread network featuring an RCP
 
 <a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-simulation">Try the Simulation Codelab with
+   href="https://openthread.io/codelabs/openthread-simulation/">Try the Simulation Codelab with
   Docker</a>
 
 ### Simulation Codelab with build toolchain
@@ -31,7 +31,7 @@ Docker, you set up the OpenThread build toolchain and build OpenThread directly
 on a Mac or Linux machine.
 
 <a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-simulation-posix">Try the Simulation Codelab
+   href="https://openthread.io/codelabs/openthread-simulation-posix/">Try the Simulation Codelab
   with build toolchain</a>
 
 ### Hardware Codelabs
@@ -44,10 +44,10 @@ Dive right into hardware, where you will learn how to:
 *   Use the OpenThread CLI for Multicast and UDP (Nordic only)
 
 <a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-hardware">Try the Nordic Hardware Codelab</a>
+   href="https://openthread.io/codelabs/openthread-hardware/">Try the Nordic Hardware Codelab</a>
 
 <a class="button button-primary"
-   href="https://openthread.io/codelabs/silabs-openthread-hardware">Try the Silicon Labs Hardware
+   href="https://openthread.io/codelabs/silabs-openthread-hardware/">Try the Silicon Labs Hardware
     Codelab</a>
 
 ### API Codelab
@@ -61,7 +61,7 @@ to:
 *   Send UDP messages to all devices in a Thread network
 
 <a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-apis">Try the API Codelab</a>
+   href="https://openthread.io/codelabs/openthread-apis/">Try the API Codelab</a>
 
 ### Network Simulator Codelab
 
@@ -75,7 +75,7 @@ machine, learn how to:
 *   Use OTNS-CLI to further control the simulation
 
 <a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-network-simulator">Try the Network Simulator
+   href="https://openthread.io/codelabs/openthread-network-simulator/">Try the Network Simulator
   Codelab</a>
 
 ### Testing and Visualization Codelab
@@ -89,7 +89,7 @@ with real devices. With a Mac or Linux machine, learn how to:
     Silk test cases
 
 <a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-testing-visualization">Try the Testing and
+   href="https://openthread.io/codelabs/openthread-testing-visualization/">Try the Testing and
   Visualization Codelab</a>
 
 ### Border Router Codelab
@@ -107,7 +107,7 @@ With a Mac or Linux machine, learn how to:
 *   Discover and reach a Thread end device
 
 <a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-border-router">Try the Border Router
+   href="https://openthread.io/codelabs/openthread-border-router/">Try the Border Router
   Codelab</a>
 
 ### Border Router Thread 1.2 Multicast Codelab
@@ -120,7 +120,7 @@ network segments. With a Mac or Linux machine and a Raspberry Pi, learn how to:
 *   Subscribe to IPv6 multicast addresses on Thread devices
 
 <a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-border-router-ipv6-multicast">Try the Border
+   href="https://openthread.io/codelabs/openthread-border-router-ipv6-multicast/">Try the Border
   Router Thread 1.2 Multicast Codelab</a>
 
 ### Border Router with Docker
@@ -145,7 +145,7 @@ OpenThread team, silicon vendors, and the community.
 See the list of vendor-supported platforms at [Vendor Support](https://openthread.io/vendors).
 
 Learn more about the system architecture and platform designs on the
-[Platforms](https://openthread.io/platforms) overview.
+[Platforms](https://openthread.io/platforms/) overview.
 
 ## Docker support
 
@@ -162,7 +162,7 @@ Category | Contents
 ----- | -----
 [Build](build/index.md) | How to build and configure OpenThread and enable enhanced features
 [Porting](porting/index.md) | How to port OpenThread to a new hardware platform
-[Border Router](https://openthread.io/guides/border-router) | How to connect your OpenThread network to other IPv6 networks with a Border Router, or use external Thread commissioning
+[Border Router](https://openthread.io/guides/border-router/) | How to connect your OpenThread network to other IPv6 networks with a Border Router, or use external Thread commissioning
 [Commissioner](https://openthread.io/guides/commissioner) | How to build and use OT Commissioner to commission devices onto a Thread network
 [Pyspinel](https://openthread.io/guides/pyspinel/) | How to use Pyspinel to build a Thread packet sniffer.
 [Certification](https://openthread.io/certification/) | How to test your platform against all certification test cases
@@ -170,7 +170,7 @@ Category | Contents
 ## Application APIs
 
 Developing an application to run on top of OpenThread? Try our [Developing with
-OpenThread APIs Codelab](https://openthread.io/codelabs/openthread-apis) to
+OpenThread APIs Codelab](https://openthread.io/codelabs/openthread-apis/) to
 learn the basics, or dig into the [API Reference](https://openthread.io/reference/) documentation to
 see what OpenThread services are available.
 
