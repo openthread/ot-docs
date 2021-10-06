@@ -1,15 +1,13 @@
 #  OT Commissioner CLI
 
-Use the OT Commissioner CLI to {{intro}}.
-
-## Build and install OT Commissioner
-
-Build and install OT Commissioner. See [OT Commissioner Build and
+External commissioning is supported by OT Commissioner CLI, available
+on the [ot-commissioner GitHub repository](https://github.com/openthread/ot-commissioner). To
+build and install OT Commissioner, refer to [OT Commissioner Build and
 Configuration](https://openthread.io/guides/commissioner/build) for instructions.
 
-## Connect to the Border Router
-
 **Note:** OT Commissioner must be running on the same host machine as OTBR.
+
+## Connect to the Border Router
 
 1.  Open the Non-CCM configuration file located at
     `/usr/local/etc/commissioner/non-ccm-config.json` and change the `PSKc` to
@@ -72,61 +70,6 @@ device.
     >
     Join success!
     ```
-
-## Join the network
-
-On the Joiner device, start the Thread protocol to automatically join the
-network.
-
-```
-> thread start
-Done
-```
-
-Check the state after a few moments to confirm. It may initially start as a
-child, but within two minutes it should upgrade to a router.
-
-```
-> state
-router
-Done
-```
-
-Also check the device's IPv6 addresses. It should have a Global address using
-the On-Mesh Prefix specified during formation of the Thread network through the
-OTBR Web GUI.
-
-```
-> ipaddr
-fdde:ad11:11de:0:0:ff:fe00:9400
-fd11:22:0:0:3a15:3211:2723:dbe1 #Global address with on-mesh prefix
-fe80:0:0:0:6006:41ca:c822:c337
-fdde:ad11:11de:0:ed8c:1681:24c4:3562
-```
-
-## Ping the external internet
-
-Test the connectivity between the Joiner device in the Thread network and the
-external internet by pinging a public IPv4 address.
-
-For example, the Well-Known NAT64 prefix of `64:ff9b::/96` and an IPv4 address
-of `8.8.8.8` combine to form an IPv6 address of `64:ff9b::808:808`.
-
-Add an external route for the NAT64 Prefix:
-
-```
-$ sudo ot-ctl route add 64:ff9b::/96 s med</code>
-Done
-$ sudo ot-ctl netdata register
-Done
-```
-
-Ping the synthesized IPv6 address `64:ff9b::808:808` from the OpenThread CLI on the Joiner device:
-
-```
-> ping 64:ff9b::808:808
-16 bytes from 64:ff9b:0:0:0:0:808:808: icmp_seq=3 hlim=45 time=72ms
-```
 
 ## License
 
