@@ -153,6 +153,8 @@ $ cd ~/src/openthread
 $ ./output/simulation/bin/ot-cli-ftd 1
 ```
 
+**Note:** If you don't see the `>` prompt after running this command, press `enter`.
+
 This binary implements an OpenThread device simulated on top of POSIX. The
 IEEE 802.15.4 radio driver is implemented on top of UDP (IEEE 802.15.4 frames
 are passed within UDP payloads).
@@ -166,8 +168,6 @@ this Codelab will use a different file descriptor.
 **Note:** Only use file descriptors of `1` or greater as noted in this Codelab
 when spawning the process for a simulated device. A file descriptor of `0` is
 reserved for other use.
-
-**If you don't see the `&gt;` prompt after running this command, press `enter`.**
 
 Create a new Operational Dataset and commit it as the active one. The
 Operational Dataset is the configuration for the Thread network you are creating.
@@ -269,7 +269,7 @@ $ cd ~/src/openthread
 $ ./output/simulation/bin/ot-cli-ftd 2
 ```
 
-**If you don't see the `&gt;` prompt after running this command, press `enter`.**
+**Note:** If you don't see the `>` prompt after running this command, press `enter`.
 
 Configure the Thread Network Key and PAN ID, using the same values as Node 1's
 Operational Dataset:
@@ -456,7 +456,7 @@ $ cd ~/src/openthread
 $ ./output/simulation/bin/ot-cli-ftd 1
 ```
 
-**If you don't see the `&gt;` prompt after running this command, press `enter`.**
+**Note:** If you don't see the `>` prompt after running this command, press `enter`.
 
 Create a new Operational Dataset, commit it as the active one, and start Thread:
 
@@ -644,7 +644,7 @@ $ cd ~/src/openthread
 $ ./output/simulation/bin/ot-cli-ftd 1
 ```
 
-**If you don't see the `&gt;` prompt after running this command, press `enter`.**
+**Note:** If you don't see the `>` prompt after running this command, press `enter`.
 
 Create a new Operational Dataset, commit it as the active one, and start Thread:
 
