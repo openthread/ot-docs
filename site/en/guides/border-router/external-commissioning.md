@@ -24,7 +24,7 @@ This guide details how to commission an OpenThread device onto a network created
 and managed by the OTBR Web GUI. 
 
 To learn how to commission without an external Commissioner, see
-[Thread Commissioning](/guides/build/commissioning).
+[Thread Commissioning](../build/commissioning.md).
 
 ## Form the Thread network
 
@@ -176,8 +176,8 @@ guide, learn how to use [OT Commissioner CLI](ot-commissioner-cli.md) to connect
 to a border router and commission a new device, or skip to [External
 Commissioning for Android](ot-commissioner-andriod.md).
 
-For Thread 1.1 networks, additional options include [Thread Group's Thread 1.1
-Commissioning App for Android](#temp).
+> For Thread 1.1 networks, additional options include [Thread Group's Thread 1.1
+> Commissioning App for Android](ot-commissioner-andriod.md#thread-group-android-app).
 
 ## License
 
