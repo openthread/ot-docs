@@ -1099,15 +1099,16 @@ Thread Device (FTD).
 
 ### Build OpenThread
 
-Build the OpenThread binaries for nRF52840 platform.
+Build the OpenThread FTD binaries for nRF52840 platform.
 
 ```console
 $ cd ~/ot-nrf528xx
-$ ./script/build nrf52840 UART_trans
+$ ./script/build nrf52840 UART_trans -DOT_APP_RCP=OFF -DOT_RCP=OFF
 ```
 
 > aside positive
-> For more information on building and configuring OpenThread, see
+> `ot-cli-radio` does not provide the necessary APIs used in this Codelab. For
+> more information on building and configuring OpenThread, see
 [Build OpenThread](https://openthread.io/guides/build/).
 
 > aside negative
@@ -1116,7 +1117,7 @@ $ ./script/build nrf52840 UART_trans
 >
 > `$ rm -r build`
 >
-> `$ ./script/build nrf52840 UART_trans -DOT_FTD=ON -DOT_MTD=OFF`
+> `$ ./script/build nrf52840 UART_trans -DOT_MTD=OFF -DOT_APP_RCP=OFF -DOT_RCP=OFF`
 
 Navigate to the directory with the OpenThread FTD CLI binary, and convert it to
 hex format with the ARM Embedded Toolchain:
