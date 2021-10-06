@@ -239,7 +239,7 @@ editor.
 
 **ACTION: Add platform-specific GPIO function declarations**
 
-Add these function declarations anywhere within the file:
+Add these function declarations after `#include <openthread/instance.h>`:
 
 ```console
 /**
@@ -741,13 +741,16 @@ void initUdp(otInstance *aInstance)
     listenSockAddr.mPort    = UDP_PORT;
 
     otUdpOpen(aInstance, &sUdpSocket, handleUdpReceive, aInstance);
-    otUdpBind(aInstance, &sUdpSocket, &listenSockAddr);
+    otUdpBind(aInstance, &sUdpSocket, &listenSockAddr, OT_NETIF_THREAD);
 }
 ```
 
 `UDP_PORT` is the port you defined earlier (1212). The `otUdpOpen`
 function opens the socket and registers a callback function
-(`handleUdpReceive`) for when a UDP message is received.
+(`handleUdpReceive`) for when a UDP message is received. `otUdpBind`
+binds the socket to the Thread network interface by passing `OT_NETIF_THREAD`.
+For other network interface options, refer to the `otNetifIdentifier`
+enumeration in [UDP API Reference](https://openthread.io/reference/group/api-udp). 
 
 **ACTION: Implement UDP messaging**
 
@@ -1096,15 +1099,16 @@ Thread Device (FTD).
 
 ### Build OpenThread
 
-Build the OpenThread binaries for nRF52840 platform.
+Build the OpenThread FTD binaries for nRF52840 platform.
 
 ```console
 $ cd ~/ot-nrf528xx
-$ ./script/build nrf52840 UART_trans
+$ ./script/build nrf52840 UART_trans -DOT_MTD=OFF -DOT_APP_RCP=OFF -DOT_RCP=OFF
 ```
 
 > aside positive
-> For more information on building and configuring OpenThread, see
+> `ot-cli-radio` does not provide the necessary APIs used in this Codelab. For
+> more information on building and configuring OpenThread, see
 [Build OpenThread](https://openthread.io/guides/build/).
 
 > aside negative
@@ -1113,7 +1117,7 @@ $ ./script/build nrf52840 UART_trans
 >
 > `$ rm -r build`
 >
-> `$ ./script/build nrf52840 UART_trans -DOT_FTD=ON -DOT_MTD=OFF`
+> `$ ./script/build nrf52840 UART_trans -DOT_MTD=OFF -DOT_APP_RCP=OFF -DOT_RCP=OFF`
 
 Navigate to the directory with the OpenThread FTD CLI binary, and convert it to
 hex format with the ARM Embedded Toolchain:
