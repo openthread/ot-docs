@@ -239,7 +239,7 @@ editor.
 
 **ACTION: Add platform-specific GPIO function declarations**
 
-Add these function declarations anywhere within the file:
+Add these function declarations after `#include <openthread/instance.h>`:
 
 ```console
 /**
@@ -1103,7 +1103,7 @@ Build the OpenThread FTD binaries for nRF52840 platform.
 
 ```console
 $ cd ~/ot-nrf528xx
-$ ./script/build nrf52840 UART_trans -DOT_APP_RCP=OFF -DOT_RCP=OFF
+$ ./script/build nrf52840 UART_trans -DOT_MTD=OFF -DOT_APP_RCP=OFF -DOT_RCP=OFF
 ```
 
 > aside positive
