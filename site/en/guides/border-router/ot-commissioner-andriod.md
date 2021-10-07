@@ -168,6 +168,10 @@ To delete local application data:
 1.  Go back to **App info** and select **FORCE STOP**
 1.  Close the Settings app and restart the Thread app
 
+## Join the network
+
+Next, on the Joiner device, [join the Thread network](joiner-start-thread.md) and test network connectivity.
+
 ## License
 
 Copyright (c) 2021, The OpenThread Authors.
