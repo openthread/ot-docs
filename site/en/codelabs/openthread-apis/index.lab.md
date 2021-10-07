@@ -239,7 +239,8 @@ editor.
 
 **ACTION: Add platform-specific GPIO function declarations**
 
-Add these function declarations after `#include <openthread/instance.h>`:
+Add these function declarations after the `#include` for the `openthread/instance.h`
+header:
 
 ```console
 /**
