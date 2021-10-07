@@ -70,6 +70,10 @@ device.
     >
     Join success!
     ```
+    
+## Join the network
+
+Next, on the Joiner device, [join the Thread network](joiner-start-thread.md) and test network connectivity.
 
 ## License
 
