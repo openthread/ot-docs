@@ -1,6 +1,6 @@
 #  OT Commissioner CLI
 
-External commissioning is supported by OT Commissioner CLI, available
+External commissioning is supported by the OT Commissioner CLI, available
 on the [ot-commissioner GitHub repository](https://github.com/openthread/ot-commissioner). To
 build and install OT Commissioner, refer to [OT Commissioner Build and
 Configuration](https://openthread.io/guides/commissioner/build) for instructions.
