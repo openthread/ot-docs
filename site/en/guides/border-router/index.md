@@ -5,7 +5,7 @@ such as Wi-Fi or Ethernet. A Thread network requires a Border Router to connect
 to other networks.
 
 <figure>
-<img src="images/otbr-arch-borderagent.png" srcset="images/otbr-arch-borderagent.png 1x, images/otbr-arch-borderagent_2x.png 2x" border="0" alt="OTBR Border Agent Architecture" />
+<img src="../images/otbr-arch-borderagent.png" srcset="../images/otbr-arch-borderagent.png 1x, ../images/otbr-arch-borderagent_2x.png 2x" border="0" alt="OTBR Border Agent Architecture" />
 </figure>
 
 A Thread Border Router minimally supports the following functions:
@@ -20,9 +20,9 @@ A Thread Border Router minimally supports the following functions:
 
 <figure class="attempt-right">
   <a href="https://www.threadgroup.org/What-is-Thread#certifiedproducts">
-    <img src="images/ot-thread-certified.png"
-         srcset="../images/otbr-arch-borderagent.png 1x, ../images/otbr-arch-borderagent_2x.png 2x" border="0" alt="OTBR Border Agent Architecture" />
-</figure>
+    <img src="../images/ot-thread-certified.png"
+         srcset="/images/ot-thread-certified.png 1x, /images/ot-thread-certified_2x.png 2x"
+         border="0" alt="Thread Certified" /></a></figure>
   
 OpenThread's implementation of a Border Router is called OpenThread Border
 Router (OTBR). OTBR is a Thread Certified Component on the [Raspberry Pi
