@@ -8,8 +8,8 @@ as a Full Thread Device (FTD) in an RCP design.
 
 Configure a supported hardware platform:
 
-*   [BeagleBone Black](beaglebone-black)
-*   [Raspberry Pi](raspberry-pi)
+*   [BeagleBone Black](beaglebone-black.md)
+*   [Raspberry Pi](raspberry-pi.md)
 
 ## Build and flash RCP
 
@@ -18,7 +18,7 @@ platform](https://openthread.io/platforms) to use as an RCP and follow the build
 instructions for that platform.
 
 For an overview of building OpenThread, see the
-[Building Guide](../guides/build/index.md).
+[Building Guide](../build/index.md).
 
 Specific instructions on building supported platforms with GNU Autotools can be
 found in each example's
@@ -37,7 +37,9 @@ platform](#configure-platform):
 
 1.  Clone the OTBR repository:
 
-    ` $ git clone https://github.com/openthread/ot-br-posix`
+    ```
+    $ git clone https://github.com/openthread/ot-br-posix
+    ```
     
 1.  Install dependencies:
 
@@ -52,11 +54,15 @@ platform](#configure-platform):
     
     To use Ethernet:
     
-    `$ INFRA_IF_NAME=eth0 ./script/setup`
+    ```
+    $ INFRA_IF_NAME=eth0 ./script/setup
+    ```
     
     To use Wi-Fi:
     
-    `$ INFRA_IF_NAME=wlan0 ./script/setup`
+    ```
+    $ INFRA_IF_NAME=wlan0 ./script/setup
+    ```
     
 1.  Attach the [flashed RCP device](#build-and-flash-rcp) to the Border Router
     platform via USB.
@@ -68,12 +74,16 @@ platform](#configure-platform):
 1.  Configure the RCP device's serial port in `otbr-agent`:
     1.  Determine the serial port name for the RCP device by checking `/dev`:
 
-    `$ ls /dev/tty*`
+        ```
+        $ ls /dev/tty*
+        ```
 
     1.  Append this to `/etc/default/otbr-agent`. For example, for a serial port
         name of `ttyUSB0`:
 
-        `OTBR_AGENT_OPTS="-I wpan0 spinel+hdlc+uart:///dev/ttyUSB0"`
+        ```
+        OTBR_AGENT_OPTS="-I wpan0 spinel+hdlc+uart:///dev/ttyUSB0"
+        ```
 
         **Note:** Not all devices attach with the same serial port name. The most
         common port names are `ttyACM*` and `ttyUSB*`. See the documentation for
@@ -81,7 +91,7 @@ platform](#configure-platform):
 
 1.  Power cycle the Border Router. If using the BeagleBone Black platform,
     remember to [hold down the BOOT
-    button](beaglebone-black#boot-from-the-sd-card) while
+    button](beaglebone-black.md#boot-from-the-sd-card) while
     doing so.
 1.  The OTBR service should start on boot.
 
@@ -89,7 +99,9 @@ platform](#configure-platform):
 
 Verify that all required services are enabled:
 
-`$ sudo systemctl status`
+```
+$ sudo systemctl status
+```
 
 If the `setup` script was successful, the following services appear in the
 output:
@@ -127,16 +139,16 @@ For example:
              │ └─442 /usr/bin/hciattach /dev/serial1 bcm43xx 921600 noflow -
              ├─ssh.service
              │ └─621 /usr/sbin/sshd -D
-             ├─<b>avahi-daemon.service</b>
+  # enabled  ├─avahi-daemon.service 
              │ ├─341 avahi-daemon: running [raspberrypi.local]
              │ └─361 avahi-daemon: chroot helper
-             ├─<b>otbr-web.service</b>
+  # enabled  ├─otbr-web.service
              │ └─472 /usr/sbin/otbr-web
              ├─triggerhappy.service
              │ └─354 /usr/sbin/thd --triggers /etc/triggerhappy/triggers.d/ --socket /run/thd.socket --user nobody --deviceglob /dev/input/event*
              ├─systemd-logind.service
              │ └─353 /lib/systemd/systemd-logind
-             ├─<b>otbr-agent.service</b>
+  # enabled  ├─otbr-agent.service
              │ └─501 /usr/sbin/otbr-agent -I wpan0
              ├─cron.service
              │ └─350 /usr/sbin/cron -f
@@ -156,13 +168,17 @@ For example:
 If those services are running, but the RPi is in a **degraded** state, some
 other service has failed to start. Check to see which:
 
-`$ sudo systemctl --failed`
+```
+$ sudo systemctl --failed
+```
 
 ## Verify RCP
 
 Verify that the RCP is in the correct state:
 
-`$ sudo ot-ctl state`
+```
+$ sudo ot-ctl state
+```
 
 `ot-ctl` is a command line utility provided with OTBR. It is used to
 communicate with the Thread PAN interface (default is `wpan0`) that `otbr-agent`
@@ -171,7 +187,9 @@ is bound to in the RCP design.
 If the RCP is successfully running and the node is not a member of a Thread
 network, the output should be similar to the below:
 
-`disabled`
+```
+disabled
+```
 
 If the output is `OpenThread daemon is not running`, troubleshoot with the following:
 
@@ -181,8 +199,10 @@ If the output is `OpenThread daemon is not running`, troubleshoot with the follo
 1.  Verify that the RCP serial device is present. For example, if the device
     should be attached to `/dev/ttyUSB0`:
     
-    `$ ls /dev/ttyUSB*
+    ```
+    $ ls /dev/ttyUSB*
     /dev/ttyUSB0
+    ```
     
 1.  Reset the RCP with `sudo ot-ctl reset`.
 
