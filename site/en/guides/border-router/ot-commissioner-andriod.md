@@ -80,8 +80,8 @@ network.
 
 ## Thread Group Android App
 
-Thread 1.1 external commissioning is supported by the [Thread 1.1 Commissioning App](https://play.google.com/store/apps/details?id=org.threadgroup.commissioner&hl=en), available
-for download at the at the Google Play Store for Android devices.
+Thread 1.1 external commissioning is supported by the [Thread 1.1 Commissioning App](https://play.google.com/store/apps/details?id=org.threadgroup.commissioner&hl=en), available for download at the Google
+Play Store for Android devices.
 
 ### Connect to the Border Router
 
