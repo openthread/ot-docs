@@ -33,10 +33,10 @@ Configuration](https://openthread.io/guides/commissioner/build) for instructions
 1.  Verify that the Commissioner is active:
 
     ```
-    >active
+    > active
     true
     [done]
-    >
+    > 
     ```
 
 ## Commission the Joiner
@@ -67,7 +67,7 @@ device.
     and Joiner:
     
     ```
-    >
+    > 
     Join success!
     ```
     
