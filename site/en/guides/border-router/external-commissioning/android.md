@@ -12,16 +12,16 @@ To use the Thread 1.1 Commissioning App, refer to [Thread Group Android App](#th
 
 ### Connect to the Border Router
 
+<figure class="attempt-right">
+<a href="../../images/comm-app-border-router-guide.png">
+<img src="../../images/comm-app-border-router-guide.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
+</figure>
+
 1. With both devices on the same network, connect the device with the OT
 Commissioner Android App to the Border Router.
 1. Open the OT Commissioner Android App and select the desired Border
 Router from the available list. The name is the same as the Thread network
 created by the OTBR Web GUI.
-
-    <figure class="attempt-right">
-    <a href="../../images/comm-app-border-router-guide.png">
-    <img src="../../images/comm-app-border-router-guide.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
-    </figure>
 
 1. Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
 used to generate the PSKc) when prompted for a password.
@@ -46,6 +46,11 @@ Code for scanning.
 **Note:** The Joiner Credential is a device-specific string of all uppercase
 alphanumeric characters (0-9 and A-Y, excluding I, O, Q, and Z for readability),
 with a length between 6 and 32 characters.
+
+<figure class="attempt-right">
+<a href="../../images/comm-app-commissioning.png">
+  <img src="../../images/comm-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
+</figure>
 
 1. In the OT Commissioner Android App, scan the Connect QR Code of the Joiner
 device, or enter the EUI64 and Joiner Credential manually. This generates the
@@ -75,11 +80,6 @@ confirmation message.
 The Joiner has obtained the Thread network credentials, and can now join the
 network.
 
-<figure class="attempt-right">
-<a href="../../images/comm-app-commissioning.png">
-  <img src="../../images/comm-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
-</figure>
-
 ## Thread Group Android App
 
 Thread 1.1 external commissioning is supported by the [Thread 1.1 Commissioning App](https://play.google.com/store/apps/details?id=org.threadgroup.commissioner&hl=en), available for download at the Google
@@ -89,16 +89,16 @@ Play Store for Android devices.
 
 ### Connect to the Border Router
 
+<figure class="attempt-right">
+<a href="../../images/thread-app-border-router.png">
+<img src="../../images/thread-app-border-router.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
+</figure>
+
 1. With both devices on the same network, connect the device with the
 Thread Group Android App to the Border Router.
 3. Open the Thread Group Android App and select the desired Border
 Router from the available list. The name is the same as the Thread network
 created by the OTBR Web GUI.
-
-    <figure class="attempt-right">
-    <a href="../../images/thread-app-border-router.png">
-    <img src="../../images/thread-app-border-router.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
-    </figure>
 
 1. Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
 used to generate the PSKc) when prompted for a password.
@@ -123,6 +123,11 @@ Code for scanning.
 **Note:** The Joiner Credential is a device-specific string of all uppercase
 alphanumeric characters (0-9 and A-Y, excluding I, O, Q, and Z for readability),
 with a length between 6 and 32 characters.
+
+<figure class="attempt-right">
+<a href="../../images/thread-app-commissioning.png">
+  <img src="../../images/thread-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
+</figure>
 
 1. In the Thread Group Android App, scan the Connect QR Code of the Joiner
 device, or enter the EUI64 and Joiner Credential manually. This generates the
@@ -151,11 +156,6 @@ confirmation message.
 
 The Joiner has obtained the Thread network credentials, and can now join the
 network.
-
-<figure class="attempt-right">
-<a href="../../images/thread-app-commissioning.png">
-  <img src="../../images/thread-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
-</figure>
 
 ### Thread Commissioning App troubleshooting
 
