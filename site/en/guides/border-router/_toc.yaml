@@ -16,18 +16,24 @@ toc:
 - title: Web GUI
   path: /guides/border-router/web-gui
   step_group: otbr_setup
+  
 - title: External Commissioning
-  path: /guides/border-router/external-commissioning
-  step_group: otbr_setup
-- title: OT Commissioner CLI
-  path: /guides/border-router/ot-commissioner-cli
-  step_group: otbr_setup  
-- title: External Commissioning for Android
-  path: /guides/border-router/ot-commissioner-andriod
-  step_group: otbr_setup  
-- title: Join After Commissioning
-  path: /guides/border-router/joiner-start-thread
-  step_group: otbr_setup 
+  section:
+  - title: Overview and Setup
+    path: /guides/border-router/external-commissioning 
+    step_group: otbr_setup
+  - title: Select Commissioner Type
+    section:
+    - title: OT Commissioner CLI
+      path: /guides/border-router/external-commissioning/cli
+      step_group: otbr_setup
+    - title: Commissioning for Android
+      path: /guides/border-router/external-commissioning/android
+      step_group: otbr_setup
+  - title: Join After Commissioning
+    path: /guides/border-router/external-commissioning/android
+    step_group: otbr_setup
+  
 - heading: Other
 - title: Tools and Scripts
   path: /guides/border-router/tools
