@@ -31,7 +31,7 @@ toc:
       path: /guides/border-router/external-commissioning/android
       step_group: otbr_setup
   - title: Join After Commissioning
-    path: /guides/border-router/external-commissioning/android
+    path: /guides/border-router/external-commissioning/join-after
     step_group: otbr_setup
   
 - heading: Other
