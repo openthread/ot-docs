@@ -4,9 +4,9 @@ External commissioning is supported by the OT Commissioner Android App, availabl
 on the [ot-commissioner GitHub repository](https://github.com/openthread/ot-commissioner/tree/master/android). Follow the instructions
 in the README to build and install the app on an Android device.
 
-**Note:** The OT Commissioner Android App is only available for Android.
+To use the Thread 1.1 Commissioning App, refer to [Thread Group Android App](#thread-group-android-app).
 
-> To use Thread 1.1 Commissioning App, refer to [Thread Group Android App](#thread-group-android-app).
+**Note:** The OT Commissioner Android App is only available for Android.
 
 ## OT Commissioner Android App
 
@@ -82,6 +82,8 @@ network.
 
 Thread 1.1 external commissioning is supported by the [Thread 1.1 Commissioning App](https://play.google.com/store/apps/details?id=org.threadgroup.commissioner&hl=en), available for download at the Google
 Play Store for Android devices.
+
+**Note:** The Thread 1.1 Commissioning App is only available for Android.
 
 ### Connect to the Border Router
 
@@ -168,9 +170,9 @@ To delete local application data:
 1.  Go back to **App info** and select **FORCE STOP**
 1.  Close the Settings app and restart the Thread app
 
-## Join the network
+## Join after commissioning
 
-Next, on the Joiner device, [join the Thread network](joiner-start-thread.md) and test network connectivity.
+Next, on the Joiner device, join the Thread network [after commissioning](joiner-start-thread.md) and test network connectivity.
 
 ## License
 
