@@ -19,8 +19,11 @@ toc:
   
 - title: External Commissioning
   section:
-  - title: Prepare Network and Joiner
+  - title: Overview
     path: /guides/border-router/external-commissioning
+    step_group: otbr_setup  
+  - title: Prepare Network and Joiner
+    path: /guides/border-router/external-commissioning/prepare
     step_group: otbr_setup
   - title: Select Commissioner Type
     section:
