@@ -1,7 +1,7 @@
 toc:
 - title: Build
   path: /guides/build/
-- title: Thread Commissioning
+- title: On-Mesh Commissioning
   path: /guides/build/commissioning
 - title: Logs
   path: /guides/build/logs
