@@ -17,14 +17,13 @@ To use the Thread 1.1 Commissioning App, refer to [Thread Group Android App](#th
 <img src="../../images/comm-app-border-router-guide.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
 </figure>
 
-1. With both devices on the same network, connect the device with the OT
-Commissioner Android App to the Border Router.
-1. Open the OT Commissioner Android App and select the desired Border
-Router from the available list. The name is the same as the Thread network
-created by the OTBR Web GUI.
-
-1. Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
-used to generate the PSKc) when prompted for a password.
+1.  With both devices on the same network, connect the device with the OT
+    Commissioner Android App to the Border Router.
+1.  Open the OT Commissioner Android App and select the desired Border
+    Router from the available list. The name is the same as the Thread network
+    created by the OTBR Web GUI.
+1.  Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
+    used to generate the PSKc) when prompted for a password.
 
 ### Commission the Joiner
 
@@ -52,13 +51,12 @@ with a length between 6 and 32 characters.
   <img src="../../images/comm-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
 </figure>
 
-1. In the OT Commissioner Android App, scan the Connect QR Code of the Joiner
-device, or enter the EUI64 and Joiner Credential manually. This generates the
-PSKd, propagates the steering data through the Thread network, and establishes
-a DTLS session.
-1. While the app is waiting, enter the OpenThread CLI on the Joiner device and
-start the Joiner role with that same Joiner Credential:
-
+1.  In the OT Commissioner Android App, scan the Connect QR Code of the Joiner
+    device, or enter the EUI64 and Joiner Credential manually. This generates the
+    PSKd, propagates the steering data through the Thread network, and establishes
+    a DTLS session.
+1.  While the app is waiting, enter the OpenThread CLI on the Joiner device and
+    start the Joiner role with that same Joiner Credential:
     ```
     > ifconfig up
     Done
@@ -66,16 +64,15 @@ start the Joiner role with that same Joiner Credential:
     Done
     ```
 
-1. Wait a minute for the DTLS handshake to complete between the Commissioner
-and Joiner:
-
+1.  Wait a minute for the DTLS handshake to complete between the Commissioner
+    and Joiner:
     ```
     > 
     Join success!
     ```
 
-1. The OT Commissioner Android App also updates with an "Commission Succeed"
-confirmation message.
+1.  The OT Commissioner Android App also updates with an "Commission Succeed"
+    confirmation message.
 
 The Joiner has obtained the Thread network credentials, and can now join the
 network.
@@ -94,14 +91,13 @@ Play Store for Android devices.
 <img src="../../images/thread-app-border-router.png" width="200" border="0" class="screenshot" alt="App Border Router" /></a>
 </figure>
 
-1. With both devices on the same network, connect the device with the
-Thread Group Android App to the Border Router.
-3. Open the Thread Group Android App and select the desired Border
-Router from the available list. The name is the same as the Thread network
-created by the OTBR Web GUI.
-
-1. Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
-used to generate the PSKc) when prompted for a password.
+1.  With both devices on the same network, connect the device with the
+    Thread Group Android App to the Border Router.
+1.  Open the Thread Group Android App and select the desired Border
+    Router from the available list. The name is the same as the Thread network
+    created by the OTBR Web GUI.
+1.  Enter the Passphrase (Commissioner Credential) set in the OTBR Web GUI (and
+    used to generate the PSKc) when prompted for a password.
 
 ### Commission the Joiner
 
@@ -129,13 +125,12 @@ with a length between 6 and 32 characters.
   <img src="../../images/thread-app-commissioning.png" width="200" border="0" class="screenshot" alt="App Commissioning" /></a>
 </figure>
 
-1. In the Thread Group Android App, scan the Connect QR Code of the Joiner
-device, or enter the EUI64 and Joiner Credential manually. This generates the
-PSKd, propagates the steering data through the Thread network, and establishes
-a DTLS session.
-1. While the app is waiting, enter the OpenThread CLI on the Joiner device and
-start the Joiner role with that same Joiner Credential:
-
+1.  In the Thread Group Android App, scan the Connect QR Code of the Joiner
+    device, or enter the EUI64 and Joiner Credential manually. This generates the
+    PSKd, propagates the steering data through the Thread network, and establishes
+    a DTLS session.
+1.  While the app is waiting, enter the OpenThread CLI on the Joiner device and
+    start the Joiner role with that same Joiner Credential:
     ```
     > ifconfig up
     Done
@@ -143,16 +138,15 @@ start the Joiner role with that same Joiner Credential:
     Done
     ```
 
-1. Wait a minute for the DTLS handshake to complete between the Commissioner
-and Joiner:
-
+1.  Wait a minute for the DTLS handshake to complete between the Commissioner
+    and Joiner:
     ```
     > 
     Join success!
     ```
 
-1. The Thread Group Android App also updates with an "Added My Thread Product"
-confirmation message.
+1.  The Thread Group Android App also updates with an "Added My Thread Product"
+    confirmation message.
 
 The Joiner has obtained the Thread network credentials, and can now join the
 network.
