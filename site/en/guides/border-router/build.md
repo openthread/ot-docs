@@ -27,7 +27,7 @@ found in each example's
 ## Set up the Border Router
 
 **Warning:** Before you continue, make sure your
-  <a href="#configure-platform">configured hardware platform</a> is connected to
+  [configured hardware platform](#configure-platform) is connected to
   the internet using Ethernet. The `bootstrap` script disables the
   platform's Wi-Fi interface and the `setup` script requires internet
   connectivity to download and install several packages.
