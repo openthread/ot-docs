@@ -5,7 +5,7 @@ on the [ot-commissioner GitHub repository](https://github.com/openthread/ot-comm
 build and install OT Commissioner, refer to [OT Commissioner Build and
 Configuration](https://openthread.io/guides/commissioner/build) for instructions.
 
-**Note:** OT Commissioner must be running on the same host machine as OTBR.
+> Note: OT Commissioner must be running on the same host machine as OTBR.
 
 ## Connect to the Border Router
 
@@ -13,7 +13,9 @@ Configuration](https://openthread.io/guides/commissioner/build) for instructions
     `/usr/local/etc/commissioner/non-ccm-config.json` and change the `PSKc` to
     `198886f519a8fd7c981fee95d72f4ba7`:
     
-    `"PSKc" : "198886f519a8fd7c981fee95d72f4ba7"`   
+    ```
+    "PSKc" : "198886f519a8fd7c981fee95d72f4ba7"
+    ```
     
 1.  Start the OT Commissioner CLI with the Non-CCM configuration:
 
@@ -73,7 +75,7 @@ device.
     
 ## Join after commissioning
 
-Next, on the Joiner device, join the Thread network [after commissioning](join-after.md) and test network connectivity.
+Next, on the Joiner device, [join the Thread network after commissioning](join-after.md) and test network connectivity.
 
 ## License
 
