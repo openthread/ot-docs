@@ -25,7 +25,7 @@ This guide details how to commission an OpenThread device onto a network created
 and managed by the OTBR Web GUI. 
 
 To learn how to commission without an external Commissioner, see
-[Thread Commissioning](../../build/commissioning.md).
+[On-Mesh Commissioning](../../build/commissioning.md).
 
 ## License
 
