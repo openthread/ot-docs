@@ -6,7 +6,7 @@ in the README to build and install the app on an Android device.
 
 To use the Thread 1.1 Commissioning App, refer to [Thread Group Android App](#thread-group-android-app).
 
-**Note:** The OT Commissioner Android App is only available for Android.
+> Note: The OT Commissioner Android App is only available for Android.
 
 ## OT Commissioner Android App
 
@@ -43,7 +43,7 @@ Where `eui` is the Joiner device's EUI64 value and `cc` is the Joiner
 Credential. Use this text string with an online QR Code generator to create a QR
 Code for scanning.
 
-**Note:** The Joiner Credential is a device-specific string of all uppercase
+> Note: The Joiner Credential is a device-specific string of all uppercase
 alphanumeric characters (0-9 and A-Y, excluding I, O, Q, and Z for readability),
 with a length between 6 and 32 characters.
 
@@ -85,7 +85,7 @@ network.
 Thread 1.1 external commissioning is supported by the [Thread 1.1 Commissioning App](https://play.google.com/store/apps/details?id=org.threadgroup.commissioner&hl=en), available for download at the Google
 Play Store for Android devices.
 
-**Note:** The Thread 1.1 Commissioning App is only available for Android.
+> Note: The Thread 1.1 Commissioning App is only available for Android.
 
 ### Connect to the Border Router
 
@@ -120,7 +120,7 @@ Where `eui` is the Joiner device's EUI64 value and `cc` is the Joiner
 Credential. Use this text string with an online QR Code generator to create a QR
 Code for scanning.
 
-**Note:** The Joiner Credential is a device-specific string of all uppercase
+> Note: The Joiner Credential is a device-specific string of all uppercase
 alphanumeric characters (0-9 and A-Y, excluding I, O, Q, and Z for readability),
 with a length between 6 and 32 characters.
 
