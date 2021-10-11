@@ -170,7 +170,7 @@ To delete local application data:
 
 ## Join after commissioning
 
-Next, on the Joiner device, join the Thread network [after commissioning](join-after.md) and test network connectivity.
+Next, on the Joiner device, [join the Thread network after commissioning](join-after.md) and test network connectivity.
 
 ## License
 
