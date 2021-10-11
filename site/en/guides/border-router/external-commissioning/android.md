@@ -110,7 +110,7 @@ Credential should be unique to each device.
 
 Thread Connect QR Codes are created with the following text string format:
 
-`v=1&&eui=0000b57fffe15d68&&cc=J01NU5`
+<pre>v=1&&eui=0000b57fffe15d68&&cc=J01NU5</pre>
 
 Where `eui` is the Joiner device's EUI64 value and `cc` is the Joiner
 Credential. Use this text string with an online QR Code generator to create a QR
