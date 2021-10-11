@@ -37,7 +37,7 @@ The quickest way to get started with OTBR is to try the Docker version. Run OTBR
 in a Docker container on any Linux-based system or a Raspberry Pi 3B or newer,
 using either a physical or simulated RCP.
 
-See the [Docker Support Overview](https://openthread.io/guides/border-router/docker) for more
+See the [Docker Support Overview](docker/index.md) for more
 information.
 
 ### Codelabs
@@ -61,7 +61,7 @@ OTBR also runs directly on a supported platform:
 1.  Choose a platform:
     *   [BeagleBone Black](beaglebone-black.md)
     *   [Raspberry Pi 3B or newer](raspberry-pi.md)
-1.  [Build and configure OTBR](https://openthread.io/guides/border-router/build)
+1.  [Build and configure OTBR](build.md)
 1.  Learn about [tools and scripts included with
     OTBR](tools.md)
 
@@ -97,7 +97,7 @@ OTBR includes a number of features, including:
 *   DNS64 to allow Thread devices to initiate communications by name to an
     IPv4-only server
 *   Thread interface driver using OpenThread's built-in feature
-*   [Docker support](https://openthread.io/guides/border-router/docker)
+*   [Docker support](docker/index.md)
 
 ### Border Router services
 
