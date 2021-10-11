@@ -124,12 +124,6 @@ overview of building OpenThread, see the [Building Guide](../../build/index.md).
 
 Use the `-DOT_JOINER=ON` build option to enable the Joiner role.
 
-For example, to build the CC2538 example platform for use as a Joiner:
-
-```
-$ ./script/build -DOT_JOINER=ON
-```
-
 Specific instructions on building supported platforms with GNU Autotools can be
 found in each example's
 [platform folder](https://github.com/openthread/openthread/tree/master/examples/platforms).
