@@ -70,7 +70,7 @@ start the Joiner role with that same Joiner Credential:
 and Joiner:
 
     ```
-    >
+    > 
     Join success!
     ```
 
@@ -147,7 +147,7 @@ start the Joiner role with that same Joiner Credential:
 and Joiner:
 
     ```
-    >
+    > 
     Join success!
     ```
 
