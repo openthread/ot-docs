@@ -20,7 +20,7 @@ Credential and is used (along with the Extended PAN ID and Network Name) to
 generate the Pre-Shared Key for the Commissioner (PSKc). The PSKc is needed to
 authenticate the Thread Commissioner (the external device) to the network.
 
-**Note:** The Commissioner Credential is a user-defined string between 6
+> Note: The Commissioner Credential is a user-defined string between 6
 and 255 characters, UTF-8 encoded.
 
 ### Manual
