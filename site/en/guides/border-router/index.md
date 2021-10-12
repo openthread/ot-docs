@@ -5,7 +5,7 @@ such as Wi-Fi or Ethernet. A Thread network requires a Border Router to connect
 to other networks.
 
 <figure>
-<img src="../images/otbr-arch-borderagent.png" srcset="../images/otbr-arch-borderagent.png 1x, ../images/otbr-arch-borderagent_2x.png 2x" border="0" alt="OTBR Border Agent Architecture" />
+<img src="../images/otbr-arch-borderagent-white.png" srcset="../images/otbr-arch-borderagent.png 1x, ../images/otbr-arch-borderagent_2x.png 2x" border="0" alt="OTBR Border Agent Architecture" />
 </figure>
 
 A Thread Border Router minimally supports the following functions:
