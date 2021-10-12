@@ -45,7 +45,7 @@ of `8.8.8.8` combine to form an IPv6 address of `64:ff9b::808:808`.
 Add an external route for the NAT64 Prefix:
 
 ```
-$ sudo ot-ctl route add 64:ff9b::/96 s med</code>
+$ sudo ot-ctl route add 64:ff9b::/96 s med
 Done
 $ sudo ot-ctl netdata register
 Done
