@@ -66,7 +66,7 @@ OpenThread POSIX, using `ot-ctl`.
     
 1.  Set the PSKc:
 
-        $ sudo ot-ctl dataset pskc 198886f519a8fd7c981fee95d72f4ba7</code>
+        $ sudo ot-ctl dataset pskc 198886f519a8fd7c981fee95d72f4ba7
         Done
     
 1.  Commit the active dataset, set the on-mesh prefix, and form the Thread
