@@ -1,7 +1,7 @@
 # Overview
 
 <figure class="attempt-right">
-<a href="../../images/thread-commissioning.png">
+<a href="../../images/thread-commissioning_small.png">
   <img src="../../images/thread-commissioning.png" srcset="../../images/thread-commissioning.png 1x, ../../images/thread-commissioning_2x.png 2x" border="0" alt="External Thread Commissioning" /></a>
 </figure>
 
@@ -18,9 +18,8 @@ network key, to the device directly.
 This is an example of in-band commissioning, where Thread network credentials
 are transferred between devices over the radio.
 
-<aside class="key-point" style="clear:right"><b>Key Point:</b> During
-commissioning, the Thread Commissioner never gains possession of the network
-key.</aside>
+> Key Point: During commissioning, the Thread Commissioner never gains possession
+of the network key.
 
 This guide details how to commission an OpenThread device onto a network created
 and managed by the OTBR Web GUI. 
