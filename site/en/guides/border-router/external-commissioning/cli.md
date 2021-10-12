@@ -12,24 +12,28 @@ Configuration](https://openthread.io/guides/commissioner/build) for instructions
 1.  Open the Non-CCM configuration file located at
     `/usr/local/etc/commissioner/non-ccm-config.json` and change the `PSKc` to
     `198886f519a8fd7c981fee95d72f4ba7`:
+
     ```
     "PSKc" : "198886f519a8fd7c981fee95d72f4ba7"
     ```
 
 1.  Start the OT Commissioner CLI with the Non-CCM configuration:
+
     ```
     $ commissioner-cli /usr/local/etc/commissioner/non-ccm-config.json
-    >
+    > 
     ```
 
 1.  Connect to OTBR:
+
     ```
     > start :: 49191
     [done]
-    >
+    > 
     ```
 
 1.  Verify that the Commissioner is active:
+
     ```
     > active
     true
