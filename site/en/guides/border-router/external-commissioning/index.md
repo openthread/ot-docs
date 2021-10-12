@@ -1,7 +1,7 @@
 # Overview
 
 <figure class="attempt-right">
-<a href="../../images/thread-commissioning_small.png">
+<a href="../../images/thread-commissioning-small.png">
   <img src="../../images/thread-commissioning.png" srcset="../../images/thread-commissioning.png 1x, ../../images/thread-commissioning_2x.png 2x" border="0" alt="External Thread Commissioning" /></a>
 </figure>
 
