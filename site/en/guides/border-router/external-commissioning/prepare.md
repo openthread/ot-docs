@@ -29,15 +29,13 @@ The Thread network can also be formed manually on the command line of
 OpenThread POSIX, using `ot-ctl`.
 
 1.  Initialize a new operational dataset:
-
-    ``` 
-    $ sudo ot-ctl dataset init new
-    Done
-    ```
+ 
+        $ sudo ot-ctl dataset init new
+        Done
    
 1.  Set the network credentials:
-
-    ```  
+  
+    ```
     $ sudo ot-ctl dataset panid 0xdead
     Done
     ```
@@ -47,12 +45,12 @@ OpenThread POSIX, using `ot-ctl`.
     Done
     ```
         
-    ```
+    ```    
     $ sudo ot-ctl dataset networkname OpenThreadGuide
     Done
     ```
     
-    ```       
+    ```
     $ sudo ot-ctl dataset networkkey 11112233445566778899DEAD1111DEAD
     Done
     ```
@@ -62,18 +60,14 @@ OpenThread POSIX, using `ot-ctl`.
     the OTBR. Make sure to use the same Extended PAN ID and Network Name that
     was used in the operational dataset:
     
-    ```
-    $ cd ~/ot-br-posix/build/otbr/tools
-    $ ./pskc J01NME DEAD1111DEAD2222 OpenThreadGuide
-    198886f519a8fd7c981fee95d72f4ba7
-    ```
+        $ cd ~/ot-br-posix/build/otbr/tools
+        $ ./pskc J01NME DEAD1111DEAD2222 OpenThreadGuide
+        198886f519a8fd7c981fee95d72f4ba7
     
 1.  Set the PSKc:
 
-    ```
-    $ sudo ot-ctl dataset pskc 198886f519a8fd7c981fee95d72f4ba7</code>
-    Done
-    ```
+        $ sudo ot-ctl dataset pskc 198886f519a8fd7c981fee95d72f4ba7</code>
+        Done
     
 1.  Commit the active dataset, set the on-mesh prefix, and form the Thread
     network:
@@ -81,22 +75,22 @@ OpenThread POSIX, using `ot-ctl`.
     ```
     $ sudo ot-ctl dataset commit active
     Done
-    ```
+    ```    
 
     ```
     $ sudo ot-ctl prefix add fd11:22::/64 pasor
     Done
-    ```
+    ```    
     
     ```
     $ sudo ot-ctl ifconfig up
-    Done 
+    Done
     ```
-
+    
     ```
     $ sudo ot-ctl thread start
     Done
-    ```
+    ```    
     
     ```
     $ sudo ot-ctl netdata register
@@ -115,7 +109,7 @@ OpenThread POSIX, using `ot-ctl`.
     $ sudo ot-ctl pskc
     198886f519a8fd7c981fee95d72f4ba7
     Done
-    ```
+    ```    
 
 ## Prepare the Joiner device
 
