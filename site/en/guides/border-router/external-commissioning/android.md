@@ -57,20 +57,18 @@ with a length between 6 and 32 characters.
     a DTLS session.
 1.  While the app is waiting, enter the OpenThread CLI on the Joiner device and
     start the Joiner role with that same Joiner Credential:
-    ```
-    > ifconfig up
-    Done
-    > joiner start J01NU5
-    Done
-    ```
-
+    
+        > ifconfig up
+        Done
+        > joiner start J01NU5
+        Done
+    
 1.  Wait a minute for the DTLS handshake to complete between the Commissioner
     and Joiner:
-    ```
-    > 
-    Join success!
-    ```
-
+    
+        > 
+        Join success!
+    
 1.  The OT Commissioner Android App also updates with an "Commission Succeed"
     confirmation message.
 
@@ -131,20 +129,18 @@ with a length between 6 and 32 characters.
     a DTLS session.
 1.  While the app is waiting, enter the OpenThread CLI on the Joiner device and
     start the Joiner role with that same Joiner Credential:
-    ```
-    > ifconfig up
-    Done
-    > joiner start J01NU5
-    Done
-    ```
-
+    
+        > ifconfig up
+        Done
+        > joiner start J01NU5
+        Done
+    
 1.  Wait a minute for the DTLS handshake to complete between the Commissioner
     and Joiner:
-    ```
-    > 
-    Join success!
-    ```
-
+    
+        > 
+        Join success!
+    
 1.  The Thread Group Android App also updates with an "Added My Thread Product"
     confirmation message.
 
