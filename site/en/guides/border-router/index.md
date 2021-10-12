@@ -76,7 +76,7 @@ Tracker](https://github.com/openthread/ot-br-posix/issues).
 
 ### Community projects
 
-**Note:** Projects listed here are not officially supported by the OpenThread team.
+> Note: Projects listed here are not officially supported by the OpenThread team.
 
 #### QEMU OTBR
 
