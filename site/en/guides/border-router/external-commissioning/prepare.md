@@ -30,26 +30,26 @@ OpenThread POSIX, using `ot-ctl`.
 
 1.  Initialize a new operational dataset:
     ```
-     $ sudo ot-ctl dataset init new
-     Done
-    ```    
-   
+    $ sudo ot-ctl dataset init new
+    Done
+    ```
+
 1.  Set the network credentials:
     ```
     $ sudo ot-ctl dataset panid 0xdead
     Done
     ```
-        
+
     ```
     $ sudo ot-ctl dataset extpanid dead1111dead2222
     Done
     ```
-        
-    ```    
+
+    ```
     $ sudo ot-ctl dataset networkname OpenThreadGuide
     Done
     ```
-    
+
     ```
     $ sudo ot-ctl dataset networkkey 11112233445566778899DEAD1111DEAD
     Done
@@ -63,53 +63,53 @@ OpenThread POSIX, using `ot-ctl`.
     $ cd ~/ot-br-posix/build/otbr/tools
     $ ./pskc J01NME DEAD1111DEAD2222 OpenThreadGuide
     198886f519a8fd7c981fee95d72f4ba7
-    ```    
-    
+    ```
+
 1.  Set the PSKc:
     ```
     $ sudo ot-ctl dataset pskc 198886f519a8fd7c981fee95d72f4ba7
     Done
-    ```    
-    
+    ```
+
 1.  Commit the active dataset, set the on-mesh prefix, and form the Thread
     network:
     ```
     $ sudo ot-ctl dataset commit active
     Done
-    ```    
- 
+    ```
+
     ```
     $ sudo ot-ctl prefix add fd11:22::/64 pasor
     Done
-    ```    
-    
+    ```
+
     ```
     $ sudo ot-ctl ifconfig up
     Done
     ```
-    
+
     ```
     $ sudo ot-ctl thread start
     Done
-    ```    
-    
+    ```
+
     ```
     $ sudo ot-ctl netdata register
     Done
     ```
-     
+
 1.  Confirm the network configuration:
     ```
     $ sudo ot-ctl state
     leader
     Done
     ```
-    
+
     ```
     $ sudo ot-ctl pskc
     198886f519a8fd7c981fee95d72f4ba7
     Done
-    ```    
+    ```
 
 ## Prepare the Joiner device
 
