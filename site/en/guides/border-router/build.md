@@ -26,7 +26,7 @@ found in each example's
 
 ## Set up the Border Router
 
-**Warning:** Before you continue, make sure your
+> Warning: Before you continue, make sure your
   [configured hardware platform](#configure-platform) is connected to
   the internet using Ethernet. The `bootstrap` script disables the
   platform's Wi-Fi interface and the `setup` script requires internet
@@ -37,16 +37,12 @@ platform](#configure-platform):
 
 1.  Clone the OTBR repository:
 
-    ```
-    $ git clone https://github.com/openthread/ot-br-posix
-    ```
+        $ git clone https://github.com/openthread/ot-br-posix
     
 1.  Install dependencies:
 
-    ```
-    $ cd ot-br-posix
-    $ ./script/bootstrap
-    ```
+        $ cd ot-br-posix
+        $ ./script/bootstrap
     
 1.  Compile and install OTBR. Note that the setup script enables Border Routing
     by default. To enable Border Routing, specify your platform's Ethernet or
@@ -54,38 +50,30 @@ platform](#configure-platform):
     
     To use Ethernet:
     
-    ```
-    $ INFRA_IF_NAME=eth0 ./script/setup
-    ```
+        $ INFRA_IF_NAME=eth0 ./script/setup
     
     To use Wi-Fi:
-    
-    ```
-    $ INFRA_IF_NAME=wlan0 ./script/setup
-    ```
+   
+        $ INFRA_IF_NAME=wlan0 ./script/setup
     
 1.  Attach the [flashed RCP device](#build-and-flash-rcp) to the Border Router
     platform via USB.
     
-    **Caution:** The Border Router with the RCP device attached must use an external
+    > Caution: The Border Router with the RCP device attached must use an external
     AC adapter of the proper voltage. Do not power the Border Router from a USB Hub
     or a computer's USB port.
     
 1.  Configure the RCP device's serial port in `otbr-agent`:
     1.  Determine the serial port name for the RCP device by checking `/dev`:
-
-        ```
-        $ ls /dev/tty*
-        ```
+   
+            $ ls /dev/tty*
 
     1.  Append this to `/etc/default/otbr-agent`. For example, for a serial port
         name of `ttyUSB0`:
 
-        ```
-        OTBR_AGENT_OPTS="-I wpan0 spinel+hdlc+uart:///dev/ttyUSB0"
-        ```
+            OTBR_AGENT_OPTS="-I wpan0 spinel+hdlc+uart:///dev/ttyUSB0"
 
-        **Note:** Not all devices attach with the same serial port name. The most
+        > Note: Not all devices attach with the same serial port name. The most
         common port names are `ttyACM*` and `ttyUSB*`. See the documentation for
         your device to determine the expected serial port name.
 
@@ -199,10 +187,8 @@ If the output is `OpenThread daemon is not running`, troubleshoot with the follo
 1.  Verify that the RCP serial device is present. For example, if the device
     should be attached to `/dev/ttyUSB0`:
     
-    ```
-    $ ls /dev/ttyUSB*
-    /dev/ttyUSB0
-    ```
+        $ ls /dev/ttyUSB*
+        /dev/ttyUSB0
     
 1.  Reset the RCP with `sudo ot-ctl reset`.
 
