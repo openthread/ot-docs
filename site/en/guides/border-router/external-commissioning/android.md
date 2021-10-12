@@ -62,15 +62,15 @@ with a length between 6 and 32 characters.
     Done
     > joiner start J01NU5
     Done
-    ```    
-    
+    ```
+
 1.  Wait a minute for the DTLS handshake to complete between the Commissioner
     and Joiner:
     ```
     > 
     Join success!
-    ```    
-    
+    ```
+
 1.  The OT Commissioner Android App also updates with an "Commission Succeed"
     confirmation message.
 
@@ -136,15 +136,15 @@ with a length between 6 and 32 characters.
     Done
     > joiner start J01NU5
     Done
-    ```    
-    
+    ```
+
 1.  Wait a minute for the DTLS handshake to complete between the Commissioner
     and Joiner:
     ```
     > 
     Join success!
-    ```    
-    
+    ```
+
 1.  The Thread Group Android App also updates with an "Added My Thread Product"
     confirmation message.
 
