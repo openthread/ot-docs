@@ -15,20 +15,20 @@ Configuration](https://openthread.io/guides/commissioner/build) for instructions
     ```
     "PSKc" : "198886f519a8fd7c981fee95d72f4ba7"
     ```
-    
+
 1.  Start the OT Commissioner CLI with the Non-CCM configuration:
     ```
     $ commissioner-cli /usr/local/etc/commissioner/non-ccm-config.json
     >
     ```
-    
+
 1.  Connect to OTBR:
     ```
     > start :: 49191
     [done]
     >
     ```
-    
+
 1.  Verify that the Commissioner is active:
     ```
     > active
@@ -49,7 +49,7 @@ device.
     [done]
     > 
     ```
-    
+
 1.  On the Joiner device, start the Joiner role with the password configured in
     OT Commissioner:
     ```
@@ -57,15 +57,15 @@ device.
     Done
     > joiner start J01NU5
     Done
-    ```    
+    ```
 
 1.  Wait a minute for the DTLS handshake to complete between the Commissioner
     and Joiner:
     ```
     > 
     Join success!
-    ```    
-    
+    ```
+
 ## Join after commissioning
 
 Next, on the Joiner device, [join the Thread network after commissioning](join-after.md) and test network connectivity.
