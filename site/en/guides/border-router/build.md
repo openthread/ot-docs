@@ -38,34 +38,34 @@ platform](#configure-platform):
 1.  Clone the OTBR repository:
 
         $ git clone https://github.com/openthread/ot-br-posix
-    
+
 1.  Install dependencies:
 
         $ cd ot-br-posix
         $ ./script/bootstrap
-    
+
 1.  Compile and install OTBR. Note that the setup script enables Border Routing
     by default. To enable Border Routing, specify your platform's Ethernet or
     Wi-Fi interface.
-    
+
     To use Ethernet:
-    
+
         $ INFRA_IF_NAME=eth0 ./script/setup
-    
+
     To use Wi-Fi:
-   
+
         $ INFRA_IF_NAME=wlan0 ./script/setup
-    
+
 1.  Attach the [flashed RCP device](#build-and-flash-rcp) to the Border Router
     platform via USB.
-    
+
     > Caution: The Border Router with the RCP device attached must use an external
     AC adapter of the proper voltage. Do not power the Border Router from a USB Hub
     or a computer's USB port.
-    
+
 1.  Configure the RCP device's serial port in `otbr-agent`:
     1.  Determine the serial port name for the RCP device by checking `/dev`:
-   
+
             $ ls /dev/tty*
 
     1.  Append this to `/etc/default/otbr-agent`. For example, for a serial port
@@ -186,10 +186,10 @@ If the output is `OpenThread daemon is not running`, troubleshoot with the follo
 1.  Disconnect and reconnect the RCP board to the Border Router platform.
 1.  Verify that the RCP serial device is present. For example, if the device
     should be attached to `/dev/ttyUSB0`:
-    
+
         $ ls /dev/ttyUSB*
         /dev/ttyUSB0
-    
+
 1.  Reset the RCP with `sudo ot-ctl reset`.
 
 Check the RCP status again with `sudo ot-ctl state`.
