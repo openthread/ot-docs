@@ -16,12 +16,12 @@ toc:
 - title: Web GUI
   path: /guides/border-router/web-gui
   step_group: otbr_setup
-  
+
 - title: External Commissioning
   section:
   - title: Overview
     path: /guides/border-router/external-commissioning
-    step_group: otbr_setup  
+    step_group: otbr_setup
   - title: Prepare Network and Joiner
     path: /guides/border-router/external-commissioning/prepare
     step_group: otbr_setup
@@ -36,7 +36,7 @@ toc:
   - title: Join After Commissioning
     path: /guides/border-router/external-commissioning/join-after
     step_group: otbr_setup
-  
+
 - heading: Other
 - title: Tools and Scripts
   path: /guides/border-router/tools
