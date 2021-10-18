@@ -127,7 +127,7 @@ For example:
              │ └─442 /usr/bin/hciattach /dev/serial1 bcm43xx 921600 noflow -
              ├─ssh.service
              │ └─621 /usr/sbin/sshd -D
-  # enabled  ├─avahi-daemon.service 
+  # enabled  ├─avahi-daemon.service
              │ ├─341 avahi-daemon: running [raspberrypi.local]
              │ └─361 avahi-daemon: chroot helper
   # enabled  ├─otbr-web.service
