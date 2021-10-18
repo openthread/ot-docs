@@ -26,13 +26,13 @@ Use the **Form** menu option to create a new Thread network.
 1.  After the network forms, confirm by checking the **Status** menu option.
 1.  Check the `wpan0` interface for the global IPv6 address with the On-Mesh
     Prefix set during network formation:
-    
+
         $ ifconfig wpan0
-        wpan0: flags=4305&lt;UP,POINTOPOINT,RUNNING,NOARP,MULTICAST&gt;  mtu 1280
-            inet6 fdde:ad11:11de:0:74d0:6fc9:6be6:3582  prefixlen 64  scopeid 0x0&lt;global&gt;
-            inet6 fe80::287f:87ca:f4b3:498a  prefixlen 64  scopeid 0x20&lt;link&gt;
-            inet6 fd11:22::287f:87ca:f4b3:498a  prefixlen 64  scopeid 0x0&lt;global&gt;
-    
+        wpan0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1280
+            inet6 fdde:ad11:11de:0:74d0:6fc9:6be6:3582  prefixlen 64  scopeid 0x0<global>
+            inet6 fe80::287f:87ca:f4b3:498a  prefixlen 64  scopeid 0x20<link>
+            inet6 fd11:22::287f:87ca:f4b3:498a  prefixlen 64  scopeid 0x0<global>
+
     The On-Mesh Prefix global address is used by child nodes to identify the
     Border Router that is responsible for forwarding traffic out of the network.
     The other addresses correspond to the
