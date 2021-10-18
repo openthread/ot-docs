@@ -70,9 +70,9 @@ device.
     Join success!
     ```
 
-## Join after commissioning
+## Join the Thread network
 
-Next, on the Joiner device, [join the Thread network after commissioning](join-after.md) and test network connectivity.
+Next, on the Joiner device, [join the Thread network](join-after.md) and test network connectivity.
 
 ## License
 
