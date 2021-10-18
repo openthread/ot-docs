@@ -33,8 +33,8 @@ toc:
     - title: Commissioning for Android
       path: /guides/border-router/external-commissioning/android
       step_group: otbr_setup
-  - title: Join After Commissioning
-    path: /guides/border-router/external-commissioning/join-after
+  - title: Join the Thread Network
+    path: /guides/border-router/external-commissioning/join-thread-network
     step_group: otbr_setup
 
 - heading: Other
