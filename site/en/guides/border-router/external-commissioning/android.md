@@ -172,9 +172,9 @@ To delete local application data:
 1.  Go back to **App info** and select **FORCE STOP**
 1.  Close the Settings app and restart the Thread app
 
-## Join after commissioning
+## Join the Thread network
 
-Next, on the Joiner device, [join the Thread network after commissioning](join-after.md) and test network connectivity.
+Next, on the Joiner device, [join the Thread network](join-after.md) and test network connectivity.
 
 ## License
 
