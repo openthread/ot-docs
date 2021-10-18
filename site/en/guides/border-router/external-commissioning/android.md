@@ -174,7 +174,7 @@ To delete local application data:
 
 ## Join the Thread network
 
-Next, on the Joiner device, [join the Thread network](join-after.md) and test network connectivity.
+Next, on the Joiner device, [join the Thread network](join.md) and test network connectivity.
 
 ## License
 
