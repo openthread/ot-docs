@@ -1,8 +1,8 @@
 # Overview
 
 <figure class="attempt-right">
-<a href="../../images/thread-commissioning-small.png">
-  <img src="../../images/thread-commissioning-small.png" srcset="../../images/thread-commissioning.png 1x, ../../images/thread-commissioning_2x.png 2x" border="0" alt="External Thread Commissioning" /></a>
+<a href="../../images/thread-commissioning.png">
+  <img src="../../images/thread-commissioning.png" srcset="../../images/thread-commissioning.png 1x, ../../images/thread-commissioning_2x.png 2x" border="0" alt="External Thread Commissioning" /></a>
 </figure>
 
 OpenThread Border Router (OTBR) features a Thread Border Agent, which supports
@@ -17,6 +17,8 @@ network key, to the device directly.
 
 This is an example of in-band commissioning, where Thread network credentials
 are transferred between devices over the radio.
+
+<p style="clear:both"></p>
 
 > Key Point: During commissioning, the Thread Commissioner never gains possession
 of the network key.
