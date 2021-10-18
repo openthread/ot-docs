@@ -23,7 +23,7 @@ A Thread Border Router minimally supports the following functions:
     <img src="../images/ot-thread-certified.png"
          srcset="/images/ot-thread-certified.png 1x, /images/ot-thread-certified_2x.png 2x"
          border="0" alt="Thread Certified" /></a></figure>
-  
+
 OpenThread's implementation of a Border Router is called OpenThread Border
 Router (OTBR). OTBR is a Thread Certified Component on the [Raspberry Pi
 3B](raspberry-pi.md) with a [Nordic
@@ -48,7 +48,7 @@ OTBR on a Raspberry Pi 3B or 4, using physical RCPs.
 <a class="button button-primary"
    href="https://openthread.io/codelabs/openthread-border-router/">Border Router
   Codelab</a>
-  
+
 <a class="button button-primary"
    href="https://openthread.io/codelabs/openthread-border-router-ipv6-multicast">Border Router Thread
   1.2 Multicast Codelab</a>
@@ -111,7 +111,7 @@ OTBR provides the following services:
 
 Third-party components for Border Router Services include Simple Web Server and
 Material Design Lite for the framework of the web UI.
-  
+
 ## License
 
 Copyright (c) 2021, The OpenThread Authors.
@@ -138,4 +138,4 @@ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGE.  
+POSSIBILITY OF SUCH DAMAGE.
