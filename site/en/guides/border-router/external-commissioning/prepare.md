@@ -136,7 +136,7 @@ Done
 [OpenThread Commissioner](https://openthread.io/guides/commissioner) provides several ways
 to externally commission a device:
 
-* [OT Commissioner CLI](cli.md) 
+* [OT Commissioner CLI](cli.md)
 * [OT Commissioner Android App](android.md)
 
 The OT Commissioner CLI runs on the same host machine as OTBR. In the next
