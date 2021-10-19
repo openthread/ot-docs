@@ -1,4 +1,4 @@
-# Overview
+# External Commissioning
 
 <figure class="attempt-right">
 <a href="../../images/thread-commissioning.png">
@@ -24,7 +24,7 @@ are transferred between devices over the radio.
 of the network key.
 
 This guide details how to commission an OpenThread device onto a network created
-and managed by the OTBR Web GUI. 
+and managed by the OTBR Web GUI.
 
 To learn how to commission without an external Commissioner, see
 [On-Mesh Commissioning](../../build/commissioning.md).
