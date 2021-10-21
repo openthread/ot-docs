@@ -4,14 +4,14 @@ This guide covers the basic build and configuration of OpenThread Border Router
 (OTBR). Upon completion of this procedure, you will have an OTBR that functions
 as a Full Thread Device (FTD) in an RCP design.
 
-## Configure Platform
+## Step 1: Configure Platform
 
 Configure a supported hardware platform:
 
 *   [BeagleBone Black](beaglebone-black.md)
 *   [Raspberry Pi](raspberry-pi.md)
 
-## Build and flash RCP
+## Step 2: Build and flash RCP
 
 OTBR runs on an RCP design. Select a [supported OpenThread
 platform](https://openthread.io/platforms) to use as an RCP and follow the building and flashing
@@ -24,7 +24,7 @@ Specific instructions on building supported platforms with GNU Autotools can be
 found in each example's
 [platform folder](https://github.com/openthread/openthread/tree/master/examples/platforms).
 
-## Set up the Border Router
+## Step 3: Set up the Border Router
 
 > Warning: Before you continue, make sure your
   [configured hardware platform](#configure-platform) is connected to
@@ -83,7 +83,7 @@ platform](#configure-platform):
     doing so.
 1.  The OTBR service should start on boot.
 
-## Verify services
+## Step 4: Verify services
 
 Verify that all required services are enabled:
 
@@ -160,7 +160,7 @@ other service has failed to start. Check to see which:
 $ sudo systemctl --failed
 ```
 
-## Verify RCP
+## Step 5: Verify RCP
 
 Verify that the RCP is in the correct state:
 
