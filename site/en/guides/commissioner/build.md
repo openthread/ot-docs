@@ -1,0 +1,120 @@
+# OpenThread Commissioner Build and Configuration
+
+This guide covers the basic build and configuration of OpenThread Commissioner
+(OT Commissioner). Upon completion of this procedure, you will have an OT
+Commissioner CLI executable and a static Commissioner library.
+
+## Set up the Commissioner
+
+1.  Clone the OT Commissioner repository:
+
+        $ git clone https://github.com/openthread/ot-commissioner
+
+1.  Install dependencies:
+
+        $ cd ot-commissioner
+        $ ./script/bootstrap.sh
+
+1.  Build OT Commisioner:
+
+        $ mkdir build
+        $ cd build
+        $ cmake -DCMAKE_INSTALL_PREFIX=/usr/local -GNinja ..
+        $ ninja -j1
+
+1.  _Optional_. Run unit tests:
+
+        $ ./tests/commissioner-test
+
+## Install the Commissioner
+
+Install OT Commissioner in the `/usr/local` directory. This will install:
+
+*   OT Commissioner library and header files
+*   OT Commissioner CLI executable binary
+*   Default configuration files and credentials
+*   Scripts to run OT Commissioner CLI as daemon
+
+To change the installation directory, set `-DCMAKE_INSTALL_PREFIX`.
+
+```
+$ ninja install
+```
+
+> Note: Root privileges may be required for installation.
+
+Verify the installation by checking the help menu:
+
+```
+$ commissioner-cli -h
+```
+
+## Configuration
+
+The OT Commissioner CLI supports both Thread 1.2 Commercial Commissioning Mode
+(CCM) and Thread 1.1 commissioning (Non-CCM). To connect to different Thread
+networks, a JSON configuration file is needed to start OT Commissioner CLI:
+
+*   `ccm-config.json` — The default configuration file for CCM Thread Network.
+*   `non-ccm-config.json` — The default configuration file for Non-CCM Thread
+    Network.
+
+By default, these configuration files are installed in
+`/usr/local/etc/commissioner`.
+
+### CCM configuration
+
+To connect to a CCM Thread network, update these fields in `ccm-config.json`:
+
+Field | Description
+----|----
+`DomainName` | Unique identifier within the Enterprise Domain.
+`PrivateKeyFile` | The private key file in PEM format.
+`CertificateFile` | The certificate file in PEM format.
+`TrustAnchorFile` | The trust anchor file in PEM format.
+
+These key and certificate files are used to establish secure sessions between
+the Commissioner and Border Agent.
+
+### Non-CCM configuration
+
+To connect to a Non-CCM Thread network, update this field in
+`non-ccm-config.json`:
+
+| Field  | Description                                                     |
+| ------ | --------------------------------------------------------------- |
+| `PSKc` | The Pre-Shared Key used to establish secure session between the |
+:        : Commissioner and Border Agent.                                  :
+
+## Commission a joiner
+
+To use OT Commissioner to commission a joiner, refer to [External Thread
+Commissioning](../external-commissioning/cli.md).
+
+## License
+
+Copyright (c) 2021, The OpenThread Authors.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+3. Neither the name of the copyright holder nor the
+   names of its contributors may be used to endorse or promote products
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
