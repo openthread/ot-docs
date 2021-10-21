@@ -78,18 +78,15 @@ the Commissioner and Border Agent.
 
 ### Non-CCM configuration
 
-To connect to a Non-CCM Thread network, update this field in
-`non-ccm-config.json`:
-
-| Field  | Description                                                     |
-| ------ | --------------------------------------------------------------- |
-| `PSKc` | The Pre-Shared Key used to establish secure session between the |
-:        : Commissioner and Border Agent.                                  :
+The Pre-Shared Key `PSKc` is used to establish a secure session between the
+Commissioner and Border Agent. To connect to a Non-CCM Thread network, update
+`PSKc` in `non-ccm-config.json`.
 
 ## Commission a joiner
 
 To use OT Commissioner to commission a joiner, refer to [External Thread
-Commissioning](../external-commissioning/cli.md).
+Commissioning](../border-router/external-commissioning), and use the [OT
+Commissioner CLI](../border-router/external-commissioning/cli.md) option.
 
 ## License
 
