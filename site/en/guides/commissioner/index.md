@@ -4,7 +4,7 @@ A Thread Commissioner connects to and manages a Thread network. A Thread network
 requires a Commissioner to commission new Joiner devices.
 
 <figure>
-<img src="../images/otc-arch-commissioner.png" srcset="../images/otc-arch-commissioner.png 1x, ../images/otc-arch-commissioner_2x.png 2x" border="0" alt="OT Commissioner Architecture" />
+<img src="../images/otc-arch-commissioner-white.png" srcset="../images/otc-arch-commissioner.png 1x, ../images/otc-arch-commissioner_2x.png 2x" border="0" alt="OT Commissioner Architecture" />
 </figure>
 
 A Thread Commissioner minimally supports the following functions:
