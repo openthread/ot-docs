@@ -1,0 +1,5 @@
+toc:
+- title: OpenThread Commissioner
+  path: /guides/commissioner
+- title: Build and Configuration
+  path: /guides/commissioner/build
