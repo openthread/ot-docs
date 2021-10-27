@@ -24,66 +24,79 @@ Specific instructions on building supported platforms with GNU Autotools can be
 found in each example's
 [platform folder](https://github.com/openthread/openthread/tree/master/examples/platforms).
 
-## Step 3: Set up the Border Router
+## Step 3: Install OTBR
 
 > Warning: Before you continue, make sure your
-  [configured hardware platform](#configure-platform) is connected to
-  the internet using Ethernet. The `bootstrap` script disables the
-  platform's Wi-Fi interface and the `setup` script requires internet
-  connectivity to download and install several packages.
+[configured hardware platform](#configure-platform) is connected to
+the internet using Ethernet. The `bootstrap` script disables the
+platform's Wi-Fi interface and the `setup` script requires internet
+connectivity to download and install several packages.
 
-OTBR communicates with the RCP via spinel. On the [configured hardware
-platform](#configure-platform):
+OTBR communicates with the RCP via spinel. To install OTBR on the [configured
+hardware platform](#configure-platform), complete the following steps.
 
-1.  Clone the OTBR repository:
+Clone the OTBR repository:
 
-        $ git clone https://github.com/openthread/ot-br-posix
+```
+$ git clone https://github.com/openthread/ot-br-posix
+```
 
-1.  Install dependencies:
+Install dependencies:
 
-        $ cd ot-br-posix
-        $ ./script/bootstrap
+```
+$ cd ot-br-posix
+$ ./script/bootstrap
+```
 
-1.  Compile and install OTBR. Note that the setup script enables Border Routing
-    by default. To enable Border Routing, specify your platform's Ethernet or
-    Wi-Fi interface.
+Compile and install OTBR. Note that the setup script enables Border Routing
+by default. To enable Border Routing, specify your platform's Ethernet or
+Wi-Fi interface.
 
-    To use Ethernet:
+To use Ethernet:
 
-        $ INFRA_IF_NAME=eth0 ./script/setup
+```
+$ INFRA_IF_NAME=eth0 ./script/setup
+```
 
-    To use Wi-Fi:
+To use Wi-Fi:
 
-        $ INFRA_IF_NAME=wlan0 ./script/setup
+```
+$ INFRA_IF_NAME=wlan0 ./script/setup
+```
 
-1.  Attach the [flashed RCP device](#build-and-flash-rcp) to the Border Router
-    platform via USB.
+## Step 4: Attach and configure RCP device
 
-    > Caution: The Border Router with the RCP device attached must use an external
-    AC adapter of the proper voltage. Do not power the Border Router from a USB Hub
-    or a computer's USB port.
+Attach the [flashed RCP device](#build-and-flash-rcp) to the Border Router
+platform via USB.
 
-1.  Configure the RCP device's serial port in `otbr-agent`:
-    1.  Determine the serial port name for the RCP device by checking `/dev`:
+> Caution: The Border Router with the RCP device attached must use an external
+AC adapter of the proper voltage. Do not power the Border Router from a USB Hub
+or a computer's USB port.
 
-            $ ls /dev/tty*
+To configure the RCP device's serial port in `otbr-agent`, first, determine the
+serial port name for the RCP device by checking `/dev`:
 
-    1.  Append this to `/etc/default/otbr-agent`. For example, for a serial port
-        name of `ttyUSB0`:
+```
+$ ls /dev/tty*
+```
 
-            OTBR_AGENT_OPTS="-I wpan0 spinel+hdlc+uart:///dev/ttyUSB0"
+Nex, append this to `/etc/default/otbr-agent`. For example, for a serial port
+name of `ttyUSB0`:
 
-        > Note: Not all devices attach with the same serial port name. The most
-        common port names are `ttyACM*` and `ttyUSB*`. See the documentation for
-        your device to determine the expected serial port name.
+```
+OTBR_AGENT_OPTS="-I wpan0 spinel+hdlc+uart:///dev/ttyUSB0"
+```
 
-1.  Power cycle the Border Router. If using the BeagleBone Black platform,
-    remember to [hold down the BOOT
-    button](beaglebone-black.md#boot-from-the-sd-card) while
-    doing so.
-1.  The OTBR service should start on boot.
+> Note: Not all devices attach with the same serial port name. The most
+common port names are `ttyACM*` and `ttyUSB*`. See the documentation for
+your device to determine the expected serial port name.
 
-## Step 4: Verify services
+Power cycle the Border Router. If using the BeagleBone Black platform,
+remember to [hold down the BOOT
+button](beaglebone-black.md#boot-from-the-sd-card) while
+doing so. The OTBR service should start on boot.
+
+## Step 5: Verify services
 
 Verify that all required services are enabled:
 
@@ -160,7 +173,7 @@ other service has failed to start. Check to see which:
 $ sudo systemctl --failed
 ```
 
-## Step 5: Verify RCP
+## Step 6: Verify RCP
 
 Verify that the RCP is in the correct state:
 
@@ -187,8 +200,10 @@ If the output is `OpenThread daemon is not running`, troubleshoot with the follo
 1.  Verify that the RCP serial device is present. For example, if the device
     should be attached to `/dev/ttyUSB0`:
 
-        $ ls /dev/ttyUSB*
-        /dev/ttyUSB0
+    ```
+    $ ls /dev/ttyUSB*
+    /dev/ttyUSB0
+    ```
 
 1.  Reset the RCP with `sudo ot-ctl reset`.
 
