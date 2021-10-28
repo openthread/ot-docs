@@ -26,14 +26,15 @@ found in each example's
 
 ## Step 3: Install OTBR
 
-> Warning: Before you continue, make sure your
-[configured hardware platform](#configure-platform) is connected to
-the internet using Ethernet. The `bootstrap` script disables the
-platform's Wi-Fi interface and the `setup` script requires internet
+Install OTBR on a supported hardware platform listed in "Step 1." 
+
+> Warning: Before you continue, make sure your configured hardware platform
+is connected to the internet using Ethernet. The `bootstrap` script disables
+the platform's Wi-Fi interface and the `setup` script requires internet
 connectivity to download and install several packages.
 
-OTBR communicates with the RCP via spinel. To install OTBR on the [configured
-hardware platform](#configure-platform), complete the following steps.
+OTBR communicates with the RCP via spinel. To install OTBR on the configured
+hardware platform, complete the following steps.
 
 Clone the OTBR repository:
 
