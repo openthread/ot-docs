@@ -14,7 +14,7 @@ Configure a supported hardware platform:
 ## Step 2: Build and flash RCP
 
 OTBR runs on an RCP design. Select a [supported OpenThread
-platform](https://openthread.io/platforms) to use as an RCP and follow the building and flashing
+platform](https://openthread.io/platforms/) to use as an RCP and follow the building and flashing
 instructions for that platform.
 
 For an overview of building OpenThread, see the
