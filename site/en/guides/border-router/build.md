@@ -92,8 +92,7 @@ common port names are `ttyACM*` and `ttyUSB*`. See the documentation for
 your device to determine the expected serial port name.
 
 Power cycle the Border Router. If using the BeagleBone Black platform,
-remember to [hold down the BOOT
-button](beaglebone-black.md#boot-from-the-sd-card) while
+remember to [hold down the BOOT button](beaglebone-black.md) while
 doing so. The OTBR service should start on boot.
 
 ## Step 5: Verify services
