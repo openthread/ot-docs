@@ -67,8 +67,7 @@ $ INFRA_IF_NAME=wlan0 ./script/setup
 
 ## Step 4: Attach and configure RCP device
 
-Attach the [flashed RCP device](#build-and-flash-rcp) to the Border Router
-platform via USB.
+Attach the flashed RCP device to the Border Router platform via USB.
 
 > Caution: The Border Router with the RCP device attached must use an external
 AC adapter of the proper voltage. Do not power the Border Router from a USB Hub
