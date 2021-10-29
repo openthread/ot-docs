@@ -105,8 +105,7 @@ OTBR provides the following services:
 
 *   mDNS Publisher — Allows an External Commissioner to discover an OTBR and its
     associated Thread network
-*   [PSKc Generator](tools.md#pskc-generator) — For
-    generation of PSKc keys
+*   [PSKc Generator](tools.md) — For generation of PSKc keys
 *   Web Service — Web UI for management of a Thread network
 
 Third-party components for Border Router Services include Simple Web Server and
