@@ -13,7 +13,7 @@ This guide covers how to configure Wireshark and run Pyspinel to sniff packets
 from a Thread network.
 
 To use the Wireshark extcap plugin for packet sniffing, refer to [Packet Sniffing
-using extcap](../pyspinel/sniffer-extcap).
+using extcap](sniffer-extcap.md).
 
 ## Requirements
 
