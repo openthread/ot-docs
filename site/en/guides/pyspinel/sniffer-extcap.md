@@ -24,7 +24,7 @@ SoC](https://openthread.io/vendors/texas-instruments#cc2538)) on the following h
 
 *   Debian 4.19.37 — Wireshark 3.0.4
 *   macOS Mojave 10.14.6 — Wireshark 3.0.5
-*   64bit Windows 10 version 17134 — Wireshark 3.0.6
+*   64-bit Windows 10 version 17134 — Wireshark 3.0.6
 
 ## Build and flash the sniffer
 
@@ -76,7 +76,7 @@ interface and clicking the Wireshark icon in the top left.
 Select all hardware interfaces listed in the capture screen and click the
 Wireshark icon on the top left.
 
-Use these fields to idenify individual sniffers when capturing from multiple
+Use these fields to identify individual sniffers when capturing from multiple
 interfaces:
 
 *   **Interface ID** (frame.interface_id) — Interface Identifier used by Wireshark
