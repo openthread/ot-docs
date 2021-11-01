@@ -376,7 +376,7 @@ $ python sniffer.py -c 15 -u /dev/ttyACM0 --crc --rssi -b 460800 | wireshark -k 
 You should now be able to view the packets and related protocols for this
 configuration in Wireshark:
 
-<a href="../images/ot-sniffer-wireshark-output_2x.png"><img src="/guides/images/ot-sniffer-wireshark-output.png" srcset="/guides/images/ot-sniffer-wireshark-output.png 1x, /guides/images/ot-sniffer-wireshark-output_2x.png 2x" border="0" alt="Wireshark Capture" class="screenshot"/></a>
+<a href="../images/ot-sniffer-wireshark-output_2x.png"><img src="../images/ot-sniffer-wireshark-output.png" srcset="/guides/images/ot-sniffer-wireshark-output.png 1x, /guides/images/ot-sniffer-wireshark-output_2x.png 2x" border="0" alt="Wireshark Capture" class="screenshot"/></a>
 
 Refer to the [Spinel sniffer
 reference](https://github.com/openthread/pyspinel/tree/master/SNIFFER.md) for
@@ -390,7 +390,7 @@ be built with `USB_trans`:
 $ ./script/build nrf52840 USB_trans
 
 Flash the nRF52840 DK, [connect it to the host machine by the USB
-port](/guides/ncp/firmware#connect_the_nrf52840), then use the `--no-reset` flag
+port](https://openthread.io/platforms/co-processor/firmware#connect_the_nrf52840), then use the `--no-reset` flag
 but omit the `-b` flag when running the sniffer:
 
 ```
