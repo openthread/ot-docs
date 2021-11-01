@@ -1,0 +1,21 @@
+toc:
+- title: Pyspinel Overview
+  path: /guides/pyspinel
+
+- heading: Install and Configure
+- title: Packet Sniffing Requirements
+  path: /guides/pyspinel/requirements
+- title: Install Wireshark
+  path: /guides/pyspinel/install-wireshark
+- title: Configure Wireshark
+  path: /guides/pyspinel/configure-wireshark
+- title: Install Pyspinel
+  path: /guides/pyspinel/install-pyspinel
+
+- heading: Use Pyspinel
+- title: Get Started
+  path: /guides/pyspinel/get-started
+- title: Packet Sniffing
+  path: /guides/pyspinel/sniffer
+- title: Packet Sniffing using Extcap
+  path: /guides/pyspinel/sniffer-extcap
