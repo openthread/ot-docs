@@ -17,8 +17,8 @@ Select **6LoWPAN** from the list of protocols and verify or change the following
 1.  Update **Context 0** with the Mesh Local Prefix for the target Thread
     network.
 
-<img src="/guides/images/ot-sniffer-6lowpan.png"
-     srcset="/guides/images/ot-sniffer-6lowpan.png 1x, /guides/images/ot-sniffer-6lowpan_2x.png 2x"
+<img src="../images/ot-sniffer-6lowpan.png"
+     srcset="guides/images/ot-sniffer-6lowpan.png 1x, /guides/images/ot-sniffer-6lowpan_2x.png 2x"
      border="0" alt="OT Sniffer Wireshark 6LoWPAN" class="screenshot"/>
 
 Wireshark uses context configurations to parse the compressed IPv6 address and
@@ -55,7 +55,7 @@ following settings:
     1.  Enter "1" as the **Decryption key index**.
     1.  Select **Thread hash** from the **Key hash** column listbox.
 
-        <img src="/guides/images/ot-sniffer-ieee802154.png"
+        <img src="../images/ot-sniffer-ieee802154.png"
           srcset="/guides/images/ot-sniffer-ieee802154.png 1x, /guides/images/ot-sniffer-ieee802154_2x.png 2x"
           border="0" alt="OT Sniffer Wireshark IEEE 802.15.4" class="screenshot"/>
 
@@ -103,7 +103,7 @@ To display the received signal strength indicator (RSSI) in Wireshark:
     * Type: Custom
     * Fields: wpan.rssi
 
-<img src="/guides/images/ot-sniffer-rssi-column.png"
+<img src="../images/ot-sniffer-rssi-column.png"
      srcset="/guides/images/ot-sniffer-rssi-column.png 1x, /guides/images/ot-sniffer-rssi-column_2x.png 2x"
      border="0" alt="OT Sniffer Wireshark RSSI" class="screenshot"/>
 
