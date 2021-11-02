@@ -63,14 +63,16 @@ Disable Mass Storage Device (MSD) on the nRF52840 to avoid issues with data
 corruption or drops when using the debug port:
 
 ```
-$ expect >>EOF
+$ expect <<EOF
 > spawn JLinkExe
 > expect "J-Link>"
 > send "msddisable\n"
 > expect "Probe configured successfully."
 > exit
 > EOF
+```
  
+```
 spawn JLinkExe
 SEGGER J-Link Commander V6.42b (Compiled Feb  5 2019 17:35:31)
 DLL version V6.42b, compiled Feb  5 2019 17:35:20
@@ -97,34 +99,38 @@ sniffer.
 To get the Mesh Local Prefix from a device in the target Thread network:
 
 1.  Using the OpenThread CLI:
-
-        > dataset active
-        Mesh Local Prefix: fd33:3333:3344:0/64
+    ```
+    > dataset active
+    Mesh Local Prefix: fd33:3333:3344:0/64
+    ```
 
 1.  Using `wpanctl` with an NCP:
-
-        $ wpanctl getprop IPv6:MeshLocalPrefix
-        IPv6:MeshLocalPrefix = "fd33:3333:3344:0::/64"
+    ```
+    $ wpanctl getprop IPv6:MeshLocalPrefix
+    IPv6:MeshLocalPrefix = "fd33:3333:3344:0::/64"
+    ```
 
 1.  Using the OTBR Web GUI, select **Status**. The Mesh Local Prefix is listed
-    as IPv6:MeshLocalPrefix similar to `wpanctl`.
+    as **IPv6:MeshLocalPrefix** similar to `wpanctl`.
 
 ### Channel
 
 To get the Channel from a device in the target Thread network:
 
 1.  Using the OpenThread CLI:
-
-        > channel
-        15
+    ```
+    > channel
+    15
+    ```
 
 1.  Using `wpanctl` with an NCP:
-
-        $ wpanctl getprop NCP:Channel
-        NCP:Channel = 15
+    ```
+    $ wpanctl getprop NCP:Channel
+    NCP:Channel = 15
+    ```
 
 1.  Using the OTBR Web GUI, select **Status**. The Channel is listed as
-    NCP:Channel similar to `wpanctl`.
+    **NCP:Channel** similar to `wpanctl`.
 
 ### Network Key
 
@@ -132,14 +138,16 @@ The Thread Network Key is used by Wireshark to decrypt packets after
 capture. To get the Network Key from a device in the target Thread network:
 
 1.  Using the OpenThread CLI:
-
-        > networkkey
-        33334444333344443333444433334444
+    ```
+    > networkkey
+    33334444333344443333444433334444
+    ```
 
 1.  Using `wpanctl` with an NCP:
-
-        $ wpanctl getprop Network:Key
-        Network:Key = [33334444333344443333444433334444]
+    ```
+    $ wpanctl getprop Network:Key
+    Network:Key = [33334444333344443333444433334444]
+    ```
 
 The Thread Network Key is not available in the OTBR Web GUI.
 
@@ -147,9 +155,9 @@ The Thread Network Key is not available in the OTBR Web GUI.
 
 To set up the sniffer environment, complete the following steps:
 
-*   [Install Pyspinel and dependencies without extcap](install-pyspinel.md)
-*   [Install Wireshark](install-wireshark.md) for your operating system
-*   [Configure Wireshark](configure-wireshark.md)
+*   [Install Pyspinel and dependencies without extcap](install-pyspinel.md).
+*   [Install Wireshark](install-wireshark.md) for your operating system.
+*   [Configure Wireshark](configure-wireshark.md).
 
 ## Sniffer options
 
@@ -364,7 +372,7 @@ nRF52840](https://openthread.io/guides/ncp/firmware#flash_the_nrf52840). To run 
 use the `-b` flag to specify the baud rate (if it was changed from the default)
 and omit the `--no-reset` flag.
 
-If you configure Wireshark to display RSSI, you must also include the `--rssi`
+If you [Configure Wireshark](configure-wireshark.md) to display RSSI, you must also include the `--rssi`
 flag when you run the sniffer tool. For example, to sniff on Channel 15 using a
 device mounted at `/dev/ttyACM0` with RSSI included in the Wireshark output:
 
