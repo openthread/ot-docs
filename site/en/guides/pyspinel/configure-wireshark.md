@@ -30,9 +30,7 @@ update other Context IDs with those prefixes.
 To get the Context ID for a specific on-mesh prefix, view the Thread Network Data
 TLV in any MLE Data response message. For example:
 
-```
-Context 1:  fd00:7d03:7d03:7d03::/64
-```
+`Context 1:  fd00:7d03:7d03:7d03::/64`
 
 ### CoAP
 
@@ -93,7 +91,7 @@ To display the received signal strength indicator (RSSI) in Wireshark:
     * If IEEE 802.15.4 TAP disabled: **TI CC24xx metadata**.
     * If IEEE 802.15.4 TAP enabled: **ITU-T CRC-16**. If you're following
       the [Packet Sniffing](sniffer.md) guide for the Nordic Semiconductor nRF52840
-      DK, refer to the [--tap flag](sniffer.md#tap) for more information.
+      DK, refer to the `--tap` [flag](sniffer.md#tap) for more information.
 
 1.  Click **OK** to save and return to the **Preferences** menu.
 1.  From **Preferences**, select **Appearance**, then **Columns**.
