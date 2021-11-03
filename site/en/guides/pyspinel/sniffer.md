@@ -23,10 +23,9 @@ Before you begin, review the [Packet Sniffing Requirements](requirements.md).
 
 > Note: This guide was tested with and written for the [Nordic Semiconductor
 nRF52840 DK](https://openthread.io/platforms/nrf52840) connected to the host machine by its debug
-port. To connect with USB, refer to [Native USB connection](#native-usb-connection).
+port.
 
-To build and flash an NCP device to serve as the sniffer, complete the following
-steps. In this example, you'll flash the `ot-rcp` binary output.
+Build and flash an NCP device to serve as the sniffer, using the `ot-rcp` binary output.
 
 ### Nordic nRF52840
 
