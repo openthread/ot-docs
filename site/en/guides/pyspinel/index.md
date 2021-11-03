@@ -19,7 +19,7 @@ or MacOS.
 
 For more information, refer to the following:
 
-*   [Pyspinel README](https://github.com/openthread/pyspinel/blob/master/README.md) in the Pyspinel repository.
+*   [Pyspinel README](https://github.com/openthread/pyspinel/blob/master/README.md) in the Pyspinel repository
 *   [Spinel sniffer
     reference](https://github.com/openthread/pyspinel/tree/master/SNIFFER.md)
 *   [wireshark.org](https://www.wireshark.org/)
