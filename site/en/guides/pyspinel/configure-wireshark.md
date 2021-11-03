@@ -82,7 +82,7 @@ display these two protocols, edit the enabled protocols in Wireshark:
 
 ## Configure Wireshark RSSI
 
-To display the received signal strength indicator (RSSI) in Wireshark:
+To display RSSI in Wireshark:
 
 1.  Select **Preferences...** and expand the **Protocols** section, then click
     **IEEE 802.15.4**.
