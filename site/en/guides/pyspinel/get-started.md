@@ -16,7 +16,7 @@ The quickest way to get started with Pyspinel is to try out the CLI:
     ```
     $ cd {path-to-pyspinel}
     $ spinel-cli.py -p {path-to-openthread}/output/simulation/bin/ot-ncp-ftd -n 1
-    spinel-cli >
+    spinel-cli > 
     ```
 
 1.  Verify the OpenThread version:
