@@ -18,9 +18,10 @@ packet sniffing options and configurations, refer to the following topics:
         $ git clone https://github.com/openthread/pyspinel
 
 1.  Install Pyspinel:
-
-        $ cd pyspinel
-        $ python3 setup.py install
+    ```
+    $ cd pyspinel
+    $ python3 setup.py install
+    ```
 
 Alternatively, set up the environment by installing the `pyspinel` package. Note
 that this package uses the [Pyspinel v1.0.0a3 release](https://github.com/openthread/pyspinel/releases/tag/v1.0.0a3) and not
@@ -45,9 +46,10 @@ $ pip3 install --user pyspinel
     **Folders** tab. The **Extcap path** entry lists the extcap location. Make
     note of this location.
 1.  Install Pyspinel, using the extcap path from Wireshark:
-
-        cd pyspinel
-        python3 setup.py install --extcap-path={extcap-path}
+    ```
+    $ cd pyspinel
+    $ python3 setup.py install --extcap-path={extcap-path}
+    ```
 
 Alternatively, set up the environment by installing the pyspinel package:
 
