@@ -32,6 +32,15 @@ $ pip3 install --user pyspinel
 
 ## Install Pyspinel and dependencies with extcap
 
+1.  Install dependencies:
+
+        $ sudo apt install python3-pip
+        $ pip3 install --user pyserial ipaddress
+
+1.  Clone the Pyspinel repository:
+
+        $ git clone https://github.com/openthread/pyspinel
+
 1.  Open Wireshark. Go to **Help**, then **About Wireshark** and select the
     **Folders** tab. The **Extcap path** entry lists the extcap location. Make
     note of this location.
