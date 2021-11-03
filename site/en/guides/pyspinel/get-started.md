@@ -5,7 +5,7 @@ The quickest way to get started with Pyspinel is to try out the CLI:
 1.  First, [Install Pyspinel and dependencies without extcap](install-pyspinel.md).
 1.  Directly on your machine, clone and build a simulated OpenThread NCP as
     described in [How to build OpenThread](../build/index.md#how_to_build_openthread). After cloning and
-    bootstrapping, build the sim example:
+    bootstraping, build the sim example:
 
     ```
     $ make -f examples/Makefile-simulation
