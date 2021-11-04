@@ -61,17 +61,17 @@ Flash the `ot-rcp.hex` file to the nRF52840 board as detailed in
 Disable Mass Storage Device (MSD) on the nRF52840 to avoid issues with data
 corruption or drops when using the debug port:
 
-```
-$ expect <<EOF
+<pre>
+$ expect &lt;&lt;EOF
 > spawn JLinkExe
 > expect "J-Link>"
 > send "msddisable\n"
 > expect "Probe configured successfully."
 > exit
 > EOF
-```
- 
-```
+</pre>
+
+<pre>
 spawn JLinkExe
 SEGGER J-Link Commander V6.42b (Compiled Feb  5 2019 17:35:31)
 DLL version V6.42b, compiled Feb  5 2019 17:35:20
@@ -83,9 +83,9 @@ S/N: 683411111
 VTref=3.300V
  
 Type "connect" to establish a target connection, '?' for help
-J-Link>msddisable
+J-Link&gt;msddisable
 Probe configured successfully.
-```
+</pre>
 
 ## Thread network properties
 
