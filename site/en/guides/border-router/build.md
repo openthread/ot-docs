@@ -26,7 +26,7 @@ found in each example's
 
 ## Step 3: Install OTBR
 
-Install OTBR on a supported hardware platform listed in "Step 1." 
+Install OTBR on a supported hardware platform listed in "Step 1."
 
 > Warning: Before you continue, make sure your configured hardware platform
 is connected to the internet using Ethernet. The `bootstrap` script disables
