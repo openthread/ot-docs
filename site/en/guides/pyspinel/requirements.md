@@ -5,16 +5,16 @@ requirements.
 
 ## Hardware
 
-A host machine to serve as an NCP and to run Pyspinel and Wireshark:
+*   A host machine to serve as an NCP and to run Pyspinel and Wireshark:
 
-*   macOS — 64 bit OS X 10.6 or later
-*   Linux
-*   Windows — 10 or later
+    *   macOS — 64 bit OS X 10.6 or later
+    *   Linux
+    *   Windows — 10 or later
 
-1 [OpenThread device](https://openthread.io/vendors) flashed with an `ot-ncp-ftd`
+*   1 [OpenThread device](https://openthread.io/vendors) flashed with an `ot-ncp-ftd`
     or `ot-rcp` build.
 
-> Note: For an `ot-ncp-ftd` build, the `LINK_RAW=1` build switch must be used.
+    *   For an `ot-ncp-ftd` build, the `LINK_RAW=1` build switch must be used.
 
 ## Software:
 
