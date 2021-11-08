@@ -1,5 +1,9 @@
 # Install and Configure Wireshark
 
+Wireshark is an open-source tool that can decode network protocols in the Thread
+stack, such as IEEE 802.15.4, 6LoWPAN, IPv6, MLE (Mesh Link Establishment), UDP,
+and CoAP.
+
 ## Step 1: Install Wireshark
 
 ## Linux
