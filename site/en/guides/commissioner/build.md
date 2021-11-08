@@ -85,8 +85,7 @@ Commissioner and Border Agent. To connect to a Non-CCM Thread network, update
 ## Commission a joiner
 
 To use OT Commissioner to commission a joiner, refer to [External Thread
-Commissioning](../border-router/external-commissioning), and use the [OT
-Commissioner CLI](../border-router/external-commissioning/cli.md) option.
+Commissioning](../border-router/external-commissioning).
 
 ## License
 
