@@ -5,10 +5,8 @@ toc:
 - heading: Install and Configure
 - title: Packet Sniffing Requirements
   path: /guides/pyspinel/requirements
-- title: Install Wireshark
-  path: /guides/pyspinel/install-wireshark
-- title: Configure Wireshark
-  path: /guides/pyspinel/configure-wireshark
+- title: Install and Configure Wireshark
+  path: /guides/pyspinel/wireshark
 - title: Install Pyspinel
   path: /guides/pyspinel/install-pyspinel
 
