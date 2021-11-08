@@ -35,8 +35,8 @@ OT Commissioner features include:
 
 *   Implements both the Thread 1.1 and 1.2 Commissioner (with Commercial
     Extension)
-*   Cross-platform (Linux, Mac OS, Android) Commissioner library
-*   Interactive Commissioner CLI Tool (Linux, Mac OS)
+*   Cross-platform (Linux, macOS, Android) Commissioner library
+*   Interactive Commissioner CLI Tool (Linux, macOS)
 *   [Android App](https://github.com/openthread/ot-commissioner/tree/master/android) for Thread Commissioning
 
 ## License
