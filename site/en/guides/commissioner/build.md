@@ -4,7 +4,7 @@ This guide covers the basic build and configuration of OpenThread Commissioner
 (OT Commissioner). Upon completion of this procedure, you will have an OT
 Commissioner CLI executable and a static Commissioner library.
 
-## Set up the Commissioner
+## Step 1: Set up the Commissioner
 
 1.  Clone the OT Commissioner repository:
 
@@ -26,7 +26,7 @@ Commissioner CLI executable and a static Commissioner library.
 
         $ ./tests/commissioner-test
 
-## Install the Commissioner
+## Step 2: Install the Commissioner
 
 Install OT Commissioner in the `/usr/local` directory. This will install:
 
@@ -49,7 +49,7 @@ Verify the installation by checking the help menu:
 $ commissioner-cli -h
 ```
 
-## Configuration
+## Step 3: Configuration
 
 The OT Commissioner CLI supports both Thread 1.2 Commercial Commissioning Mode
 (CCM) and Thread 1.1 commissioning (Non-CCM). To connect to different Thread
