@@ -78,7 +78,7 @@ serial port name for the RCP device by checking `/dev`:
 $ ls /dev/tty*
 ```
 
-Nex, append this to `/etc/default/otbr-agent`. For example, for a serial port
+Next, append this to `/etc/default/otbr-agent`. For example, for a serial port
 name of `ttyUSB0`:
 
 ```
