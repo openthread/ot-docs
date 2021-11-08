@@ -3,9 +3,6 @@
 Your installation options will vary depending on how you use Pyspinel. To review
 packet sniffing options and configurations, refer to the following topics:
 
-*   [Packet Sniffing with Pyspinel](sniffer.md)
-*   [Packet Sniffing using Extcap](sniffer-extcap.md)
-
 ## Install Pyspinel and dependencies without extcap
 
 1.  Install dependencies:
@@ -30,6 +27,8 @@ the latest Pyspinel main.
 ```
 $ pip3 install --user pyspinel
 ```
+
+To use Pyspinel without the extcap plugin, refer to [Packet Sniffing with Pyspinel](sniffer.md).
 
 ## Install Pyspinel and dependencies with extcap
 
@@ -56,6 +55,8 @@ Alternatively, set up the environment by installing the pyspinel package:
 ```
 $ pip3 install pyspinel --install-option="--extcap-path={extcap-path}"
 ```
+
+To use Pyspinel with the extcap plugin, refer to [Packet Sniffing using Extcap](sniffer-extcap.md).
 
 ## License
 
