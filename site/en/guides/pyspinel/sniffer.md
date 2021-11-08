@@ -155,8 +155,7 @@ The Thread Network Key is not available in the OTBR Web GUI.
 To set up the sniffer environment, complete the following steps:
 
 *   [Install Pyspinel and dependencies without extcap](install-pyspinel.md).
-*   [Install Wireshark](install-wireshark.md) for your operating system.
-*   [Configure Wireshark](configure-wireshark.md).
+*   [Install and Configure Wireshark](wireshark.md).
 
 ## Sniffer options
 
