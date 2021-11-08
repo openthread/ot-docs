@@ -1,8 +1,16 @@
 # Install and Configure Wireshark
 
-Wireshark is an open-source tool that can decode network protocols in the Thread
+[Wireshark](https://wireshark.org) is an open-source tool that can decode network protocols in the Thread
 stack, such as IEEE 802.15.4, 6LoWPAN, IPv6, MLE (Mesh Link Establishment), UDP,
 and CoAP.
+
+The Pyspinel sniffer tool connects to a Thread NCP or RCP device and converts it
+into a promiscuous packet sniffer, generating a pcap (packet capture) stream to
+be saved or piped directly into Wireshark.
+
+To use Wireshark with Pyspinel, refer to the installation recommendations in the
+next step. You'll also need to configure Wireshark to properly show Thread packets
+and receive RSSI measurements.
 
 ## Step 1: Install Wireshark
 
@@ -35,9 +43,6 @@ $ sudo chmod +x /usr/bin/dumpcap
 [Download and install Wireshark](https://wireshark.org/#download).
 
 ## Step 2: Configure Wireshark
-
-Wireshark must be configured to properly show Thread packets and receive RSSI
-measurements.
 
 ## Configure Wireshark Protocols
 
