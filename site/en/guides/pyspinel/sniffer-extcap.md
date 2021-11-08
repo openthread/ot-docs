@@ -39,9 +39,8 @@ For general build instructions, refer to [How to build OpenThread](../build/inde
 
 To set up the sniffer environment, complete the following steps:
 
-*   [Install Wireshark](install-wireshark.md) for your operating system.
+*   [Install and Configure Wireshark](wireshark.md).
 *   [Install Pyspinel and dependencies with extcap](install-pyspinel.md).
-*   [Configure Wireshark](configure-wireshark.md).
 
 ## Use the sniffer
 
