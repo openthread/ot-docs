@@ -1,6 +1,6 @@
 # Install Pyspinel
 
-Your installation options depend on how you'd like to use Pyspinel.
+Your installation options depend on how you use Pyspinel.
 
 [Extcap](https://www.wireshark.org/docs/man-pages/extcap.html) is a plugin for Wireshark that allows
 it to use the Pyspinel binary as a capture interface. Extcap reduces the setup
