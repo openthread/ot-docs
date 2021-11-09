@@ -40,7 +40,8 @@ $ sudo chmod +x /usr/bin/dumpcap
 
 ## macOS and Windows
 
-[Download and install Wireshark](https://wireshark.org/#download).
+[Download and install Wireshark](https://wireshark.org/#download). To optimize security for your operating
+system, refer to [Wireshark &mdash; platform-specific information about capture privileges](https://gitlab.com/wireshark/wireshark/-/wikis/CaptureSetup/CapturePrivileges).
 
 ## Step 2: Configure Wireshark
 
