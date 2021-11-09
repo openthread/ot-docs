@@ -1,21 +1,18 @@
 # Packet Sniffing using Extcap
 
-[Extcap](https://www.wireshark.org/docs/man-pages/extcap.html) is a plugin for
-Wireshark that allows it to use the Pyspinel binary as a capture interface.
-Wireshark is an open-source tool that can decode network protocols in the Thread
-stack, such as IEEE 802.15.4, 6LoWPAN, IPv6, MLE (Mesh Link Establishment), UDP,
-and CoAP. Extcap reduces the setup and configuration needed to sniff Thread
-packets using Wireshark, as it does not require writing to a capture file.
-
 This guide covers how to configure extcap for Wireshark to sniff packets from a
 Thread network.
 
 To use Pyspinel for packet sniffing without extcap, refer to [Packet Sniffing with
 Pyspinel](../pyspinel/sniffer.md).
 
-## Requirements
+## Set up the sniffer environment
 
-Before you begin, review the [Packet Sniffing Requirements](requirements.md).
+Before you begin, complete the following steps:
+
+*   Review the [Packet Sniffing Requirements](requirements.md).
+*   [Install and Configure Wireshark](wireshark.md).
+*   [Install Pyspinel and dependencies with extcap](install-pyspinel.md).
 
 ### Verification
 
@@ -34,13 +31,6 @@ For instructions on building and flashing the CC2538, refer to the [CC2538 examp
 README](https://github.com/openthread/openthread/tree/master/examples/platforms/cc2538/README.md) on GitHub.
 
 For general build instructions, refer to [How to build OpenThread](../build/index.md).
-
-## Set up the sniffer environment
-
-To set up the sniffer environment, complete the following steps:
-
-*   [Install and Configure Wireshark](wireshark.md).
-*   [Install Pyspinel and dependencies with extcap](install-pyspinel.md).
 
 ## Use the sniffer
 
