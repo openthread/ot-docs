@@ -10,7 +10,7 @@ saved in Wireshark, for example setting your Thread channel and selecting your R
 or NCP device path from the GUI.
 
 You can also use Wireshark without the extcap plugin. This option provides
-command line access to Pyspinel flags, allowing you to run the sniffer with
+command line access to [Pyspinel flags](https://github.com/openthread/pyspinel/tree/master/SNIFFER.md), allowing you to run the sniffer with
 various configurations. You can set these flags every time you run the sniffer,
 for example, `--channel 15 --uart /dev/ttyACM0`.
 
