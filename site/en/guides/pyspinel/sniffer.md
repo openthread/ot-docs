@@ -391,9 +391,9 @@ but omit the `-b` flag when running the sniffer:
 $ python sniffer.py -c 15 -u /dev/ttyACM0 --crc --no-reset --rssi | wireshark -k -i -
 ```
 
-## Nordic Resources
+## Resources
 
-For additional tools, refer to [Nordic Semiconductor &mdash; Thread
+For additional Nordic tools, refer to [Nordic Semiconductor &mdash; Thread
 Sniffer based on nRF52840 with Wireshark](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Sniffer-for-802154).
 
 ## License
