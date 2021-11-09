@@ -11,8 +11,8 @@ using extcap](sniffer-extcap.md).
 Before you begin, complete the following steps:
 
 *   Review the [Packet Sniffing Requirements](requirements.md).
-*   [Install Pyspinel and dependencies without extcap](install-pyspinel.md).
 *   [Install and Configure Wireshark](wireshark.md).
+*   [Install Pyspinel and dependencies without extcap](install-pyspinel.md).
 
 ## Build the sniffer
 
