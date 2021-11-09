@@ -39,7 +39,7 @@ should list hardware interfaces connected to an OpenThread sniffer.
 
 ### Capture from a single interface
 
-If this is your first time using an interface, click on the **Options** button
+If this is your first time using an interface, click the **Options** button
 to the left of the interface:
 
 <img src="../images/ot-sniffer-extcap-capture.png"
