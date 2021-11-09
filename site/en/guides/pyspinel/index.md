@@ -1,6 +1,7 @@
 # Pyspinel
 
-Pyspinel is a Python CLI for the [Spinel](https://openthread.io/platforms/co-processor#spinel_protocol) protocol, used to
+Pyspinel, available on the [pyspinel GitHub repository](https://github.com/openthread/pyspinel), is a Python CLI
+for the [Spinel](https://openthread.io/platforms/co-processor#spinel_protocol) protocol, used to
 configure and manage [OpenThread NCPs or RCPs](https://openthread.io/platforms/co-processor). This CLI is primarily
 targeted to CI tests, but can be used manually to experiment with and test
 OpenThread Co-Processor instances.
@@ -14,19 +15,6 @@ Pyspinel is used to:
 
 > Note: Pyspinel is only supported for NCP and RCP builds of OpenThread on Linux
 or MacOS.
-
-## Resources
-
-For more information, refer to the following:
-
-*   [Pyspinel README](https://github.com/openthread/pyspinel/blob/master/README.md) in the Pyspinel repository
-*   [Spinel sniffer
-    reference](https://github.com/openthread/pyspinel/tree/master/SNIFFER.md)
-*   [wireshark.org](https://www.wireshark.org/)
-*   [Wireshark &mdash; platform-specific information about capture
-    privileges](https://wiki.wireshark.org/CaptureSetup/CapturePrivileges)
-*   [Nordic Semiconductor &mdash; Thread Sniffer based on nRF52840 with
-    Wireshark](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Sniffer-for-802154)
 
 ## Contribute
 
