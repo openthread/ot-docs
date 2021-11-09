@@ -119,7 +119,7 @@ of the following options:
     capture packets.
 1.  Only allow the `root` user to capture packets.
 
-Using the Wireshark as the `root` user is strongly discouraged. If you chose
+Using Wireshark as the `root` user is strongly discouraged. If you chose
 that option, change the setting:
 
 ```
