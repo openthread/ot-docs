@@ -352,7 +352,7 @@ reference](https://github.com/openthread/pyspinel/tree/master/SNIFFER.md).
 Make sure to use the specific device path for your NCP and the channel for the
 Thread network you are attempting to sniff.
 
-If following this guide, the nRF52840 DK should be attached the host machine by
+If following this guide, the nRF52840 DK should be attached to the host machine by
 the debug port, as described in [Flash the
 nRF52840](https://openthread.io/guides/ncp/firmware#flash_the_nrf52840). To run the Pyspinel sniffer,
 use the `-b` flag to specify the baud rate (if it was changed from the default)
