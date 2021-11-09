@@ -1,4 +1,4 @@
-# Get started
+# Get Started
 
 The quickest way to get started with Pyspinel is to try out the CLI:
 
