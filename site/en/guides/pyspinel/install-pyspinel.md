@@ -2,9 +2,17 @@
 
 Your installation options depend on how you'd like to use Pyspinel.
 
-Extcap is a plugin for Wireshark that allows it to use the Pyspinel binary as a capture interface. Extcap reduces the setup and configuration needed to sniff Thread packets using Wireshark, as it does not require writing to a capture file. With this option, configurations are managed and saved in Wireshark, for example setting your Thread channel and selecting your RCP or NCP device path from the GUI.
+[Extcap](https://www.wireshark.org/docs/man-pages/extcap.html) is a plugin for Wireshark that allows
+it to use the Pyspinel binary as a capture interface. Extcap reduces the setup
+and configuration needed to sniff Thread packets using Wireshark, as it does not
+require writing to a capture file. With this option, configurations are managed and
+saved in Wireshark, for example setting your Thread channel and selecting your RCP
+or NCP device path from the GUI.
 
-You can also use Wireshark without the extcap plugin. This option provides command line access to Pyspinel flags, allowing you to run the sniffer with various configurations. You can set these flags every time you run the sniffer, for example, `--channel 15 --uart /dev/ttyACM0`.
+You can also use Wireshark without the extcap plugin. This option provides
+command line access to Pyspinel flags, allowing you to run the sniffer with
+various configurations. You can set these flags every time you run the sniffer,
+for example, `--channel 15 --uart /dev/ttyACM0`.
 
 ## Install Pyspinel and dependencies without extcap
 
