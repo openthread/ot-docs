@@ -1,23 +1,18 @@
 # Packet Sniffing with Pyspinel
 
-The [Pyspinel](https://github.com/openthread/pyspinel) sniffer tool connects to
-a Thread NCP or RCP device and converts it into a promiscuous packet sniffer,
-generating a pcap (packet capture) stream to be saved or piped directly into
-Wireshark.
-
-Wireshark is an open-source tool that can decode network protocols in the
-Thread stack, such as IEEE 802.15.4, 6LoWPAN, IPv6, MLE (Mesh Link
-Establishment), UDP, and CoAP.
-
 This guide covers how to configure Wireshark and run Pyspinel to sniff packets
 from a Thread network.
 
 To use the Wireshark extcap plugin for packet sniffing, refer to [Packet Sniffing
 using extcap](sniffer-extcap.md).
 
-## Requirements
+## Set up the sniffer environment
 
-Before you begin, review the [Packet Sniffing Requirements](requirements.md).
+Before you begin, complete the following steps:
+
+*   Review the [Packet Sniffing Requirements](requirements.md).
+*   [Install Pyspinel and dependencies without extcap](install-pyspinel.md).
+*   [Install and Configure Wireshark](wireshark.md).
 
 ## Build the sniffer
 
@@ -149,13 +144,6 @@ capture. To get the Network Key from a device in the target Thread network:
     ```
 
 The Thread Network Key is not available in the OTBR Web GUI.
-
-## Set up the sniffer environment
-
-To set up the sniffer environment, complete the following steps:
-
-*   [Install Pyspinel and dependencies without extcap](install-pyspinel.md).
-*   [Install and Configure Wireshark](wireshark.md).
 
 ## Sniffer options
 
