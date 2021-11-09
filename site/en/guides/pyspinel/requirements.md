@@ -22,7 +22,9 @@ requirements.
 *   [Wireshark](https://wireshark.org)
 
     *   2.4.1 or newer for Thread protocol support
-    *   3.0.6 or newer for [extcap](sniffer-extcap.md) support
+    *   3.0.6 or newer for [extcap](sniffer-extcap.md) support. For more
+        information on using the Wireshark extcap plugin with Pyspinel,
+        refer to [Install Pyspinel](install-pyspinel.md).
 
 ## License
 
