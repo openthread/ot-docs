@@ -14,7 +14,7 @@ and receive RSSI measurements.
 
 ## Step 1: Install Wireshark
 
-## Linux
+### Linux
 
 Open a terminal and run the following commands to download and install Wireshark:
 
@@ -38,14 +38,12 @@ $ sudo adduser $USER wireshark
 $ sudo chmod +x /usr/bin/dumpcap
 ```
 
-## macOS and Windows
+### macOS and Windows
 
 [Download and install Wireshark](https://wireshark.org/#download). To optimize security for your operating
 system, refer to [Wireshark &mdash; platform-specific information about capture privileges](https://gitlab.com/wireshark/wireshark/-/wikis/CaptureSetup/CapturePrivileges).
 
-## Step 2: Configure Wireshark
-
-## Configure Wireshark Protocols
+## Step 2: Configure Wireshark Protocols
 
 To configure protocols, select **Preferences...** in Wireshark and expand the
 **Protocols** section.
@@ -122,7 +120,7 @@ display these two protocols, edit the enabled protocols in Wireshark:
     1.  **ZigBee**
     1.  **ZigBee Green Power**
 
-## Configure Wireshark RSSI
+## Step 3: Configure Wireshark RSSI
 
 To display RSSI in Wireshark:
 
