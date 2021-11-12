@@ -1,10 +1,10 @@
 # OpenThread Commissioner Build and Configuration
 
 This guide covers the basic build and configuration of OpenThread Commissioner
-(OT Commissioner). Upon completion of this procedure, you will have an OT
+(OT Commissioner). Upon completion of this procedure, you'll have an OT
 Commissioner CLI executable and a static Commissioner library.
 
-## Step 1: Set up the Commissioner
+## Step 1: Set up OT Commissioner
 
 1.  Clone the OT Commissioner repository:
 
@@ -15,39 +15,52 @@ Commissioner CLI executable and a static Commissioner library.
         $ cd ot-commissioner
         $ ./script/bootstrap.sh
 
-1.  Build OT Commisioner:
+## Step 2: Build OT Commissioner
+
+OT Commissioner installs to the `/usr/local` directory. If you'd like to change
+your installation directory, set `-DCMAKE_INSTALL_PREFIX`.
+
+> Note: If you change the default installation directory, you'll need to update
+`$PATH` to run `commissioner-cli`.
+
+1.  Build OT Commissioner:
 
         $ mkdir build
         $ cd build
-        $ cmake -DCMAKE_INSTALL_PREFIX=/usr/local -GNinja ..
+        $ cmake -DCMAKE_INSTALL_PREFIX={/usr/local} -GNinja ..
         $ ninja -j1
+
+1.  _Optional_. If you changed the default installation directory, create an
+    Environment Variable to run `commissioner-cli` in the next step:
+
+        $ COMMISSIONER_CLI={/usr/local}/bin/commissioner-cli
 
 1.  _Optional_. Run unit tests:
 
         $ ./tests/commissioner-test
 
-## Step 2: Install the Commissioner
+## Step 3: Install OT Commissioner
 
-Install OT Commissioner in the `/usr/local` directory. This will install:
+OT Commissioner installs the following to your installation directory:
 
 *   OT Commissioner library and header files
 *   OT Commissioner CLI executable binary
 *   Default configuration files and credentials
 *   Scripts to run OT Commissioner CLI as daemon
 
-To change the installation directory, set `-DCMAKE_INSTALL_PREFIX`.
-
 ```
-$ ninja install
+$ sudo ninja install
 ```
 
-> Note: Root privileges may be required for installation.
+Verify the installation by checking the help menu.
 
-Verify the installation by checking the help menu:
+*   For default installations:
 
-```
-$ commissioner-cli -h
-```
+        $ commissioner-cli -h
+
+*   If you created an Environment Variable in Step 2:
+
+        $ $COMMISSIONER_CLI -h
 
 ## Step 3: Configuration
 
@@ -59,8 +72,8 @@ networks, a JSON configuration file is needed to start OT Commissioner CLI:
 *   `non-ccm-config.json` — The default configuration file for Non-CCM Thread
     Network.
 
-By default, these configuration files are installed in
-`/usr/local/etc/commissioner`.
+These configuration files are installed in `{/usr/local}/etc/commissioner`. You can
+also view sample files on the [ot-commissioner GitHub repository](https://github.com/openthread/ot-commissioner/tree/main/src/app/etc/commissioner).
 
 ### CCM configuration
 
