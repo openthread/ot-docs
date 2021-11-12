@@ -21,7 +21,8 @@ OT Commissioner installs to the `/usr/local` directory. If you'd like to change
 your installation directory, set `-DCMAKE_INSTALL_PREFIX`.
 
 > Note: If you change the default installation directory, you'll need to update
-`$PATH` to run `commissioner-cli`.
+`$PATH` to run `commissioner-cli`. This guide uses an Environment Variable to
+work for default and custom installations.
 
 1.  Build OT Commissioner:
 
@@ -30,8 +31,7 @@ your installation directory, set `-DCMAKE_INSTALL_PREFIX`.
         $ cmake -DCMAKE_INSTALL_PREFIX={/usr/local} -GNinja ..
         $ ninja -j1
 
-1.  _Optional_. If you changed the default installation directory, create an
-    Environment Variable to run `commissioner-cli` in the next step:
+1.  Create an Environment Variable to run `commissioner-cli` in the next step:
 
         $ COMMISSIONER_CLI={/usr/local}/bin/commissioner-cli
 
@@ -54,13 +54,16 @@ $ sudo ninja install
 
 Verify the installation by checking the help menu.
 
-*   For default installations:
+```
+$ $COMMISSIONER_CLI -h
+```
 
-        $ commissioner-cli -h
+If you installed to the `/usr/local` directory, `commissioner-cli` is available
+from the command line.
 
-*   If you created an Environment Variable in Step 2:
-
-        $ $COMMISSIONER_CLI -h
+```
+$ commissioner-cli -h
+```
 
 ## Step 3: Configuration
 
