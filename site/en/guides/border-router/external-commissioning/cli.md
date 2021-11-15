@@ -3,7 +3,7 @@
 External commissioning is supported by the OT Commissioner CLI, available
 on the [ot-commissioner GitHub repository](https://github.com/openthread/ot-commissioner). For
 instructions on how to build and install OT Commissioner, refer to [OT Commissioner Build and
-Configuration](https://openthread.io/guides/commissioner/build).
+Configuration](../../commissioner/build.md).
 
 > Note: OT Commissioner must be running on the same host machine as OTBR.
 
