@@ -78,11 +78,22 @@ serial port name for the RCP device by checking `/dev`:
 $ ls /dev/tty*
 ```
 
-Next, append this to `/etc/default/otbr-agent`. For example, for a serial port
+Next, check your `otbr-agent` settings.
+
+```
+$ cd /etc/default
+$ cat otbr-agent
+```
+
+The `otbr-agent` configuration file contains options to pass `otbr-agent`, including your Thread interface name, Ethernet or Wi-Fi interface name, and RCP serial port.
+
+`OTBR_AGENT_OPTS="-I wpan0 -B {OTBR_INFRA_IF_NAME} spinel+hdlc+uart:{///dev/ttyACM0} trel://{OTBR_INFRA_IF_NAME}"`
+
+If your RCP port is different, you'll need to update the file. For example, for Wi-Fi interface and a serial port
 name of `ttyUSB0`:
 
 ```
-OTBR_AGENT_OPTS="-I wpan0 spinel+hdlc+uart:///dev/ttyUSB0"
+OTBR_AGENT_OPTS="-I wpan0 -B wlan0 spinel+hdlc+uart:{///dev/ttyUSB0} trel://wlan0"
 ```
 
 > Note: Not all devices attach with the same serial port name. The most
