@@ -89,9 +89,9 @@ an ARM architecture.
 
 OTBR includes a number of features, including:
 
-*   [Web GUI](https://openthread.io/guides/border-router/web-gui) for configuration and management
+*   [Web GUI](web-gui.md) for configuration and management
 *   Thread Border Agent to support [external
-    commissioning](https://openthread.io/guides/border-router/external-commissioning)
+    commissioning](external-commissioning/index.md)
 *   DHCPv6 Prefix Delegation to obtain IPv6 prefixes for a Thread network
 *   NAT64 for connecting to IPv4 networks
 *   DNS64 to allow Thread devices to initiate communications by name to an
