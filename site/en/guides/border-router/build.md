@@ -85,15 +85,23 @@ $ cd /etc/default
 $ cat otbr-agent
 ```
 
-The `otbr-agent` configuration file contains options to pass `otbr-agent`, including your Thread interface name, Ethernet or Wi-Fi interface name, and RCP serial port.
+The `otbr-agent` configuration file contains options to pass `otbr-agent`, including
+your Thread interface name, Ethernet or Wi-Fi interface name, and RCP serial port.
 
-`OTBR_AGENT_OPTS="-I wpan0 -B {OTBR_INFRA_IF_NAME} spinel+hdlc+uart:{///dev/ttyACM0} trel://{OTBR_INFRA_IF_NAME}"`
+`OTBR_AGENT_OPTS="-I wpan0 -B {OTBR_INFRA_IF_NAME} spinel+hdlc+uart:{///dev/ttyACM0}
+trel://{OTBR_INFRA_IF_NAME}"`
 
-If your RCP port is different, you'll need to update the file. For example, for Wi-Fi interface and a serial port
-name of `ttyUSB0`:
+If your RCP port is different, you'll need to update the file. For example, for a
+Wi-Fi interface and a serial port name of `ttyUSB0`:
 
 ```
 OTBR_AGENT_OPTS="-I wpan0 -B wlan0 spinel+hdlc+uart:{///dev/ttyUSB0} trel://wlan0"
+```
+
+To update an Ethernet interface:
+
+```
+OTBR_AGENT_OPTS="-I wpan0 -B eth0 spinel+hdlc+uart:{///dev/ttyUSB0} trel://eth0"
 ```
 
 > Note: Not all devices attach with the same serial port name. The most
