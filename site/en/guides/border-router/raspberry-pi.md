@@ -18,7 +18,7 @@ your computer and enable the serial console.
 To use RPi with OTBR:
 
 1.  [Download and install the OS](#download-and-install-the-os).
-1.  [Build and install OTBR](../../guides/border-router/build/index.md).
+1.  [Build and install OTBR](build.md).
 
 ## Step 1: Download and install the OS
 
@@ -44,7 +44,7 @@ For more detailed information on setup and configuration, see the
 
 ## Step 2: Build and install OTBR
 
-See [Build and Configuration](../../guides/border-router/build.md) for instructions on
+See [Build and Configuration](build.md) for instructions on
 building and installing OTBR.
 
 ## License
