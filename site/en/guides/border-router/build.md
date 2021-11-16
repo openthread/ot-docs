@@ -195,7 +195,13 @@ You can also check each service individually:
 
 ```
 $ sudo service avahi-daemon status
+```
+
+```
 $ sudo service otbr-web status
+```
+
+```
 $ sudo service otbr-agent status
 ```
 
