@@ -91,8 +91,12 @@ your Thread interface name, Ethernet or Wi-Fi interface name, and RCP serial por
 `OTBR_AGENT_OPTS="-I wpan0 -B {OTBR_INFRA_IF_NAME} spinel+hdlc+uart:{///dev/ttyACM0}
 trel://{OTBR_INFRA_IF_NAME}"`
 
-If your RCP port is different, you'll need to update the file. For example, for a
-Wi-Fi interface and a serial port name of `ttyUSB0`:
+Not all devices attach with the same serial port name. The most
+common port names are `ttyACM*` and `ttyUSB*`. Refer to the documentation for
+your device to determine the expected serial port name.
+
+If required, update the `otbr-agent` configuration file. For example, for a Wi-Fi
+interface and a serial port name of `ttyUSB0`:
 
 ```
 OTBR_AGENT_OPTS="-I wpan0 -B wlan0 spinel+hdlc+uart:{///dev/ttyUSB0} trel://wlan0"
@@ -103,10 +107,6 @@ To update an Ethernet interface:
 ```
 OTBR_AGENT_OPTS="-I wpan0 -B eth0 spinel+hdlc+uart:{///dev/ttyUSB0} trel://eth0"
 ```
-
-> Note: Not all devices attach with the same serial port name. The most
-common port names are `ttyACM*` and `ttyUSB*`. See the documentation for
-your device to determine the expected serial port name.
 
 Power cycle the Border Router. If using the BeagleBone Black platform,
 remember to [hold down the BOOT button](beaglebone-black.md) while
