@@ -550,7 +550,7 @@ Congratulations, you've successfully set up OTBR as a Thread Border Router to pr
 
 Check out some of these codelabs...
 
-*  [Build a Thread network with nRF52840 boards and OpenThread](https://codelabs.developers.google.com/codelabs/openthread-hardware/#0)
+*  [Build a Thread network with nRF52840 boards and OpenThread](https://openthread.io/codelabs/openthread-hardware/#0)
 
 ### **Reference docs**
 

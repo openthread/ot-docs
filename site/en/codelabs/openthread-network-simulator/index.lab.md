@@ -573,9 +573,9 @@ networks.
 
 Check out some of these codelabs...
 
-*  [Simulating a Thread network with OpenThread](https://codelabs.developers.google.com/codelabs/openthread-simulation-posix/#0)
-*  [Simulating a Thread network using OpenThread in Docker](https://codelabs.developers.google.com/codelabs/openthread-simulation/#0)
-*  [Build a Thread network with nRF52840 boards and OpenThread](https://codelabs.developers.google.com/codelabs/openthread-hardware/#0)
+*  [Simulating a Thread network with OpenThread](https://openthread.io/codelabs/openthread-simulation-posix/#0)
+*  [Simulating a Thread network using OpenThread in Docker](https://openthread.io/codelabs/openthread-simulation/#0)
+*  [Build a Thread network with nRF52840 boards and OpenThread](https://openthread.io/codelabs/openthread-hardware/#0)
 
 ### Reference docs
 
