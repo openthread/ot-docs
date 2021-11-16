@@ -199,6 +199,13 @@ $ sudo service otbr-web status
 $ sudo service otbr-agent status
 ```
 
+`otbr-web` is enabled by default for most [platforms](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
+If `otbr-web` is not installed, try passing the `WEB_GUI` flag:
+
+```
+$ INFRA_IF_NAME=wlan0 WEB_GUI=1 ./script/setup
+```
+
 ## Step 6: Verify RCP
 
 Verify that the RCP is in the correct state:
