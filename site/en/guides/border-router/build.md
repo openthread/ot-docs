@@ -86,7 +86,7 @@ $ cat otbr-agent
 ```
 
 The `otbr-agent` configuration file contains options to pass `otbr-agent`, including
-your Thread interface name, Ethernet or Wi-Fi interface name, and RCP serial port.
+your Thread interface name, Ethernet or Wi-Fi interface name, and RCP serial port name.
 
 `OTBR_AGENT_OPTS="-I wpan0 -B {OTBR_INFRA_IF_NAME} spinel+hdlc+uart:{///dev/ttyACM0}
 trel://{OTBR_INFRA_IF_NAME}"`
@@ -189,6 +189,14 @@ other service has failed to start. Check to see which:
 
 ```
 $ sudo systemctl --failed
+```
+
+You can also check each service individually:
+
+```
+$ sudo service avahi-daemon status
+$ sudo service otbr-web status
+$ sudo service otbr-agent status
 ```
 
 ## Step 6: Verify RCP
