@@ -7,13 +7,15 @@ Commissioner CLI executable and a static Commissioner library.
 ## Step 1: Set up OT Commissioner
 
 1.  Clone the OT Commissioner repository:
-
-        $ git clone https://github.com/openthread/ot-commissioner
+    ```
+    $ git clone https://github.com/openthread/ot-commissioner
+    ```
 
 1.  Install dependencies:
-
-        $ cd ot-commissioner
-        $ ./script/bootstrap.sh
+    ```
+    $ cd ot-commissioner
+    $ ./script/bootstrap.sh
+    ```
 
 ## Step 2: Build OT Commissioner
 
@@ -21,23 +23,26 @@ OT Commissioner installs to the `/usr/local` directory. If you'd like to change
 your installation directory, set `-DCMAKE_INSTALL_PREFIX`.
 
 > Note: If you change the default installation directory, you'll need to update
-`$PATH` to run `commissioner-cli`. This guide uses an Environment Variable to
+`PATH` to run `commissioner-cli`. This guide uses an Environment Variable to
 work for default and custom installations.
 
 1.  Build OT Commissioner:
-
-        $ mkdir build
-        $ cd build
-        $ cmake -DCMAKE_INSTALL_PREFIX={/usr/local} -GNinja ..
-        $ ninja -j1
+    ```
+    $ mkdir build
+    $ cd build
+    $ cmake -DCMAKE_INSTALL_PREFIX={/usr/local} -GNinja ..
+    $ ninja -j1
+    ```
 
 1.  Create an Environment Variable to run `commissioner-cli` in the next step:
-
-        $ COMMISSIONER_CLI={/usr/local}/bin/commissioner-cli
+    ```
+    $ COMMISSIONER_CLI={/usr/local}/bin/commissioner-cli
+    ```
 
 1.  _Optional_. Run unit tests:
-
-        $ ./tests/commissioner-test
+    ```
+    $ ./tests/commissioner-test
+    ```
 
 ## Step 3: Install OT Commissioner
 
