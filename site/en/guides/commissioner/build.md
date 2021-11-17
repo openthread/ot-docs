@@ -23,8 +23,14 @@ OT Commissioner installs to the `/usr/local` directory. If you'd like to change
 your installation directory, set `-DCMAKE_INSTALL_PREFIX`.
 
 > Note: If you change the default installation directory, you'll need to update
-`PATH` to run `commissioner-cli`. This guide uses an Environment Variable to
+`$PATH` to run `commissioner-cli`. This guide uses an Environment Variable to
 work for default and custom installations.
+
+1.  Test:
+    ```
+    $ cd pyspinel
+    $ python3 setup.py install --extcap-path={extcap-path}
+    ```
 
 1.  Build OT Commissioner:
     ```
