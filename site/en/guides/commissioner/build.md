@@ -92,11 +92,17 @@ Field | Description
 These key and certificate files are used to establish secure sessions between
 the Commissioner and Border Agent.
 
+> Note: If you changed the default installation directory, you'll need to
+update `"ThreadSMRoot" : "{/usr/local}/etc/commissioner"`.
+
 ### Non-CCM configuration
 
 The Pre-Shared Key `PSKc` is used to establish a secure session between the
 Commissioner and Border Agent. To connect to a Non-CCM Thread network, update
 `PSKc` in `non-ccm-config.json`.
+
+> Note: If you changed the default installation directory, you'll need to
+update `"ThreadSMRoot" : "{/usr/local}/etc/commissioner"`.
 
 ## Commission a joiner
 
