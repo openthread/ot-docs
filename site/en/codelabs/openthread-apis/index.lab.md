@@ -86,7 +86,7 @@ boards is detailed in this Codelab—only basic instructions for flashing the
 boards. It is assumed you have already completed the Build a Thread Network
 Codelab.
 
-<button>[Complete the Build a Thread Network Codelab](https://codelabs.developers.google.com/codelabs/openthread-hardware)</button>
+<button>[Complete the Build a Thread Network Codelab](https://openthread.io/codelabs/openthread-hardware)</button>
 
 ### Linux machine
 
@@ -116,7 +116,7 @@ have completed the Build a Thread Network Codelab as required, you will already
 have everything you need installed. If not, complete that Codelab before
 continuing to ensure you can build and flash OpenThread to nRF52840 dev boards.
 
-<button>[Complete the Build a Thread Network Codelab](https://codelabs.developers.google.com/codelabs/openthread-hardware)</button>
+<button>[Complete the Build a Thread Network Codelab](https://openthread.io/codelabs/openthread-hardware)</button>
 
 
 ## Clone the repository
