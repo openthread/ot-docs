@@ -130,10 +130,9 @@ fails. If you're receiving this error message, try the following:
 *   Make sure that you're passing the correct port number when you start OT
     Commissioner. OTBR may use a different port after it's restarted or you
     reboot your platform.
-*   Make sure OTBR is running and that your Thread network is properly
-    configured, including your PSKc.
-        *   Your Passphrase/Commissioner Credential must be a string between 6
-            and 255 characters.
+*   Make sure that OTBR is running and that your Thread network is properly
+    configured, including your PSKc. Your Passphrase/Commissioner Credential
+    must be a string between 6 and 255 characters.
 *   Check your global IP addresses, for example `ifconfig eth0`. You may be
     using the wrong IP address to start OT Commissioner.
 
