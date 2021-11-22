@@ -80,7 +80,7 @@ networks, a JSON configuration file is needed to start OT Commissioner CLI:
 *   `non-ccm-config.json` — The default configuration file for Non-CCM Thread
     Network.
 
-These configuration files are installed in `{/usr/local}/etc/commissioner`. You can
+By default, these configuration files are installed in `/usr/local/etc/commissioner`. You can
 also view sample files on the [ot-commissioner GitHub repository](https://github.com/openthread/ot-commissioner/tree/main/src/app/etc/commissioner).
 
 ### CCM configuration
@@ -98,7 +98,7 @@ These key and certificate files are used to establish secure sessions between
 the Commissioner and Border Agent.
 
 > Note: If you changed the default installation directory, you'll need to
-update `"ThreadSMRoot" : "{/usr/local}/etc/commissioner"`.
+update `"ThreadSMRoot" : "/usr/local/etc/commissioner"`.
 
 ### Non-CCM configuration
 
@@ -107,7 +107,7 @@ Commissioner and Border Agent. To connect to a Non-CCM Thread network, update
 `PSKc` in `non-ccm-config.json`.
 
 > Note: If you changed the default installation directory, you'll need to
-update `"ThreadSMRoot" : "{/usr/local}/etc/commissioner"`.
+update `"ThreadSMRoot" : "/usr/local/etc/commissioner"`.
 
 ## Commission a joiner
 
