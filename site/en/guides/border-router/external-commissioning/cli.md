@@ -122,6 +122,15 @@ connectivity.
 
 ## Troubleshooting
 
+If you're having issues with OT Commissioner, make sure you use `stop`, then
+`exit` to properly end a session:
+
+```
+> stop
+[done]
+> exit
+```
+
 **IO_ERROR: NET - Reading information from the socket failed**
 
 The socket APIs return this error message when a call to bind or connect to OTBR
