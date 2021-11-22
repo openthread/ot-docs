@@ -29,28 +29,20 @@ To use the Thread 1.1 Commissioning App, refer to [Thread Group Android App](#th
 ### Commission the Joiner
 
 Once connected to the Border Router, the app provides the option to scan a
-Connect QR Code or enter a Join Passphrase manually. The Join Passphrase is also
-called the Joiner Credential, and is used (along with the Extended PAN ID and
-Network Name) to generate the Pre-Shared Key for the Device (PSKd). The PSKd is
-then used to authenticate a device during Thread Commissioning. The Joiner
-Credential should be unique to each device.
-
-Thread Connect QR Codes are created with the following text string format:
+Connect QR Code. Thread Connect QR Codes are created with the following text
+string format:
 
 <pre>v=1&&eui=0000b57fffe15d68&&cc=J01NU5</pre>
 
 Where `eui` is the Joiner device's EUI64 value and `cc` is the Joiner
 Credential. Use this text string with an online QR Code generator to create a QR
-Code for scanning.
+Code for scanning. For help on finding your `eui` and creating a Joiner
+Credential, refer to [Prepare the Joiner device](prepare.md).
 
-> Note: The Joiner Credential is a device-specific string of all uppercase
-alphanumeric characters (0-9 and A-Y, excluding I, O, Q, and Z for readability),
-with a length between 6 and 32 characters.
-
-1.  In the OT Commissioner Android App, scan the Connect QR Code of the Joiner
-    device, or enter the EUI64 and Joiner Credential manually. This generates the
-    PSKd, propagates the steering data through the Thread network, and establishes
-    a DTLS session.
+1.  In the OT Commissioner Android App, click **Add Device**.
+1.  Scan the Connect QR Code of the Joiner device. This generates the
+    PSKd, propagates the steering data through the Thread network, and
+    establishes a DTLS session.
 
     <figure>
     <a href="../../images/comm-app-commissioning.png">
@@ -105,28 +97,20 @@ Play Store for Android devices.
 ### Commission the Joiner
 
 Once connected to the Border Router, the app provides the option to scan a
-Connect QR Code or enter a Join Passphrase manually. The Join Passphrase is also
-called the Joiner Credential, and is used (along with the Extended PAN ID and
-Network Name) to generate the Pre-Shared Key for the Device (PSKd). The PSKd is
-then used to authenticate a device during Thread Commissioning. The Joiner
-Credential should be unique to each device.
-
-Thread Connect QR Codes are created with the following text string format:
+Connect QR Code or enter a Join Passphrase manually. Thread Connect QR Codes are
+created with the following text string format:
 
 <pre>v=1&&eui=0000b57fffe15d68&&cc=J01NU5</pre>
 
 Where `eui` is the Joiner device's EUI64 value and `cc` is the Joiner
 Credential. Use this text string with an online QR Code generator to create a QR
-Code for scanning.
-
-> Note: The Joiner Credential is a device-specific string of all uppercase
-alphanumeric characters (0-9 and A-Y, excluding I, O, Q, and Z for readability),
-with a length between 6 and 32 characters.
+Code for scanning. For help on finding your `eui` and creating a Joiner
+Credential, refer to [Prepare the Joiner device](prepare.md).
 
 1.  In the Thread Group Android App, scan the Connect QR Code of the Joiner
-    device, or enter the EUI64 and Joiner Credential manually. This generates the
-    PSKd, propagates the steering data through the Thread network, and establishes
-    a DTLS session.
+    device, or enter the EUI64 and Joiner Credential manually. This generates
+    the PSKd, propagates the steering data through the Thread network, and
+    establishes a DTLS session.
 
     <figure>
     <a href="../../images/thread-app-commissioning.png">
