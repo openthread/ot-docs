@@ -57,8 +57,8 @@ After building, `steering-data` is located at
 
 The steering data is generated from the following parameters:
 
-*   Joiner ID (EUI-64)
 *   Byte length of steering data (optional, default is 16)
+*   Joiner ID (EUI-64)
 
 ### Usage
 
