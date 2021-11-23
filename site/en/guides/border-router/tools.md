@@ -5,7 +5,7 @@ be used for testing purposes.
 
 ## PSKc generator
 
-`pskc`, available in [ot-br-posix/tools](https://github.com/openthread/ot-br-posix/tree/main/tools)
+`pskc`, available in [ot-br-posix/tools](https://github.com/openthread/ot-br-posix/tree/main/tools),
 generates a Pre-Shared Key for the Commissioner (PSKc). The
 PSKc is used to authenticate an external Thread Commissioner to a Thread
 network. Build and install OTBR to use this tool.
@@ -39,9 +39,8 @@ $ ./pskc J01NME 1234AAAA1234BBBB MyOTBRNetwork
 ee4fb64e9341e13846bbe7e1c52b6785
 ```
 
-See [External Thread
-Commissioning](https://openthread.io/guides/border-router/external-commissioning#manual) for how to
-use this tool with `ot-ctl`.
+To use this tool with `ot-ctl`, refer to [External
+Commissioning](https://openthread.io/guides/border-router/external-commissioning#manual).
 
 ## Steering data generator
 
