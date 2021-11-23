@@ -44,13 +44,14 @@ Commissioning](https://openthread.io/guides/border-router/external-commissioning
 
 ## Steering data generator
 
-`steering-data` uses a Bloom filter to generate a hash of the set of Joiners
+`steering-data`, available in [ot-br-posix/tools](https://github.com/openthread/ot-br-posix/tree/main/tools),
+uses a Bloom filter to generate a hash of the set of Joiners
 intended for commissioning. During commissioning, the Joiner only looks for
 networks advertising steering data that includes the Joiner itself. Build and
 install OTBR to use this tool.
 
 After building, `steering-data` is located at
-[`/ot-br-posix/tools`](https://github.com/openthread/ot-br-posix/tree/main/tools/README.md).
+`ot-br-posix/build/otbr/tools`.
 
 ### Parameters
 
@@ -70,6 +71,7 @@ steering-data [{length}] {joiner-id}
 Example:
 
 ```
+$ cd ~/ot-br-posix/build/otbr/tools
 $ ./steering-data 0000b57fffe15d68
 00000000000000000020000000000100
 ```
@@ -202,7 +204,7 @@ Use `--help` for a full list of parameters.
 $ ./otbr-commissioner --network-name MyOTBRNetwork --network-password J01NME --xpanid 1234AAAA1234BBBB --joiner-eui64 0000b57fffe15d68 --joiner-pskd J01NU5 --agent-host 192.168.1.2 --agent-port 49191
 ```
 
-For a shell script example, see the
+For a shell script example, refer to the
 [`meshcop` test script](https://github.com/openthread/ot-br-posix/tree/main/tests/scripts/meshcop).
 
 ## standalone_ipv6 script
