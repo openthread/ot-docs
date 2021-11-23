@@ -5,12 +5,12 @@ be used for testing purposes.
 
 ## PSKc generator
 
-`pskc` generates a Pre-Shared Key for the Commissioner (PSKc). The
+[`pskc`](https://github.com/openthread/ot-br-posix/tree/main/tools/README.md) generates a Pre-Shared Key for the Commissioner (PSKc). The
 PSKc is used to authenticate an external Thread Commissioner to a Thread
 network. Build and install OTBR to use this tool.
 
 After building, `pskc` is located at
-[`/ot-br-posix/tools`](https://github.com/openthread/ot-br-posix/tree/main/tools/README.md).
+`ot-br-posix/build/otbr/tools`.
 
 ### Parameters
 
@@ -33,6 +33,7 @@ pskc {commissioner-credential} {extpanid} {network-name}
 Example:
 
 ```
+$ cd ~/ot-br-posix/build/otbr/tools
 $ ./pskc J01NME 1234AAAA1234BBBB MyOTBRNetwork
 ee4fb64e9341e13846bbe7e1c52b6785
 ```
