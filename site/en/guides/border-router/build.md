@@ -88,7 +88,7 @@ $ cat otbr-agent
 The `otbr-agent` configuration file contains your Thread interface name, Ethernet
 or Wi-Fi interface name, and RCP serial port name.
 
-`OTBR_AGENT_OPTS="-I wpan0 -B OTBR_INFRA_IF_NAME spinel+hdlc+uart:///dev/ttyACM0 trel://OTBR_INFRA_IF_NAME"`
+<pre>OTBR_AGENT_OPTS="-I wpan0 -B OTBR_INFRA_IF_NAME spinel+hdlc+uart:///dev/ttyACM0 trel://OTBR_INFRA_IF_NAME"</pre>
 
 Not all devices attach with the same serial port name. The most
 common port names are `ttyACM*` and `ttyUSB*`. Refer to the documentation for
