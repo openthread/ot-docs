@@ -208,6 +208,7 @@ $ sudo service otbr-agent status
 If `otbr-web` is not installed, try passing the `WEB_GUI` flag:
 
 ```
+$ WEB_GUI=1 ./script/bootstrap
 $ INFRA_IF_NAME=wlan0 WEB_GUI=1 ./script/setup
 ```
 
