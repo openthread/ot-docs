@@ -107,8 +107,8 @@ Type `help` for a list of commands.
 > sudo ot-ctl commissioner help
 ```
 
-> Note: The set of CLI commands varies based on the features enabled in a
-particular build.
+> Note: The set of Commissioner CLI commands varies based on the features
+enabled in a particular build.
 
 ### Usage
 
