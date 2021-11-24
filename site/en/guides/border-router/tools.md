@@ -21,8 +21,9 @@ The PSKc is generated from the following parameters:
 *   Thread Network Extended PAN ID
 *   Thread Network Name
 
-> Note: The Commissioner Credential is a user-defined string between 6 and 255 characters, UTF-8 encoded.
-  
+> Note: The Commissioner Credential is a user-defined string between 6 and 255
+characters, UTF-8 encoded.
+
 ### Usage
 
 Syntax:
@@ -91,121 +92,43 @@ $ ./steering-data 8 0000b57fffe15d68
 0020000000000100
 ```
 
-## OTBR commissioner
+## OTBR Commissioner
 
-Use `otbr-commissioner` to commission a Thread device from the command line.
-This tool is used in MeshCop (Mesh Commissioning Protocol) tests during
-continuous integration. Build and install OTBR to use this tool.
+By default, the Commissioner role is enabled on OTBR, similar to enabling the
+Commissioner role on a device with the `-DOT_COMMISSIONER=ON` flag. On the
+platform running OTBR, use `ot-ctl commissioner` to commission Joiners
+from the command line.
 
-After building, `otbr-commissioner` is located at
-[`/src/commissioner`](https://github.com/openthread/ot-br-posix/tree/main/src/commissioner).
-
-### Parameters
-
-To successfully commissioner a Thread device with `otbr-commissioner`, we
-suggest using the following parameters at a minimum:
-
-<table class="details responsive">
-  <thead>
-    <th colspan="2">Parameters</th>
-  </thead>
-        <tbody>
-          <tr>
-            <td>Network details</td>
-            <td>
-              <table class="function param responsive">
-                <tbody>
-                  <tr>
-                    <td>
-                      <code>--network-name</code>
-                    </td>
-                    <td>
-                      <div>Thread network name.</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>--network-password</code>
-                    </td>
-                    <td>
-                      <div>Commissioner credential.</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>--xpanid</code>
-                    </td>
-                    <td>
-                      <div>Thread extended PAN ID.</div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td>Joiner details</td>
-            <td>
-              <table class="function param responsive">
-                <tbody>
-                  <tr>
-                    <td>
-                      <code>--joiner-eui64</code>
-                    </td>
-                    <td>
-                      <div>Factory-assigned IEEE EUI-64 of the joiner device.</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>--joiner-pskd</code>
-                    </td>
-                    <td>
-                      <div>Joiner credential.</div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td>Agent details</td>
-            <td>
-              <table class="function param responsive">
-                <tbody>
-                  <tr>
-                    <td>
-                      <code>--agent-host</code>
-                    </td>
-                    <td>
-                      <div>Agent IP address from mDNS broadcasts.</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>--agent-port</code>
-                    </td>
-                    <td>
-                      <div>Agent port from mDNS broadcasts.</div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-</table>
-
-Use `--help` for a full list of parameters.
-
-### Usage
+Syntax:
 
 ```
-$ ./otbr-commissioner --network-name MyOTBRNetwork --network-password J01NME --xpanid 1234AAAA1234BBBB --joiner-eui64 0000b57fffe15d68 --joiner-pskd J01NU5 --agent-host 192.168.1.2 --agent-port 49191
+sudo ot-ctl commissioner {parameters}
 ```
 
-For a shell script example, refer to the
-[`meshcop` test script](https://github.com/openthread/ot-br-posix/tree/main/tests/scripts/meshcop).
+Example:
+
+```
+> sudo ot-ctl commissioner start
+Done
+> sudo ot-ctl commissioner joiner add 2f57d222545271f1 J01NME
+Done
+```
+
+Type `help` for a list of commands.
+
+```
+> sudo ot-ctl commissioner help
+```
+
+> Note: The set of CLI commands varies based on the features enabled in a
+particular build.
+
+## MeshCop Script
+
+OTBR provides a MeshCop (Mesh Commissioning Protocol) test script that
+uses [OT Commissioner](../commissioner/index.md) to test [External Commissioning](external-commissioning/index.md).
+For usage information, refer to the [`meshcop` test script](https://github.com/openthread/ot-br-posix/tree/main/tests/scripts/meshcop)
+on GitHub.
 
 ## standalone_ipv6 script
 
