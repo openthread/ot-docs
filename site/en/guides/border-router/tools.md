@@ -41,7 +41,7 @@ ee4fb64e9341e13846bbe7e1c52b6785
 ```
 
 To use this tool with `ot-ctl`, refer to [External
-Commissioning](https://openthread.io/guides/border-router/external-commissioning#manual).
+Commissioning](external-commissioning/index.md).
 
 ## Steering data generator
 
