@@ -34,7 +34,7 @@ Once installed, boot up the RPi and open a terminal window.
     ```
 
 1.  If you want to use Docker as non-root, without requiring `sudo` before each
-    command, modify your user settings:
+    command, modify your user settings. Sign out for the changes to take effect:
     ```
     $ sudo usermod -aG docker $USER
     ```
