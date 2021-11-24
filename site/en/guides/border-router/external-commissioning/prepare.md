@@ -125,8 +125,8 @@ found in each example's
 When commissioning a Joiner, it's important to understand the following terms
 and concepts:
 
-*   **Joining Device Credential**: You'll need to provide a passphrase to
-    commission a device, for example `J01NU5`. This passphrase is separate
+*   **Joining Device Credential**: You'll need to provide a Passphrase to
+    commission a device, for example `J01NU5`. This Passphrase is separate
     from the Commissioner Credential you created when forming your Thread
     network, and has different requirements:
 
