@@ -99,6 +99,19 @@ Commissioner role on a device with the `-DOT_COMMISSIONER=ON` flag. On the
 platform running OTBR, use `ot-ctl commissioner` to commission Joiners
 from the command line.
 
+### Parameters
+
+Type `help` for a list of commands.
+
+```
+> sudo ot-ctl commissioner help
+```
+
+> Note: The set of CLI commands varies based on the features enabled in a
+particular build.
+
+### Usage
+
 Syntax:
 
 ```
@@ -113,15 +126,6 @@ Done
 > sudo ot-ctl commissioner joiner add 2f57d222545271f1 J01NME
 Done
 ```
-
-Type `help` for a list of commands.
-
-```
-> sudo ot-ctl commissioner help
-```
-
-> Note: The set of CLI commands varies based on the features enabled in a
-particular build.
 
 ## MeshCop Script
 
