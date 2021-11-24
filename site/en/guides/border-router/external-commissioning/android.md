@@ -29,7 +29,7 @@ To use the Thread 1.1 Commissioning App, refer to [Thread Group Android App](#th
 ### Commission the Joiner
 
 Once connected to the Border Router, the app provides the option to scan a
-Connect QR Code. Thread Connect QR Codes are created with the following text
+QR code. Thread QR codes are created with the following text
 string format:
 
 <pre>v=1&&eui=0000b57fffe15d68&&cc=J01NU5</pre>
