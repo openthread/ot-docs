@@ -7,7 +7,7 @@ In this guide, you'll build and install OT Commissioner and commission a Joiner.
 
 ## Set up OT Commissioner
 
-To use OT Commissioner CLI, first [Build OT Commissioner](https://openthread.io/guides/commissioner/build).
+To use OT Commissioner CLI, first [Build OT Commissioner](../../commissioner/build.md).
 
 > Note: OT Commissioner must be running on the same host machine as OTBR.
 
