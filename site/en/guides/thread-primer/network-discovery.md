@@ -17,7 +17,7 @@ XPAN ID | `0xBEEF1111CAFE2222`
 Network Name | `yourThreadCafe`
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-network-active-scan_2x.png"><img src="../images/ot-primer-network-active-scan.png" srcset="../images/ot-primer-network-active-scan.png 1x, ../images/ot-primer-network-active-scan_2x.png 2x" border="0" alt="OT Active Scan" /></a>
+<a href="../images/ot-primer-network-active-scan.png"><img src="../images/ot-primer-network-active-scan.png" border="0" alt="OT Active Scan" /></a>
 </figure>
 
 When creating a new Thread network, or searching for an existing one to join, a
