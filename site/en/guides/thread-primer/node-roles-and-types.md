@@ -33,7 +33,7 @@ the Parent, the End Device the Child.
 Furthermore, nodes comprise a number of types.
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-taxonomy_2x.png"><img src="../images/ot-primer-taxonomy.png" srcset="../images/ot-primer-taxonomy.png 1x, ../images/ot-primer-taxonomy.png 2x" border="0" alt="OT Device Taxonomy" /></a>
+<a href="../images/ot-primer-taxonomy.png"><img src="../images/ot-primer-taxonomy.png" border="0" alt="OT Device Taxonomy" /></a>
 </figure>
 
 ### Full Thread Device
