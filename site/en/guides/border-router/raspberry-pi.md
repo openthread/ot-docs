@@ -28,7 +28,7 @@ with a bootable image to operate.
 1.  Download the [Raspberry Pi OS Lite
     image](https://www.raspberrypi.org/downloads/raspberry-pi-os/)
     to a local machine with a built-in or external SD card reader.
-    *   If using [OTBR Docker](../../guides/border-router-docker/index.md) on the RPi,
+    *   If using [OTBR Docker](docker/index.md) on the RPi,
         download [Raspberry Pi OS with
         Desktop](https://www.raspberrypi.org/downloads/raspberry-pi-os/)
         instead.
