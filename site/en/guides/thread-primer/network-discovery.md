@@ -187,7 +187,7 @@ Router](/guides/thread-primer/router-selection#upgrade_to_a_router) before
 accepting the request.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-03_2x.png"><img src="../images/ot-primer-network-mle-attach-03.png" srcset="../images/ot-primer-network-mle-attach-03.png 1x, ../images/ot-primer-network-mle-attach-03_2x.png 2x" width="350" border="0" alt="OT MLE Attach Child ID Request" /></a>
+<a href="../images/ot-primer-network-mle-attach-03.png"><img src="../images/ot-primer-network-mle-attach-03.png" width="350" border="0" alt="OT MLE Attach Child ID Request" /></a>
 </figure>
 
 <table>
@@ -234,7 +234,7 @@ A Child ID Response is a unicast response from the Parent that is sent to the
 Child to confirm that a Child-Parent link has been established.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-04_2x.png"><img src="../images/ot-primer-network-mle-attach-04.png" srcset="../images/ot-primer-network-mle-attach-04.png 1x, ../images/ot-primer-network-mle-attach-04_2x.png 2x" width="350" border="0" alt="OT MLE Attach Child ID Response" /></a>
+<a href="../images/ot-primer-network-mle-attach-04.png"><img src="../images/ot-primer-network-mle-attach-04.png" width="350" border="0" alt="OT MLE Attach Child ID Response" /></a>
 </figure>
 
 <table>
