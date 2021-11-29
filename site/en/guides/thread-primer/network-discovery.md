@@ -95,7 +95,7 @@ to discover neighboring Routers and Router Eligible End Devices (REEDs) in the
 target network.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-01_2x.png"><img src="../images/ot-primer-network-mle-attach-01.png" srcset="../images/ot-primer-network-mle-attach-01.png 1x, ../images/ot-primer-network-mle-attach-01_2x.png 2x" width="350" border="0" alt="OT MLE Attach Parent Request" /></a>
+<a href="../images/ot-primer-network-mle-attach-01.png"><img src="../images/ot-primer-network-mle-attach-01.png" width="350" border="0" alt="OT MLE Attach Parent Request" /></a>
 </figure>
 
 <table>
