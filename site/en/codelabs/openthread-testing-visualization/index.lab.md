@@ -75,8 +75,8 @@ Software:
 Prerequisites:
 
 *  [Thread Primer](https://openthread.io/guides/thread-primer).
-*  [Build a Thread network with nRF52840 boards and OpenThread](https://codelabs.developers.google.com/codelabs/openthread-hardware).
-*  [Simulate Thread Networks using OTNS](https://codelabs.developers.google.com/codelabs/openthread-network-simulator).
+*  [Build a Thread network with nRF52840 boards and OpenThread](https://openthread.io/codelabs/openthread-hardware).
+*  [Simulate Thread Networks using OTNS](https://openthread.io/codelabs/openthread-network-simulator).
 
 
 ## Prerequisites
@@ -88,9 +88,9 @@ Duration: 02:00
 *  [Thread Primer](https://openthread.io/guides/thread-primer).
     You will need to know the basic concepts of Thread to understand what is
     taught in this Codelab.
-*  [Build a Thread network with nRF52840 boards and OpenThread](https://codelabs.developers.google.com/codelabs/openthread-hardware).
+*  [Build a Thread network with nRF52840 boards and OpenThread](https://openthread.io/codelabs/openthread-hardware).
     This Codelab assumes that you have successfully built a Thread network.
-*  [Simulate Thread Networks using OTNS](https://codelabs.developers.google.com/codelabs/openthread-network-simulator). This Codelab assumes that you have successfully run the OTNS tool.
+*  [Simulate Thread Networks using OTNS](https://openthread.io/codelabs/openthread-network-simulator). This Codelab assumes that you have successfully run the OTNS tool.
 
 ### Checking package prerequisites
 
@@ -103,8 +103,8 @@ Let's make sure all the prerequisites are met.
     examples/Makefile-nrf52840` under the `openthread` folder.
 
 ***Note:*** Please refer to the linked documentations for set up guidance.
-Prerequisite #1 is from [Simulate Thread Networks using OTNS](https://codelabs.developers.google.com/codelabs/openthread-network-simulator)
-and others are from [Build a Thread network with nRF52840 boards and OpenThread](https://codelabs.developers.google.com/codelabs/openthread-hardware).
+Prerequisite #1 is from [Simulate Thread Networks using OTNS](https://openthread.io/codelabs/openthread-network-simulator)
+and others are from [Build a Thread network with nRF52840 boards and OpenThread](https://openthread.io/codelabs/openthread-hardware).
 
 
 ## Silk setup
@@ -187,7 +187,7 @@ $ arm-none-eabi-objcopy -O ihex ot-ncp-ftd ot-ncp-ftd.hex
   [Build OpenThread](https://openthread.io/guides/build/).
 
 To flash the boards, follow the instructions in step 4 of the
-[Build a Thread network Codelab](https://codelabs.developers.google.com/codelabs/openthread-hardware/#3)
+[Build a Thread network Codelab](https://openthread.io/codelabs/openthread-hardware/#3)
 to use `nrfjprog`. After that, connect all the boards via the nRF USB port to
 the host machine. The same set of USB to Micro-USB cables can be disconnected
 from the J-Link ports and connected to the nRF USB ports of the nRF52840 dev
@@ -303,7 +303,7 @@ Check out [openthread.io](https://openthread.io/) and
 ### Reference docs
 
 *  [OpenThread Guides](https://openthread.io/guides)
-*  [OTNS Codelab](https://codelabs.developers.google.com/codelabs/openthread-network-simulator)
+*  [OTNS Codelab](https://openthread.io/codelabs/openthread-network-simulator)
 
 ## License
 

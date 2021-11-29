@@ -71,7 +71,7 @@ Duration: 10:00
 ### OpenThread Simulation
 
 Before beginning, you might want to run through the
-[OpenThread Simulation Codelab](https://codelabs.developers.google.com/codelabs/openthread-simulation/#0),
+[OpenThread Simulation Codelab](https://openthread.io/codelabs/openthread-simulation/#0),
 to get familiar with basic Thread concepts and the OpenThread CLI.
 
 ### Serial port terminals

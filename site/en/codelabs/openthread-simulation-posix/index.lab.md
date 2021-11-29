@@ -94,7 +94,7 @@ $ ./bootstrap
 
 If you prefer Windows, we recommend trying the Docker version of this Codelab.
 
-<button>[OpenThread Simulation on Docker](https://codelabs.developers.google.com/codelabs/openthread-simulation/#0)</button>
+<button>[OpenThread Simulation on Docker](https://openthread.io/codelabs/openthread-simulation/#0)</button>
 
 
 ## Build the OpenThread applications
