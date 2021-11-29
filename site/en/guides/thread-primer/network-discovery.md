@@ -125,7 +125,7 @@ A Parent Response is a unicast response to a Parent Request that provides
 information about a Router or REED to the attaching device.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-02_2x.png"><img src="../images/ot-primer-network-mle-attach-02.png" srcset="../images/ot-primer-network-mle-attach-02.png 1x, ../images/ot-primer-network-mle-attach-02_2x.png 2x" width="350" border="0" alt="OT MLE Attach Parent Response" /></a>
+<a href="../images/ot-primer-network-mle-attach-02.png"><img src="../images/ot-primer-network-mle-attach-02.png" width="350" border="0" alt="OT MLE Attach Parent Response" /></a>
 </figure>
 
 <table>
