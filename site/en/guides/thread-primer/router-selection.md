@@ -103,7 +103,7 @@ that provides information about itself and accepts the link to the neighboring
 Router.
 
 <figure>
-<a href="../images/ot-primer-network-mle-link-request-03_2x.png"><img src="../images/ot-primer-network-mle-link-request-03.png" srcset="../images/ot-primer-network-mle-link-request-03.png 1x, ../images/ot-primer-network-mle-link-request-03_2x.png 2x" width="350" border="0" alt="OT MLE Link Accept" /></a>
+<a href="../images/ot-primer-network-mle-link-request-03.png"><img src="../images/ot-primer-network-mle-link-request-03.png" width="350" border="0" alt="OT MLE Link Accept" /></a>
 </figure>
 
 <table>
