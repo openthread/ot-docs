@@ -183,7 +183,7 @@ information about a Router or REED to the attaching device.
 A Child ID Request is a unicast request from the attaching device (Child) that
 is sent to the Router or REED (Parent) for the purpose of establishing a
 Child-Parent link. If the request is sent to a REED, it [upgrades itself to a
-Router](/guides/thread-primer/router-selection#upgrade_to_a_router) before
+Router](router-selection.md) before
 accepting the request.
 
 <figure>
