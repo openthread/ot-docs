@@ -151,7 +151,7 @@ and the device initiates the MLE Attach process to establish a Child-Parent
 link.
 
 See [Join an existing
-network](/guides/thread-primer/network-discovery#join_an_existing_network)
+network](network-discovery.md)
 for more information on the MLE Attach process.
 
 ## One-way receive links
