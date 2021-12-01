@@ -106,9 +106,6 @@ The Pre-Shared Key `PSKc` is used to establish a secure session between the
 Commissioner and Border Agent. To connect to a Non-CCM Thread network, update
 `PSKc` in `non-ccm-config.json`.
 
-> Note: If you changed the default installation directory, you'll need to
-update `"ThreadSMRoot" : "/usr/local/etc/commissioner"`.
-
 ## Commission a joiner
 
 To use OT Commissioner to commission a joiner, refer to [External
