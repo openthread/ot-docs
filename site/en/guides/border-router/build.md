@@ -124,7 +124,7 @@ $ sudo systemctl status
 If the `setup` script was successful, the following services appear in the
 output:
 
-*   `avahi-daemon.service`
+*   `mdns.service`
 *   `otbr-agent.service`
 *   `otbr-web.service`
 
@@ -157,7 +157,7 @@ For example:
              │ └─442 /usr/bin/hciattach /dev/serial1 bcm43xx 921600 noflow -
              ├─ssh.service
              │ └─621 /usr/sbin/sshd -D
-  # enabled  ├─avahi-daemon.service
+             ├─avahi-daemon.service
              │ ├─341 avahi-daemon: running [raspberrypi.local]
              │ └─361 avahi-daemon: chroot helper
   # enabled  ├─otbr-web.service
@@ -176,6 +176,8 @@ For example:
              │ └─345 /usr/sbin/rsyslogd -n
              ├─bluetooth.service
              │ └─445 /usr/lib/bluetooth/bluetoothd
+  # enabled  ├─mdns.service
+             │ └─725 /usr/sbin/mdnsd
              ├─systemd-journald.service
              │ └─136 /lib/systemd/systemd-journald
              └─dhcpcd.service
@@ -193,15 +195,15 @@ $ sudo systemctl --failed
 You can also check each service individually:
 
 ```
-$ sudo service avahi-daemon status
-```
-
-```
-$ sudo service otbr-web status
+$ sudo service mdns status
 ```
 
 ```
 $ sudo service otbr-agent status
+```
+
+```
+$ sudo service otbr-web status
 ```
 
 `otbr-web` is enabled by default for most [platforms](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
