@@ -33,7 +33,7 @@ When choosing your platform, consider the following benefits of using RCP:
 *   More cost effective: minimize resource requirements on the 802.15.4 SoC,
     which can lead to a more cost-effective solution.
 *   Easier to debug: since most of the processing happens on the host processor,
-    developers can utilize more capable debugging tools on the host processor.
+    you can utilize more capable debugging tools on the host processor.
 *   More stable 802.15.4 SoC firmware: the RCP only implements the sub-MAC and
     PHY, reducing the frequency at which the 802.15.4 SoC needs firmware
     updates.
