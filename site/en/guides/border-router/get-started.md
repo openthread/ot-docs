@@ -1,5 +1,7 @@
 # Get started with OTBR
 
+Run OTBR with a physical or simulated RCP using the following platforms.
+
 ## Docker
 
 The quickest way to get started with OTBR is to try the Docker version. Run OTBR
