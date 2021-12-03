@@ -54,6 +54,8 @@ QEMU](https://github.com/ERNE196077/qemu_openthread_borderrouter), an
 open-source machine emulator and virtualizer. The project emulates Raspbian on
 an ARM architecture.
 
+> Note: The QEMU guide is written for NCP support.
+
 ## License
 
 Copyright (c) 2021, The OpenThread Authors.
