@@ -48,6 +48,8 @@ Tracker](https://github.com/openthread/ot-br-posix/issues).
 ## Community projects
 
 > Note: Projects listed here are not officially supported by the OpenThread team.
+The QEMU guide is written for NCP support. For benefits of using an RCP, refer
+to the [OpenThread Border Router Overview](index.md).
 
 ### QEMU OTBR
 
@@ -55,8 +57,6 @@ A member of the OT community has enabled [OTBR support using
 QEMU](https://github.com/ERNE196077/qemu_openthread_borderrouter), an
 open-source machine emulator and virtualizer. The project emulates Raspbian on
 an ARM architecture.
-
-> Note: The QEMU guide is written for NCP support.
 
 ## License
 
