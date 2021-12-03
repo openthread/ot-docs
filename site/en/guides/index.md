@@ -162,9 +162,9 @@ Category | Contents
 ----- | -----
 [Build](build/index.md) | How to build and configure OpenThread and enable enhanced features
 [Porting](porting/index.md) | How to port OpenThread to a new hardware platform
-[Border Router](https://openthread.io/guides/border-router/) | How to connect your OpenThread network to other IPv6 networks with a Border Router, or use external Thread commissioning
-[Commissioner](https://openthread.io/guides/commissioner) | How to build and use OT Commissioner to commission devices onto a Thread network
-[Pyspinel](https://openthread.io/guides/pyspinel/) | How to use Pyspinel to build a Thread packet sniffer.
+[Border Router](border-router/index.md) | How to connect your OpenThread network to other IPv6 networks with a Border Router, or use external Thread commissioning
+[Commissioner](commissioner/index.md) | How to build and use OT Commissioner to commission devices onto a Thread network
+[Pyspinel](pyspinel/index.md) | How to use Pyspinel to build a Thread packet sniffer.
 [Certification](https://openthread.io/certification/) | How to test your platform against all certification test cases
 
 ## Application APIs

@@ -5,7 +5,7 @@ such as Wi-Fi or Ethernet. A Thread network requires a Border Router to connect
 to other networks.
 
 <figure>
-<img src="../images/otbr-arch-borderagent-white.png" srcset="../images/otbr-arch-borderagent.png 1x, ../images/otbr-arch-borderagent_2x.png 2x" border="0" alt="OTBR Border Agent Architecture" />
+<img src="../images/otbr-arch-borderagent-white.png" border="0" alt="OTBR Border Agent Architecture" />
 </figure>
 
 A Thread Border Router minimally supports the following functions:
@@ -89,9 +89,9 @@ an ARM architecture.
 
 OTBR includes a number of features, including:
 
-*   [Web GUI](https://openthread.io/guides/border-router/web-gui) for configuration and management
+*   [Web GUI](web-gui.md) for configuration and management
 *   Thread Border Agent to support [external
-    commissioning](https://openthread.io/guides/border-router/external-commissioning)
+    commissioning](external-commissioning/index.md)
 *   DHCPv6 Prefix Delegation to obtain IPv6 prefixes for a Thread network
 *   NAT64 for connecting to IPv4 networks
 *   DNS64 to allow Thread devices to initiate communications by name to an
