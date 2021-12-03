@@ -1,4 +1,4 @@
-#  OT Commissioner CLI
+# OT Commissioner CLI
 
 External commissioning is supported by the OT Commissioner CLI, available
 on the [ot-commissioner GitHub repository](https://github.com/openthread/ot-commissioner).
@@ -9,34 +9,11 @@ In this guide, you'll build and install OT Commissioner and commission a Joiner.
 
 To use OT Commissioner CLI, first [Build OT Commissioner](../../commissioner/build.md).
 
-> Note: OT Commissioner must be running on the same host machine as OTBR.
-
 ## Discover your network
 
-OTBR registers a `_meshcop._udp` service named `OpenThread_BorderRouter`. This
-service is configured in the [OTBR CMakeLists.txt file](https://github.com/openthread/ot-br-posix/blob/main/CMakeLists.txt#L36).
-
-To start OT Commissioner, you'll need to find the port number of your border
-agent service. There are several ways to do this, for example:
-
-*   Use `dns-sd` to browse for a service on `raspberrypi.local.:49155`:
-
-    ```
-    $ dns-sd -L "OpenThread_BorderRouter" _meshcop._udp local
-    ```
-
-    <pre>
-    Lookup OpenThread_BorderRouter._meshcop._udp.local
-    DATE: ---Tue 16 Nov 2021---
-    13:31:03.197  ...STARTING...
-    13:31:03.350  OpenThread_BorderRouter._meshcop._udp.local. can be reached at raspberrypi.local.:49155 (interface 3)
-    </pre>
-
-*   Use `avahi-utils`:
-
-    ```
-    $ avahi-browse -r _meshcop._udp
-    ```
+To start OT Commissioner, you'll need to find the IP address and port number of
+your border agent service. For help on locating this information, refer to
+[mDNS Discovery](discover-network.md).
 
 > Note: To support multiple Thread interfaces on a single host, the border agent
 service uses an ephemeral port by default. This means that your port number
@@ -44,35 +21,24 @@ might change when you restart `otbr-agent` or your OTBR platform.
 
 ## Connect to the Border Router
 
-1.  Open the Non-CCM configuration file in your installation directory:
+1.  Start the OT Commissioner CLI:
 
     ```
-    $ cd /usr/local/etc/commissioner/non-ccm-config.json
-    ```
-
-1.  Change the `PSKc` to `198886f519a8fd7c981fee95d72f4ba7`:
-
-    ```
-    "PSKc" : "198886f519a8fd7c981fee95d72f4ba7"
-    ```
-
-    _Optional_. Configure logging. When you run `pi@raspberrypi: commissioner-cli`
-    from the command line, OT Commissioner creates a `commissioner.log` file in
-    the current working directory, for example `/home/pi/commissioner.log`. In
-    the `non-ccm-config.json` file, you can configure your `LogFile` path,
-    logging level, and other log settings.
-
-1.  Start the OT Commissioner CLI with the Non-CCM configuration:
-
-    ```
-    $ commissioner-cli /usr/local/etc/commissioner/non-ccm-config.json
+    $ commissioner-cli
     > 
     ```
 
-1.  Connect to OTBR, providing your OTBR port:
+1.  Set your PSKc:
 
     ```
-    > start :: 49155
+    > config set pskc 198886f519a8fd7c981fee95d72f4ba7
+    [done]
+    ```
+
+1.  Connect to OTBR, providing your mDNS IP address and port:
+
+    ```
+    > start FD00::74D0:6FC9:6BE6:3582 49155
     [done]
     >
     ```
@@ -122,14 +88,12 @@ connectivity.
 
 ## Troubleshooting
 
-If you're having issues with OT Commissioner, make sure you use `stop`, then
-`exit` to properly end a session:
+If you're having issues with OT Commissioner, check the `commissioner.log`,
+if available. To configure logging, refer to [Build OT Commissioner](../../commissioner/build.md).
 
-```
-> stop
-[done]
-> exit
-```
+**IO_ERROR: connect socket to peer addr**
+
+Use a different IP address to start OT Commissioner.
 
 **IO_ERROR: NET - Reading information from the socket failed**
 
@@ -148,14 +112,25 @@ fails. If you're receiving this error message, try the following:
 **SECURITY: SSL - A fatal alert message was received from our peer**
 
 OT Commissioner establishes a secure DTLS session with the border agent service.
-A fatal SSL error typically indicates that the secure DTLS session fails. If you
-receive this message, try the following:
+A fatal SSL error typically indicates that the secure DTLS session fails.
 
-*   Check the `commissioner.log`, if available.
-*   Make sure that OT Commissioner is properly configured when you pass your
-    Non-CCM or CCM Thread network JSON file.
-*   If OT Commissioner wasn't shut down properly or you disconnected from an SSH
-    session, you may need to restart the app or your platform.
+If you receive this message, check your PSKc.
+
+From OTBR:
+
+```
+$ sudo ot-ctl pskc
+198886f519a8fd7c981fee95d72f4ba7
+Done
+```
+
+From OT Commissioner:
+
+```
+> config get pskc
+198886f519a8fd7c981fee95d72f4ba7
+[done]
+```
 
 ## Resources
 
