@@ -25,65 +25,24 @@ A Thread Border Router minimally supports the following functions:
          border="0" alt="Thread Certified" /></a></figure>
 
 OpenThread's implementation of a Border Router is called OpenThread Border
-Router (OTBR). OTBR is a Thread Certified Component on the [Raspberry Pi
+Router (OTBR), supporting a [Radio Co-Processor (RCP) design](https://openthread.io/platforms/co-processor).
+When choosing your platform, consider the following benefits of using RCP:
+
+*   More resources: OpenThread can take advantage of the host processor's
+    resources, which is typically much more than what an 802.15.4 SoC provides.
+*   More cost effective: minimize resource requirements on the 802.15.4 SoC,
+    which can lead to a more cost-effective solution.
+*   Easier to debug: since most of the processing happens on the host processor,
+    developers can utilize more capable debugging tools on the host processor.
+*   More stable 802.15.4 SoC firmware: the RCP only implements the sub-MAC and
+    PHY, reducing the frequency at which the 802.15.4 SoC needs firmware
+    updates.
+*   Easier integration with host IPv6 network stack: having OpenThread run on
+    the host allows for more direct integration with the host IPv6 stack.
+
+> Note: OTBR is a Thread Certified Component on the [Raspberry Pi
 3B](raspberry-pi.md) with a [Nordic
 nRF52840](https://openthread.io/vendors/nordic-semiconductor) NCP.
-
-## Get started
-
-### Docker
-
-The quickest way to get started with OTBR is to try the Docker version. Run OTBR
-in a Docker container on any Linux-based system or a Raspberry Pi 3B or newer,
-using either a physical or simulated RCP.
-
-See the [Docker Support Overview](docker/index.md) for more
-information.
-
-### Codelabs
-
-To set up an OTBR without Docker, try one of our Border Router codelabs. Run
-OTBR on a Raspberry Pi 3B or 4, using physical RCPs.
-
-<a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-border-router/">Border Router
-  Codelab</a>
-
-<a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-border-router-ipv6-multicast">Border Router Thread
-  1.2 Multicast Codelab</a>
-
-
-### Platforms
-
-OTBR also runs directly on a supported platform:
-
-1.  Choose a platform:
-    *   [BeagleBone Black](beaglebone-black.md)
-    *   [Raspberry Pi 3B or newer](raspberry-pi.md)
-1.  [Build and configure OTBR](build.md)
-1.  Learn about [tools and scripts included with
-    OTBR](tools.md)
-
-### Get the code
-
-To go straight to the source code, see the
-[OpenThread Border Router GitHub repository](https://github.com/openthread/ot-br-posix).
-
-You can contribute to the ongoing development of OpenThread Border Router by
-submitting bug reports and feature requests to the [Issue
-Tracker](https://github.com/openthread/ot-br-posix/issues).
-
-### Community projects
-
-> Note: Projects listed here are not officially supported by the OpenThread team.
-
-#### QEMU OTBR
-
-A member of the OT community has enabled [OTBR support using
-QEMU](https://github.com/ERNE196077/qemu_openthread_borderrouter), an
-open-source machine emulator and virtualizer. The project emulates Raspbian on
-an ARM architecture.
 
 ## Features and services
 
