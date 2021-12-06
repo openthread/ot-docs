@@ -40,7 +40,7 @@ When choosing your platform, consider the following benefits of using RCP:
 *   Easier integration with host IPv6 network stack: having OpenThread run on
     the host allows for more direct integration with the host IPv6 stack.
 
-> Note: OTBR is a Thread Certified Component on the [Raspberry Pi
+> Note: OTBR is also a Thread Certified Component on the [Raspberry Pi
 3B](raspberry-pi.md) with a [Nordic
 nRF52840](https://openthread.io/vendors/nordic-semiconductor) NCP.
 
