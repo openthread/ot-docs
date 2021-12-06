@@ -93,7 +93,7 @@ if available. To configure logging, refer to [Build OT Commissioner](../../commi
 
 **IO_ERROR: connect socket to peer addr**
 
-Use a different IP address to start OT Commissioner.
+Try using a different IP address to start OT Commissioner.
 
 **IO_ERROR: NET - Reading information from the socket failed**
 
