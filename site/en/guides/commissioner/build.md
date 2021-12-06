@@ -125,7 +125,8 @@ $ commissioner-cli {/usr/local}/etc/commissioner/{ccm-config}.json
 ```
 
 > Note: If you're using the default configuration settings in the
-`non-ccm-config.json` file, you don't need to pass it.
+`non-ccm-config.json` file, you don't need to pass it to
+`commissioner-cli`.
 
 ## Commission a joiner
 
