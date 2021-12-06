@@ -11,7 +11,7 @@ To set up a Border Router, refer to [OpenThread Border Router Build and Configur
 ### Web GUI
 
 The recommended way to form a Thread network is via the [OTBR Web
-GUI](https://openthread.io/guides/border-router/web-gui). When doing so, change
+GUI](../web-gui.md). When doing so, change
 all the default values on the **Form** menu option, except for the On-Mesh
 Prefix.
 

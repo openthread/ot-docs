@@ -192,7 +192,7 @@ system is having difficulty bringing up the interface.
 
 ## Step 3: Build and install OTBR
 
-See [Build and Configuration](https://openthread.io/guides/border-router/build)
+See [Build and Configuration](build.md)
 for instructions on building and installing OTBR. 
 
 ## License
