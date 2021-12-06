@@ -1,4 +1,4 @@
-# Get started with OTBR
+# Get Started with OTBR
 
 Run OTBR with a physical or simulated RCP using the following platforms.
 
