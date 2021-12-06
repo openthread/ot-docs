@@ -62,10 +62,10 @@ OTBR includes a number of features, including:
 
 OTBR provides the following services:
 
-*   mDNS Publisher — Allows an External Commissioner to discover an OTBR and its
+*   [mDNS Publisher](mdns-discovery.md) — Allows an External Commissioner to discover an OTBR and its
     associated Thread network
 *   [PSKc Generator](tools.md) — For generation of PSKc keys
-*   Web Service — Web UI for management of a Thread network
+*   Web Service — [Web UI](web-gui.md) for management of a Thread network
 
 Third-party components for Border Router Services include Simple Web Server and
 Material Design Lite for the framework of the web UI.
