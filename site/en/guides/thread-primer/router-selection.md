@@ -64,21 +64,21 @@ the devices send unicast Link Requests.
       <th colspan=2>Link Request Message Contents</th>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Version</b></td>
+      <td width="25%"><b>Version</b></td>
       <td>Thread protocol version</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Challenge</b></td>
+      <td width="25%"><b>Challenge</b></td>
       <td>Tests the timeliness of the Link Response to prevent replay
         attacks</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Source
+      <td width="25%"><b>Source
         Address</b></td>
       <td>RLOC16 of the sender</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Leader
+      <td width="25%"><b>Leader
         Data</b></td>
       <td>Information about the Router's Leader, as stored on the sender (RLOC,
         Partition ID, Partition weight)</td>
@@ -112,31 +112,31 @@ Router.
       <th colspan=2>Link Accept Message Contents</th>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Version</b></td>
+      <td width="25%"><b>Version</b></td>
       <td>Thread protocol version</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Response</b></td>
+      <td width="25%"><b>Response</b></td>
       <td>Tests the timeliness of the Link Response to prevent replay
         attacks</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Link Frame
+      <td width="25%"><b>Link Frame
         Counter</b></td>
       <td>802.15.4 Frame Counter on the sender</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>MLE Frame
+      <td width="25%"><b>MLE Frame
         Counter</b></td>
       <td>MLE Frame Counter on the sender</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Source
+      <td width="25%"><b>Source
         Address</b></td>
       <td>RLOC16 of the sender</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Leader
+      <td width="25%"><b>Leader
         Data</b></td>
       <td>Information about the Router's Leader, as stored on the sender (RLOC,
         Partition ID, Partition weight)</td>
