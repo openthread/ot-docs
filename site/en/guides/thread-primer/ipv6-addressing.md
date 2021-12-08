@@ -103,19 +103,19 @@ Common unicast types are detailed below.
       <th colspan=2><h3>Link-Local Address (LLA)</h3></th>
     </tr>
     <tr>
-      <td colspan=2 style="background-color:rgb(238, 241, 242)">An EID that identifies a Thread interface reachable by a single radio transmission.</td>
+      <td colspan=2>An EID that identifies a Thread interface reachable by a single radio transmission.</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Example</b></td><td><code>fe80::54db:881c:3845:57f4</code></td>
+      <td width="25%"><b>Example</b></td><td><code>fe80::54db:881c:3845:57f4</code></td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>IID</b></td><td>Based on 802.15.4 Extended Address</td>
+      <td width="25%"><b>IID</b></td><td>Based on 802.15.4 Extended Address</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Scope</b></td><td>Link-Local</td>
+      <td width="25%"><b>Scope</b></td><td>Link-Local</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Details</b></td><td><ul><li>Used to discover neighbors, configure links, and exchange routing information</li><li>Not a routable address</li><li>Always has a prefix of <code>fe80::/16</code></li></ul></td>
+      <td width="25%"><b>Details</b></td><td><ul><li>Used to discover neighbors, configure links, and exchange routing information</li><li>Not a routable address</li><li>Always has a prefix of <code>fe80::/16</code></li></ul></td>
     </tr>
   </tbody>
 </table>
@@ -126,19 +126,19 @@ Common unicast types are detailed below.
       <th colspan=2><h3>Mesh-Local EID (ML-EID)</h3></th>
     </tr>
     <tr>
-      <td colspan=2 style="background-color:rgb(238, 241, 242)">An EID that identifies a Thread interface, independent of network topology. Used to reach a Thread interface within the same Thread partition. Also called a Unique Local Address (ULA).</td>
+      <td colspan=2>An EID that identifies a Thread interface, independent of network topology. Used to reach a Thread interface within the same Thread partition. Also called a Unique Local Address (ULA).</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Example</b></td><td><code>fde5:8dba:82e1:1:416:993c:8399:35ab</code></td>
+      <td width="25%"><b>Example</b></td><td><code>fde5:8dba:82e1:1:416:993c:8399:35ab</code></td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>IID</b></td><td>Random, chosen after commissioning is complete</td>
+      <td width="25%"><b>IID</b></td><td>Random, chosen after commissioning is complete</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Scope</b></td><td>Mesh-Local</td>
+      <td width="25%"><b>Scope</b></td><td>Mesh-Local</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Details</b></td><td><ul><li>Does not change as the topology changes</li><li>Should be used by applications</li><li>Always has a prefix <code>fd00::/8</code></li></ul></td>
+      <td width="25%"><b>Details</b></td><td><ul><li>Does not change as the topology changes</li><li>Should be used by applications</li><li>Always has a prefix <code>fd00::/8</code></li></ul></td>
     </tr>
   </tbody>
 </table>
@@ -149,19 +149,19 @@ Common unicast types are detailed below.
       <th colspan=2><h3>Routing Locator (RLOC)</h3></th>
     </tr>
     <tr>
-      <td colspan=2 style="background-color:rgb(238, 241, 242)">Identifies a Thread interface, based on its location in the network topology.</td>
+      <td colspan=2>Identifies a Thread interface, based on its location in the network topology.</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Example</b></td><td><code>fde5:8dba:82e1:1::ff:fe00:1001</code></td>
+      <td width="25%"><b>Example</b></td><td><code>fde5:8dba:82e1:1::ff:fe00:1001</code></td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>IID</b></td><td><code>0000:00ff:fe00:<var>RLOC16</var></code></td>
+      <td width="25%"><b>IID</b></td><td><code>0000:00ff:fe00:<var>RLOC16</var></code></td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Scope</b></td><td>Mesh-Local</td>
+      <td width="25%"><b>Scope</b></td><td>Mesh-Local</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Details</b></td><td><ul><li>Generated once a device attaches to a network</li><li>For delivering IPv6 datagrams within a Thread network</li><li>Changes as the topology changes</li><li>Generally not used by applications</li></ul></td>
+      <td width="25%"><b>Details</b></td><td><ul><li>Generated once a device attaches to a network</li><li>For delivering IPv6 datagrams within a Thread network</li><li>Changes as the topology changes</li><li>Generally not used by applications</li></ul></td>
     </tr>
   </tbody>
 </table>
@@ -172,19 +172,19 @@ Common unicast types are detailed below.
       <th colspan=2><h3>Anycast Locator (ALOC)</h3></th>
     </tr>
     <tr>
-      <td colspan=2 style="background-color:rgb(238, 241, 242)">Identifies a Thread interface via RLOC lookup, when the RLOC of a destination is not known.</td>
+      <td colspan=2>Identifies a Thread interface via RLOC lookup, when the RLOC of a destination is not known.</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Example</b></td><td><code>fde5:8dba:82e1:1::ff:fe00:fc01</code></td>
+      <td width="25%"><b>Example</b></td><td><code>fde5:8dba:82e1:1::ff:fe00:fc01</code></td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>IID</b></td><td><code>0000:00ff:fe00:fc<var>XX</var></code></td>
+      <td width="25%"><b>IID</b></td><td><code>0000:00ff:fe00:fc<var>XX</var></code></td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Scope</b></td><td>Mesh-Local</td>
+      <td width="25%"><b>Scope</b></td><td>Mesh-Local</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Details</b></td><td><ul><li><code>fc<var>XX</var></code> = <a href="#anycast">ALOC destination</a>, which looks up the appropriate RLOC</li><li>Generally not used by applications</li></td>
+      <td width="25%"><b>Details</b></td><td><ul><li><code>fc<var>XX</var></code> = <a href="#anycast">ALOC destination</a>, which looks up the appropriate RLOC</li><li>Generally not used by applications</li></td>
     </tr>
   </tbody>
 </table>
@@ -195,19 +195,19 @@ Common unicast types are detailed below.
       <th colspan=2><h3>Global Unicast Address (GUA)</h3></th>
     </tr>
     <tr>
-      <td colspan=2 style="background-color:rgb(238, 241, 242)">An EID that identifies a Thread interface on a global scope, beyond a Thread network.</td>
+      <td colspan=2>An EID that identifies a Thread interface on a global scope, beyond a Thread network.</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Example</b></td><td><code>2000::54db:881c:3845:57f4</code></td>
+      <td width="25%"><b>Example</b></td><td><code>2000::54db:881c:3845:57f4</code></td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>IID</b></td><td><ul><li>SLAAC — Randomly assigned by the device itself</li><li>DHCP — Assigned by a DHCPv6 server</li><li>Manual — Assigned by the application layer</li></ul></td>
+      <td width="25%"><b>IID</b></td><td><ul><li>SLAAC — Randomly assigned by the device itself</li><li>DHCP — Assigned by a DHCPv6 server</li><li>Manual — Assigned by the application layer</li></ul></td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Scope</b></td><td>Global</td>
+      <td width="25%"><b>Scope</b></td><td>Global</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Details</b></td><td><ul><li>A public IPv6 address</li><li>Always has a prefix of <code>2000::/3</code></li></td>
+      <td width="25%"><b>Details</b></td><td><ul><li>A public IPv6 address</li><li>Always has a prefix of <code>2000::/3</code></li></td>
     </tr>
   </tbody>
 </table>
