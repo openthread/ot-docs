@@ -6,7 +6,8 @@ authors: Colin Tan
 categories: Nest
 tags: web
 feedback link: https://github.com/openthread/silk/issues
-
+project: /_project.yaml
+book: /_book.yaml
 ---
 
 # Testing a Thread Network with Visualization
