@@ -48,7 +48,7 @@ $ cd ot-br-posix
 $ ./script/bootstrap
 ```
 
-_BeagleBone Black_. Optional: If you installed Network Manager for
+_BeagleBone Black - Optional_. If you installed Network Manager for
 [BeagleBone Black](beaglebone-black.md), make sure to include the `NETWORK`
 options.
 
