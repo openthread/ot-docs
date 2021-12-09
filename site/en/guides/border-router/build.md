@@ -47,6 +47,13 @@ $ cd ot-br-posix
 $ ./script/bootstrap
 ```
 
+To use Network Manager for [BeagleBone Black](beaglebone-black.md), make sure
+to include the `NETWORK` options.
+
+```
+$ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/bootstrap
+```
+
 Compile and install OTBR. Note that the setup script enables Border Routing
 by default. To enable Border Routing, specify your platform's Ethernet or
 Wi-Fi interface.
