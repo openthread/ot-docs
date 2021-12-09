@@ -40,26 +40,23 @@ Clone the OTBR repository:
 $ git clone https://github.com/openthread/ot-br-posix
 ```
 
-Install dependencies. Most platforms can use the default configuration for
-OTBR, without passing additional flags:
+Install dependencies. For a complete list of OTBR default
+flags, refer to [platform examples on GitHub](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
+Select your platform, then click `default`, if available.
+
+To use default flags:
 
 ```
 $ cd ot-br-posix
 $ ./script/bootstrap
 ```
 
-_BeagleBone Black - Optional_. If you installed Network Manager for
-[BeagleBone Black](beaglebone-black.md), make sure to include the `NETWORK`
-options.
+To use Network Manager with [BeagleBone Black](beaglebone-black.md) (optional):
 
 ```
 $ cd ot-br-posix
 $ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/bootstrap
 ```
-    
-For a complete list of OTBR default flags, refer to
-[platform examples on GitHub](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
-Select your platform, then click `default`, if available.
 
 Compile and install OTBR. Note that the setup script enables Border Routing
 by default. To enable Border Routing, specify your platform's Ethernet or
@@ -77,7 +74,7 @@ To use Wi-Fi:
 $ INFRA_IF_NAME=wlan0 ./script/setup
 ```
 
-To use Network Manager for [BeagleBone Black](beaglebone-black.md):
+To use Network Manager for [BeagleBone Black](beaglebone-black.md) (optional):
 
 ```
 $ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 INFRA_IF_NAME=wlan0 ./script/setup
