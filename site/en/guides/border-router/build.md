@@ -78,7 +78,7 @@ $ INFRA_IF_NAME=wlan0 ./script/setup
 To use Network Manager for [BeagleBone Black](beaglebone-black.md) (optional):
 
 ```
-$ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 INFRA_IF_NAME=wlan0 ./script/setup
+$ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/setup
 ```
 
 ## Step 4: Attach and configure RCP device
