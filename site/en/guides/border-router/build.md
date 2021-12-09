@@ -42,26 +42,26 @@ $ git clone https://github.com/openthread/ot-br-posix
 
 Install dependencies. 
 
-*   **Default Config**: Most platforms can use the default configuration for
-    OTBR, without passing additional options:
+**Default Config**: Most platforms can use the default configuration for
+OTBR, without passing additional options:
 
-    ```
-    $ cd ot-br-posix
-    $ ./script/bootstrap
-    ```
+```
+$ cd ot-br-posix
+$ ./script/bootstrap
+```
 
-*   **BeagleBone Black**: _Optional_. If you installed Network Manager for
-    [BeagleBone Black](beaglebone-black.md), make sure to include the `NETWORK`
-    options.
+**BeagleBone Black**: _Optional_. If you installed Network Manager for
+[BeagleBone Black](beaglebone-black.md), make sure to include the `NETWORK`
+options.
 
-    ```
-    $ cd ot-br-posix
-    $ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/bootstrap
-    ```
+```
+$ cd ot-br-posix
+$ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/bootstrap
+```
     
-    For a complete list of OTBR options and default values, refer to
-    [](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
-    Select your platform, then click `default`.
+For a complete list of OTBR options and default values, refer to
+[platform examples on GitHub](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
+Select your platform, then click `default`.
 
 Compile and install OTBR. Note that the setup script enables Border Routing
 by default. To enable Border Routing, specify your platform's Ethernet or
