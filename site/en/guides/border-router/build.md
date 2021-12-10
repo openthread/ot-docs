@@ -47,14 +47,14 @@ complete list of OTBR default flags, refer to
 [platform examples on GitHub](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
 Select your platform, then click `default`, if available.
 
-*   Default usage.
+*   Default usage:
 
     ```
     $ cd ot-br-posix
     $ ./script/bootstrap
     ```
 
-*   [BeagleBone Black](beaglebone-black.md) with Network Manager (optional).
+*   [BeagleBone Black](beaglebone-black.md) with Network Manager (optional):
 
     ```
     $ cd ot-br-posix
@@ -69,23 +69,19 @@ Routing, specify your platform's Ethernet or Wi-Fi interface.
 > Note: If you added or modified flags for the `bootstrap` script,
 you'll need to make the same changes here.
 
-*  Default usage.
- 
-    Use Ethernet:
+*  Use Ethernet:
 
     ```
     $ INFRA_IF_NAME=eth0 ./script/setup
     ```
 
-    Use Wi-Fi:
+*   Use Wi-Fi:
 
     ```
     $ INFRA_IF_NAME=wlan0 ./script/setup
     ```
 
-*   [BeagleBone Black](beaglebone-black.md) (optional).
-
-    Use Network Manager:
+*   [BeagleBone Black](beaglebone-black.md), use Network Manager (optional):
 
     ```
     $ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/setup
