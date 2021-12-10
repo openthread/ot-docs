@@ -81,7 +81,7 @@ you'll need to make the same changes here.
     $ INFRA_IF_NAME=wlan0 ./script/setup
     ```
 
-*   [BeagleBone Black](beaglebone-black.md), use Network Manager (optional):
+*   [BeagleBone Black](beaglebone-black.md). Use Network Manager (optional):
 
     ```
     $ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/setup
