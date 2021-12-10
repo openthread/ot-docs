@@ -6,7 +6,8 @@ authors: Simon Lin
 categories: Nest
 tags: web
 feedback link: https://github.com/openthread/ot-br-posix/issues
-
+project: /_project.yaml
+book: /_book.yaml
 ---
 
 # Thread Border Router - Thread 1.2 Multicast

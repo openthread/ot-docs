@@ -6,7 +6,8 @@ authors: Kangping Dong
 categories: Nest
 tags: web
 feedback link: https://github.com/openthread/ot-br-posix/issues
-
+project: /_project.yaml
+book: /_book.yaml
 ---
 
 # Thread Border Router - Bidirectional IPv6 Connectivity and DNS-Based Service Discovery
