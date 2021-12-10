@@ -40,46 +40,56 @@ Clone the OTBR repository:
 $ git clone https://github.com/openthread/ot-br-posix
 ```
 
-Install dependencies. For a complete list of OTBR default
-flags, refer to [platform examples on GitHub](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
+### Install dependencies
+
+The default configuration enables `BORDER_ROUTING` for most platforms. For a
+complete list of OTBR default flags, refer to
+[platform examples on GitHub](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
 Select your platform, then click `default`, if available.
 
-To use default flags:
+*   Default usage.
 
-```
-$ cd ot-br-posix
-$ ./script/bootstrap
-```
+    ```
+    $ cd ot-br-posix
+    $ ./script/bootstrap
+    ```
 
-To use Network Manager with [BeagleBone Black](beaglebone-black.md) (optional):
+*   [BeagleBone Black](beaglebone-black.md) with Network Manager (optional).
 
-```
-$ cd ot-br-posix
-$ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/bootstrap
-```
+    ```
+    $ cd ot-br-posix
+    $ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/bootstrap
+    ```
 
-Compile and install OTBR. Note that the setup script enables Border Routing
-by default. To enable Border Routing, specify your platform's Ethernet or
-Wi-Fi interface. If you added or modified flags for the `bootstrap` script,
+### Compile and install OTBR
+
+The setup script enables Border Routing by default. To enable Border
+Routing, specify your platform's Ethernet or Wi-Fi interface. 
+
+> Note: If you added or modified flags for the `bootstrap` script,
 you'll need to make the same changes here.
 
-To use Ethernet:
+*  Default usage.
+ 
+    Use Ethernet:
 
-```
-$ INFRA_IF_NAME=eth0 ./script/setup
-```
+    ```
+    $ INFRA_IF_NAME=eth0 ./script/setup
+    ```
 
-To use Wi-Fi:
+    Use Wi-Fi:
 
-```
-$ INFRA_IF_NAME=wlan0 ./script/setup
-```
+    ```
+    $ INFRA_IF_NAME=wlan0 ./script/setup
+    ```
 
-To use Network Manager for [BeagleBone Black](beaglebone-black.md) (optional):
+*   [BeagleBone Black](beaglebone-black.md) (optional).
 
-```
-$ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/setup
-```
+    Use Network Manager:
+
+    ```
+    $ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/setup
+    ```
 
 ## Step 4: Attach and configure RCP device
 
