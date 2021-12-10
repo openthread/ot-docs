@@ -63,19 +63,19 @@ Select your platform, then click `default`, if available.
 
 ### Compile and install OTBR
 
-The setup script enables Border Routing by default. To enable Border
-Routing, specify your platform's Ethernet or Wi-Fi interface. 
-
 > Note: If you added or modified flags for the `bootstrap` script,
 you'll need to make the same changes here.
 
-*  Use Ethernet:
+*   Default usage. The setup script enables Border Routing by default. To enable
+    Border Routing, specify your platform's Ethernet or Wi-Fi interface:
+
+    Use Ethernet:
 
     ```
     $ INFRA_IF_NAME=eth0 ./script/setup
     ```
 
-*   Use Wi-Fi:
+    Use Wi-Fi:
 
     ```
     $ INFRA_IF_NAME=wlan0 ./script/setup
