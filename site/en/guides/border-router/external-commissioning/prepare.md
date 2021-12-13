@@ -133,9 +133,11 @@ and concepts:
     *   Must be a string of all uppercase alphanumeric characters (0-9 and A-Y,
         excluding I, O, Q, and Z for readability), with a length between 6 and
         32 characters
-    *   Used to authenticate a device during Thread Commissioning
-    *   Used with a device's EUI64 value to generate a unique QR Code
-    *   Also referred to as Join Passphrase, Joiner Password, or PSKd
+        
+    The Joining Device Credential might also be referred to as Join Passphrase,
+    Joiner Password, or PSKd. This Passphrase is used to authenticate a device
+    during Thread Commissioning. You can also use it with a device's EUI64
+    value to generate a unique QR Code.
 
 *   **PSKd**: Pre-Shared Key for the Joiner. The PSKd is the Joining Device
     Credential when it's specifically encoded in binary form.
