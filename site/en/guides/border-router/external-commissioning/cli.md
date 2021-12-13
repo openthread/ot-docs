@@ -13,7 +13,8 @@ To use OT Commissioner CLI, first [Build OT Commissioner](../../commissioner/bui
 
 To start OT Commissioner, you'll need to find the IP address and port number of
 your border agent service. For help on locating this information, refer to
-[mDNS Discovery](../mdns-discovery.md).
+[mDNS Discovery](../mdns-discovery.md). The Border Agent supports both IPv4 and
+IPv6 connections.
 
 > Note: To support multiple Thread interfaces on a single host, the border agent
 service uses an ephemeral port by default. This means that your port number
