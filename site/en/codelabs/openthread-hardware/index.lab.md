@@ -866,8 +866,10 @@ Done
 ```
 
 On the **FTD Commissioner**, start the commissioner and specify the `eui64` of
-the device that can join, along with the Joiner Credential. The Joiner
-Credential is a device-specific passphrase.
+the device that can join, along with the Joiner Credential, for example
+`J01NME`. The Joiner Credential is a device-specific passphrase, and must be a
+string of all uppercase alphanumeric characters (0-9 and A-Y, excluding I, O,
+Q, and Z for readability), with a length between 6 and 32 characters.
 
 ```console
 ## FTD Commissioner ##
