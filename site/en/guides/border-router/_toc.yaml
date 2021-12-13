@@ -4,7 +4,7 @@ toc:
 - title: Get Started
   path: /guides/border-router/get-started
 
-- heading: Platforms - Linux 
+- heading: Platforms - Linux
 - title: BeagleBone Black
   path: /guides/border-router/beaglebone-black
 - title: Raspberry Pi
