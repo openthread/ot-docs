@@ -91,7 +91,8 @@ discovery apps, for example:
 * [Discovery - DNS-SD Browser](https://apps.apple.com/app/discovery-dns-sd-browser/id305441017) for iOS
 
 > Note: Make sure that your mobile device is on the same network as your Thread
-network, and connected to Wi-Fi 2.4GHz.
+network. If you have issues with service discovery and you're on Wi-Fi 5G, try
+switching to Wi-Fi 2.4GHz.
 
 ## License
 
