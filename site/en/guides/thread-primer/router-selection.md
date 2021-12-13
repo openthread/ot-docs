@@ -3,7 +3,7 @@
 ## Connected Dominating Set
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-cds_2x.png"><img src="../images/ot-primer-cds.png" srcset="../images/ot-primer-cds.png 1x, ../images/ot-primer-cds_2x.png 2x" width="350" border="0" alt="OT Connected Dominating Set" /></a><figcaption style="text-align: center"><i>Example of a Connected Dominating Set</i></figcaption>
+<a href="../images/ot-primer-cds.png"><img src="../images/ot-primer-cds.png" width="350" border="0" alt="OT Connected Dominating Set" /></a><figcaption style="text-align: center"><i>Example of a Connected Dominating Set</i></figcaption>
 </figure>
 
 Routers must form a Connected Dominating Set (CDS), which means:
@@ -55,7 +55,7 @@ to `ff02::2`. Later, after discovering the other Routers via MLE Advertisements,
 the devices send unicast Link Requests.
 
 <figure>
-<a href="../images/ot-primer-network-mle-link-request-01_2x.png"><img src="../images/ot-primer-network-mle-link-request-01.png" srcset="../images/ot-primer-network-mle-link-request-01.png 1x, ../images/ot-primer-network-mle-link-request-01_2x.png 2x" width="350" border="0" alt="OT MLE Link Request" /></a>
+<a href="../images/ot-primer-network-mle-link-request-01.png"><img src="../images/ot-primer-network-mle-link-request-01.png" width="350" border="0" alt="OT MLE Link Request" /></a>
 </figure>
 
 <table>
@@ -64,21 +64,21 @@ the devices send unicast Link Requests.
       <th colspan=2>Link Request Message Contents</th>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Version</b></td>
+      <td width="25%"><b>Version</b></td>
       <td>Thread protocol version</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Challenge</b></td>
+      <td width="25%"><b>Challenge</b></td>
       <td>Tests the timeliness of the Link Response to prevent replay
         attacks</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Source
+      <td width="25%"><b>Source
         Address</b></td>
       <td>RLOC16 of the sender</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Leader
+      <td width="25%"><b>Leader
         Data</b></td>
       <td>Information about the Router's Leader, as stored on the sender (RLOC,
         Partition ID, Partition weight)</td>
@@ -93,7 +93,7 @@ messages. Thread uses this optimization in the MLE Link Request process to
 reduce the number of messages from four to three.
 
 <figure>
-<a href="../images/ot-primer-network-mle-link-request-02_2x.png"><img src="../images/ot-primer-network-mle-link-request-02.png" srcset="../images/ot-primer-network-mle-link-request-02.png 1x, ../images/ot-primer-network-mle-link-request-02_2x.png 2x" width="350" border="0" alt="OT MLE Link Accept and Request" /></a>
+<a href="../images/ot-primer-network-mle-link-request-02.png"><img src="../images/ot-primer-network-mle-link-request-02.png" width="350" border="0" alt="OT MLE Link Accept and Request" /></a>
 </figure>
 
 ### 3. Link Accept
@@ -103,7 +103,7 @@ that provides information about itself and accepts the link to the neighboring
 Router.
 
 <figure>
-<a href="../images/ot-primer-network-mle-link-request-03_2x.png"><img src="../images/ot-primer-network-mle-link-request-03.png" srcset="../images/ot-primer-network-mle-link-request-03.png 1x, ../images/ot-primer-network-mle-link-request-03_2x.png 2x" width="350" border="0" alt="OT MLE Link Accept" /></a>
+<a href="../images/ot-primer-network-mle-link-request-03.png"><img src="../images/ot-primer-network-mle-link-request-03.png" width="350" border="0" alt="OT MLE Link Accept" /></a>
 </figure>
 
 <table>
@@ -112,31 +112,31 @@ Router.
       <th colspan=2>Link Accept Message Contents</th>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Version</b></td>
+      <td width="25%"><b>Version</b></td>
       <td>Thread protocol version</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Response</b></td>
+      <td width="25%"><b>Response</b></td>
       <td>Tests the timeliness of the Link Response to prevent replay
         attacks</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Link Frame
+      <td width="25%"><b>Link Frame
         Counter</b></td>
       <td>802.15.4 Frame Counter on the sender</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>MLE Frame
+      <td width="25%"><b>MLE Frame
         Counter</b></td>
       <td>MLE Frame Counter on the sender</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Source
+      <td width="25%"><b>Source
         Address</b></td>
       <td>RLOC16 of the sender</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Leader
+      <td width="25%"><b>Leader
         Data</b></td>
       <td>Information about the Router's Leader, as stored on the sender (RLOC,
         Partition ID, Partition weight)</td>
@@ -151,7 +151,7 @@ and the device initiates the MLE Attach process to establish a Child-Parent
 link.
 
 See [Join an existing
-network](/guides/thread-primer/network-discovery#join_an_existing_network)
+network](network-discovery.md)
 for more information on the MLE Attach process.
 
 ## One-way receive links

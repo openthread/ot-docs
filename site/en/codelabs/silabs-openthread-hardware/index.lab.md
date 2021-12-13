@@ -6,7 +6,8 @@ authors: Mithil Raut
 categories: Nest
 tags: web
 feedback link: https://github.com/openthread/ot-docs/issues
-
+project: /_project.yaml
+book: /_book.yaml
 ---
 
 # Build a Thread network with Silicon Labs EFR32 boards and OpenThread using Simplicity Studio v5

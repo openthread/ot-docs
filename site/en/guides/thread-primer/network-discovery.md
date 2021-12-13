@@ -17,7 +17,7 @@ XPAN ID | `0xBEEF1111CAFE2222`
 Network Name | `yourThreadCafe`
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-network-active-scan_2x.png"><img src="../images/ot-primer-network-active-scan.png" srcset="../images/ot-primer-network-active-scan.png 1x, ../images/ot-primer-network-active-scan_2x.png 2x" border="0" alt="OT Active Scan" /></a>
+<a href="../images/ot-primer-network-active-scan.png"><img src="../images/ot-primer-network-active-scan.png" border="0" alt="OT Active Scan" /></a>
 </figure>
 
 When creating a new Thread network, or searching for an existing one to join, a
@@ -95,7 +95,7 @@ to discover neighboring Routers and Router Eligible End Devices (REEDs) in the
 target network.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-01_2x.png"><img src="../images/ot-primer-network-mle-attach-01.png" srcset="../images/ot-primer-network-mle-attach-01.png 1x, ../images/ot-primer-network-mle-attach-01_2x.png 2x" width="350" border="0" alt="OT MLE Attach Parent Request" /></a>
+<a href="../images/ot-primer-network-mle-attach-01.png"><img src="../images/ot-primer-network-mle-attach-01.png" width="350" border="0" alt="OT MLE Attach Parent Request" /></a>
 </figure>
 
 <table>
@@ -104,16 +104,16 @@ target network.
       <th colspan=2>Parent Request Message Contents</th>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Mode</b></td>
+      <td width="25%"><b>Mode</b></td>
       <td>Describes the attaching device</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Challenge</b></td>
+      <td width="25%"><b>Challenge</b></td>
       <td>Tests the timeliness of the Parent Response to prevent replay
         attacks</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Scan Mask</b></td>
+      <td width="25%"><b>Scan Mask</b></td>
       <td>Limits the request to only Routers or to both Routers and REEDs</td>
     </tr>
   </tbody>
@@ -125,7 +125,7 @@ A Parent Response is a unicast response to a Parent Request that provides
 information about a Router or REED to the attaching device.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-02_2x.png"><img src="../images/ot-primer-network-mle-attach-02.png" srcset="../images/ot-primer-network-mle-attach-02.png 1x, ../images/ot-primer-network-mle-attach-02_2x.png 2x" width="350" border="0" alt="OT MLE Attach Parent Response" /></a>
+<a href="../images/ot-primer-network-mle-attach-02.png"><img src="../images/ot-primer-network-mle-attach-02.png" width="350" border="0" alt="OT MLE Attach Parent Response" /></a>
 </figure>
 
 <table>
@@ -134,44 +134,44 @@ information about a Router or REED to the attaching device.
       <th colspan=2>Parent Response Message Contents</th>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Version</b></td>
+      <td width="25%"><b>Version</b></td>
       <td>Thread protocol version</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Response</b></td>
+      <td width="25%"><b>Response</b></td>
       <td>Copy of the Parent Request Challenge</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Link Frame
+      <td width="25%"><b>Link Frame
         Counter</b></td>
       <td>802.15.4 Frame Counter on the Router/REED</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>MLE Frame
+      <td width="25%"><b>MLE Frame
         Counter</b></td>
       <td>MLE Frame Counter on the Router/REED</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Source
+      <td width="25%"><b>Source
         Address</b></td>
       <td>RLOC16 of the Router/REED</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Link
+      <td width="25%"><b>Link
         Margin</b></td>
       <td>Receive signal quality of the Router/REED</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Connectivity</b></td>
+      <td width="25%"><b>Connectivity</b></td>
       <td>Describes the Router/REED’s level of connectivity</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Leader
+      <td width="25%"><b>Leader
         Data</b></td>
       <td>Information about the Router/REED’s Leader</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Challenge</b></td>
+      <td width="25%"><b>Challenge</b></td>
       <td>Tests the timeliness of the Child ID Request to prevent replay
         attacks</td>
     </tr>
@@ -183,11 +183,11 @@ information about a Router or REED to the attaching device.
 A Child ID Request is a unicast request from the attaching device (Child) that
 is sent to the Router or REED (Parent) for the purpose of establishing a
 Child-Parent link. If the request is sent to a REED, it [upgrades itself to a
-Router](/guides/thread-primer/router-selection#upgrade_to_a_router) before
+Router](router-selection.md) before
 accepting the request.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-03_2x.png"><img src="../images/ot-primer-network-mle-attach-03.png" srcset="../images/ot-primer-network-mle-attach-03.png 1x, ../images/ot-primer-network-mle-attach-03_2x.png 2x" width="350" border="0" alt="OT MLE Attach Child ID Request" /></a>
+<a href="../images/ot-primer-network-mle-attach-03.png"><img src="../images/ot-primer-network-mle-attach-03.png" width="350" border="0" alt="OT MLE Attach Child ID Request" /></a>
 </figure>
 
 <table>
@@ -196,32 +196,32 @@ accepting the request.
       <th colspan=2>Child ID Request Message Contents</th>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Version</b></td>
+      <td width="25%"><b>Version</b></td>
       <td>Thread protocol version</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Response</b></td>
+      <td width="25%"><b>Response</b></td>
       <td>Copy of the Parent Response Challenge</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Link Frame
+      <td width="25%"><b>Link Frame
         Counter</b></td>
       <td>802.15.4 Frame Counter on the Child</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>MLE Frame
+      <td width="25%"><b>MLE Frame
         Counter</b></td><td>MLE Frame Counter on the Child</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Mode</b></td>
+      <td width="25%"><b>Mode</b></td>
       <td>Describes the Child</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Timeout</b></td>
+      <td width="25%"><b>Timeout</b></td>
       <td>Inactivity duration before the Parent removes the Child</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Address
+      <td width="25%"><b>Address
         Registration (MEDs and SEDs only)</b></td>
       <td>Register IPv6 addresses</td>
     </tr>
@@ -234,7 +234,7 @@ A Child ID Response is a unicast response from the Parent that is sent to the
 Child to confirm that a Child-Parent link has been established.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-04_2x.png"><img src="../images/ot-primer-network-mle-attach-04.png" srcset="../images/ot-primer-network-mle-attach-04.png 1x, ../images/ot-primer-network-mle-attach-04_2x.png 2x" width="350" border="0" alt="OT MLE Attach Child ID Response" /></a>
+<a href="../images/ot-primer-network-mle-attach-04.png"><img src="../images/ot-primer-network-mle-attach-04.png" width="350" border="0" alt="OT MLE Attach Child ID Response" /></a>
 </figure>
 
 <table>
@@ -243,37 +243,37 @@ Child to confirm that a Child-Parent link has been established.
       <th colspan=2>Child ID Response Message Contents</th>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Source
+      <td width="25%"><b>Source
         Address</b></td>
       <td>Parent's RLOC16</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Address16</b></td>
+      <td width="25%"><b>Address16</b></td>
       <td>Child's RLOC16</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Leader
+      <td width="25%"><b>Leader
         Data</b></td>
       <td>Information about the Parent’s Leader (RLOC, Partition ID, Partition
         weight)</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Network
+      <td width="25%"><b>Network
         Data</b></td>
       <td>Information about the Thread network (on-mesh prefixes, address
         autoconfiguration, more-specific routes)</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Route
+      <td width="25%"><b>Route
         (REED only)</b></td>
       <td>Route propagation</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Timeout</b></td>
+      <td width="25%"><b>Timeout</b></td>
       <td>Inactivity duration before the Parent removes the Child</td>
     </tr>
     <tr>
-      <td width="25%" style="background-color:rgb(238, 241, 242)"><b>Address
+      <td width="25%"><b>Address
         Registration (MEDs and SEDs only)</b></td>
       <td>Confirm registered addresses</td>
     </tr>
