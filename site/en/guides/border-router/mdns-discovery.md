@@ -67,8 +67,7 @@ Start the `avahi-daemon`:
 $ sudo service avahi-daemon start
 ```
 
-Use `avahi-browse`. To resolve IPv6 only, edit `/etc/avahi/avahi-daemon.conf`
-and set `use-ipv4=no` and `use-ipv6=yes`.
+Use `avahi-browse`:
 
 ```
 $ avahi-browse -r -t _meshcop._udp
