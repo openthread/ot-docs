@@ -74,8 +74,8 @@ $ avahi-browse -r -t _meshcop._udp
 ```
 
 <pre>
-+ eth0 IPv6 OpenThread_BorderRouter   _meshcop._udp        local
-= eth0 IPv6 OpenThread_BorderRouter   _meshcop._udp        local
++ eth0 IPv6 OpenThread BorderRouter   _meshcop._udp        local
+= eth0 IPv6 OpenThread BorderRouter   _meshcop._udp        local
    hostname = [raspberrypi.local]
    address = [192.168.0.10]
    port = [49155]
