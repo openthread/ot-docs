@@ -17,12 +17,8 @@ Steps to enable:
 
 1. Download and install the OS.
 1. Prepare the Debian Environment for OTBR
+1. (Optional) Enable Wi-Fi
 1. Build and install OTBR
-
-> Note: The BBB does not have built-in Wi-Fi support. This guide was built and
-tested with a BBONE-GATEWAY-CAPE for Wi-Fi AP operation. Some BeagleBone
-variants have onboard Wi-Fi capability, and some of this guide may be
-applicable.
 
 ## Step 1: Download and install the OS
 
@@ -51,38 +47,6 @@ Page](https://beagleboard.org/support).
 
 ## Step 2: Prepare the Debian Environment for OTBR
 
-Certain parts of the default BeagleBone Debian image run by default. These may
-conflict with some parts of the OpenThread Border Router software.
-
-Some packages are running by default on the BeagleBone to enable quick
-development. These can be found in systemd with the command `sudo systemctl
-list-units --all` and `sudo systemctl list-sockets --all`.
-
-Stop and disable the modules:
-
-```
-$ sudo systemctl stop bonescript-autorun.service
-$ sudo systemctl stop bonescript.socket
-$ sudo systemctl stop bonescript.service
-$ sudo systemctl stop cloud9.socket
-$ sudo systemctl stop cloud9.service
-$ sudo systemctl stop nodered.service
-$ sudo systemctl disable bonescript-autorun.service
-$ sudo systemctl disable bonescript.socket
-$ sudo systemctl disable bonescript.service
-$ sudo systemctl disable cloud9.socket
-$ sudo systemctl disable cloud9.service
-$ sudo systemctl disable nodered.service
-$ sudo systemctl daemon-reload
-```
-
-Disable advertising the Cloud9 IDE and NodeRED services with Avahi by deleting
-the service files:
-
-```
-$ sudo rm /etc/avahi/services/*
-```
-
 The filesystem for the uSD BeagleBone image is limited to 4GB to fit on most
 uSD cards. Expand the partition to enable usage of the entire storage capacity.
 
@@ -98,7 +62,18 @@ filesystem definition.
 $ sudo shutdown -r now
 ```
 
-This will close your SSH session.
+This will close your SSH session. Once you are logged back in you may skip to
+building the OTBR code.
+
+## Step 3: (Optional) Enable Wi-Fi
+
+> Note: The BeagleBone Black does not have built-in Wi-Fi support. This guide
+was built and tested with a BBONE-GATEWAY-CAPE for Wi-Fi AP operation. Some
+BeagleBone variants have onboard Wi-Fi capability, and some of this guide may
+be applicable. Connman is used by the generic BeagleBone distribution for Wi-Fi
+connectivity, you are encouraged to look at the configuration options available
+in the files `/etc/default/bb*` and the setup scripts `/usr/bin/bb*`. This
+package may be more applicable to your application.
 
 Once logged back into the BeagleBone, install Network Manager:
 
@@ -136,10 +111,6 @@ Restart to make sure Network Manager is setup correctly.
 ```
 $ sudo shutdown -r now
 ```
-
-> Note: If your BeagleBone has a WiLink based Wi-Fi module installed, the
-following steps may be applicable to you. This was tested with a
-BBONE-GATEWAY-CAPE. Some of these may not be required.
 
 The WiLink 8 module does not like to have its MAC address changed at runtime.
 Network Manager will try to do this when scanning. Edit the
@@ -190,7 +161,11 @@ interface.
 interface. If you do not see the interface, check `journalctl` to see if the
 system is having difficulty bringing up the interface.
 
-## Step 3: Build and install OTBR
+Don't forget to pass the options `NETWORK_MANAGER=1` and
+`NETWORK_MANAGER_WIFI=1` to the setup script in the next step to use Network
+Manager.
+
+## Step 4: Build and install OTBR
 
 See [Build and Configuration](build.md)
 for instructions on building and installing OTBR. 

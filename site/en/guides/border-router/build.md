@@ -40,28 +40,52 @@ Clone the OTBR repository:
 $ git clone https://github.com/openthread/ot-br-posix
 ```
 
-Install dependencies:
+### Install dependencies
 
-```
-$ cd ot-br-posix
-$ ./script/bootstrap
-```
+The default configuration enables `BORDER_ROUTING` for most platforms. For a
+complete list of OTBR default flags, refer to
+[platform examples on GitHub](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
+Select your platform, then click `default`, if available.
 
-Compile and install OTBR. Note that the setup script enables Border Routing
-by default. To enable Border Routing, specify your platform's Ethernet or
-Wi-Fi interface.
+*   Default usage:
 
-To use Ethernet:
+    ```
+    $ cd ot-br-posix
+    $ ./script/bootstrap
+    ```
 
-```
-$ INFRA_IF_NAME=eth0 ./script/setup
-```
+*   [BeagleBone Black](beaglebone-black.md) with Network Manager (optional):
 
-To use Wi-Fi:
+    ```
+    $ cd ot-br-posix
+    $ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/bootstrap
+    ```
 
-```
-$ INFRA_IF_NAME=wlan0 ./script/setup
-```
+### Compile and install OTBR
+
+> Note: If you added or modified flags for the `bootstrap` script,
+you'll need to make the same changes here.
+
+*   Default usage. The setup script enables Border Routing by default. To enable
+    Border Routing, specify your platform's Ethernet or Wi-Fi interface:
+
+    Use Ethernet:
+
+    ```
+    $ INFRA_IF_NAME=eth0 ./script/setup
+    ```
+
+    Use Wi-Fi:
+
+    ```
+    $ INFRA_IF_NAME=wlan0 ./script/setup
+    ```
+
+*   [BeagleBone Black](beaglebone-black.md). Use Network Manager (optional):
+
+    ```
+    $ NETWORK_MANAGER=1 NETWORK_MANAGER_WIFI=1 ./script/setup
+    ```
 
 ## Step 4: Attach and configure RCP device
 
