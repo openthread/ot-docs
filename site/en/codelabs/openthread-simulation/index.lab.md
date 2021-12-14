@@ -8,6 +8,7 @@ tags: io2017,web
 feedback link: https://github.com/openthread/ot-docs/issues
 project: /_project.yaml
 book: /_book.yaml
+
 ---
 
 # Simulating a Thread network using OpenThread in Docker

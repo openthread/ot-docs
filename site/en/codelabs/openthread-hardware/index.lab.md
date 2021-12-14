@@ -8,6 +8,7 @@ tags: web
 feedback link: https://github.com/openthread/ot-docs/issues
 project: /_project.yaml
 book: /_book.yaml
+
 ---
 
 # Build a Thread network with nRF52840 boards and OpenThread
