@@ -1,6 +1,6 @@
 # mDNS Discovery
 
-OTBR registers a `_meshcop._udp` service named `OpenThread_BorderRouter`. This
+OTBR registers a `_meshcop._udp` service named `OpenThread BorderRouter`. This
 service is configured in the [OTBR CMakeLists.txt file](https://github.com/openthread/ot-br-posix/blob/main/CMakeLists.txt#L36).
 
 There are several ways to discover your Thread network.
@@ -10,14 +10,14 @@ There are several ways to discover your Thread network.
 Use `dns-sd` to browse for a service on `raspberrypi.local.:49155`:
 
 ```
-$ dns-sd -L "OpenThread_BorderRouter" _meshcop._udp local
+$ dns-sd -L "OpenThread BorderRouter" _meshcop._udp local
 ```
 
 <pre>
-Lookup OpenThread_BorderRouter._meshcop._udp.local
+Lookup OpenThread BorderRouter._meshcop._udp.local
 DATE: ---Tue 16 Nov 2021---
 13:31:03.197  ...STARTING...
-13:31:03.350  OpenThread_BorderRouter._meshcop._udp.local. can be reached at raspberrypi.local.:49155 (interface 3)
+13:31:03.350  OpenThread\032BorderRouter._meshcop._udp.local. can be reached at raspberrypi.local.:49155 (interface 3)
 </pre>
 
 Get the IP addresses associated with your OTBR domain name:
