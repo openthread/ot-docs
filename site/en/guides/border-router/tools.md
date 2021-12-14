@@ -127,7 +127,7 @@ Done
 Done
 ```
 
-## MeshCop Script
+## MeshCoP Script
 
 OTBR provides a MeshCoP (Mesh Commissioning Protocol) test script that
 uses [OT Commissioner](../commissioner/index.md) to test [External Commissioning](external-commissioning/index.md).
