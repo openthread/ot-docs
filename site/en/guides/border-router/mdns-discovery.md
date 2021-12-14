@@ -39,15 +39,15 @@ Timestamp     A/R Flags if Hostname           Address                           
 
 Ping your IP address. From the `dns-sd` results, choose an address that's
 reachable from your network, for example the global `<0>` address
-**FD00:0000:0000:0000:74D0:6FC9:6BE6:3582**:
+`FD00::74D0:6FC9:6BE6:3582`:
 
 ```
-$ ping -6 FD00:0000:0000:0000:74D0:6FC9:6BE6:3582
+$ ping -6 FD00::74D0:6FC9:6BE6:3582
 
 ```
 
 <pre>
-PING FD00:0000:0000:0000:74D0:6FC9:6BE6:3582(fd00::74d0:6fc9:6be6:3582) 56 data bytes
+PING FD00::74D0:6FC9:6BE6:3582(fd00::74d0:6fc9:6be6:3582) 56 data bytes
 64 bytes from fd00::74d0:6fc9:6be6:3582: icmp_seq=1 ttl=64 time=27.1 ms
 64 bytes from fd00::74d0:6fc9:6be6:3582: icmp_seq=2 ttl=64 time=3.18 ms
 64 bytes from fd00::74d0:6fc9:6be6:3582: icmp_seq=3 ttl=64 time=2.76 ms
