@@ -1,5 +1,31 @@
 # Cleanup and Docker Basics
 
+## Use OTBR Docker
+
+You can interact with OTBR Docker using `docker exec`. From a new terminal
+window, provide your container name and start a `bash` session:
+
+```
+$ sudo docker exec -it {otbr} bash
+root@:/app# 
+```
+
+At the `root@` prompt, type `ot-ctl` to run CLI commands. If you don't
+get the `>` prompt, press `Enter` again:
+
+```
+root@:/app# ot-ctl
+ 
+> 
+```
+
+Type `exit` to get back to the `root@` prompt. To check `otbr-agent`:
+
+```
+root@:/app# sudo service otbr-agent status
+* otbr-agent is running
+```
+
 ## Stop OTBR Docker
 
 Use `Ctrl+C` in the terminal window running OTBR Docker to stop the process
