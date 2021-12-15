@@ -49,6 +49,11 @@ Once installed, boot up the RPi and open a terminal window.
     $ sudo apt install git
     ```
 
+1.  Load kernel modules for OTBR firewall support:
+    ```
+    $ sudo modprobe ip6table_filter
+    ```
+
 ## Linux setup
 
 Use the same instructions as the RPi:
@@ -78,6 +83,11 @@ Use the same instructions as the RPi:
 1.  Install git:
     ```
     $ sudo apt install git
+    ```
+
+1.  Load kernel modules for OTBR firewall support:
+    ```
+    $ sudo modprobe ip6table_filter
     ```
 
 ## Mac or Windows
