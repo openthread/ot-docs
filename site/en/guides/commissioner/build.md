@@ -103,8 +103,30 @@ update `"ThreadSMRoot" : "/usr/local/etc/commissioner"`.
 ### Non-CCM configuration
 
 The Pre-Shared Key `PSKc` is used to establish a secure session between the
-Commissioner and Border Agent. To connect to a Non-CCM Thread network, update
-`PSKc` in `non-ccm-config.json`.
+Commissioner and Border Agent. To connect to a Non-CCM Thread network, you
+can set your `PSKc` from the OT Commissioner CLI. For more information,
+refer to [External Commissioning](../border-router/external-commissioning/index.md).
+
+### Logging
+
+When you run `pi@raspberrypi: commissioner-cli` from the command line,
+OT Commissioner creates a `commissioner.log` file in the current working
+directory, for example `/home/pi/commissioner.log`. In the JSON configuration
+file, you can configure your `LogFile` path, logging level, and other log
+settings.
+
+### Load configuration
+
+To start OT Commissioner with your configuration settings:
+
+```
+$ commissioner-cli {/usr/local}/etc/commissioner/{ccm-config}.json
+> 
+```
+
+> Note: If you're using the default configuration settings in the
+`non-ccm-config.json` file, you don't need to pass it to
+`commissioner-cli`.
 
 ## Commission a joiner
 

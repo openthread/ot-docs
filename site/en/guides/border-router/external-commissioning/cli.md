@@ -1,35 +1,47 @@
-#  OT Commissioner CLI
+# OT Commissioner CLI
 
 External commissioning is supported by the OT Commissioner CLI, available
-on the [ot-commissioner GitHub repository](https://github.com/openthread/ot-commissioner). For
-instructions on how to build and install OT Commissioner, refer to [OT Commissioner Build and
-Configuration](../../commissioner/build.md).
+on the [ot-commissioner GitHub repository](https://github.com/openthread/ot-commissioner).
 
-> Note: OT Commissioner must be running on the same host machine as OTBR.
+In this guide, you'll build and install OT Commissioner and commission a Joiner.
+
+## Set up OT Commissioner
+
+To use OT Commissioner CLI, first [Build OT Commissioner](../../commissioner/build.md).
+
+## Discover your network
+
+To start OT Commissioner, you'll need to find the IP address and port number of
+your border agent service. For help on locating this information, refer to
+[mDNS Discovery](../mdns-discovery.md). The Border Agent supports both IPv4 and
+IPv6 connections.
+
+> Note: To support multiple Thread interfaces on a single host, the border agent
+service uses an ephemeral port by default. This means that your port number
+might change when you restart `otbr-agent` or your OTBR platform.
 
 ## Connect to the Border Router
 
-1.  Open the Non-CCM configuration file located at
-    `/usr/local/etc/commissioner/non-ccm-config.json` and change the `PSKc` to
-    `198886f519a8fd7c981fee95d72f4ba7`:
+1.  Start the OT Commissioner CLI:
 
     ```
-    "PSKc" : "198886f519a8fd7c981fee95d72f4ba7"
-    ```
-
-1.  Start the OT Commissioner CLI with the Non-CCM configuration:
-
-    ```
-    $ commissioner-cli /usr/local/etc/commissioner/non-ccm-config.json
+    $ commissioner-cli
     > 
     ```
 
-1.  Connect to OTBR:
+1.  Set your PSKc:
 
     ```
-    > start :: 49191
+    > config set pskc 198886f519a8fd7c981fee95d72f4ba7
     [done]
-    > 
+    ```
+
+1.  Connect to OTBR, providing your mDNS IP address and port:
+
+    ```
+    > start FD00::74D0:6FC9:6BE6:3582 49155
+    [done]
+    >
     ```
 
 1.  Verify that the Commissioner is active:
@@ -72,7 +84,58 @@ device.
 
 ## Join the Thread network
 
-Next, on the Joiner device, [join the Thread network](join.md) and test network connectivity.
+Next, on the Joiner device, [join the Thread network](join.md) and test network
+connectivity.
+
+## Troubleshooting
+
+If you're having issues with OT Commissioner, check the `commissioner.log`,
+if available. To configure logging, refer to [Build OT Commissioner](../../commissioner/build.md).
+
+**IO_ERROR: connect socket to peer addr**
+
+Try using a different IP address to start OT Commissioner.
+
+**IO_ERROR: NET - Reading information from the socket failed**
+
+The socket APIs return this error message when a call to bind or connect to OTBR
+fails. If you're receiving this error message, try the following:
+
+*   Make sure that you're passing the correct port number when you start OT
+    Commissioner. OTBR may use a different port after it's restarted or you
+    reboot your platform.
+*   Make sure that OTBR is running and that your Thread network is properly
+    configured, including your PSKc. Your Passphrase/Commissioner Credential
+    must be a string between 6 and 255 characters.
+*   Check your global IP addresses, for example `ifconfig eth0`. You may be
+    using the wrong IP address to start OT Commissioner.
+
+**SECURITY: SSL - A fatal alert message was received from our peer**
+
+OT Commissioner establishes a secure DTLS session with the border agent service.
+A fatal SSL error typically indicates that the secure DTLS session fails.
+
+If you receive this message, check your PSKc.
+
+From OTBR:
+
+```
+$ sudo ot-ctl pskc
+198886f519a8fd7c981fee95d72f4ba7
+Done
+```
+
+From OT Commissioner:
+
+```
+> config get pskc
+198886f519a8fd7c981fee95d72f4ba7
+[done]
+```
+
+## Resources
+
+For additional `commissioner-cli` commands, refer to [OT Commissioner CLI](https://github.com/openthread/ot-commissioner/blob/main/src/app/cli/README.md).
 
 ## License
 
