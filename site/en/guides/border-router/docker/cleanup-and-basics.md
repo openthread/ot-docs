@@ -7,23 +7,23 @@ window, provide your container name and start a `bash` session:
 
 ```
 $ sudo docker exec -it {otbr} bash
-root@:/app# 
+root@c0f3912a74ff:/# 
 ```
 
-At the `root@` prompt, type `ot-ctl` to run CLI commands. If you don't
-get the `>` prompt, press `Enter` again:
+At the `root` prompt, type `ot-ctl` and press `Enter` to run CLI commands.
+If you don't get the `>` prompt, press `Enter` again:
 
 ```
-root@:/app# ot-ctl
+root@c0f3912a74ff:/# ot-ctl
  
 > 
 ```
 
-Type `exit` to get back to the `root@` prompt. To check `otbr-agent`:
+Type `exit` to get back to the `root` prompt. To check `otbr-agent`:
 
 ```
-root@:/app# sudo service otbr-agent status
-* otbr-agent is running
+root@c0f3912a74ff:/# sudo service otbr-agent status
+ * otbr-agent is running
 ```
 
 ## Stop OTBR Docker
