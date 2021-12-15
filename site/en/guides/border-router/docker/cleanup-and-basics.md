@@ -36,6 +36,14 @@ Note that there is a difference between Docker images and containers. Images are
 the source, while containers are instances of the source image. You can have
 multiple container instances running from the same source Docker image.
 
+To view all stopped and running Docker containers on your machine:
+
+```
+$ docker ps -a
+CONTAINER ID IMAGE        COMMAND       CREATED      STATUS  PORTS   NAMES
+d09847ad66bf 43e7a898e524 "/app/bord.." 26 hours ago Exited          john.smith
+```
+
 To stop and remove a specific Docker container, use the Container ID from the
 previous command:
 
@@ -97,4 +105,3 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
-
