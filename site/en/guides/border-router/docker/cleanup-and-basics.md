@@ -1,46 +1,5 @@
 # Cleanup and Docker Basics
 
-To run OTBR Docker with a 
-
-```
-docker run --name otbr --sysctl "net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" -p 8080:80 --dns=127.0.0.1 -it --volume /dev/ttyACM0:/dev/ttyACM0 --privileged openthread/otbr --radio-url spinel+hdlc+uart:///dev/ttyACM0
-```
-
-To view all stopped and running Docker containers on your machine:
-
-```
-$ docker ps -a
-CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS                        PORTS                  NAMES
-e31c2d7ab9f2   openthread/otbr   "/app/etc/docker/doc…"   7 seconds ago    Up 6 seconds                  0.0.0.0:8080->80/tcp   otbr
-30fa8ea8ac3a   openthread/otbr   "/app/etc/docker/doc…"   4 hours ago      Exited (130) 3 hours ago                             eloquent_carson
-```
-
-## Use OTBR Docker
-
-You can interact with OTBR Docker using `docker exec`. From a new terminal
-window, provide your container name and start a `bash` session:
-
-```
-$ sudo docker exec -it {otbr} bash
-root@c0f3912a74ff:/# 
-```
-
-At the `root` prompt, type `ot-ctl` and press `Enter` to run CLI commands.
-If you don't get the `>` prompt, press `Enter` again:
-
-```
-root@c0f3912a74ff:/# ot-ctl
- 
-> 
-```
-
-Type `exit` to get back to the `root` prompt. To check `otbr-agent`:
-
-```
-root@c0f3912a74ff:/# sudo service otbr-agent status
- * otbr-agent is running
-```
-
 ## Stop OTBR Docker
 
 Use `Ctrl+C` in the terminal window running OTBR Docker to stop the process
