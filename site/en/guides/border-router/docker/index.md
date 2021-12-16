@@ -49,7 +49,8 @@ Once installed, boot up the RPi and open a terminal window.
     $ sudo apt install git
     ```
 
-1.  Load kernel modules for OTBR firewall support:
+1.  OTBR firewall scripts create rules inside the Docker container.
+    Run `modprobe` to load the kernel modules for `iptables`:
     ```
     $ sudo modprobe ip6table_filter
     ```
@@ -85,7 +86,8 @@ Use the same instructions as the RPi:
     $ sudo apt install git
     ```
 
-1.  Load kernel modules for OTBR firewall support:
+1.  OTBR firewall scripts create rules inside the Docker container.
+    Run `modprobe` to load the kernel modules for `iptables`:
     ```
     $ sudo modprobe ip6table_filter
     ```
