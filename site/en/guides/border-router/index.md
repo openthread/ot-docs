@@ -76,12 +76,12 @@ OTBR uses `iptables` and `ipset` to implement the following ingress
 filtering rules:
 
 *   Block inbound packets initiated with On-Link address sources, for
-    example off-mesh routable (OMR) and mesh-local prefix based
+    example Off-Mesh Routable (OMR) and Mesh-Local prefix based
     addresses.
 *   Block inbound unicast packets whose destination address is not an
-    OMR address or domain unicast address (DUA).
+    OMR address or a Domain Unicast Address (DUA).
 *   Block inbound unicast packets whose source address or destination
-    address is link-local. Note that this rule is handled by the kernel,
+    address is Link-Local. Note that this rule is handled by the kernel
     and not explicitly set.
 
 ## License
