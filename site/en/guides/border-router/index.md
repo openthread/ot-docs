@@ -57,6 +57,7 @@ OTBR includes a number of features, including:
     IPv4-only server
 *   Thread interface driver using OpenThread's built-in feature
 *   [Docker support](docker/index.md)
+*   Firewall with ingress filtering
 
 ### Border Router services
 
