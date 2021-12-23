@@ -102,16 +102,34 @@ serial port name for the RCP device by checking `/dev`:
 $ ls /dev/tty*
 ```
 
-Next, append this to `/etc/default/otbr-agent`. For example, for a serial port
-name of `ttyUSB0`:
+Next, check your `otbr-agent` settings.
 
 ```
-OTBR_AGENT_OPTS="-I wpan0 spinel+hdlc+uart:///dev/ttyUSB0"
+$ cd /etc/default
+$ cat otbr-agent
 ```
 
-> Note: Not all devices attach with the same serial port name. The most
-common port names are `ttyACM*` and `ttyUSB*`. See the documentation for
+The `otbr-agent` configuration file contains your Thread interface name, Ethernet
+or Wi-Fi interface name, and RCP serial port name.
+
+<pre>OTBR_AGENT_OPTS="-I wpan0 -B OTBR_INFRA_IF_NAME spinel+hdlc+uart:///dev/ttyACM0 trel://OTBR_INFRA_IF_NAME"</pre>
+
+Not all devices attach with the same serial port name. The most
+common port names are `ttyACM*` and `ttyUSB*`. Refer to the documentation for
 your device to determine the expected serial port name.
+
+If required, update the `otbr-agent` configuration file. For example, for a Wi-Fi
+interface and a serial port name of `ttyUSB0`:
+
+```
+OTBR_AGENT_OPTS="-I wpan0 -B wlan0 spinel+hdlc+uart:{///dev/ttyUSB0} trel://wlan0"
+```
+
+To update an Ethernet interface:
+
+```
+OTBR_AGENT_OPTS="-I wpan0 -B eth0 spinel+hdlc+uart:{///dev/ttyUSB0} trel://eth0"
+```
 
 Power cycle the Border Router. If using the BeagleBone Black platform,
 remember to [hold down the BOOT button](beaglebone-black.md) while
@@ -130,7 +148,7 @@ $ sudo systemctl status
 If the `setup` script was successful, the following services appear in the
 output:
 
-*   `avahi-daemon.service`
+*   `mdns.service`
 *   `otbr-agent.service`
 *   `otbr-web.service`
 
@@ -163,7 +181,7 @@ For example:
              │ └─442 /usr/bin/hciattach /dev/serial1 bcm43xx 921600 noflow -
              ├─ssh.service
              │ └─621 /usr/sbin/sshd -D
-  # enabled  ├─avahi-daemon.service
+             ├─avahi-daemon.service
              │ ├─341 avahi-daemon: running [raspberrypi.local]
              │ └─361 avahi-daemon: chroot helper
   # enabled  ├─otbr-web.service
@@ -182,6 +200,8 @@ For example:
              │ └─345 /usr/sbin/rsyslogd -n
              ├─bluetooth.service
              │ └─445 /usr/lib/bluetooth/bluetoothd
+  # enabled  ├─mdns.service
+             │ └─725 /usr/sbin/mdnsd
              ├─systemd-journald.service
              │ └─136 /lib/systemd/systemd-journald
              └─dhcpcd.service
@@ -194,6 +214,28 @@ other service has failed to start. Check to see which:
 
 ```
 $ sudo systemctl --failed
+```
+
+You can also check each service individually:
+
+```
+$ sudo service mdns status
+```
+
+```
+$ sudo service otbr-agent status
+```
+
+```
+$ sudo service otbr-web status
+```
+
+`otbr-web` is enabled by default for most [platforms](https://github.com/openthread/ot-br-posix/tree/main/examples/platforms).
+If `otbr-web` is not installed, try passing the `WEB_GUI` flag:
+
+```
+$ WEB_GUI=1 ./script/bootstrap
+$ INFRA_IF_NAME=wlan0 WEB_GUI=1 ./script/setup
 ```
 
 ## Step 6: Verify RCP

@@ -1,6 +1,9 @@
 toc:
 - title: Overview
   path: /guides/border-router/
+- title: Get Started
+  path: /guides/border-router/get-started
+
 - heading: Platforms - Linux
 - title: BeagleBone Black
   path: /guides/border-router/beaglebone-black
@@ -9,12 +12,16 @@ toc:
 - heading: Platforms - FreeRTOS
 - title: Espressif ESP32 Series
   path: /guides/border-router/espressif-esp32
+
 - heading: Setup
 - title: Build and Configuration
   path: /guides/border-router/build
   step_group: otbr_setup
 - title: Web GUI
   path: /guides/border-router/web-gui
+  step_group: otbr_setup
+- title: mDNS Discovery
+  path: /guides/border-router/mdns-discovery
   step_group: otbr_setup
 
 - title: External Commissioning

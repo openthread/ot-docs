@@ -530,7 +530,9 @@ Done
 >
 > `J01NME` is the user-defined Joiner Credential used for this Codelab. You can
 choose any Joiner Credential you wish in a different implementation of a Thread
-network. For more information, see
+network. The Joiner Credential is a device-specific string of all uppercase
+alphanumeric characters (0-9 and A-Y, excluding I, O, Q and Z for readability),
+with a length between 6 and 32 characters. For more information, see
 [Thread Commissioning](https://openthread.io/guides/building/commissioning).
 
 #### 3. Start the Joiner role

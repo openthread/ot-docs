@@ -5,12 +5,13 @@ be used for testing purposes.
 
 ## PSKc generator
 
-`pskc` generates a Pre-Shared Key for the Commissioner (PSKc). The
+`pskc`, available in [ot-br-posix/tools](https://github.com/openthread/ot-br-posix/tree/main/tools),
+generates a Pre-Shared Key for the Commissioner (PSKc). The
 PSKc is used to authenticate an external Thread Commissioner to a Thread
 network. Build and install OTBR to use this tool.
 
 After building, `pskc` is located at
-[`/ot-br-posix/tools`](https://github.com/openthread/ot-br-posix/tree/main/tools/README.md).
+`ot-br-posix/build/otbr/tools`.
 
 ### Parameters
 
@@ -20,8 +21,9 @@ The PSKc is generated from the following parameters:
 *   Thread Network Extended PAN ID
 *   Thread Network Name
 
-> Note: The Commissioner Credential is a user-defined string between 6 and 255 characters, UTF-8 encoded.
-  
+> Note: The Commissioner Credential is a user-defined string between 6 and 255
+characters, UTF-8 encoded.
+
 ### Usage
 
 Syntax:
@@ -33,30 +35,31 @@ pskc {commissioner-credential} {extpanid} {network-name}
 Example:
 
 ```
+$ cd ~/ot-br-posix/build/otbr/tools
 $ ./pskc J01NME 1234AAAA1234BBBB MyOTBRNetwork
 ee4fb64e9341e13846bbe7e1c52b6785
 ```
 
-See [External Thread
-Commissioning](external-commissioning/index.md) for how to
-use this tool with `ot-ctl`.
+To use this tool with `ot-ctl`, refer to [External
+Commissioning](external-commissioning/index.md).
 
 ## Steering data generator
 
-`steering-data` uses a Bloom filter to generate a hash of the set of Joiners
+`steering-data`, available in [ot-br-posix/tools](https://github.com/openthread/ot-br-posix/tree/main/tools),
+uses a Bloom filter to generate a hash of the set of Joiners
 intended for commissioning. During commissioning, the Joiner only looks for
 networks advertising steering data that includes the Joiner itself. Build and
 install OTBR to use this tool.
 
 After building, `steering-data` is located at
-[`/ot-br-posix/tools`](https://github.com/openthread/ot-br-posix/tree/main/tools/README.md).
+`ot-br-posix/build/otbr/tools`.
 
 ### Parameters
 
 The steering data is generated from the following parameters:
 
-*   Joiner ID (EUI-64)
 *   Byte length of steering data (optional, default is 16)
+*   Joiner ID (EUI-64)
 
 ### Usage
 
@@ -69,6 +72,7 @@ steering-data [{length}] {joiner-id}
 Example:
 
 ```
+$ cd ~/ot-br-posix/build/otbr/tools
 $ ./steering-data 0000b57fffe15d68
 00000000000000000020000000000100
 ```
@@ -88,121 +92,47 @@ $ ./steering-data 8 0000b57fffe15d68
 0020000000000100
 ```
 
-## OTBR commissioner
+## OTBR Commissioner
 
-Use `otbr-commissioner` to commission a Thread device from the command line.
-This tool is used in MeshCop (Mesh Commissioning Protocol) tests during
-continuous integration. Build and install OTBR to use this tool.
-
-After building, `otbr-commissioner` is located at
-[`/src/commissioner`](https://github.com/openthread/ot-br-posix/tree/main/src/commissioner).
+By default, the Commissioner role is enabled on OTBR, similar to enabling the
+Commissioner role on a device with the `-DOT_COMMISSIONER=ON` flag. On the
+platform running OTBR, use `ot-ctl commissioner` to commission Joiners
+from the command line.
 
 ### Parameters
 
-To successfully commissioner a Thread device with `otbr-commissioner`, we
-suggest using the following parameters at a minimum:
+Type `help` for a list of commands.
 
-<table class="details responsive">
-  <thead>
-    <th colspan="2">Parameters</th>
-  </thead>
-        <tbody>
-          <tr>
-            <td>Network details</td>
-            <td>
-              <table class="function param responsive">
-                <tbody>
-                  <tr>
-                    <td>
-                      <code>--network-name</code>
-                    </td>
-                    <td>
-                      <div>Thread network name.</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>--network-password</code>
-                    </td>
-                    <td>
-                      <div>Commissioner credential.</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>--xpanid</code>
-                    </td>
-                    <td>
-                      <div>Thread extended PAN ID.</div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td>Joiner details</td>
-            <td>
-              <table class="function param responsive">
-                <tbody>
-                  <tr>
-                    <td>
-                      <code>--joiner-eui64</code>
-                    </td>
-                    <td>
-                      <div>Factory-assigned IEEE EUI-64 of the joiner device.</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>--joiner-pskd</code>
-                    </td>
-                    <td>
-                      <div>Joiner credential.</div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td>Agent details</td>
-            <td>
-              <table class="function param responsive">
-                <tbody>
-                  <tr>
-                    <td>
-                      <code>--agent-host</code>
-                    </td>
-                    <td>
-                      <div>Agent IP address from mDNS broadcasts.</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>--agent-port</code>
-                    </td>
-                    <td>
-                      <div>Agent port from mDNS broadcasts.</div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-</table>
+```
+> sudo ot-ctl commissioner help
+```
 
-Use `--help` for a full list of parameters.
+> Note: The set of Commissioner CLI commands varies based on the features
+enabled in a particular build.
 
 ### Usage
 
+Syntax:
+
 ```
-$ ./otbr-commissioner --network-name MyOTBRNetwork --network-password J01NME --xpanid 1234AAAA1234BBBB --joiner-eui64 0000b57fffe15d68 --joiner-pskd J01NU5 --agent-host 192.168.1.2 --agent-port 49191
+sudo ot-ctl commissioner {parameters}
 ```
 
-For a shell script example, see the
-[`meshcop` test script](https://github.com/openthread/ot-br-posix/tree/main/tests/scripts/meshcop).
+Example:
+
+```
+> sudo ot-ctl commissioner start
+Done
+> sudo ot-ctl commissioner joiner add 2f57d222545271f1 J01NME
+Done
+```
+
+## MeshCoP Script
+
+OTBR provides a MeshCoP (Mesh Commissioning Protocol) test script that
+uses [OT Commissioner](../commissioner/index.md) to test [External Commissioning](external-commissioning/index.md).
+For usage information, refer to the [`meshcop` test script](https://github.com/openthread/ot-br-posix/tree/main/tests/scripts/meshcop)
+on GitHub.
 
 ## standalone_ipv6 script
 

@@ -4,7 +4,7 @@ In this guide, learn how to use OTBR Web GUI to form the Thread Network.
 Then, choose a [supported platform](https://openthread.io/platforms) and
 build a Joiner device.
 
-To set up a Border Router, refer to [OpenThread Border Router Build and Configuration](https://openthread.io/guides/border-router/build).
+To set up a Border Router, refer to [OpenThread Border Router Build and Configuration](../build.md).
 
 ## Form the Thread network
 
@@ -121,6 +121,30 @@ Use the `-DOT_JOINER=ON` build option to enable the Joiner role.
 Specific instructions on building supported platforms with GNU Autotools can be
 found in each example's
 [platform folder](https://github.com/openthread/openthread/tree/master/examples/platforms).
+
+When commissioning a Joiner, it's important to understand the following terms
+and concepts:
+
+*   **Joining Device Credential**: You'll need to provide a Passphrase to
+    commission a device, for example `J01NU5`. This Passphrase is separate
+    from the Commissioner Credential you created when forming your Thread
+    network, and has different requirements:
+
+    *   Must be a string of all uppercase alphanumeric characters (0-9 and A-Y,
+        excluding I, O, Q, and Z for readability), with a length between 6 and
+        32 characters.
+
+    The Joining Device Credential might also be referred to as Join Passphrase,
+    Joiner Password, or PSKd. This Passphrase is used to authenticate a device
+    during Thread Commissioning. You can also use it with a device's EUI64
+    value to generate a unique QR Code.
+
+*   **PSKd**: Pre-Shared Key for the Joiner. The PSKd is the Joining Device
+    Credential when it's specifically encoded in binary form.
+
+*   **EUI-64**: 64-bit Extended Unique Identifier, for example
+    `0000b57fffe15d68`. This is a Joiner device's factory-assigned IEEE EUI-64,
+    used to generate a QR code and uniquely identify a device.
 
 Once the Joiner device is ready, obtain its factory-assigned IEEE EUI-64. Use
 the `eui64` command in the OpenThread CLI:
