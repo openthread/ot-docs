@@ -27,6 +27,11 @@ information.
 
 ### Start the OTBR Docker container
 
+> Note: Raspberry Pi and Linux users, if you haven't done so already, make
+sure to run `sudo modprobe ip6table_filter` for OTBR firewall support.
+This allows OTBR scripts to create rules inside the Docker container
+before `otbr-agent` starts.
+
 In a new terminal window, start OTBR Docker, referencing the RCP's serial port.
 For example, if the RCP is mounted at `/dev/ttyACM0`:
 

@@ -62,13 +62,27 @@ OTBR includes a number of features, including:
 
 OTBR provides the following services:
 
-*   [mDNS Publisher](mdns-discovery.md) — Allows an External Commissioner to discover an OTBR and its
-    associated Thread network
+*   [mDNS Publisher](mdns-discovery.md) — Allows an External Commissioner
+    to discover an OTBR and its associated Thread network
 *   [PSKc Generator](tools.md) — For generation of PSKc keys
 *   Web Service — [Web UI](web-gui.md) for management of a Thread network
 
-Third-party components for Border Router Services include Simple Web Server and
-Material Design Lite for the framework of the web UI.
+Third-party components for Border Router Services include Simple Web Server
+and Material Design Lite for the framework of the web UI.
+
+### OTBR firewall
+
+OTBR uses `iptables` and `ipset` to implement the following ingress
+filtering rules:
+
+*   Block inbound packets initiated with On-Link address sources, for
+    example Off-Mesh Routable (OMR) and Mesh-Local prefix based
+    addresses.
+*   Block inbound unicast packets whose destination address is not an
+    OMR address or a Domain Unicast Address (DUA).
+*   Block inbound unicast packets whose source address or destination
+    address is Link-Local. Note that this rule is handled by the kernel
+    and not explicitly set.
 
 ## License
 
