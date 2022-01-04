@@ -151,9 +151,458 @@ What you learned:
 *   A Border Router is used to connect Thread and non-Thread networks
 *   A Thread network might be composed of multiple partitions
 
+## Check Your Understanding
+
+
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>Thread's primary features are?</div>
+    <div>
+      <div>Compatibility</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Efficiency</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Elasticity</div>
+      <div>Incorrect</div>
+    </div>
+    <div>
+      <div>Portability</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Reliability</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Scalability</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Security</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Simplicity</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>Thread sits atop</div>
+    <div>
+      <div>802.11ax Wi-Fi 6</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>802.15.4 Standard for LR-WPAN</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>802.1X Standard for Port-Based Network Access Control (PNAC)</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>A Thread device fulfills one of which two roles?</div>
+    <div>
+      <div>Child Node</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div correct>Router</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div correct>End Device</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Gateway</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
+
+
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>What are the two classifications of Thread device?</div>
+    <div>
+      <div correct>Minimal Thread Device (MTD)</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div correct>Full Thread Device (FTD)</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>Semi-End Device (SED)</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Miniscule Thread Device (MTD)</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Sleepy End Device (SED)</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>What are the three subtypes of FTD?</div>
+    <div correct>
+      <div>Router</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>Thread Gateway Device (TGD)</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Router Eligible End Device (REED)</div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>Full End Device (FED)</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>Half Thread Device (HTD)</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>What are the two subtypes of Minimal Thread Device (MTD)?</div>
+    <div>
+      <div>Semi-End Device (SED)
+      </div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Half Thread Device (HTD)</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div correct>
+        <div>Minimal End Device (MED)</div>
+        <div>Correct.</div>
+      </div>
+    </div>
+    <div>
+      <div>Miniscule Thread Device (MTD)</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div correct>
+        <div>Sleepy End Device (SED)</div>
+        <div>Correct.</div>
+      </div>
+    </div>
+</devsite-multiple-choice>
+</div>
+
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>A Router is a node that (select all that apply)</div>
+    <div correct>
+      <div>answer</div>
+      <div>comment</div>
+    </div>
+    <div>
+      <div>answer</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>can disable its transceiver to reduce power</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>communicates primarily with a single Router </div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>does not forward packets for other network devices </div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div correct>
+        <div>forwards packets for network devices</div>
+        <div>Correct.</div>
+      </div>
+    </div>
+    <div>
+      <div correct>
+        <div>keeps its transceiver enabled at all times</div>
+        <div>Correct.</div>
+      </div>
+    </div>
+    <div>
+      <div correct>
+        <div>provides secure commissioning services for devices trying to join the network</div>
+        <div>Correct.</div>
+      </div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>
+      <div>An End Device (ED) is a node that  (select all that apply)</div>
+    </div>
+    <div>
+      <div correct>
+        <div>can disable its transceiver to reduce power</div>
+    </div>
+    <div correct>
+      <div>communicates primarily with a single Router</div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>does not forward packets for other network devices</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>forwards packets for network devices</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>keeps its transceiver enabled at all times</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>provides secure commissioning services for devices trying to join the network</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+  </devsite-multiple-choice>
+</div>
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>A REED is a</div>
+    <div correct>
+      <div>Router Eligible End Device</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>Regional Eliptic End Device</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Routing Electronic Exfiltration Device</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Router Eligible Edge Device</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>When can a device upgrade itself?</div>
+        <div correct>
+      <div>when it is a REED and is the only node in reach of a new End Device seeking to join the Thread network</div>
+      <div>Correct.</div>
+    </div>
+        <div>
+      <div>when it is an End Device seeking to join the Thread network
+        <div>
+      <div>when it is a REED and the Thread network has merged with a larger network
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>When can a device downgrade itself?</div>
+        <div correct>
+      <div> when it is a Router and has no children</div>
+      <div>Correct.</div>
+    </div>
+        <div>
+      <div>when it is a Router and a new End Device is seeking to join the Thread network
+        <div>
+      <div>when it is an End Device and is seeking to leave the Thread network
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>What is a accurate description of a Thread network partition?</div>
+        <div>
+      <div>A group of nodes within a Thread network that is walled off from and inaccessible by the rest of the network
+        <div>
+      <div>A distinct subsection of a network, with its own Leader, Router ID assignments, and network data, using the same security credentials as the rest of the larger network. 
+        <div>
+      <div>A group of nodes within a Thread network whose members all share the same Group Name
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>Every Thread network partition has _________ to manage Routers</div>
+          <div>
+      <div>a Master
+          <div>
+      <div>a Gateway
+          <div>
+      <div>a Parent
+          <div correct>
+      <div>a Leader</div>
+      <div>Correct.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>What device is used to connect Thread and non-Thread networks?</div>
+    <div>
+      <div>a Gateway</div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>a Border Router</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>a Firewall</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>a Bridge</div>
+      <div>Correct.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>A network may have _____ Leader</div>
+    <div>
+      <div>either no or exactly one</div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>one and only one</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>more than one</div>
+      <div>Correct.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>The optimal number of routers on a Thread network is ____</div>
+    <div>
+      <div>exactly one
+        <div>
+          <div>between 8 and 16</div>
+          <div>Correct.</div>
+        </div>
+        <div correct>
+          <div>between 16 and 23</div>
+          <div>Correct.</div>
+        </div>
+        <div>
+          <div>between 24 and 32</div>
+          <div>Correct.</div>
+        </div>
+        <div>
+          <div>between 96 and 128</div>
+          <div>Correct.</div>
+        </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>A Thread device has multiple unicast IPv6 addresses (select all that apply):</div>
+    <div>
+      <div>A media access control (MAC) address represents a unique physical network interface</div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>A Routing Locator (RLOC) represents a device's location in the Thread network</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>A Universal Global Address (UGA) represents a device across all networks</div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>An Mesh-Local (ML-EID) aka Unique Local Address (ULA), is unique to a Thread device within a partition and should be used by applications</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>A Link-Local Address (LLA) is an EID that identifies a Thread interface reachable by a single radio transmission</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>An Anycast Locator (ALOC) identifies a Thread interface via RLOC lookup, when the RLOC of a destination is not known.</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>A Global Unicast Address (GUA) is an EID that identifies a Thread interface on a global scope, beyond a Thread network.</div>
+      <div>Correct.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
+
+
+
+
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
