@@ -82,14 +82,14 @@ cover the full specification, which is available at
 
 <div>
   <devsite-multiple-choice>
-    <div>Thread sits atop</div>
+    <div>Thread sits atop which wireless networking protocol?</div>
     <div>
       <div>802.11ax Wi-Fi 6</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
       <div>802.15.4 Standard for LR-WPAN</div>
-      <div>Correct.</div>
+      <div>That's right! Thread uses LR-WPAN, a standard for low-power, low data rate wireless communication between small devices that form Low Rate, Wireless Personal Area Networks (LR-WPANs)</div>
     </div>
     <div>
       <div>802.1X Standard for Port-Based Network Access Control (PNAC)</div>

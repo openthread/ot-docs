@@ -166,11 +166,11 @@ What you learned:
     </div>
     <div correct>
       <div>Router</div>
-      <div>Incorrect.</div>
+      <div>Correct.</div>
     </div>
     <div correct>
       <div>End Device</div>
-      <div>Incorrect.</div>
+      <div>Correct.</div>
     </div>
     <div>
       <div>Gateway</div>
@@ -258,21 +258,17 @@ What you learned:
       <div>Half Thread Device (HTD)</div>
       <div>Incorrect.</div>
     </div>
-    <div>
-      <div correct>
-        <div>Minimal End Device (MED)</div>
-        <div>Correct.</div>
-      </div>
+    <div correct>
+      <div>Minimal End Device (MED)</div>
+      <div>Correct.</div>
     </div>
     <div>
       <div>Miniscule Thread Device (MTD)</div>
       <div>Incorrect.</div>
     </div>
-    <div>
-      <div correct>
-        <div>Sleepy End Device (SED)</div>
-        <div>Correct.</div>
-      </div>
+    <div correct>
+      <div>Sleepy End Device (SED)</div>
+      <div>Correct.</div>
     </div>
 </devsite-multiple-choice>
 </div>
@@ -294,23 +290,17 @@ What you learned:
       <div>does not forward packets for other network devices </div>
       <div>By definition, Routers forward packets for other network devices.</div>
     </div>
-    <div>
-      <div correct>
-        <div>forwards packets for network devices</div>
-        <div>Correct.</div>
-      </div>
+    <div correct>
+      <div>forwards packets for network devices</div>
+      <div>Correct.</div>
     </div>
-    <div>
-      <div correct>
-        <div>keeps its transceiver enabled at all times</div>
-        <div>Correct. In order to function properly as a Router, a device must keep its transceiver online at all times.</div>
-      </div>
+    <div correct>
+      <div>keeps its transceiver enabled at all times</div>
+      <div>Correct. In order to function properly as a Router, a device must keep its transceiver online at all times.</div>
     </div>
-    <div>
-      <div correct>
-        <div>provides secure commissioning services for devices trying to join the network</div>
-        <div>Correct. This is an important function of a Thread Router.</div>
-      </div>
+    <div correct>
+      <div>provides secure commissioning services for devices trying to join the network</div>
+      <div>Correct. This is an important function of a Thread Router.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -321,10 +311,9 @@ What you learned:
     <div>
       <div>An End Device (ED) is a node that  (select all that apply)</div>
     </div>
-    <div>
-      <div correct>
-        <div>can disable its transceiver to reduce its power consumption</div>
-        <div>An End Device can do this, but a Router cannot.</div>
+    <div correct>
+      <div>can disable its transceiver to reduce its power consumption</div>
+      <div>An End Device can do this, but a Router cannot.</div>
     </div>
     <div correct>
       <div>communicates primarily with a single Router</div>
@@ -345,7 +334,6 @@ What you learned:
     <div>
       <div>provides secure commissioning services for devices trying to join the network</div>
       <div>Incorrect. This is a function of a Router, not an End Device.</div>
-    </div>
     <div>
   </devsite-multiple-choice>
 </div>
@@ -493,23 +481,23 @@ What you learned:
     <div>
       <div>exactly one</div>
       <div>Incorrect.</div>
-      </div>
-        <div>
-          <div>between 8 and 16</div>
-          <div>Incorrect.</div>
-        </div>
-        <div correct>
-          <div>between 16 and 23</div>
-          <div>That's right!</div>
-        </div>
-        <div>
-          <div>between 24 and 32</div>
-          <div>Incorrect.</div>
-        </div>
-        <div>
-          <div>between 96 and 128</div>
-          <div>Incorrect.</div>
-        </div>
+    </div>
+    <div>
+      <div>between 8 and 16</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>between 16 and 23</div>
+      <div>That's right!</div>
+    </div>
+    <div>
+      <div>between 24 and 32</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>between 96 and 128</div>
+      <div>Incorrect.</div>
+    </div>
   </devsite-multiple-choice>
 </div>
 
