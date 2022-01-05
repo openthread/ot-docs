@@ -158,7 +158,7 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Thread's primary features are?</div>
+    <div>In comparison with other IoC protocols, Thread's primary advantages are?</div>
     <div>
       <div>Compatibility</div>
       <div>Incorrect.</div>
@@ -223,12 +223,12 @@ What you learned:
       <div>Child Node</div>
       <div>Incorrect.</div>
     </div>
-    <div>
-      <div correct>Router</div>
+    <div correct>
+      <div>Router</div>
       <div>Incorrect.</div>
     </div>
-    <div>
-      <div correct>End Device</div>
+    <div correct>
+      <div>End Device</div>
       <div>Incorrect.</div>
     </div>
     <div>
@@ -246,12 +246,12 @@ What you learned:
 <div>
   <devsite-multiple-choice>
     <div>What are the two classifications of Thread device?</div>
-    <div>
-      <div correct>Minimal Thread Device (MTD)</div>
+    <div correct>
+      <div>Minimal Thread Device (MTD)</div>
       <div>Correct.</div>
     </div>
-    <div>
-      <div correct>Full Thread Device (FTD)</div>
+    <div correct>
+      <div>Full Thread Device (FTD)</div>
       <div>Correct.</div>
     </div>
     <div>
@@ -341,25 +341,17 @@ What you learned:
 <div>
   <devsite-multiple-choice>
     <div>A Router is a node that (select all that apply)</div>
-    <div correct>
-      <div>answer</div>
-      <div>comment</div>
-    </div>
-    <div>
-      <div>answer</div>
-      <div>Incorrect.</div>
-    </div>
     <div>
       <div>can disable its transceiver to reduce power</div>
-      <div>Incorrect.</div>
+      <div>Devices that are functioning as Routers do not disable their transceiver while fulfilling the Router role.</div>
     </div>
     <div>
       <div>communicates primarily with a single Router </div>
-      <div>Incorrect.</div>
+      <div>That would be an End Device (ED).</div>
     </div>
     <div>
       <div>does not forward packets for other network devices </div>
-      <div>Incorrect.</div>
+      <div>By definition, Routers forward packets for other network devices.</div>
     </div>
     <div>
       <div correct>
@@ -370,13 +362,13 @@ What you learned:
     <div>
       <div correct>
         <div>keeps its transceiver enabled at all times</div>
-        <div>Correct.</div>
+        <div>Correct. In order to function properly as a Router, a device must keep its transceiver online at all times.</div>
       </div>
     </div>
     <div>
       <div correct>
         <div>provides secure commissioning services for devices trying to join the network</div>
-        <div>Correct.</div>
+        <div>Correct. This is an important function of a Thread Router.</div>
       </div>
     </div>
   </devsite-multiple-choice>
@@ -390,27 +382,28 @@ What you learned:
     </div>
     <div>
       <div correct>
-        <div>can disable its transceiver to reduce power</div>
+        <div>can disable its transceiver to reduce its power consumption</div>
+        <div>An End Device can do this, but a Router cannot.</div>
     </div>
     <div correct>
       <div>communicates primarily with a single Router</div>
-      <div>Correct.</div>
+      <div>End Devices communicate primarily with one Router.</div>
     </div>
     <div correct>
       <div>does not forward packets for other network devices</div>
-      <div>Correct.</div>
+      <div>This is a function of a Router, not an End Device.</div>
     </div>
     <div>
       <div>forwards packets for network devices</div>
-      <div>Incorrect.</div>
+      <div>This is a function of a Router, not an End Device.</div>
     </div>
     <div>
       <div>keeps its transceiver enabled at all times</div>
-      <div>Incorrect.</div>
+      <div>Incorrect. End Devices do not need to keep their transceivers enabled all the time, and doing so would waste power.</div>
     </div>
     <div>
       <div>provides secure commissioning services for devices trying to join the network</div>
-      <div>Incorrect.</div>
+      <div>Incorrect. This is a function of a Router, not an End Device.</div>
     </div>
     <div>
   </devsite-multiple-choice>
@@ -425,16 +418,16 @@ What you learned:
       <div>Correct.</div>
     </div>
     <div>
-      <div>Regional Eliptic End Device</div>
-      <div>Incorrect.</div>
+      <div>Regional Elliptic End Device</div>
+      <div>There is no such thing.</div>
     </div>
     <div>
       <div>Routing Electronic Exfiltration Device</div>
-      <div>Incorrect.</div>
+      <div>There is no such thing.</div>
     </div>
     <div>
       <div>Router Eligible Edge Device</div>
-      <div>Incorrect.</div>
+      <div>There is no such thing.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -444,55 +437,75 @@ What you learned:
 <div>
   <devsite-multiple-choice>
     <div>When can a device upgrade itself?</div>
-        <div correct>
-      <div>when it is a REED and is the only node in reach of a new End Device seeking to join the Thread network</div>
-      <div>Correct.</div>
+    <div correct>
+      <div>when it is a REED and it is the only node in reach of a new End Device seeking to join the Thread network</div>
+      <div>That's right. Under these circumstances, a REED can promote itself to a Router.</div>
     </div>
-        <div>
-      <div>when it is an End Device seeking to join the Thread network
-        <div>
-      <div>when it is a REED and the Thread network has merged with a larger network
+    <div>
+      <div>when it is an End Device seeking to join the Thread network</div>
+      <div></div>
+    </div>
+    <div>
+      <div>when it is a REED and the Thread network has merged with a larger network</div>
+      <div>Incorrect/div>
+    </div>
   </devsite-multiple-choice>
 </div>
 
 <div>
   <devsite-multiple-choice>
     <div>When can a device downgrade itself?</div>
-        <div correct>
-      <div> when it is a Router and has no children</div>
-      <div>Correct.</div>
+    <div correct>
+      <div>when it is a Router and has no children</div>
+      <div>That's correct. A Router with no children is allowed to revert to an End Device on its own.</div>
     </div>
-        <div>
-      <div>when it is a Router and a new End Device is seeking to join the Thread network
-        <div>
-      <div>when it is an End Device and is seeking to leave the Thread network
+    <div>
+      <div>when it is a Router and a new End Device is seeking to join the Thread network</div>
+      <div>A Router cannot revert to an End Device in this scenario.</div>
+    </div>
+    <div>
+      <div>when it is an End Device and is seeking to leave the Thread network</div>
+      <div>A Router cannot revert to an End Device in this scenario.</div>
+    </div>
   </devsite-multiple-choice>
 </div>
 
 <div>
   <devsite-multiple-choice>
     <div>What is a accurate description of a Thread network partition?</div>
-        <div>
-      <div>A group of nodes within a Thread network that is walled off from and inaccessible by the rest of the network
-        <div>
-      <div>A distinct subsection of a network, with its own Leader, Router ID assignments, and network data, using the same security credentials as the rest of the larger network. 
-        <div>
-      <div>A group of nodes within a Thread network whose members all share the same Group Name
+    <div>
+      <div>A group of nodes within a Thread network that is walled off from the rest of the network</div>
+      <div>That is not right.</div>
+    </div>
+    <div correct>
+      <div>A distinct subsection of a network, with its own Leader, Router ID assignments, and network data, using the same security credentials as the rest of the larger network.</div>
+      <div>That's right. Partitions are formed based on ability to intercommunicate. If one or more groups of nodes within a Thread network do not have radio connectivity with one another, you can be sure that there is more than one partition in that network.</div>
+    </div>
+    <div>
+      <div>A group of nodes within a Thread network whose members all share the same Group Name</div>
+      <div>Incorrect. Partitioning is not based on naming.</div>
+    </div>
   </devsite-multiple-choice>
 </div>
 
 <div>
   <devsite-multiple-choice>
-    <div>Every Thread network partition has _________ to manage Routers</div>
-          <div>
-      <div>a Master
-          <div>
-      <div>a Gateway
-          <div>
-      <div>a Parent
-          <div correct>
+    <div>Every Thread network partition has &lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar; to manage Routers</div>
+    <div>
+      <div>a Master</div>
+      <div>This is the wrong term.</div>
+    </div>
+    <div>
+      <div>a Gateway</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>a Parent</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
       <div>a Leader</div>
-      <div>Correct.</div>
+      <div>This is the correct term. A Thread Leader manages Routers on a network, and gathers and disseminates network-wide configuration information.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -502,29 +515,29 @@ What you learned:
     <div>What device is used to connect Thread and non-Thread networks?</div>
     <div>
       <div>a Gateway</div>
-      <div>Correct.</div>
+      <div>That's the wrong term, although in traditional networking, this term is used to describe a device that connects two networks.</div>
     </div>
     <div correct>
       <div>a Border Router</div>
-      <div>Correct.</div>
+      <div>Correct. A Border Router is used to connect Thread and non-Thread networks.</div>
     </div>
     <div>
       <div>a Firewall</div>
-      <div>Correct.</div>
+      <div>That is not right.</div>
     </div>
     <div>
       <div>a Bridge</div>
-      <div>Correct.</div>
+      <div>This term refers to a similar concept in traditional networking, but it's not correct in the context of Thread networks. A bridge connects two LANs that use the same network protocol.</div>
     </div>
   </devsite-multiple-choice>
 </div>
 
 <div>
   <devsite-multiple-choice>
-    <div>A network may have _____ Leader</div>
+    <div>A network may have &lowbar;&lowbar;&lowbar;&lowbar;&lowbar; Leader</div>
     <div>
-      <div>either no or exactly one</div>
-      <div>Correct.</div>
+      <div>either none or exactly one</div>
+      <div>This is wrong.</div>
     </div>
     <div correct>
       <div>one and only one</div>
@@ -532,31 +545,33 @@ What you learned:
     </div>
     <div>
       <div>more than one</div>
-      <div>Correct.</div>
+      <div>Wrong; a Thread network cannot have multiple Leaders.</div>
     </div>
   </devsite-multiple-choice>
 </div>
 
 <div>
   <devsite-multiple-choice>
-    <div>The optimal number of routers on a Thread network is ____</div>
+    <div>The optimal number of routers on a Thread network is &lowbar;&lowbar;&lowbar;&lowbar;</div>
     <div>
-      <div>exactly one
+      <div>exactly one</div>
+      <div>Incorrect.</div>
+      </div>
         <div>
           <div>between 8 and 16</div>
-          <div>Correct.</div>
+          <div>Incorrect.</div>
         </div>
         <div correct>
           <div>between 16 and 23</div>
-          <div>Correct.</div>
+          <div>That's right!</div>
         </div>
         <div>
           <div>between 24 and 32</div>
-          <div>Correct.</div>
+          <div>Incorrect.</div>
         </div>
         <div>
           <div>between 96 and 128</div>
-          <div>Correct.</div>
+          <div>Incorrect.</div>
         </div>
   </devsite-multiple-choice>
 </div>
