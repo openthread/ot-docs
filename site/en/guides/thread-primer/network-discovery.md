@@ -291,6 +291,137 @@ What you've learned:
     network and link state
 *   The MLE Attach process establishes Child-Parent links
 
+## Check Your Understanding
+
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>Thread networks are identified by three unique identifiers (select the correct answer):</div>
+    <div>
+      <div>a 2-byte Personal Area Network ID (PAN ID), a 16-bit Extended Personal Area Network ID (XPAN ID), and a 16-bit random hexadecimal number</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>a 2-byte Personal Area Network ID (PAN ID), a 8-byte Extended Personal Area Network ID (XPAN ID), and a human-readable Network Name</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>a 4-byte Network ID (aka Home ID) and a human-readable Network Name</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>a 32-character SSID and a 16-bit random hexadecimal number</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+       
+    
+<div>
+  <devsite-multiple-choice>
+    <div>A Parent Request is used to</div>
+    <div correct>
+      <div>discover neighboring Routers and Router Eligible End Devices (REEDs) in the target network</div>
+      <div>Correct.</div>
+      </div>
+    <div>
+      <div>announce that a Router is becoming a parent</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>request that a Router Eligible End Device be promoted to a Router</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>A Parent Request uses what type of address?</div>
+    <div>
+      <div>unicast</div>
+      <div>Incorrect.</div>
+      </div>
+    <div>
+      <div>anycast</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>multicast</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>broadcast</div>
+      <div>Incorrect.</div>
+    </div>    
+  </devsite-multiple-choice>
+</div>
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>The MLE Link Request process is used to (select all true statements)</div>
+    <div correct>
+      <div>Establish Router-Router links</div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>Establish Child-Parent links</div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>Discover links to neighboring devices</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>Establish connections to external networks</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Determine the quality of links to neighboring devices</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>Establish links to neighboring devices</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Demote Routers that are too active to Child nodes</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Negotiate link parameters (device type, frame counters, timeout) with peers</div>
+      <div>Correct.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
+
+
+    <div>
+      <devsite-multiple-choice>
+        <div>Every device initially attaches to a Thread network as a ____________</div>
+        <div correct>
+          <div>Child (End Device)</div>
+          <div>Correct.</div>
+        </div>
+        <div>
+          <div>FTD (Full Thread Device)</div>
+          <div>Incorrect.</div>
+        </div>
+        <div>
+          <div>REED (Router-Eligible End Device) </div>
+          <div>Incorrect.</div>
+        </div>
+      </devsite-multiple-choice>
+    </div>
+
+
+
 ## License
 
 Copyright (c) 2021, The OpenThread Authors.

@@ -175,6 +175,149 @@ What you've learned:
     maintain the CDS
 *   The MLE Link Request process is used to establish Router-Router links
 
+
+## Check Your Understanding
+
+
+        
+    <div>
+      <devsite-multiple-choice>
+        <div>a Connected Dominating Set (CDS) enforces the following rules (select three):</div>
+        <div correct>
+          <div>There is a Router-only path between any two Routers.</div>
+          <div>Correct.</div>
+        </div>
+        <div correct>
+          <div>Any one Router in a Thread network can reach any other Router by staying entirely within the set of Routers.</div>
+          <div>Correct.</div>
+        </div>
+        <div correct>
+          <div>Every End Device in a Thread network is directly connected to a Router.</div>
+          <div>Correct.</div>
+        </div>
+        <div>
+          <div>Only one Router in a Thread network is a Border Router.</div>
+          <div>Incorrect.</div>
+        </div>
+      </devsite-multiple-choice>
+    </div>
+
+
+
+    <div>
+      <devsite-multiple-choice>
+        <div>Routers may be added in order to</div>
+        <div correct>
+          <div>increase coverage if the network has fewer than the minimum optimal number of routers (16)</div>
+          <div>Correct.</div>
+        </div>
+        <div>
+          <div>improve bandwidth</div>
+          <div>Incorrect.</div>
+        </div>
+        <div correct>
+          <div>increase path diversity</div>
+          <div>Correct.</div>
+        </div>
+        <div correct>
+          <div>maintain a minimum level of redundancy</div>
+          <div>Correct.</div>
+        </div>
+        <div correct>
+          <div>support more children</div>
+          <div>Correct.</div>
+        </div>
+        <div>
+          <div>reduce latency</div>
+          <div>Incorrect.</div>
+        </div>
+      </devsite-multiple-choice>
+    </div>
+
+
+    <div>
+      <devsite-multiple-choice>
+        <div>Routers may be removed in order to</div>
+        <div correct>
+          <div>Reduce the Routing state below the maximum of 32 Routers</div>
+          <div>Correct.</div>
+        </div>
+        <div>
+          <div>Free up channels</div>
+          <div>Incorrect.</div>
+        </div>
+        <div correct>
+          <div>Allow new Routers in other parts of the network when needed</div>
+          <div>Correct.</div>
+        </div>
+      </devsite-multiple-choice>
+    </div>
+
+
+    
+    <div>
+      <devsite-multiple-choice>
+        <div>When a Child device upgrades to a Router</div>
+        <div correct>
+          <div>It automatically remains on the network but as a Router</div>
+          <div>Correct.</div>
+        </div>
+        <div>
+          <div>It must initiate the MLE Attach process to establish a new connection</div>
+          <div>Incorrect.</div>
+        </div>
+      </devsite-multiple-choice>
+    </div>
+
+
+
+    <div>
+      <devsite-multiple-choice>
+        <div>When a Router downgrades</div>
+        <div>
+          <div>it automatically remains on the network but as a Child (REED)</div>
+          <div>Incorrect.</div>
+        </div>
+        <div correct>
+          <div>it must initiate the MLE Attach process to establish a new connection</div>
+          <div>Correct.</div>
+        </div>
+      </devsite-multiple-choice>
+    </div>
+
+
+
+
+
+
+    <div>
+      <devsite-multiple-choice>
+        <div>Router-Router links are established via a process called the</div>
+        <div correct>
+          <div>MLE Link Request process</div>
+          <div>Correct.</div>
+        </div>
+        <div>
+          <div>Link Accept and Request process</div>
+          <div>Incorrect.</div>
+        </div>
+        <div>
+          <div>Link Request process</div>
+          <div>Incorrect.</div>
+        </div>
+        <div>
+          <div>MLE Attach process</div>
+          <div>Incorrect.</div>
+        </div>
+      </devsite-multiple-choice>
+    </div>
+
+
+
+
+
+
+
 ## License
 
 Copyright (c) 2021, The OpenThread Authors.

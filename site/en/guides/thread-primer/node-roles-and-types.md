@@ -561,40 +561,6 @@ What you learned:
   </devsite-multiple-choice>
 </div>
 
-<div>
-  <devsite-multiple-choice>
-    <div>A Thread device has multiple unicast IPv6 addresses (select all that apply):</div>
-    <div>
-      <div>A media access control (MAC) address represents a unique physical network interface</div>
-      <div>Correct.</div>
-    </div>
-    <div correct>
-      <div>A Routing Locator (RLOC) represents a device's location in the Thread network</div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div>A Universal Global Address (UGA) represents a device across all networks</div>
-      <div>Correct.</div>
-    </div>
-    <div correct>
-      <div>An Mesh-Local (ML-EID) aka Unique Local Address (ULA), is unique to a Thread device within a partition and should be used by applications</div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div>A Link-Local Address (LLA) is an EID that identifies a Thread interface reachable by a single radio transmission</div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div>An Anycast Locator (ALOC) identifies a Thread interface via RLOC lookup, when the RLOC of a destination is not known.</div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div>A Global Unicast Address (GUA) is an EID that identifies a Thread interface on a global scope, beyond a Thread network.</div>
-      <div>Correct.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
 
 
 

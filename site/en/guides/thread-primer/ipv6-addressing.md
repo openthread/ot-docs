@@ -279,6 +279,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 [Thread Specification](http://threadgroup.org/ThreadSpec).
 
 
+## Check Your Understanding
 
 <div>
   <devsite-multiple-choice>
@@ -423,28 +424,6 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 
 
-<div>
-  <devsite-multiple-choice>
-    <div>Thread networks are identified by three unique identifiers (select the correct answer):</div>
-    <div>
-      <div>a 2-byte Personal Area Network ID (PAN ID), a 16-bit Extended Personal Area Network ID (XPAN ID), and a 16-bit random hexadecimal number</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>a 2-byte Personal Area Network ID (PAN ID), a 8-byte Extended Personal Area Network ID (XPAN ID), and a human-readable Network Name</div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div>a 4-byte Network ID (aka Home ID) and a human-readable Network Name</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>a 32-character SSID and a 16-bit random hexadecimal number</div>
-      <div>Incorrect.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
 
 
 <div>
@@ -496,214 +475,11 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 
 
-<div>
-  <devsite-multiple-choice>
-    <div>The MLE Link Request process is used to (select all true statements)</div>
-    <div correct>
-      <div>Establish Router-Router links</div>
-      <div>Correct.</div>
-    </div>
-    <div correct>
-      <div>Discover links to neighboring devices</div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div>Establish connections to external networks</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Determine the quality of links to neighboring devices</div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div>Establish links to neighboring devices</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>Demote Routers that are too active to Child nodes</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Negotiate link parameters (device type, frame counters, timeout) with peers</div>
-      <div>Correct.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
-
-
-<div>
-  <devsite-multiple-choice>
-    <div>A Parent Request is used to</div>
-    <div correct>
-      <div>discover neighboring Routers and Router Eligible End Devices (REEDs) in the target network</div>
-      <div>Correct.</div>
-      </div>
-    <div>
-      <div>announce that a Router is becoming a parent</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>request that a Router Eligible End Device be promoted to a Router</div>
-      <div>Incorrect.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
 
 
 
 
 
-
-
-    <div>
-      <devsite-multiple-choice>
-        <div>Every device initially attaches to a Thread network as a ____________</div>
-        <div correct>
-          <div>Child (End Device)</div>
-          <div>Correct.</div>
-        </div>
-        <div>
-          <div>FTD (Full Thread Device)</div>
-          <div>Incorrect.</div>
-        </div>
-        <div>
-          <div>REED (Router-Eligible End Device) </div>
-          <div>Incorrect.</div>
-        </div>
-      </devsite-multiple-choice>
-    </div>
-
-
-
-    <div>
-      <devsite-multiple-choice>
-        <div>a Connected Dominating Set (CDS) enforces the following rules (select three):</div>
-        <div correct>
-          <div>There is a Router-only path between any two Routers.</div>
-          <div>Correct.</div>
-        </div>
-        <div correct>
-          <div>Any one Router in a Thread network can reach any other Router by staying entirely within the set of Routers.</div>
-          <div>Correct.</div>
-        </div>
-        <div correct>
-          <div>Every End Device in a Thread network is directly connected to a Router.</div>
-          <div>Correct.</div>
-        </div>
-        <div>
-          <div>Only one Router in a Thread network is a Border Router.</div>
-          <div>Incorrect.</div>
-        </div>
-      </devsite-multiple-choice>
-    </div>
-
-
-    <div>
-      <devsite-multiple-choice>
-        <div>Routers may be added in order to</div>
-        <div correct>
-          <div>increase coverage if the network has fewer than the minimum optimal number of routers (16)</div>
-          <div>Correct.</div>
-        </div>
-        <div>
-          <div>improve bandwidth</div>
-          <div>Incorrect.</div>
-        </div>
-        <div correct>
-          <div>increase path diversity</div>
-          <div>Correct.</div>
-        </div>
-        <div correct>
-          <div>maintain a minimum level of redundancy</div>
-          <div>Correct.</div>
-        </div>
-        <div correct>
-          <div>support more children</div>
-          <div>Correct.</div>
-        </div>
-        <div>
-          <div>reduce latency</div>
-          <div>Incorrect.</div>
-        </div>
-      </devsite-multiple-choice>
-    </div>
-
-
-
-    <div>
-      <devsite-multiple-choice>
-        <div>Routers may be removed in order to</div>
-        <div correct>
-          <div>Reduce the Routing state below the maximum of 32 Routers</div>
-          <div>Correct.</div>
-        </div>
-        <div>
-          <div>Free up channels</div>
-          <div>Incorrect.</div>
-        </div>
-        <div correct>
-          <div>Allow new Routers in other parts of the network when needed</div>
-          <div>Correct.</div>
-        </div>
-      </devsite-multiple-choice>
-    </div>
-
-
-
-    <div>
-      <devsite-multiple-choice>
-        <div>When a Child device upgrades to a Router</div>
-        <div correct>
-          <div>It automatically remains on the network but as a Router</div>
-          <div>Correct.</div>
-        </div>
-        <div>
-          <div>It must initiate the MLE Attach process to establish a new connection</div>
-          <div>Incorrect.</div>
-        </div>
-      </devsite-multiple-choice>
-    </div>
-
-
-
-    <div>
-      <devsite-multiple-choice>
-        <div>When a Router downgrades</div>
-        <div>
-          <div>it automatically remains on the network but as a Child (REED)</div>
-          <div>Incorrect.</div>
-        </div>
-        <div correct>
-          <div>it must initiate the MLE Attach process to establish a new connection</div>
-          <div>Correct.</div>
-        </div>
-      </devsite-multiple-choice>
-    </div>
-
-
-
-    <div>
-      <devsite-multiple-choice>
-        <div>Router-Router links are established via a process called the</div>
-        <div correct>
-          <div>MLE Link Request process</div>
-          <div>Correct.</div>
-        </div>
-        <div>
-          <div>Link Accept and Request process</div>
-          <div>Incorrect.</div>
-        </div>
-        <div>
-          <div>Link Request process</div>
-          <div>Incorrect.</div>
-        </div>
-        <div>
-          <div>MLE Attach process</div>
-          <div>Incorrect.</div>
-        </div>
-      </devsite-multiple-choice>
-    </div>
 
 
 
