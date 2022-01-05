@@ -214,12 +214,6 @@ What you learned:
 
 
 
-
-
-
-
-
-
 <div>
   <devsite-multiple-choice>
     <div>What are the three subtypes of FTD?</div>
@@ -372,11 +366,11 @@ What you learned:
     </div>
     <div>
       <div>when it is an End Device seeking to join the Thread network</div>
-      <div></div>
+      <div>Incorrect.</div>
     </div>
     <div>
       <div>when it is a REED and the Thread network has merged with a larger network</div>
-      <div>Incorrect/div>
+      <div>Incorrect.</div>
     </div>
   </devsite-multiple-choice>
 </div>
