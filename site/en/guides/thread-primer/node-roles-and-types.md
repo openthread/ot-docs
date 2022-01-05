@@ -264,7 +264,7 @@ What you learned:
       <div>Sleepy End Device (SED)</div>
       <div>Correct.</div>
     </div>
-</devsite-multiple-choice>
+  </devsite-multiple-choice>
 </div>
 
 
@@ -326,7 +326,7 @@ What you learned:
     <div>
       <div>provides secure commissioning services for devices trying to join the network</div>
       <div>Incorrect. This is a function of a Router, not an End Device.</div>
-    <div>
+    </div>
   </devsite-multiple-choice>
 </div>
 
