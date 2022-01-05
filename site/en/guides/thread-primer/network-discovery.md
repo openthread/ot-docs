@@ -292,8 +292,6 @@ What you've learned:
 
 ## Check Your Understanding
 
-
-
 <div>
   <devsite-multiple-choice>
     <div>Thread networks are identified by three unique identifiers:</div>
@@ -332,7 +330,6 @@ What you've learned:
   </devsite-multiple-choice>
 </div>
 
-
 <div>
   <devsite-multiple-choice>
     <div>A Parent Request is used to</div>
@@ -350,7 +347,6 @@ What you've learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
 
 <div>
   <devsite-multiple-choice>
@@ -373,7 +369,6 @@ What you've learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
 
 <div>
   <devsite-multiple-choice>
@@ -413,12 +408,9 @@ What you've learned:
   </devsite-multiple-choice>
 </div>
 
-
-
-
 <div>
   <devsite-multiple-choice>
-    <div>Every device initially attaches to a Thread network as a &lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;</div>
+    <div>Every device initially attaches to a Thread network as a &lowbar;&lowbar;&lowbar;&lowbar;</div>
     <div correct>
       <div>Child (End Device)</div>
       <div>Correct.</div>
@@ -433,8 +425,6 @@ What you've learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
-
 
 ## License
 

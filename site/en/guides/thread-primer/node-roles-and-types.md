@@ -153,10 +153,6 @@ What you learned:
 
 ## Check Your Understanding
 
-
-
-
-
 <div>
   <devsite-multiple-choice>
     <div>A Thread device fulfills one of which two roles?</div>
@@ -178,11 +174,6 @@ What you learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
-
-
-
-
 
 <div>
   <devsite-multiple-choice>
@@ -209,10 +200,6 @@ What you learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
-
-
-
 
 <div>
   <devsite-multiple-choice>
@@ -267,8 +254,6 @@ What you learned:
   </devsite-multiple-choice>
 </div>
 
-
-
 <div>
   <devsite-multiple-choice>
     <div>A Router is a node that (select all that apply)</div>
@@ -298,7 +283,6 @@ What you learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
 
 <div>
   <devsite-multiple-choice>
@@ -330,7 +314,6 @@ What you learned:
   </devsite-multiple-choice>
 </div>
 
-
 <div>
   <devsite-multiple-choice>
     <div>A REED is a</div>
@@ -352,8 +335,6 @@ What you learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
-
 
 <div>
   <devsite-multiple-choice>
@@ -411,7 +392,7 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Every Thread network partition has &lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar; to manage Routers</div>
+    <div>Every Thread network partition has &lowbar;&lowbar;&lowbar;&lowbar; to manage Routers</div>
     <div>
       <div>a Gateway</div>
       <div>Incorrect. Thread networks do not have Gateways.</div>
@@ -451,7 +432,7 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>A network may have &lowbar;&lowbar;&lowbar;&lowbar;&lowbar; Leader</div>
+    <div>A network may have &lowbar;&lowbar;&lowbar;&lowbar; Leader</div>
     <div>
       <div>either none or exactly one</div>
       <div>This is wrong.</div>
@@ -492,7 +473,6 @@ What you learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
 
 ## License
 

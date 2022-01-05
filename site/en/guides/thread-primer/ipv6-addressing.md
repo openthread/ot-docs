@@ -311,8 +311,6 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
   </devsite-multiple-choice>
 </div>
 
-
-
 <div>
   <devsite-multiple-choice>
     <div>The prefix for a Link-Local address is &lowbar;&lowbar;&lowbar;&lowbar;</div>
@@ -334,7 +332,6 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
     </div>
   </devsite-multiple-choice>
 </div>
-
 
 <div>
   <devsite-multiple-choice>
@@ -358,8 +355,6 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
   </devsite-multiple-choice>
 </div>
 
-
-
 <div>
   <devsite-multiple-choice>
     <div>When a device has a Child ID of 0, we know that</div>
@@ -378,11 +373,10 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
   </devsite-multiple-choice>
 </div>
 
-
-
 <div>
   <devsite-multiple-choice>
-    <div>A camera, which is a node on a Thread network, receives a new RLOC16 and RLOC. What event might have caused this?</div>
+    <div>A camera, which is a node on a Thread network, receives a new RLOC16
+      and RLOC. What event might have caused this?</div>
     <div>
       <div>someone remotely downloaded images from the camera</div>
       <div>Incorrect.</div>
@@ -398,11 +392,10 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
   </devsite-multiple-choice>
 </div>
 
-
-
 <div>
   <devsite-multiple-choice>
-    <div>a device on a Thread network subscribes to the <code>ff03::2</code> multicast address. What does this tell us about the device?</div>
+    <div>a device on a Thread network subscribes to the <code>ff03::2</code>
+      multicast address. What does this tell us about the device?</div>
     <div>
       <div>it is a Minimal End Device (MED)</div>
       <div>Incorrect.</div>
@@ -422,13 +415,10 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
   </devsite-multiple-choice>
 </div>
 
-
-
-
-
 <div>
   <devsite-multiple-choice>
-    <div>Thread uses &lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar; to forward data to groups of nodes and routers:</div>
+    <div>Thread uses &lowbar;&lowbar;&lowbar;&lowbar; to forward data to
+      groups of nodes and routers:</div>
     <div>
       <div>unicast</div>
       <div>Incorrect.</div>
@@ -448,11 +438,10 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
   </devsite-multiple-choice>
 </div>
 
-
-
 <div>
   <devsite-multiple-choice>
-    <div>Thread uses &lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar; when the RLOC of a destination is unknown</div>
+    <div>Thread uses &lowbar;&lowbar;&lowbar;&lowbar; when the RLOC of a
+      destination is unknown</div>
     <div>
       <div>unicast</div>
       <div>Incorrect.</div>
@@ -471,21 +460,6 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
     </div>
   </devsite-multiple-choice>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## License
 

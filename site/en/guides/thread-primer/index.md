@@ -38,7 +38,6 @@ cover the full specification, which is available at
 
 ## Check Your Understanding
 
-
 <div>
   <devsite-multiple-choice>
     <div>In comparison with other IoC protocols, Thread's primary advantages are (pick 5):</div>
@@ -76,9 +75,6 @@ cover the full specification, which is available at
     </div>
   </devsite-multiple-choice>
 </div>
-
-
-
 
 <div>
   <devsite-multiple-choice>

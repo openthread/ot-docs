@@ -175,7 +175,6 @@ What you've learned:
     maintain the CDS
 *   The MLE Link Request process is used to establish Router-Router links
 
-
 ## Check Your Understanding
 
 <div>
@@ -199,8 +198,6 @@ What you've learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
-
 
 <div>
   <devsite-multiple-choice>
@@ -232,7 +229,6 @@ What you've learned:
   </devsite-multiple-choice>
 </div>
 
-
 <div>
   <devsite-multiple-choice>
     <div>Routers may be removed in order to</div>
@@ -251,8 +247,6 @@ What you've learned:
   </devsite-multiple-choice>
 </div>
 
-
-
 <div>
   <devsite-multiple-choice>
     <div>When a Child device upgrades to a Router</div>
@@ -267,8 +261,6 @@ What you've learned:
   </devsite-multiple-choice>
 </div>
 
-
-
 <div>
   <devsite-multiple-choice>
     <div>When a Router downgrades</div>
@@ -282,11 +274,6 @@ What you've learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
-
-
-
-
 
 <div>
   <devsite-multiple-choice>
@@ -309,12 +296,6 @@ What you've learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
-
-
-
-
-
 
 ## License
 
