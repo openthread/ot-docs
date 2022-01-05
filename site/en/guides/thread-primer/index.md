@@ -36,6 +36,69 @@ This primer is based on version 1.1.1 of the Thread Specification. It does not
 cover the full specification, which is available at
 [threadgroup.org](http://threadgroup.org/ThreadSpec).
 
+## Check Your Understanding
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>In comparison with other IoC protocols, Thread's primary advantages are (pick 5):</div>
+    <div>
+      <div>Compatibility</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Efficiency</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Elasticity</div>
+      <div>Incorrect</div>
+    </div>
+    <div>
+      <div>Portability</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Reliability</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Scalability</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Security</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Simplicity</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
+
+
+<div>
+  <devsite-multiple-choice>
+    <div>Thread sits atop</div>
+    <div>
+      <div>802.11ax Wi-Fi 6</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>802.15.4 Standard for LR-WPAN</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>802.1X Standard for Port-Based Network Access Control (PNAC)</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+
 ## License
 
 Copyright (c) 2021, The OpenThread Authors.

@@ -109,8 +109,7 @@ target network.
     </tr>
     <tr>
       <td width="25%"><b>Challenge</b></td>
-      <td>Tests the timeliness of the Parent Response to prevent replay
-        attacks</td>
+      <td>Tests the timeliness of the Parent Response to prevent replay attacks</td>
     </tr>
     <tr>
       <td width="25%"><b>Scan Mask</b></td>
@@ -297,28 +296,43 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Thread networks are identified by three unique identifiers (select the correct answer):</div>
-    <div>
-      <div>a 2-byte Personal Area Network ID (PAN ID), a 16-bit Extended Personal Area Network ID (XPAN ID), and a 16-bit random hexadecimal number</div>
-      <div>Incorrect.</div>
+    <div>Thread networks are identified by three unique identifiers:</div>
+    <div correct>
+      <div>a 2-byte Personal Area Network ID (PAN ID)</div>
+      <div>Correct.</div>
     </div>
     <div correct>
-      <div>a 2-byte Personal Area Network ID (PAN ID), a 8-byte Extended Personal Area Network ID (XPAN ID), and a human-readable Network Name</div>
+      <div>an 8-byte Extended Personal Area Network ID (XPAN ID)</div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>a human-readable Network Name</div>
       <div>Correct.</div>
     </div>
     <div>
-      <div>a 4-byte Network ID (aka Home ID) and a human-readable Network Name</div>
+      <div>a 16-bit Extended Personal Area Network ID (XPAN ID)</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>a 32-character SSID and a 16-bit random hexadecimal number</div>
+      <div>a 16-bit random hexadecimal number</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>a 4-byte Network ID (aka Home ID)</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>a human-readable Network Name</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>a 32-character SSID</div>
       <div>Incorrect.</div>
     </div>
   </devsite-multiple-choice>
 </div>
 
-       
-    
+
 <div>
   <devsite-multiple-choice>
     <div>A Parent Request is used to</div>
@@ -356,7 +370,7 @@ What you've learned:
     <div>
       <div>broadcast</div>
       <div>Incorrect.</div>
-    </div>    
+    </div>
   </devsite-multiple-choice>
 </div>
 
@@ -402,23 +416,23 @@ What you've learned:
 
 
 
-    <div>
-      <devsite-multiple-choice>
-        <div>Every device initially attaches to a Thread network as a ____________</div>
-        <div correct>
-          <div>Child (End Device)</div>
-          <div>Correct.</div>
-        </div>
-        <div>
-          <div>FTD (Full Thread Device)</div>
-          <div>Incorrect.</div>
-        </div>
-        <div>
-          <div>REED (Router-Eligible End Device) </div>
-          <div>Incorrect.</div>
-        </div>
-      </devsite-multiple-choice>
+<div>
+  <devsite-multiple-choice>
+    <div>Every device initially attaches to a Thread network as a &lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;</div>
+    <div correct>
+      <div>Child (End Device)</div>
+      <div>Correct.</div>
     </div>
+    <div>
+      <div>FTD (Full Thread Device)</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>REED (Router-Eligible End Device) </div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
 
 
 

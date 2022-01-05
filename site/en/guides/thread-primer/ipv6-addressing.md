@@ -283,7 +283,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>A Thread network consists of three scopes (select the correct three):</div>
+    <div>A Thread network consists of three scopes:</div>
     <div>
       <div>Private - interfaces are hidden from non-authorized devices</div>
       <div>Incorrect.</div>
@@ -315,21 +315,21 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>The prefix for a Link-Local address is ____</div>
+    <div>The prefix for a Link-Local address is &lowbar;&lowbar;&lowbar;&lowbar;</div>
     <div>
-      <div>fd00::/8</div>
+      <div><code>fd00::/8</code></div>
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>fe80::/16</div>
+      <div><code>fe80::/16</code></div>
       <div>Correct.</div>
     </div>
     <div>
-      <div>ffdc::/4</div>
+      <div><code>ffdc::/4</code></div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>ff03::2</div>
+      <div><code>ff03::2</code></div>
       <div>Incorrect.</div>
     </div>
   </devsite-multiple-choice>
@@ -338,21 +338,21 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>The prefix for a Mesh-Local address is ____</div>
+    <div>The prefix for a Mesh-Local address is &lowbar;&lowbar;&lowbar;&lowbar;</div>
     <div correct>
-      <div>fd00::/8</div>
+      <div><code>fd00::/8</code></div>
       <div>Correct.</div>
     </div>
     <div>
-      <div>fe80::/16 </div>
+      <div><code>fe80::/16</code></div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>ffdc::/4</div>
+      <div><code>ffdc::/4</code></div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>ff03::2</div>
+      <div><code>ff03::2</code></div>
       <div>Incorrect.</div>
     </div>
   </devsite-multiple-choice>
@@ -402,7 +402,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>a device on a Thread network subscribes to the ff03::2 multicast address. What does this tell us about the device?</div>
+    <div>a device on a Thread network subscribes to the <code>ff03::2</code> multicast address. What does this tell us about the device?</div>
     <div>
       <div>it is a Minimal End Device (MED)</div>
       <div>Incorrect.</div>
@@ -428,7 +428,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>Thread uses _________ to forward data to groups of nodes and routers:</div>
+    <div>Thread uses &lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar; to forward data to groups of nodes and routers:</div>
     <div>
       <div>unicast</div>
       <div>Incorrect.</div>
@@ -452,7 +452,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>Thread uses _______ when the RLOC of a destination is unknown</div>
+    <div>Thread uses &lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar; when the RLOC of a destination is unknown</div>
     <div>
       <div>unicast</div>
       <div>Incorrect.</div>

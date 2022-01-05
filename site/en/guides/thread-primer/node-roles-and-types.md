@@ -156,65 +156,6 @@ What you learned:
 
 
 
-<div>
-  <devsite-multiple-choice>
-    <div>In comparison with other IoC protocols, Thread's primary advantages are?</div>
-    <div>
-      <div>Compatibility</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Efficiency</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>Elasticity</div>
-      <div>Incorrect</div>
-    </div>
-    <div>
-      <div>Portability</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Reliability</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Scalability</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Security</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Simplicity</div>
-      <div>Incorrect.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
-
-
-
-<div>
-  <devsite-multiple-choice>
-    <div>Thread sits atop</div>
-    <div>
-      <div>802.11ax Wi-Fi 6</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>802.15.4 Standard for LR-WPAN</div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div>802.1X Standard for Port-Based Network Access Control (PNAC)</div>
-      <div>Incorrect.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
 
 <div>
   <devsite-multiple-choice>
@@ -492,16 +433,12 @@ What you learned:
   <devsite-multiple-choice>
     <div>Every Thread network partition has &lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar;&lowbar; to manage Routers</div>
     <div>
-      <div>a Master</div>
-      <div>This is the wrong term.</div>
-    </div>
-    <div>
       <div>a Gateway</div>
-      <div>Incorrect.</div>
+      <div>Incorrect. Thread networks do not have Gateways.</div>
     </div>
     <div>
       <div>a Parent</div>
-      <div>Incorrect.</div>
+      <div>Incorrect. A Parent is a term that is applied to Thread Routers, and a Thread network can have more than one Router.</div>
     </div>
     <div correct>
       <div>a Leader</div>
@@ -515,7 +452,7 @@ What you learned:
     <div>What device is used to connect Thread and non-Thread networks?</div>
     <div>
       <div>a Gateway</div>
-      <div>That's the wrong term, although in traditional networking, this term is used to describe a device that connects two networks.</div>
+      <div>Although the term 'Gateway', in traditional networking, refers to a device that connects two networks, this is the wrong term for a Thread device that serves this role.</div>
     </div>
     <div correct>
       <div>a Border Router</div>
