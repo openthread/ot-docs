@@ -302,22 +302,22 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>An End Device (ED) is a node that  (select all that apply)</div>
+    <div>An End Device (ED) is a node that (select all that apply)</div>
     <div correct>
       <div>can disable its transceiver to reduce its power consumption</div>
-      <div>An End Device can do this, but a Router cannot.</div>
+      <div>That's correct. An End Device can do this, but a Router cannot.</div>
     </div>
     <div correct>
       <div>communicates primarily with a single Router</div>
-      <div>End Devices communicate primarily with one Router.</div>
+      <div>That's right. End Devices communicate primarily with one Router.</div>
     </div>
     <div correct>
       <div>does not forward packets for other network devices</div>
-      <div>This is a function of a Router, not an End Device.</div>
+      <div>Correct. This is a function of a Router, not an End Device.</div>
     </div>
     <div>
       <div>forwards packets for network devices</div>
-      <div>This is a function of a Router, not an End Device.</div>
+      <div>Wrong - this is a function of a Router, not an End Device.</div>
     </div>
     <div>
       <div>keeps its transceiver enabled at all times</div>
@@ -340,15 +340,15 @@ What you learned:
     </div>
     <div>
       <div>Regional Elliptic End Device</div>
-      <div>There is no such thing.</div>
+      <div>Incorrect. There is no such thing.</div>
     </div>
     <div>
       <div>Routing Electronic Exfiltration Device</div>
-      <div>There is no such thing.</div>
+      <div>Incorrect. There is no such thing.</div>
     </div>
     <div>
       <div>Router Eligible Edge Device</div>
-      <div>There is no such thing.</div>
+      <div>Incorrect. There is no such thing.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -382,11 +382,11 @@ What you learned:
     </div>
     <div>
       <div>when it is a Router and a new End Device is seeking to join the Thread network</div>
-      <div>A Router cannot revert to an End Device in this scenario.</div>
+      <div>Wrong. A Router cannot revert to an End Device in this scenario.</div>
     </div>
     <div>
       <div>when it is an End Device and is seeking to leave the Thread network</div>
-      <div>A Router cannot revert to an End Device in this scenario.</div>
+      <div>Wrong. A Router cannot revert to an End Device in this scenario.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -444,7 +444,7 @@ What you learned:
     </div>
     <div>
       <div>a Bridge</div>
-      <div>This term refers to a similar concept in traditional networking, but it's not correct in the context of Thread networks. A bridge connects two LANs that use the same network protocol.</div>
+      <div>Incorrect. This term refers to a similar concept in traditional networking, but it's not correct in the context of Thread networks. A bridge connects two LANs that use the same network protocol.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -492,10 +492,6 @@ What you learned:
     </div>
   </devsite-multiple-choice>
 </div>
-
-
-
-
 
 
 ## License
