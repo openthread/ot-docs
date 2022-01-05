@@ -334,7 +334,8 @@ What you've learned:
   <devsite-multiple-choice>
     <div>A Parent Request is used to</div>
     <div correct>
-      <div>discover neighboring Routers and Router Eligible End Devices (REEDs) in the target network</div>
+      <div>discover neighboring Routers and Router Eligible End Devices (REEDs)
+        in the target network</div>
       <div>Correct.</div>
       </div>
     <div>
@@ -342,7 +343,8 @@ What you've learned:
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>request that a Router Eligible End Device be promoted to a Router</div>
+      <div>request that a Router Eligible End Device be promoted to a Router
+      </div>
       <div>Incorrect.</div>
     </div>
   </devsite-multiple-choice>
@@ -372,7 +374,8 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>The MLE Link Request process is used to (select all true statements)</div>
+    <div>The MLE Link Request process is used to (select all true statements)
+    </div>
     <div correct>
       <div>Establish Router-Router links</div>
       <div>Correct.</div>
@@ -402,7 +405,8 @@ What you've learned:
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>Negotiate link parameters (device type, frame counters, timeout) with peers</div>
+      <div>Negotiate link parameters (device type, frame counters, timeout)
+        with peers</div>
       <div>Correct.</div>
     </div>
   </devsite-multiple-choice>
@@ -410,7 +414,8 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Every device initially attaches to a Thread network as a &lowbar;&lowbar;&lowbar;&lowbar;</div>
+    <div>Every device initially attaches to a Thread network as a
+      &lowbar;&lowbar;&lowbar;&lowbar;</div>
     <div correct>
       <div>Child (End Device)</div>
       <div>Correct.</div>

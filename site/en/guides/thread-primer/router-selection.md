@@ -179,17 +179,20 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>a Connected Dominating Set (CDS) enforces which of the following rules?</div>
+    <div>a Connected Dominating Set (CDS) enforces which of the following
+      rules?</div>
     <div correct>
       <div>There is a Router-only path between any two Routers.</div>
       <div>Correct.</div>
     </div>
     <div correct>
-      <div>Any one Router in a Thread network can reach any other Router by staying entirely within the set of Routers.</div>
+      <div>Any one Router in a Thread network can reach any other Router by
+        staying entirely within the set of Routers.</div>
       <div>Correct.</div>
     </div>
     <div correct>
-      <div>Every End Device in a Thread network is directly connected to a Router.</div>
+      <div>Every End Device in a Thread network is directly connected to a
+        Router.</div>
       <div>Correct.</div>
     </div>
     <div>
@@ -203,8 +206,10 @@ What you've learned:
   <devsite-multiple-choice>
     <div>Routers may be added in order to</div>
     <div correct>
-      <div>increase coverage if the network has fewer than the minimum optimal number of routers (16)</div>
-      <div>That's right. Thread networks strive to maintain an optimal number of routers for multiple reasons, including coverage.</div>
+      <div>increase coverage if the network has fewer than the minimum optimal
+        number of routers (16)</div>
+      <div>That's right. Thread networks strive to maintain an optimal number of
+        routers for multiple reasons, including coverage.</div>
     </div>
     <div>
       <div>improve bandwidth</div>
@@ -216,15 +221,18 @@ What you've learned:
     </div>
     <div correct>
       <div>maintain a minimum level of redundancy</div>
-      <div>That's right. Having more routers increases redundancy, which improves resilience.</div>
+      <div>That's right. Having more routers increases redundancy, which
+        improves resilience.</div>
     </div>
     <div correct>
       <div>support more children</div>
-      <div>Correct. Having more routers allows a network to support more children (End Devices).</div>
+      <div>Correct. Having more routers allows a network to support more
+        children (End Devices).</div>
     </div>
     <div>
       <div>reduce latency</div>
-      <div>Incorrect. Adding routers would have no impact on network latency.</div>
+      <div>Incorrect. Adding routers would have no impact on network latency.
+      </div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -234,7 +242,9 @@ What you've learned:
     <div>Routers may be removed in order to</div>
     <div correct>
       <div>Reduce the Routing state below the maximum of 32 Routers</div>
-      <div>Correct. Thread networks strive to maintain an optimal number of Routers. 32 Routers is the most that any Thread network should have.</div>
+      <div>Correct. Thread networks strive to maintain an optimal number of
+        Routers. 32 Routers is the most that any Thread network should have.
+      </div>
     </div>
     <div>
       <div>Free up channels</div>
@@ -242,7 +252,8 @@ What you've learned:
     </div>
     <div correct>
       <div>Allow new Routers in other parts of the network when needed.</div>
-      <div>Correct. Reducing the number of active Routers increases the network's potential to ramp up capacity in other parts of itself.</div>
+      <div>Correct. Reducing the number of active Routers increases the
+        network's potential to ramp up capacity in other parts of itself.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -252,11 +263,14 @@ What you've learned:
     <div>When a Child device upgrades to a Router</div>
     <div correct>
       <div>It automatically remains on the network but as a Router</div>
-      <div>That's right. The device stays connected, only its role changes.</div>
+      <div>That's right. The device stays connected, only its role changes.
+      </div>
     </div>
     <div>
-      <div>It must initiate the MLE Attach process to establish a new connection</div>
-      <div>Incorrect. The MLE Attach process is not necessary when a Child becomes a Router.</div>
+      <div>It must initiate the MLE Attach process to establish a new
+        connection</div>
+      <div>Incorrect. The MLE Attach process is not necessary when a Child
+        becomes a Router.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -269,8 +283,10 @@ What you've learned:
       <div>Wrong. There are more steps involved when a Router downgrades.</div>
     </div>
     <div correct>
-      <div>it must initiate the MLE Attach process to establish a new connection</div>
-      <div>Correct. A device that downgrades from Router to REED is disconnected and must renegotiate its connection to the network.</div>
+      <div>it must initiate the MLE Attach process to establish a new
+        connection</div>
+      <div>Correct. A device that downgrades from Router to REED is
+        disconnected and must renegotiate its connection to the network.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -284,15 +300,19 @@ What you've learned:
     </div>
     <div>
       <div>Link Accept and Request process</div>
-      <div>Incorrect. Link Accept and Request messages are sent by Routers in response to Link Request messages as part of the MLE Link Request process.</div>
+      <div>Incorrect. Link Accept and Request messages are sent by Routers in
+        response to Link Request messages as part of the MLE Link Request
+        process.</div>
     </div>
     <div>
       <div>Link Request process</div>
-      <div>This isn't the exact term. A Link Request is a request from the Router to all other Routers in the Thread network.</div>
+      <div>This isn't the exact term. A Link Request is a request from the
+        Router to all other Routers in the Thread network.</div>
     </div>
     <div>
       <div>MLE Attach process</div>
-      <div>Incorrect. The MLE Attach process is the process by which a device joins an existing Thread network.</div>
+      <div>Incorrect. The MLE Attach process is the process by which a device
+        joins an existing Thread network.</div>
     </div>
   </devsite-multiple-choice>
 </div>

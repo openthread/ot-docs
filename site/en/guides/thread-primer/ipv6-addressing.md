@@ -293,19 +293,23 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>Link-Local - interfaces are reachable by a single radio transmission</div>
+      <div>Link-Local - interfaces are reachable by a single radio
+        transmission</div>
       <div>Correct.</div>
     </div>
     <div>
-      <div>Site Local - interfaces are reachable by all devices within the same site</div>
+      <div>Site Local - interfaces are reachable by all devices within the same
+        site</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>Mesh-Local - interfaces are reachable by devices within the same Thread network</div>
+      <div>Mesh-Local - interfaces are reachable by devices within the same
+        Thread network</div>
       <div>Correct.</div>
     </div>
     <div correct>
-      <div>Global - interfaces are reachable from outside the Thread network</div>
+      <div>Global - interfaces are reachable from outside the Thread
+        network</div>
       <div>Correct.</div>
     </div>
   </devsite-multiple-choice>
@@ -313,7 +317,8 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>The prefix for a Link-Local address is &lowbar;&lowbar;&lowbar;&lowbar;</div>
+    <div>The prefix for a Link-Local address is
+      &lowbar;&lowbar;&lowbar;&lowbar;</div>
     <div>
       <div><code>fd00::/8</code></div>
       <div>Incorrect.</div>
@@ -335,7 +340,8 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>The prefix for a Mesh-Local address is &lowbar;&lowbar;&lowbar;&lowbar;</div>
+    <div>The prefix for a Mesh-Local address is
+      &lowbar;&lowbar;&lowbar;&lowbar;</div>
     <div correct>
       <div><code>fd00::/8</code></div>
       <div>Correct.</div>
@@ -378,16 +384,21 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
     <div>A camera, which is a node on a Thread network, receives a new RLOC16
       and RLOC. What event might have caused this?</div>
     <div>
-      <div>someone remotely downloaded images from the camera</div>
-      <div>Incorrect.</div>
+      <div>Someone remotely downloaded images from the camera</div>
+      <div>Incorrect. This occurrence would have no bearing on the Thread
+        network.</div>
     </div>
     <div correct>
-      <div>another node dropped off the network, which changed the network topology</div>
+      <div>Another node dropped off the network, which changed the network
+        topology</div>
       <div>Correct.</div>
     </div>
     <div>
-      <div>the camera entered sleep mode, which changed the network topology</div>
-      <div>Incorrect.</div>
+      <div>The camera entered sleep mode, which changed the network topology.
+      </div>
+      <div>Incorrect. If the camera entered sleep mode, it wouldn't receive a
+        new network address. In fact, it might not even be on the network when
+        in sleep mode.</div>
     </div>
   </devsite-multiple-choice>
 </div>

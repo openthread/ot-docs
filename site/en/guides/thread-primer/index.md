@@ -40,7 +40,8 @@ cover the full specification, which is available at
 
 <div>
   <devsite-multiple-choice>
-    <div>In comparison with other IoC protocols, Thread's primary advantages are (pick 5):</div>
+    <div>In comparison with other IoC protocols, Thread's five primary
+    advantages are:</div>
     <div>
       <div>Compatibility</div>
       <div>Incorrect.</div>
@@ -85,7 +86,9 @@ cover the full specification, which is available at
     </div>
     <div correct>
       <div>802.15.4 Standard for LR-WPAN</div>
-      <div>That's right! Thread uses LR-WPAN, a standard for low-power, low data rate wireless communication between small devices that form Low Rate, Wireless Personal Area Networks (LR-WPANs)</div>
+      <div>That's right! Thread uses LR-WPAN, a standard for low-power, low data
+      rate wireless communication between small devices that form Low Rate,
+      Wireless Personal Area Networks (LR-WPANs)</div>
     </div>
     <div>
       <div>802.1X Standard for Port-Based Network Access Control (PNAC)</div>
