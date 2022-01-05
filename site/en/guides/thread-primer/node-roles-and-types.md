@@ -302,9 +302,7 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>
-      <div>An End Device (ED) is a node that  (select all that apply)</div>
-    </div>
+    <div>An End Device (ED) is a node that  (select all that apply)</div>
     <div correct>
       <div>can disable its transceiver to reduce its power consumption</div>
       <div>An End Device can do this, but a Router cannot.</div>
