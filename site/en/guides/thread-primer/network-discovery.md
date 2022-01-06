@@ -294,7 +294,7 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Which identifier is not used to identify a Thread network?</div>
+    <div>Which identifier is <em>not</em> used to identify a Thread network?</div>
     <div>
       <div>A 2-byte Personal Area Network ID (PAN ID).</div>
       <div>Incorrect. A thread network is identified, in part, by a PAN ID.</div>
@@ -309,7 +309,7 @@ What you've learned:
     </div>
     <div correct>
       <div>A 32-character SSID.</div>
-      <div>Correct. Unlike a 802.11 WiFi network, Thread network identifiers do not use an SSID.</div>
+      <div>Correct. Unlike an 802.11 WiFi network, Thread network identifiers do not use an SSID.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -361,7 +361,8 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>For what purpose is the MLE Link Request process not used?</div>
+    <div>For what purpose is the MLE Link Request process <em>not</em> used?
+    </div>
     <div>
       <div>To establish Router-Router links.</div>
       <div>Incorrect.</div>
@@ -392,7 +393,7 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>When a device initially attaches to a Thread network, what is the 
+    <div>When a device initially attaches to a Thread network, what is
     its device classification?</div>
     <div correct>
       <div>Child (End Device)</div>

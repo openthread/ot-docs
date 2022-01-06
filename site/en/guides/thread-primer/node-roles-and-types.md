@@ -178,25 +178,25 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>What are the two types of Thread device?</div>
+    <div>What are the two primary types of Thread device?</div>
     <div correct>
       <div>Minimal Thread Device (MTD).</div>
       <div>Correct.</div>
     </div>
     <div correct>
-      <div>Full Thread Device (FTD),</div>
+      <div>Full Thread Device (FTD).</div>
       <div>Correct.</div>
     </div>
     <div>
-      <div>Semi-End Device (SED),</div>
+      <div>Semi-End Device (SED).</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>Miniscule Thread Device (MTD),</div>
+      <div>Miniscule Thread Device (MTD).</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>Sleepy End Device (SED),</div>
+      <div>Sleepy End Device (SED).</div>
       <div>Incorrect.</div>
     </div>
   </devsite-multiple-choice>
@@ -213,17 +213,17 @@ What you learned:
         Router.)</div>
     </div>
     <div>
-      <div>A Router forwards packets for network devices,</div>
+      <div>A Router forwards packets for network devices.</div>
       <div>Correct.</div>
     </div>
     <div>
-      <div>A Router keeps its transceiver enabled at all times,</div>
+      <div>A Router keeps its transceiver enabled at all times.</div>
       <div>Correct. In order to function properly as a Router, a device must
         keep its transceiver online at all times.</div>
     </div>
     <div>
       <div>A Router provides secure commissioning services for devices trying 
-      to join the network,</div>
+      to join the network.</div>
       <div>Correct. This is an important function of a Router.</div>
     </div>
   </devsite-multiple-choice>
@@ -275,7 +275,7 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Consider a scenario where a Thread network contains at least two 
+    <div>Consider a scenario where a Thread network contains two 
     groups of nodes that have radio connectivity with one another, but not
     with members of the other group.
     What conclusion can one draw from this?</div>
@@ -305,9 +305,9 @@ What you learned:
     <div>What device is used to connect Thread and non-Thread networks?</div>
     <div>
       <div>a Gateway</div>
-      <div>Although the term 'Gateway', in traditional networking, does refers
-      to a device that connects two networks, this is the wrong term for a Thread
-      device that serves this role.</div>
+      <div>Although the term 'Gateway', in traditional networking, does refer
+      to a device that connects two networks, there is a more accurate term.
+      </div>
     </div>
     <div correct>
       <div>a Border Router</div>
@@ -329,18 +329,18 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>A network may have &lowbar;&lowbar;&lowbar;&lowbar; Leader</div>
+    <div>How many Leaders may a Thread network have?</div>
     <div>
-      <div>either none or exactly one</div>
+      <div>Either none or exactly one.</div>
       <div>This is wrong. A Thread network cannot have fewer than one Leader.
       </div>
     </div>
     <div correct>
-      <div>one and only one</div>
+      <div>One and only one.</div>
       <div>Correct. A Thread network may have one and only one Leader.</div>
     </div>
     <div>
-      <div>more than one</div>
+      <div>More than one.</div>
       <div>Wrong; a Thread network cannot have multiple Leaders.</div>
     </div>
   </devsite-multiple-choice>

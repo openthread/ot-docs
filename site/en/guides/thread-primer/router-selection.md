@@ -231,8 +231,7 @@ What you've learned:
     <div>Which of the following statements correctly describe what happens when
       a Child device upgrades to a Router?</div>
     <div correct>
-      <div>The device remains on the network with the same address, becoming
-        a Router.</div>
+      <div>The device remains on the network with the same address.</div>
       <div>That's right. The device stays connected to the network. Only its
         role changes.</div>
     </div>
@@ -255,8 +254,8 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Which of the following statements accurately describe what happens when
-    a Router downgrades?</div>
+    <div>Which of the following statements accurately describes what happens
+      when a Router downgrades?</div>
     <div>
       <div>The device automatically remains on the network but as a Child (REED)
       </div>
