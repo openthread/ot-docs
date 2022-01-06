@@ -285,30 +285,30 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
   <devsite-multiple-choice>
     <div>A Thread network consists of which three scopes?</div>
     <div>
-      <div>Private - interfaces are hidden from non-authorized devices.</div>
+      <div>Private: interfaces are hidden from non-authorized devices.</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>Interface-Local - interfaces are reachable from the same device.</div>
+      <div>Interface-Local: interfaces are reachable from the same device.</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>Link-Local - interfaces are reachable by a single radio
+      <div>Link-Local: interfaces are reachable by a single radio
         transmission.</div>
       <div>Correct.</div>
     </div>
     <div>
-      <div>Site Local - interfaces are reachable by all devices within the same
+      <div>Site-Local: interfaces are reachable by all devices within the same
         site.</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>Mesh-Local - interfaces are reachable by devices within the same
+      <div>Mesh-Local: interfaces are reachable by devices within the same
         Thread network.</div>
       <div>Correct.</div>
     </div>
     <div correct>
-      <div>Global - interfaces are reachable from outside the Thread
+      <div>Global: interfaces are reachable from outside the Thread
         network.</div>
       <div>Correct.</div>
     </div>
@@ -411,7 +411,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
     </div>
     <div>
       <div>It is a Full End Device (FED).</div>
-      <div>Incorrect.</div>
+      <div>Incorrect. (Hint: It might or might not be a FED.)</div>
     </div>
     <div>
       <div>It is a Minimal Thread Device (MTD).</div>

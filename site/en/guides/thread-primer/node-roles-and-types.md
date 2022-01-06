@@ -188,10 +188,6 @@ What you learned:
       <div>Correct.</div>
     </div>
     <div>
-      <div>Semi-End Device (SED).</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
       <div>Miniscule Thread Device (MTD).</div>
       <div>Incorrect.</div>
     </div>
