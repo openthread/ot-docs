@@ -290,60 +290,47 @@ What you've learned:
     network and link state
 *   The MLE Attach process establishes Child-Parent links
 
-## Check Your Understanding
+## Check your understanding
 
 <div>
   <devsite-multiple-choice>
-    <div>Thread networks are identified by three unique identifiers:</div>
+    <div>Which identifier is not used to identify a Thread network?</div>
+    <div>
+      <div>A 2-byte Personal Area Network ID (PAN ID).</div>
+      <div>Incorrect. A thread network is identified, in part, by a PAN ID.</div>
+    </div>
+    <div>
+      <div>An 8-byte Extended Personal Area Network ID (XPAN ID).</div>
+      <div>Incorrect. A thread network is identified, in part, by an XPAN ID.</div>
+    </div>
+    <div>
+      <div>A human-readable Network Name.</div>
+      <div>Incorrect. A thread network is identified, in part, by a human-readable Network Name.</div>
+    </div>
     <div correct>
-      <div>a 2-byte Personal Area Network ID (PAN ID)</div>
-      <div>Correct.</div>
-    </div>
-    <div correct>
-      <div>an 8-byte Extended Personal Area Network ID (XPAN ID)</div>
-      <div>Correct.</div>
-    </div>
-    <div correct>
-      <div>a human-readable Network Name</div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div>a 16-bit Extended Personal Area Network ID (XPAN ID)</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>a 16-bit random hexadecimal number</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>a 4-byte Network ID (aka Home ID)</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>a human-readable Network Name</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>a 32-character SSID</div>
-      <div>Incorrect.</div>
+      <div>A 32-character SSID.</div>
+      <div>Correct. Unlike a 802.11 WiFi network, Thread network identifiers do not use an SSID.</div>
     </div>
   </devsite-multiple-choice>
 </div>
 
 <div>
   <devsite-multiple-choice>
-    <div>A Parent Request is used to</div>
+    <div>What is a Parent Request used for?</div>
     <div correct>
-      <div>discover neighboring Routers and Router Eligible End Devices (REEDs)
-        in the target network</div>
-      <div>Correct.</div>
+      <div>To discover neighboring Routers and Router Eligible End Devices (REEDs)
+        in the target network.</div>
+      <div>Correct. A Parent Request is issued by a device seeking to attach to a
+      network.</div>
       </div>
     <div>
-      <div>announce that a Router is becoming a parent</div>
-      <div>Incorrect.</div>
+      <div>To announce that a Router is becoming a parent.</div>
+      <div>Incorrect. A Router does not initiate a Parent-Child relationship
+      with another network device. Instead, a network device selects a Router
+      to become its Child.</div>
     </div>
     <div>
-      <div>request that a Router Eligible End Device be promoted to a Router
+      <div>To request that a Router Eligible End Device be promoted to a Router.
       </div>
       <div>Incorrect.</div>
     </div>
@@ -374,39 +361,30 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>The MLE Link Request process is used to (select all true statements)
-    </div>
-    <div correct>
-      <div>Establish Router-Router links</div>
-      <div>Correct.</div>
-    </div>
-    <div correct>
-      <div>Establish Child-Parent links</div>
-      <div>Correct.</div>
-    </div>
-    <div correct>
-      <div>Discover links to neighboring devices</div>
-      <div>Correct.</div>
-    </div>
+    <div>For what purpose is the MLE Link Request process not used?</div>
     <div>
-      <div>Establish connections to external networks</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Determine the quality of links to neighboring devices</div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div>Establish links to neighboring devices</div>
+      <div>To establish Router-Router links.</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>Demote Routers that are too active to Child nodes</div>
+      <div>To establish Child-Parent links.</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>To discover links to neighboring devices.</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>To negotiate link parameters (device type, frame counters, timeout)
+        with peers.</div>
+      <div>Incorrect.</div>
+    </div>
+     <div>
+      <div>To determine the quality of links to neighboring devices.</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>Negotiate link parameters (device type, frame counters, timeout)
-        with peers</div>
+      <div>To establish links to neighboring devices.</div>
       <div>Correct.</div>
     </div>
   </devsite-multiple-choice>
@@ -414,11 +392,12 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Every device initially attaches to a Thread network as a
-      &lowbar;&lowbar;&lowbar;&lowbar;</div>
+    <div>When a device initially attaches to a Thread network, what is the 
+    its device classification?</div>
     <div correct>
       <div>Child (End Device)</div>
-      <div>Correct.</div>
+      <div>Correct. A device joining a Thread network always starts out as an
+      End Device on that network.</div>
     </div>
     <div>
       <div>FTD (Full Thread Device)</div>

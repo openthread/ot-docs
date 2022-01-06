@@ -36,68 +36,6 @@ This primer is based on version 1.1.1 of the Thread Specification. It does not
 cover the full specification, which is available at
 [threadgroup.org](http://threadgroup.org/ThreadSpec).
 
-## Check Your Understanding
-
-<div>
-  <devsite-multiple-choice>
-    <div>In comparison with other IoC protocols, Thread's five primary
-    advantages are:</div>
-    <div>
-      <div>Compatibility</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Efficiency</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>Elasticity</div>
-      <div>Incorrect</div>
-    </div>
-    <div>
-      <div>Portability</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Reliability</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Scalability</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Security</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>Simplicity</div>
-      <div>Incorrect.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
-<div>
-  <devsite-multiple-choice>
-    <div>Thread sits atop which wireless networking protocol?</div>
-    <div>
-      <div>802.11ax Wi-Fi 6</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>802.15.4 Standard for LR-WPAN</div>
-      <div>That's right! Thread uses LR-WPAN, a standard for low-power, low data
-      rate wireless communication between small devices that form Low Rate,
-      Wireless Personal Area Networks (LR-WPANs)</div>
-    </div>
-    <div>
-      <div>802.1X Standard for Port-Based Network Access Control (PNAC)</div>
-      <div>Incorrect.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
-
 ## License
 
 Copyright (c) 2021, The OpenThread Authors.

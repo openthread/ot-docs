@@ -175,116 +175,96 @@ What you've learned:
     maintain the CDS
 *   The MLE Link Request process is used to establish Router-Router links
 
-## Check Your Understanding
+## Check your understanding
 
 <div>
   <devsite-multiple-choice>
-    <div>a Connected Dominating Set (CDS) enforces which of the following
-      rules?</div>
-    <div correct>
+    <div>Which of these rules are not enforced by a Connected Dominating Set
+    (CDS)?</div>
+    <div>
       <div>There is a Router-only path between any two Routers.</div>
-      <div>Correct.</div>
+      <div>Incorrect.</div>
     </div>
-    <div correct>
+    <div>
       <div>Any one Router in a Thread network can reach any other Router by
         staying entirely within the set of Routers.</div>
-      <div>Correct.</div>
+      <div>Incorrect.</div>
     </div>
-    <div correct>
+    <div>
       <div>Every End Device in a Thread network is directly connected to a
         Router.</div>
-      <div>Correct.</div>
+      <div>Incorrect.</div>
     </div>
-    <div>
+    <div correct>
       <div>Only one Router in a Thread network may be a Border Router.</div>
-      <div>Incorrect. A Thread network may have multiple Border Routers.</div>
+      <div>Correct. A Thread network may have multiple Border Routers.</div>
     </div>
   </devsite-multiple-choice>
 </div>
 
 <div>
   <devsite-multiple-choice>
-    <div>Routers may be added in order to</div>
+    <div>Why might a router be removed from a Thread network?</div>
     <div correct>
-      <div>increase coverage if the network has fewer than the minimum optimal
-        number of routers (16)</div>
-      <div>That's right. Thread networks strive to maintain an optimal number of
-        routers for multiple reasons, including coverage.</div>
-    </div>
-    <div>
-      <div>improve bandwidth</div>
-      <div>Incorrect. Bandwidth would not be improved by adding routers.</div>
-    </div>
-    <div correct>
-      <div>increase path diversity</div>
-      <div>Correct. Having more routers contributes to path diversity.</div>
-    </div>
-    <div correct>
-      <div>maintain a minimum level of redundancy</div>
-      <div>That's right. Having more routers increases redundancy, which
-        improves resilience.</div>
-    </div>
-    <div correct>
-      <div>support more children</div>
-      <div>Correct. Having more routers allows a network to support more
-        children (End Devices).</div>
-    </div>
-    <div>
-      <div>reduce latency</div>
-      <div>Incorrect. Adding routers would have no impact on network latency.
-      </div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
-<div>
-  <devsite-multiple-choice>
-    <div>Routers may be removed in order to</div>
-    <div correct>
-      <div>Reduce the Routing state below the maximum of 32 Routers</div>
+      <div>To reduce the Routing state below the maximum of 32 Routers.</div>
       <div>Correct. Thread networks strive to maintain an optimal number of
         Routers. 32 Routers is the most that any Thread network should have.
       </div>
     </div>
     <div>
-      <div>Free up channels</div>
-      <div>Incorrect. Routers have no relation to channel usage.</div>
+      <div>To free up channels.</div>
+      <div>Incorrect. The number of routers has no relation to channel usage
+      or capacity.</div>
     </div>
     <div correct>
-      <div>Allow new Routers in other parts of the network when needed.</div>
-      <div>Correct. Reducing the number of active Routers increases the
-        network's potential to ramp up capacity in other parts of itself.</div>
+      <div>To allow the election of new Routers in other parts of the network
+      when needed.</div>
+      <div>Correct. Reducing the number of active Routers in one part of a
+      Thread network increases its ability to ramp up routing capacity
+      elsewhere.</div>
     </div>
   </devsite-multiple-choice>
 </div>
 
 <div>
   <devsite-multiple-choice>
-    <div>When a Child device upgrades to a Router</div>
+    <div>Which of the following statements correctly describe what happens when
+      a Child device upgrades to a Router?</div>
     <div correct>
-      <div>It automatically remains on the network but as a Router</div>
-      <div>That's right. The device stays connected, only its role changes.
+      <div>The device remains on the network with the same address, becoming
+        a Router.</div>
+      <div>That's right. The device stays connected to the network. Only its
+        role changes.</div>
+    </div>
+    <div>
+      <div>The device must initiate the MLE Attach process to establish a new
+        network connection.</div>
+      <div>Incorrect. The MLE Attach process is used when a device joins
+        a Thread network. The process followed by a device upgrading to a Router
+        is called the MLE Link Request Process.</div>
+    </div>
+    <div>
+      <div>The other Routers 'vote' to decide whether to allow the device to
+        become a Router.</div>
+      <div>Incorrect. The Leader decides whether to allow the device to become a
+      Router, based on the distributed algorithm that maintains the CDS.</div>
+    </div>
+</div>
+</devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>Which of the following statements accurately describe what happens when
+    a Router downgrades?</div>
+    <div>
+      <div>The device automatically remains on the network but as a Child (REED)
       </div>
-    </div>
-    <div>
-      <div>It must initiate the MLE Attach process to establish a new
-        connection</div>
-      <div>Incorrect. The MLE Attach process is not necessary when a Child
-        becomes a Router.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
-<div>
-  <devsite-multiple-choice>
-    <div>When a Router downgrades</div>
-    <div>
-      <div>it automatically remains on the network but as a Child (REED)</div>
       <div>Wrong. There are more steps involved when a Router downgrades.</div>
     </div>
     <div correct>
-      <div>it must initiate the MLE Attach process to establish a new
-        connection</div>
+      <div>The device must initiate the MLE Attach process to establish a new
+        connection to the network.</div>
       <div>Correct. A device that downgrades from Router to REED is
         disconnected and must renegotiate its connection to the network.</div>
     </div>
@@ -293,20 +273,21 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Router-Router links are established via a process called the</div>
+    <div>What process is used to establish Router-Router links?</div>
     <div correct>
-      <div>MLE Link Request process</div>
+      <div>The MLE Link Request process.</div>
       <div>Correct.</div>
     </div>
     <div>
-      <div>Link Accept and Request process</div>
-      <div>Incorrect. Link Accept and Request messages are sent by Routers in
+      <div>The Link Accept and Request process.</div>
+      <div>Incorrect. There's no such thing as a Link Accept and Request process.
+        Link Accept and Request messages are sent by Routers in
         response to Link Request messages as part of the MLE Link Request
         process.</div>
     </div>
     <div>
       <div>Link Request process</div>
-      <div>This isn't the exact term. A Link Request is a request from the
+      <div>Close, but still wrong. A Link Request is a request from the
         Router to all other Routers in the Thread network.</div>
     </div>
     <div>

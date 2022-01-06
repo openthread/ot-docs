@@ -279,37 +279,37 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 [Thread Specification](http://threadgroup.org/ThreadSpec).
 
 
-## Check Your Understanding
+## Check your understanding
 
 <div>
   <devsite-multiple-choice>
-    <div>A Thread network consists of three scopes:</div>
+    <div>A Thread network consists of which three scopes?</div>
     <div>
-      <div>Private - interfaces are hidden from non-authorized devices</div>
+      <div>Private - interfaces are hidden from non-authorized devices.</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>Interface-Local - interfaces are reachable from the same device</div>
+      <div>Interface-Local - interfaces are reachable from the same device.</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
       <div>Link-Local - interfaces are reachable by a single radio
-        transmission</div>
+        transmission.</div>
       <div>Correct.</div>
     </div>
     <div>
       <div>Site Local - interfaces are reachable by all devices within the same
-        site</div>
+        site.</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
       <div>Mesh-Local - interfaces are reachable by devices within the same
-        Thread network</div>
+        Thread network.</div>
       <div>Correct.</div>
     </div>
     <div correct>
       <div>Global - interfaces are reachable from outside the Thread
-        network</div>
+        network.</div>
       <div>Correct.</div>
     </div>
   </devsite-multiple-choice>
@@ -317,8 +317,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>The prefix for a Link-Local address is
-      &lowbar;&lowbar;&lowbar;&lowbar;</div>
+    <div>What is the prefix for a Link-Local address?</div>
     <div>
       <div><code>fd00::/8</code></div>
       <div>Incorrect.</div>
@@ -340,8 +339,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>The prefix for a Mesh-Local address is
-      &lowbar;&lowbar;&lowbar;&lowbar;</div>
+    <div>What is the prefix for a Mesh-Local address?</div>
     <div correct>
       <div><code>fd00::/8</code></div>
       <div>Correct.</div>
@@ -363,18 +361,18 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>When a device has a Child ID of 0, we know that</div>
+    <div>What does it mean when a device has a Child ID of 0?</div>
     <div>
-      <div>the device is a Child</div>
+      <div>The device is a Child.</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>the device is a REED</div>
-      <div>Incorrect.</div>
+      <div>The device is a REED.</div>
+      <div>Close, but incorrect.</div>
     </div>
     <div correct>
-      <div>the device is a Router</div>
-      <div>Correct.</div>
+      <div>The device is a Router.</div>
+      <div>Correct. A Router always has a Child ID of 0.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -382,22 +380,22 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 <div>
   <devsite-multiple-choice>
     <div>A camera, which is a node on a Thread network, receives a new RLOC16
-      and RLOC. What event might have caused this?</div>
+      and RLOC. Which of the following events might have caused this?</div>
     <div>
-      <div>Someone remotely downloaded images from the camera</div>
-      <div>Incorrect. This occurrence would have no bearing on the Thread
+      <div>Someone remotely downloaded images from the camera.</div>
+      <div>Incorrect. This event would have no bearing on the Thread
         network.</div>
     </div>
     <div correct>
-      <div>Another node dropped off the network, which changed the network
-        topology</div>
-      <div>Correct.</div>
+      <div>A router dropped off the network.</div>
+      <div>Correct. When a router drops off a network, the network
+        topology changes, which results in device readdressing.</div>
     </div>
     <div>
       <div>The camera entered sleep mode, which changed the network topology.
       </div>
       <div>Incorrect. If the camera entered sleep mode, it wouldn't receive a
-        new network address. In fact, it might not even be on the network when
+        new network address. In fact, it might not even be on the network while
         in sleep mode.</div>
     </div>
   </devsite-multiple-choice>
@@ -405,31 +403,33 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>a device on a Thread network subscribes to the <code>ff03::2</code>
+    <div>A device on a Thread network subscribes to the <code>ff03::2</code>
       multicast address. What does this tell us about the device?</div>
     <div>
-      <div>it is a Minimal End Device (MED)</div>
+      <div>It is a Minimal End Device (MED).</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>it is a Full End Device (FED)</div>
+      <div>It is a Full End Device (FED).</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>it is a Minimal Thread Device (MTD)</div>
+      <div>It is a Minimal Thread Device (MTD).</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>it is a Full Thread Device (FTD)</div>
-      <div>Correct.</div>
+      <div>It is a Full Thread Device (FTD).</div>
+      <div>Correct. Only Full Thread Devices subscribe to the 
+      <code>ff03::2</code> multicast address. They do so in the Mesh-Local
+      scope.</div>
     </div>
   </devsite-multiple-choice>
 </div>
 
 <div>
   <devsite-multiple-choice>
-    <div>Thread uses &lowbar;&lowbar;&lowbar;&lowbar; to forward data to
-      groups of nodes and routers:</div>
+    <div>What type of addressing and routing does Thread use to forward data to
+    groups of nodes and routers?</div>
     <div>
       <div>unicast</div>
       <div>Incorrect.</div>
@@ -451,15 +451,16 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>Thread uses &lowbar;&lowbar;&lowbar;&lowbar; when the RLOC of a
-      destination is unknown</div>
+    <div>What type of addressing and routing does a Thread device use when the
+    RLOC of its intended message recipient is unknown?</div>
     <div>
       <div>unicast</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
       <div>anycast</div>
-      <div>Correct.</div>
+      <div>Correct. Anycast allows a device to reach a node whose RLOC is not 
+      known, by addressing the device's ALOC.</div>
     </div>
     <div>
       <div>multicast</div>
