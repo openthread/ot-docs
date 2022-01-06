@@ -208,7 +208,7 @@ What you've learned:
     <div correct>
       <div>To reduce the Routing state below the maximum of 32 Routers.</div>
       <div>Correct. Thread networks strive to maintain an optimal number of
-        Routers. 32 Routers is the most that any Thread network should have.
+        Routers. The most Routers that any Thread network should have is 32.
       </div>
     </div>
     <div>
@@ -280,17 +280,12 @@ What you've learned:
     <div>
       <div>The Link Accept and Request process.</div>
       <div>Incorrect. There's no such thing as a Link Accept and Request process.
-        Link Accept and Request messages are sent by Routers in
+        Link Accept and Request <em>messages</em> are sent by Routers in
         response to Link Request messages as part of the MLE Link Request
         process.</div>
     </div>
     <div>
-      <div>Link Request process</div>
-      <div>Close, but still wrong. A Link Request is a request from the
-        Router to all other Routers in the Thread network.</div>
-    </div>
-    <div>
-      <div>MLE Attach process</div>
+      <div>The MLE Attach process</div>
       <div>Incorrect. The MLE Attach process is the process by which a device
         joins an existing Thread network.</div>
     </div>
