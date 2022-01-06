@@ -317,50 +317,6 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>What is the prefix for a Link-Local address?</div>
-    <div>
-      <div><code>fd00::/8</code></div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div><code>fe80::/16</code></div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div><code>ffdc::/4</code></div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div><code>ff03::2</code></div>
-      <div>Incorrect.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
-<div>
-  <devsite-multiple-choice>
-    <div>What is the prefix for a Mesh-Local address?</div>
-    <div correct>
-      <div><code>fd00::/8</code></div>
-      <div>Correct.</div>
-    </div>
-    <div>
-      <div><code>fe80::/16</code></div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div><code>ffdc::/4</code></div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div><code>ff03::2</code></div>
-      <div>Incorrect.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
-<div>
-  <devsite-multiple-choice>
     <div>What does it mean when a device has a Child ID of 0?</div>
     <div>
       <div>The device is a Child.</div>
