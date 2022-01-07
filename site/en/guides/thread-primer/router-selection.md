@@ -204,7 +204,7 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Why might a router be removed from a Thread network?</div>
+    <div>Why might a Router be removed from a Thread network?</div>
     <div correct>
       <div>To reduce the Routing state below the maximum of 32 Routers.</div>
       <div>Correct. Thread networks strive to maintain an optimal number of
@@ -257,7 +257,7 @@ What you've learned:
     <div>Which of the following statements accurately describes what happens
       when a Router downgrades?</div>
     <div>
-      <div>The device automatically remains on the network but as a Child (REED)
+      <div>The device automatically remains on the network but as a Child (REED).
       </div>
       <div>Wrong. There are more steps involved when a Router downgrades.</div>
     </div>
@@ -285,7 +285,7 @@ What you've learned:
         process.</div>
     </div>
     <div>
-      <div>The MLE Attach process</div>
+      <div>The MLE Attach process.</div>
       <div>Incorrect. The MLE Attach process is the process by which a device
         joins an existing Thread network.</div>
     </div>
@@ -294,7 +294,7 @@ What you've learned:
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

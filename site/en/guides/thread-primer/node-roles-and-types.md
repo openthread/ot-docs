@@ -201,7 +201,7 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Which of the following statements about Routers are incorrect?</div>
+    <div>Which of the following statements about Routers is not true?</div>
     <div correct>
       <div>A Router can disable its transceiver to reduce power.</div>
       <div>Devices that are functioning as Routers do not disable their
@@ -210,17 +210,18 @@ What you learned:
     </div>
     <div>
       <div>A Router forwards packets for network devices.</div>
-      <div>Correct.</div>
+      <div>This statement is true.</div>
     </div>
     <div>
       <div>A Router keeps its transceiver enabled at all times.</div>
-      <div>Correct. In order to function properly as a Router, a device must
-        keep its transceiver online at all times.</div>
+      <div>This statement is true. In order to function properly as a Router,
+      a device must keep its transceiver online at all times.</div>
     </div>
     <div>
       <div>A Router provides secure commissioning services for devices trying 
       to join the network.</div>
-      <div>Correct. This is an important function of a Router.</div>
+      <div>This statement is true. Commissioning is an important function of a
+      Thread Router.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -272,7 +273,7 @@ What you learned:
 <div>
   <devsite-multiple-choice>
     <div>Consider a scenario where a Thread network contains two 
-    groups of nodes that have radio connectivity with one another, but not
+    groups of nodes that have radio connectivity within the group, but not
     with members of the other group.
     What conclusion can one draw from this?</div>
     <div correct>
@@ -300,22 +301,22 @@ What you learned:
   <devsite-multiple-choice>
     <div>What device is used to connect Thread and non-Thread networks?</div>
     <div>
-      <div>a Gateway</div>
+      <div>A Gateway.</div>
       <div>Although the term 'Gateway', in traditional networking, does refer
       to a device that connects two networks, there is a more accurate term.
       </div>
     </div>
     <div correct>
-      <div>a Border Router</div>
+      <div>A Border Router.</div>
       <div>Correct. A Border Router is used to connect Thread and non-Thread
         networks.</div>
     </div>
     <div>
-      <div>a Firewall</div>
+      <div>A Firewall.</div>
       <div>That is not right.</div>
     </div>
     <div>
-      <div>a Bridge</div>
+      <div>A Bridge.</div>
       <div>Incorrect. This term refers to a similar concept in traditional
         networking referring to a device that connects two LANs that use the
         same network protocol.</div>
@@ -337,7 +338,7 @@ What you learned:
     </div>
     <div>
       <div>More than one.</div>
-      <div>Wrong; a Thread network cannot have multiple Leaders.</div>
+      <div>Wrong. A Thread network cannot have multiple Leaders.</div>
     </div>
   </devsite-multiple-choice>
 </div>

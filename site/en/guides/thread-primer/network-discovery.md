@@ -294,22 +294,27 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Which identifier is <em>not</em> used to identify a Thread network?</div>
+    <div>Which identifier is <em>not</em> used to identify a Thread network?
+    </div>
     <div>
       <div>A 2-byte Personal Area Network ID (PAN ID).</div>
-      <div>Incorrect. A thread network is identified, in part, by a PAN ID.</div>
+      <div>Incorrect. A thread network is identified, in part, by a PAN ID.
+      </div>
     </div>
     <div>
       <div>An 8-byte Extended Personal Area Network ID (XPAN ID).</div>
-      <div>Incorrect. A thread network is identified, in part, by an XPAN ID.</div>
+      <div>Incorrect. A thread network is identified, in part, by an XPAN ID.
+      </div>
     </div>
     <div>
       <div>A human-readable Network Name.</div>
-      <div>Incorrect. A thread network is identified, in part, by a human-readable Network Name.</div>
+      <div>Incorrect. A thread network is identified, in part, by a 
+      human-readable Network Name.</div>
     </div>
     <div correct>
       <div>A 32-character SSID.</div>
-      <div>Correct. Unlike an 802.11 WiFi network, Thread network identifiers do not use an SSID.</div>
+      <div>Correct. Unlike an 802.11 WiFi network, Thread network identifiers 
+      do not use an SSID.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -318,10 +323,10 @@ What you've learned:
   <devsite-multiple-choice>
     <div>What is a Parent Request used for?</div>
     <div correct>
-      <div>To discover neighboring Routers and Router Eligible End Devices (REEDs)
-        in the target network.</div>
-      <div>Correct. A Parent Request is issued by a device seeking to attach to a
-      network.</div>
+      <div>To discover neighboring Routers and Router Eligible End Devices
+      (REEDs) in the target network.</div>
+      <div>Correct. A Parent Request is issued by a device seeking to attach to
+      a network.</div>
       </div>
     <div>
       <div>To announce that a Router is becoming a parent.</div>
@@ -361,38 +366,6 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>For what purpose is the MLE Link Request process <em>not</em> used?
-    </div>
-    <div>
-      <div>To establish Router-Router links.</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>To establish Child-Parent links.</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>To discover links to neighboring devices.</div>
-      <div>Incorrect.</div>
-    </div>
-    <div>
-      <div>To negotiate link parameters (device type, frame counters, timeout)
-        with peers.</div>
-      <div>Incorrect.</div>
-    </div>
-     <div>
-      <div>To determine the quality of links to neighboring devices.</div>
-      <div>Incorrect.</div>
-    </div>
-    <div correct>
-      <div>To establish links to neighboring devices.</div>
-      <div>Correct.</div>
-    </div>
-  </devsite-multiple-choice>
-</div>
-
-<div>
-  <devsite-multiple-choice>
     <div>When a device initially attaches to a Thread network, what is
     its device classification?</div>
     <div correct>
@@ -413,7 +386,7 @@ What you've learned:
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
