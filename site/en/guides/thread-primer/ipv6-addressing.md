@@ -351,8 +351,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
       <div>The camera entered sleep mode, which changed the network topology.
       </div>
       <div>Incorrect. If the camera entered sleep mode, it wouldn't receive a
-        new network address. In fact, it might not even be on the network while
-        in sleep mode.</div>
+        new network address.</div>
     </div>
   </devsite-multiple-choice>
 </div>
