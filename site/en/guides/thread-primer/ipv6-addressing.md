@@ -430,7 +430,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 ## License
 
-Copyright (c) 2022, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
