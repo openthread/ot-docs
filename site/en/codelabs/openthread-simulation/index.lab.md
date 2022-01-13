@@ -891,8 +891,8 @@ Done
 
 #### 5. Validate connectivity
 
-In the third terminal window, quit `ot-ctl` by using **Ctrl+D** to drop you back
-into the container's `bash` console. From this console, ping Node 1, using its
+In the third terminal window, press **Ctrl+D** to quit `ot-ctl` and return 
+to the container's `bash` console. From this console, ping Node 1, using its
 EID with the `ping6` command. If the `ot-daemon` RCP instance is successfully
 joined to and communicating with the Thread network, the ping succeeds:
 
