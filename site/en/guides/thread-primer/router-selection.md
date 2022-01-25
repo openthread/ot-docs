@@ -237,7 +237,7 @@ What you've learned:
     </div>
     <div correct>
       <div>The Leader must grant a Router ID to the REED.</div>
-      <div>Correct. Withput a Router ID, the REED remains a Child device.</div>
+      <div>Correct. Without a Router ID, the REED remains a Child device.</div>
     </div>
     <div>
       <div>The REED must send an MLE Link Request.</div>

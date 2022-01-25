@@ -281,9 +281,9 @@ What you learned:
     <div correct>
         <div>There is more than one partition in that network.</div>
         <div>Correct. A partition is formed around each group
-        of nodes that is able to communicate with one another. If there are
+        of nodes that is able to communicate with one another. When there are
         multiple groups of nodes that can communicate amongst themselves, but
-        not with members of other groups, then you know that these groups
+        not with members of other groups, one can infer that these groups
         each constitute a distinct partition.
         </div>
     </div>
@@ -304,8 +304,9 @@ What you learned:
     <div>What device is used to connect Thread and non-Thread networks?</div>
     <div>
       <div>A Gateway.</div>
-      <div>Although the term 'Gateway', in traditional networking, does refer
-      to a device that connects two networks, there is a more accurate term.
+      <div>While in traditional networking, the term 'Gateway' does refer
+      to a device that connects two networks, there is a more specific term in
+      the context of a Thread network.
       </div>
     </div>
     <div correct>
@@ -320,8 +321,8 @@ What you learned:
     <div>
       <div>A Bridge.</div>
       <div>Incorrect. This term refers to a similar concept in traditional
-        networking referring to a device that connects two LANs that use the
-        same network protocol.</div>
+        networking, namely, a device that connects two LANs that use the
+        *same* network protocol.</div>
     </div>
   </devsite-multiple-choice>
 </div>
