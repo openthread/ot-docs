@@ -228,28 +228,23 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Which of the following statements correctly describe what happens when
-      a Child device upgrades to a Router?</div>
+    <div>What must happen before a REED that is attempting to become
+    a Router can establish direct links with the other Routers?</div>
     <div correct>
-      <div>The device remains on the network with the same address.</div>
-      <div>That's right. The device stays connected to the network. Only its
-        role changes.</div>
+      <div>The REED must send an Address Solicit message to the network Leader.
+      </div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>The Leader must grant a Router ID to the REED.</div>
+      <div>Correct. Withput a Router ID, the REED remains a Child device.</div>
     </div>
     <div>
-      <div>The device must initiate the MLE Attach process to establish a new
-        network connection.</div>
-      <div>Incorrect. The MLE Attach process is used when a device joins
-        a Thread network. The process followed by a device upgrading to a Router
-        is called the MLE Link Request Process.</div>
+      <div>The REED must send an MLE Link Request.</div>
+      <div>Wrong. The MLE Link Request is how the device establishes links to
+      other Routers once it has become a Router.</div>
     </div>
-    <div>
-      <div>The other Routers 'vote' to decide whether to allow the device to
-        become a Router.</div>
-      <div>Incorrect. The Leader decides whether to allow the device to become a
-      Router, based on the distributed algorithm that maintains the CDS.</div>
-    </div>
-</div>
-</devsite-multiple-choice>
+  </devsite-multiple-choice>
 </div>
 
 <div>

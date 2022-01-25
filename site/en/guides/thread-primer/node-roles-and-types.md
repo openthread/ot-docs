@@ -252,7 +252,7 @@ What you learned:
     <div>When can a Router cause itself to stop acting as a Router?</div>
     <div correct>
       <div>When it has no children.</div>
-      <div>That's correct. A Router with no children is allowed to revert to
+      <div>That's correct. A Router with no children may revert to
         an End Device on its own.</div>
     </div>
     <div>
@@ -261,10 +261,12 @@ What you learned:
       <div>Wrong. A Router cannot revert to an End Device in this scenario.
       </div>
     </div>
-    <div>
+    <div correct>
       <div>When another device on the network elects to become a Router.
       </div>
-      <div>Wrong.
+      <div>This could be true. If the number of Thread routers increases to 24
+      or more, existing Thread routers can start evaluating whether to become an
+      end device.
       </div>
     </div>
   </devsite-multiple-choice>

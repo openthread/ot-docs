@@ -283,7 +283,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>A Thread network consists of which three scopes?</div>
+    <div>What three scopes in a Thread network where unicast addressing is used?</div>
     <div>
       <div>Private: interfaces are hidden from non-authorized devices.</div>
       <div>Incorrect.</div>
@@ -345,7 +345,8 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
     <div correct>
       <div>A router dropped off the network.</div>
       <div>Correct. When a router drops off a network, the network
-        topology changes, which results in device readdressing.</div>
+        topology changes, which may result in the device promoting itself to a
+        router and abotaining a new RLOC.</div>
     </div>
     <div>
       <div>The camera entered sleep mode, which changed the network topology.
