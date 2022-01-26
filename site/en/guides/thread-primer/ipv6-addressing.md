@@ -283,33 +283,29 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 
 <div>
   <devsite-multiple-choice>
-    <div>What three scopes in a Thread network where unicast addressing is used?</div>
+    <div>Which three scopes are used for unicast addressing in a Thread network?</div>
     <div>
-      <div>Private: interfaces are hidden from non-authorized devices.</div>
+      <div>Private</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>Interface-Local: interfaces are reachable from the same device.</div>
+      <div>Interface-Local</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>Link-Local: interfaces are reachable by a single radio
-        transmission.</div>
+      <div>Link-Local</div>
       <div>Correct.</div>
     </div>
     <div>
-      <div>Site-Local: interfaces are reachable by all devices within the same
-        site.</div>
+      <div>Site-Local</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>Mesh-Local: interfaces are reachable by devices within the same
-        Thread network.</div>
+      <div>Mesh-Local</div>
       <div>Correct.</div>
     </div>
     <div correct>
-      <div>Global: interfaces are reachable from outside the Thread
-        network.</div>
+      <div>Global</div>
       <div>Correct.</div>
     </div>
   </devsite-multiple-choice>
@@ -346,7 +342,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
       <div>A router dropped off the network.</div>
       <div>Correct. When a router drops off a network, the network
         topology changes, which may result in the device promoting itself to a
-        router and abotaining a new RLOC.</div>
+        router and obtaining a new RLOC.</div>
     </div>
     <div>
       <div>The camera entered sleep mode, which changed the network topology.
