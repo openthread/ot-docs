@@ -278,9 +278,156 @@ What you've learned:
 To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 [Thread Specification](http://threadgroup.org/ThreadSpec).
 
+
+## Check your understanding
+
+<div>
+  <devsite-multiple-choice>
+    <div>Which three scopes are used for unicast addressing in a Thread network?</div>
+    <div>
+      <div>Private</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Interface-Local</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Link-Local</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>Site-Local</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Mesh-Local</div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>Global</div>
+      <div>Correct.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>What does it mean when a device has a Child ID of 0?</div>
+    <div>
+      <div>The device is a Child.</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>The device is a REED.</div>
+      <div>Close, but incorrect.</div>
+    </div>
+    <div correct>
+      <div>The device is a Router.</div>
+      <div>Correct. A Router always has a Child ID of 0.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>A camera, which is a node on a Thread network, receives a new RLOC16
+      and RLOC. Which of the following events might have caused this?</div>
+    <div>
+      <div>Someone remotely downloaded images from the camera.</div>
+      <div>Incorrect. This event would have no bearing on the Thread
+        network.</div>
+    </div>
+    <div correct>
+      <div>A router dropped off the network.</div>
+      <div>Correct. When a router drops off a network, the network
+        topology changes, which may result in the device promoting itself to a
+        router and obtaining a new RLOC.</div>
+    </div>
+    <div>
+      <div>The camera entered sleep mode, which changed the network topology.
+      </div>
+      <div>Incorrect. Entering sleep mode wouldn't necessarily cause a device
+      to receive a new network address.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>A device on a Thread network subscribes to the <code>ff03::2</code>
+      multicast address. What does this tell us about the device?</div>
+    <div>
+      <div>It is a Minimal End Device (MED).</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>It is a Full End Device (FED).</div>
+      <div>Incorrect. (Hint: It might or might not be a FED.)</div>
+    </div>
+    <div>
+      <div>It is a Minimal Thread Device (MTD).</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>It is a Full Thread Device (FTD).</div>
+      <div>Correct. Only Full Thread Devices subscribe to the 
+      <code>ff03::2</code> multicast address. They do so in the Mesh-Local
+      scope.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>What type of addressing and routing does Thread use to forward data to
+    groups of nodes and routers?</div>
+    <div>
+      <div>unicast</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>anycast</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>multicast</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>broadcast</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>What type of addressing and routing does a Thread device use when the
+    RLOC of its intended message recipient is unknown?</div>
+    <div>
+      <div>unicast</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>anycast</div>
+      <div>Correct. Anycast allows a device to reach a node whose RLOC is not 
+      known, by addressing the device's ALOC.</div>
+    </div>
+    <div>
+      <div>multicast</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>broadcast</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

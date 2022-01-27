@@ -175,9 +175,121 @@ What you've learned:
     maintain the CDS
 *   The MLE Link Request process is used to establish Router-Router links
 
+## Check your understanding
+
+<div>
+  <devsite-multiple-choice>
+    <div>Which of these rules are not enforced by a Connected Dominating Set
+    (CDS)?</div>
+    <div>
+      <div>There is a Router-only path between any two Routers.</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Any one Router in a Thread network can reach any other Router by
+        staying entirely within the set of Routers.</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>Every End Device in a Thread network is directly connected to a
+        Router.</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>Only one Router in a Thread network may be a Border Router.</div>
+      <div>Correct. A Thread network may have multiple Border Routers.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>Why might a Router be removed from a Thread network?</div>
+    <div correct>
+      <div>To reduce the Routing state below the maximum of 32 Routers.</div>
+      <div>Correct. Thread networks strive to maintain an optimal number of
+        Routers. The most Routers that any Thread network should have is 32.
+      </div>
+    </div>
+    <div>
+      <div>To free up channels.</div>
+      <div>Incorrect. The number of routers has no relation to channel usage
+      or capacity.</div>
+    </div>
+    <div correct>
+      <div>To allow the election of new Routers in other parts of the network
+      when needed.</div>
+      <div>Correct. Reducing the number of active Routers in one part of a
+      Thread network increases its ability to ramp up routing capacity
+      elsewhere.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>What must happen before a REED that is attempting to become
+    a Router can establish direct links with the other Routers?</div>
+    <div correct>
+      <div>The REED must send an Address Solicit message to the network Leader.
+      </div>
+      <div>Correct.</div>
+    </div>
+    <div correct>
+      <div>The Leader must grant a Router ID to the REED.</div>
+      <div>Correct. Without a Router ID, the REED remains a Child device.</div>
+    </div>
+    <div>
+      <div>The REED must send an MLE Link Request.</div>
+      <div>Wrong. The MLE Link Request is how the device establishes links to
+      other Routers once it has become a Router.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>Which of the following statements accurately describes what happens
+      when a Router downgrades?</div>
+    <div>
+      <div>The device automatically remains on the network but as a Child (REED).
+      </div>
+      <div>Wrong. There are more steps involved when a Router downgrades.</div>
+    </div>
+    <div correct>
+      <div>The device must initiate the MLE Attach process to establish a new
+        connection to the network.</div>
+      <div>Correct. A device that downgrades from Router to REED is
+        disconnected and must renegotiate its connection to the network.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>What process is used to establish Router-Router links?</div>
+    <div correct>
+      <div>The MLE Link Request process.</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>The Link Accept and Request process.</div>
+      <div>Incorrect. There's no such thing as a Link Accept and Request process.
+        Link Accept and Request <em>messages</em> are sent by Routers in
+        response to Link Request messages as part of the MLE Link Request
+        process.</div>
+    </div>
+    <div>
+      <div>The MLE Attach process.</div>
+      <div>Incorrect. The MLE Attach process is the process by which a device
+        joins an existing Thread network.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

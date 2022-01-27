@@ -109,8 +109,7 @@ target network.
     </tr>
     <tr>
       <td width="25%"><b>Challenge</b></td>
-      <td>Tests the timeliness of the Parent Response to prevent replay
-        attacks</td>
+      <td>Tests the timeliness of the Parent Response to prevent replay attacks</td>
     </tr>
     <tr>
       <td width="25%"><b>Scan Mask</b></td>
@@ -291,9 +290,103 @@ What you've learned:
     network and link state
 *   The MLE Attach process establishes Child-Parent links
 
+## Check your understanding
+
+<div>
+  <devsite-multiple-choice>
+    <div>Which identifier is <em>not</em> used to identify a Thread network?
+    </div>
+    <div>
+      <div>A 2-byte Personal Area Network ID (PAN ID).</div>
+      <div>Incorrect. A thread network is identified, in part, by a PAN ID.
+      </div>
+    </div>
+    <div>
+      <div>An 8-byte Extended Personal Area Network ID (XPAN ID).</div>
+      <div>Incorrect. A thread network is identified, in part, by an XPAN ID.
+      </div>
+    </div>
+    <div>
+      <div>A human-readable Network Name.</div>
+      <div>Incorrect. A thread network is identified, in part, by a 
+      human-readable Network Name.</div>
+    </div>
+    <div correct>
+      <div>A 32-character SSID.</div>
+      <div>Correct. Unlike an 802.11 WiFi network, Thread network identifiers 
+      do not use an SSID.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>What is a Parent Request used for?</div>
+    <div correct>
+      <div>To discover neighboring Routers and Router Eligible End Devices
+      (REEDs) in the target network.</div>
+      <div>Correct. A Parent Request is issued by a device seeking to attach to
+      a network.</div>
+      </div>
+    <div>
+      <div>To announce that a Router is becoming a parent.</div>
+      <div>Incorrect. A Router does not initiate a Parent-Child relationship
+      with another network device. Instead, a network device selects a Router
+      to become its Child.</div>
+    </div>
+    <div>
+      <div>To request that a Router Eligible End Device be promoted to a Router.
+      </div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>A Parent Request uses what type of address?</div>
+    <div>
+      <div>unicast</div>
+      <div>Incorrect.</div>
+      </div>
+    <div>
+      <div>anycast</div>
+      <div>Incorrect.</div>
+    </div>
+    <div correct>
+      <div>multicast</div>
+      <div>Correct.</div>
+    </div>
+    <div>
+      <div>broadcast</div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
+<div>
+  <devsite-multiple-choice>
+    <div>When a device initially attaches to a Thread network, what is
+    its device classification?</div>
+    <div correct>
+      <div>Child (End Device)</div>
+      <div>Correct. A device joining a Thread network always starts out as an
+      End Device on that network.</div>
+    </div>
+    <div>
+      <div>FTD (Full Thread Device)</div>
+      <div>Incorrect.</div>
+    </div>
+    <div>
+      <div>REED (Router-Eligible End Device) </div>
+      <div>Incorrect.</div>
+    </div>
+  </devsite-multiple-choice>
+</div>
+
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
