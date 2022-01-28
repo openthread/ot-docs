@@ -840,7 +840,8 @@ Done
 Done
 ```
 
-On Node 2 (third terminal window), bring up the network interface and join the network:
+In the third terminal window, bring up the network interface for Node 2 and join
+the network:
 
 ```console
 > ifconfig up
@@ -865,7 +866,7 @@ waiting for a Join request. In that case, restart from the `commissioner joiner`
 command. Don't wait too long after starting the Commissioner to enable the
 Joiner role.
 
-Now join Node 2 to the Thread network:
+Now join Node 2 to the Thread network (again, in the third terminal window):
 
 ```console
 > thread start
@@ -874,8 +875,9 @@ Done
 
 #### 4. Validate network authentication
 
-Check the `state` on Node 2, to validate that it has now joined the network.
-Within two minutes, Node 2 transitions from `child` to `router`:
+In the third terminal, check the `state` on Node 2, to validate that it has now
+joined the network. Within two minutes, Node 2 transitions from `child` to
+`router`:
 
 ```console
 > state
@@ -889,9 +891,10 @@ Done
 
 #### 5. Validate connectivity
 
-Quit `ot-ctl` by using **Ctrl+D** and on your host machine's command line, ping
-Node 1, using its EID with the `ping6` command. If the `ot-daemon` RCP instance
-is successfully joined to and communicating with the Thread network, the ping succeeds:
+In the third terminal window, press **Ctrl+D** to quit `ot-ctl` and return 
+to the container's `bash` console. From this console, ping Node 1, using its
+EID with the `ping6` command. If the `ot-daemon` RCP instance is successfully
+joined to and communicating with the Thread network, the ping succeeds:
 
 ```console
 root@c0f3912a74ff:/# ping6 -c 4 fd55:cf34:dea5:7994:460:872c:e807:c4ab
