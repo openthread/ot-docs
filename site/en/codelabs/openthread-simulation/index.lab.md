@@ -1,4 +1,4 @@
----
+~/projects/7314-consolidate_codelab_sim_dockerfile_into_environment_dockerfile/---
 id: openthread-simulation
 summary: In this codelab, you'll simulate a Thread network on virtual devices using OpenThread in Docker.
 status: [final]
@@ -72,11 +72,11 @@ Install Docker on the OS of your choice.
 ### Pull the Docker image
 
 Once Docker is installed, open a terminal window and pull the
-`openthread/codelab_otsim` Docker image. This image features OpenThread and
+`openthread/environment` Docker image. This image features OpenThread and
 OpenThread Daemon pre-built and ready to use for this Codelab.
 
 ```console
-$ docker pull openthread/codelab_otsim:latest
+$ docker pull openthread/environment:latest
 ```
 
 Note that it may take a few minutes to completely download.
@@ -87,7 +87,7 @@ In a terminal window, start a Docker container from the image and connect to its
 ```console
 $ docker run --name codelab_otsim_ctnr -it --rm \
    --sysctl net.ipv6.conf.all.disable_ipv6=0 \
-   --cap-add=net_admin openthread/codelab_otsim bash
+   --cap-add=net_admin openthread/environment bash
 ```
 
 Note the flags, which are required for this Codelab:
@@ -152,7 +152,7 @@ container and connect to its `bash` shell:
 ```console
 $ docker run --name codelab_otsim_ctnr -it --rm \
    --sysctl net.ipv6.conf.all.disable_ipv6=0 \
-   --cap-add=net_admin openthread/codelab_otsim bash
+   --cap-add=net_admin openthread/environment bash
 ```
 
 In the Docker container, navigate to the `openthread` directory and spawn the
@@ -928,7 +928,7 @@ To show which Docker containers are running:
 ```console
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-505fc57ffc72        codelab_otsim       "bash"              10 minutes ago      Up 10 minutes                           codelab_otsim_ctnr
+505fc57ffc72        environment       "bash"              10 minutes ago      Up 10 minutes                           codelab_otsim_ctnr
 ```
 
 To show all Docker containers (both running and stopped):
@@ -936,7 +936,7 @@ To show all Docker containers (both running and stopped):
 ```console
 $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-505fc57ffc72        codelab_otsim       "bash"              10 minutes ago      Up 10 minutes                           codelab_otsim_ctnr
+505fc57ffc72        environment       "bash"              10 minutes ago      Up 10 minutes                           codelab_otsim_ctnr
 ```
 
 > aside negative
@@ -950,7 +950,7 @@ If you don't see container `codelab_otsim_ctnr` in the output of either
 ```console
 $ docker run --name codelab_otsim_ctnr -it --rm \
    --sysctl net.ipv6.conf.all.disable_ipv6=0 \
-   --cap-add=net_admin openthread/codelab_otsim bash
+   --cap-add=net_admin openthread/environment bash
 ```
 
 If the container is stopped (listed in `docker ps -a` but not `docker ps`),
