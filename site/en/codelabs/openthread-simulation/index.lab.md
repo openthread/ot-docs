@@ -60,8 +60,10 @@ Linux is the recommended environment.
 > aside negative
 >
 > **Note:** This Codelab does not support running Docker in [rootless
-mode](https://docs.docker.com/engine/security/rootless/). You must run it as root
-with the commands provided in order to create OpenThread nodes.
+mode](https://docs.docker.com/engine/security/rootless/). You must run it as
+root with the commands provided in order to create OpenThread nodes. Depending
+on your system configuration, you may be able to run the `docker` commands using
+`sudo` instead, which is generally preferable.
 
 ### Install Docker
 
@@ -669,7 +671,7 @@ In the first terminal window, spawn the CLI process for your emulated Thread
 device:
 
 ```console
-root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 1
+root@c0f3912a74ff:/# /openthread/build/examples/apps/cli/ot-cli-ftd 1
 ```
 
 **Note:** If you don't see the `>` prompt after running this command, press
@@ -760,22 +762,23 @@ This device is used for packet transmission and receipt in virtual devices. You
 may get an error if the device has already been created—this is normal and can
 be ignored.
 
-Navigate to the `openthread` directory, and start `ot-daemon` for an RCP node,
-which we'll call Node 2. Use the `-v` verbose flag so you can see log output
-and confirm that it is running:
+Start `ot-daemon` for an RCP node, which we'll call Node 2. Use the `-v` verbose
+flag so you can see log output and confirm that it is running:
 
 ```console
 root@c0f3912a74ff:/# /openthread/build/posix/src/posix/ot-daemon -v \
-    'spinel+hdlc+forkpty://output/simulation/bin/ot-rcp?forkpty-arg=2'
+'spinel+hdlc+forkpty://openthread/build/examples/apps/ncp/ot-rcp?forkpty-arg=2'
 ```
 
 When successful, `ot-daemon` in verbose mode generates output similar to the
 following:
 
 ```console
-ot-daemon[228024]: Running OPENTHREAD/20191113-00831-gfb399104; POSIX; Jun 7 2020 18:05:15
-ot-daemon[228024]: Thread version: 2
-ot-daemon[228024]: RCP version: OPENTHREAD/20191113-00831-gfb399104; SIMULATION; Jun 7 2020 18:06:08
+
+ot-daemon[31]: Running OPENTHREAD/297a880; POSIX; Feb  1 2022 04:43:39
+ot-daemon[31]: Thread version: 3
+ot-daemon[31]: Thread interface: wpan0
+ot-daemon[31]: RCP version: OPENTHREAD/297a880; SIMULATION; Feb  1 2022 04:42:50
 ```
 
 > aside negative
