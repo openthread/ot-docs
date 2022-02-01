@@ -1,4 +1,3 @@
-~/projects/7314-consolidate_codelab_sim_dockerfile_into_environment_dockerfile/---
 id: openthread-simulation
 summary: In this codelab, you'll simulate a Thread network on virtual devices using OpenThread in Docker.
 status: [final]
