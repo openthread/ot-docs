@@ -1,3 +1,4 @@
+---
 id: openthread-simulation
 summary: In this codelab, you'll simulate a Thread network on virtual devices using OpenThread in Docker.
 status: [final]
