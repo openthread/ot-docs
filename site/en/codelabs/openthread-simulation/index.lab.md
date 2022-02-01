@@ -155,19 +155,17 @@ $ docker run --name codelab_otsim_ctnr -it --rm \
    --cap-add=net_admin openthread/environment bash
 ```
 
-In the Docker container, navigate to the `openthread` directory and spawn the
-CLI process for an emulated Thread device using the `ot-cli-ftd` binary.
+In the Docker container, spawn the CLI process for an emulated Thread device
+using the `ot-cli-ftd` binary.
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 1
+root@c0f3912a74ff:/# /openthread/build/examples/apps/cli/ot-cli-ftd 1
 ```
 
 **Note:** If you don't see the `>` prompt after running this command, press `enter`.
 
-This binary implements an OpenThread device emulated on top of POSIX. The
-IEEE 802.15.4 radio driver is implemented on top of UDP (IEEE 802.15.4 frames
-are passed within UDP payloads).
+This binary implements an OpenThread device. The IEEE 802.15.4 radio driver is
+implemented on top of UDP (IEEE 802.15.4 frames are passed within UDP payloads).
 
 The argument of `1` is a file descriptor that represents the least-significant
 bits of the "factory-assigned" IEEE EUI-64 for the emulated device. This value
@@ -278,15 +276,15 @@ container to use for Node 2.
 $ docker exec -it codelab_otsim_ctnr bash
 ```
 
-At this new `bash` prompt, navigate to the `openthread` directory and spawn
-the CLI process. This is your second emulated Thread device:
+At this new `bash` prompt, spawn the CLI process with the argument `2`. This is
+your second emulated Thread device:
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 2
+root@c0f3912a74ff:/# /openthread/build/examples/apps/cli/ot-cli-ftd 2
 ```
 
-**Note:** If you don't see the `>` prompt after running this command, press `enter`.
+**Note:** If you don't see the `>` prompt after running this command, press
+`enter`.
 
 Configure the Thread Network Key and PAN ID, using the same values as Node 1's
 Operational Dataset:
@@ -477,11 +475,11 @@ or simply redo the **Simulate a Thread network** exercise.
 In Node 1, spawn the CLI process:
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 1
+root@c0f3912a74ff:/# /openthread/build/examples/apps/cli/ot-cli-ftd 1
 ```
 
-**Note:** If you don't see the `>` prompt after running this command, press `enter`.
+**Note:** If you don't see the `>` prompt after running this command, press
+`enter`.
 
 Create a new Operational Dataset, commit it as the active one, and start Thread:
 
@@ -564,8 +562,7 @@ In a second terminal window, in the Docker container, spawn a new CLI process.
 This is Node 2.
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 2
+root@c0f3912a74ff:/# /openthread/build/examples/apps/cli/ot-cli-ftd 2
 ```
 
 On Node 2, enable the Joiner role using the `J01NME` Joiner Credential.
@@ -672,11 +669,11 @@ In the first terminal window, spawn the CLI process for your emulated Thread
 device:
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
 root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 1
 ```
 
-**Note:** If you don't see the `>` prompt after running this command, press `enter`.
+**Note:** If you don't see the `>` prompt after running this command, press
+`enter`.
 
 Create a new Operational Dataset, commit it as the active one, and start Thread:
 
@@ -768,8 +765,7 @@ which we'll call Node 2. Use the `-v` verbose flag so you can see log output
 and confirm that it is running:
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/posix/bin/ot-daemon -v \
+root@c0f3912a74ff:/# /openthread/build/posix/src/posix/ot-daemon -v \
     'spinel+hdlc+forkpty://output/simulation/bin/ot-rcp?forkpty-arg=2'
 ```
 
@@ -807,8 +803,7 @@ $ docker exec -it codelab_otsim_ctnr bash
 Once in the container, start `ot-ctl`:
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/posix/bin/ot-ctl
+root@c0f3912a74ff:/# /openthread/build/posix/src/posix/ot-ctl
 >
 ```
 
