@@ -999,7 +999,7 @@ Or, try using [OpenThread Border Router in a Docker container](https://openthrea
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
