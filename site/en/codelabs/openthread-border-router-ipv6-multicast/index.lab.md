@@ -298,6 +298,10 @@ We can see that OTBR can receive two ping replies from both the nRF52840 End Dev
 > 
 > NOTE: We need to use `-t ttl` to set the IP Time to Live, which is 1 by default on Linux, otherwise the multicast ping can not reach nRF52840 End Device 1.
 
+> aside positive
+> 
+> NOTE: `ip -6 mroute show table all` is a helpful tool to view active multicast groups on a Linux host and their input/output interface(s).
+
 
 ## Verify Outbound IPv6 Multicast
 Duration: 02:00
