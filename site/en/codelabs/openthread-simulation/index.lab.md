@@ -60,8 +60,10 @@ Linux is the recommended environment.
 > aside negative
 >
 > **Note:** This Codelab does not support running Docker in [rootless
-mode](https://docs.docker.com/engine/security/rootless/). You must run it as root
-with the commands provided in order to create OpenThread nodes.
+mode](https://docs.docker.com/engine/security/rootless/). You must run it as
+root with the commands provided in order to create OpenThread nodes. Depending
+on your system configuration, you may be able to run the `docker` commands using
+`sudo` instead, which is generally preferable.
 
 ### Install Docker
 
@@ -72,11 +74,11 @@ Install Docker on the OS of your choice.
 ### Pull the Docker image
 
 Once Docker is installed, open a terminal window and pull the
-`openthread/codelab_otsim` Docker image. This image features OpenThread and
+`openthread/environment` Docker image. This image features OpenThread and
 OpenThread Daemon pre-built and ready to use for this Codelab.
 
 ```console
-$ docker pull openthread/codelab_otsim:latest
+$ docker pull openthread/environment:latest
 ```
 
 Note that it may take a few minutes to completely download.
@@ -87,7 +89,7 @@ In a terminal window, start a Docker container from the image and connect to its
 ```console
 $ docker run --name codelab_otsim_ctnr -it --rm \
    --sysctl net.ipv6.conf.all.disable_ipv6=0 \
-   --cap-add=net_admin openthread/codelab_otsim bash
+   --cap-add=net_admin openthread/environment bash
 ```
 
 Note the flags, which are required for this Codelab:
@@ -152,22 +154,20 @@ container and connect to its `bash` shell:
 ```console
 $ docker run --name codelab_otsim_ctnr -it --rm \
    --sysctl net.ipv6.conf.all.disable_ipv6=0 \
-   --cap-add=net_admin openthread/codelab_otsim bash
+   --cap-add=net_admin openthread/environment bash
 ```
 
-In the Docker container, navigate to the `openthread` directory and spawn the
-CLI process for an emulated Thread device using the `ot-cli-ftd` binary.
+In the Docker container, spawn the CLI process for an emulated Thread device
+using the `ot-cli-ftd` binary.
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 1
+root@c0f3912a74ff:/# /openthread/build/examples/apps/cli/ot-cli-ftd 1
 ```
 
 **Note:** If you don't see the `>` prompt after running this command, press `enter`.
 
-This binary implements an OpenThread device emulated on top of POSIX. The
-IEEE 802.15.4 radio driver is implemented on top of UDP (IEEE 802.15.4 frames
-are passed within UDP payloads).
+This binary implements an OpenThread device. The IEEE 802.15.4 radio driver is
+implemented on top of UDP (IEEE 802.15.4 frames are passed within UDP payloads).
 
 The argument of `1` is a file descriptor that represents the least-significant
 bits of the "factory-assigned" IEEE EUI-64 for the emulated device. This value
@@ -278,15 +278,15 @@ container to use for Node 2.
 $ docker exec -it codelab_otsim_ctnr bash
 ```
 
-At this new `bash` prompt, navigate to the `openthread` directory and spawn
-the CLI process. This is your second emulated Thread device:
+At this new `bash` prompt, spawn the CLI process with the argument `2`. This is
+your second emulated Thread device:
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 2
+root@c0f3912a74ff:/# /openthread/build/examples/apps/cli/ot-cli-ftd 2
 ```
 
-**Note:** If you don't see the `>` prompt after running this command, press `enter`.
+**Note:** If you don't see the `>` prompt after running this command, press
+`enter`.
 
 Configure the Thread Network Key and PAN ID, using the same values as Node 1's
 Operational Dataset:
@@ -477,11 +477,11 @@ or simply redo the **Simulate a Thread network** exercise.
 In Node 1, spawn the CLI process:
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 1
+root@c0f3912a74ff:/# /openthread/build/examples/apps/cli/ot-cli-ftd 1
 ```
 
-**Note:** If you don't see the `>` prompt after running this command, press `enter`.
+**Note:** If you don't see the `>` prompt after running this command, press
+`enter`.
 
 Create a new Operational Dataset, commit it as the active one, and start Thread:
 
@@ -564,8 +564,7 @@ In a second terminal window, in the Docker container, spawn a new CLI process.
 This is Node 2.
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 2
+root@c0f3912a74ff:/# /openthread/build/examples/apps/cli/ot-cli-ftd 2
 ```
 
 On Node 2, enable the Joiner role using the `J01NME` Joiner Credential.
@@ -672,11 +671,11 @@ In the first terminal window, spawn the CLI process for your emulated Thread
 device:
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/simulation/bin/ot-cli-ftd 1
+root@c0f3912a74ff:/# /openthread/build/examples/apps/cli/ot-cli-ftd 1
 ```
 
-**Note:** If you don't see the `>` prompt after running this command, press `enter`.
+**Note:** If you don't see the `>` prompt after running this command, press
+`enter`.
 
 Create a new Operational Dataset, commit it as the active one, and start Thread:
 
@@ -763,23 +762,23 @@ This device is used for packet transmission and receipt in virtual devices. You
 may get an error if the device has already been created—this is normal and can
 be ignored.
 
-Navigate to the `openthread` directory, and start `ot-daemon` for an RCP node,
-which we'll call Node 2. Use the `-v` verbose flag so you can see log output
-and confirm that it is running:
+Start `ot-daemon` for an RCP node, which we'll call Node 2. Use the `-v` verbose
+flag so you can see log output and confirm that it is running:
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/posix/bin/ot-daemon -v \
-    'spinel+hdlc+forkpty://output/simulation/bin/ot-rcp?forkpty-arg=2'
+root@c0f3912a74ff:/# /openthread/build/posix/src/posix/ot-daemon -v \
+'spinel+hdlc+forkpty://openthread/build/examples/apps/ncp/ot-rcp?forkpty-arg=2'
 ```
 
 When successful, `ot-daemon` in verbose mode generates output similar to the
 following:
 
 ```console
-ot-daemon[228024]: Running OPENTHREAD/20191113-00831-gfb399104; POSIX; Jun 7 2020 18:05:15
-ot-daemon[228024]: Thread version: 2
-ot-daemon[228024]: RCP version: OPENTHREAD/20191113-00831-gfb399104; SIMULATION; Jun 7 2020 18:06:08
+
+ot-daemon[31]: Running OPENTHREAD/297a880; POSIX; Feb  1 2022 04:43:39
+ot-daemon[31]: Thread version: 3
+ot-daemon[31]: Thread interface: wpan0
+ot-daemon[31]: RCP version: OPENTHREAD/297a880; SIMULATION; Feb  1 2022 04:42:50
 ```
 
 > aside negative
@@ -807,8 +806,7 @@ $ docker exec -it codelab_otsim_ctnr bash
 Once in the container, start `ot-ctl`:
 
 ```console
-root@c0f3912a74ff:/# cd ~/src/openthread
-root@c0f3912a74ff:/# ./output/posix/bin/ot-ctl
+root@c0f3912a74ff:/# /openthread/build/posix/src/posix/ot-ctl
 >
 ```
 
@@ -928,7 +926,7 @@ To show which Docker containers are running:
 ```console
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-505fc57ffc72        codelab_otsim       "bash"              10 minutes ago      Up 10 minutes                           codelab_otsim_ctnr
+505fc57ffc72        environment       "bash"              10 minutes ago      Up 10 minutes                           codelab_otsim_ctnr
 ```
 
 To show all Docker containers (both running and stopped):
@@ -936,7 +934,7 @@ To show all Docker containers (both running and stopped):
 ```console
 $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-505fc57ffc72        codelab_otsim       "bash"              10 minutes ago      Up 10 minutes                           codelab_otsim_ctnr
+505fc57ffc72        environment       "bash"              10 minutes ago      Up 10 minutes                           codelab_otsim_ctnr
 ```
 
 > aside negative
@@ -950,7 +948,7 @@ If you don't see container `codelab_otsim_ctnr` in the output of either
 ```console
 $ docker run --name codelab_otsim_ctnr -it --rm \
    --sysctl net.ipv6.conf.all.disable_ipv6=0 \
-   --cap-add=net_admin openthread/codelab_otsim bash
+   --cap-add=net_admin openthread/environment bash
 ```
 
 If the container is stopped (listed in `docker ps -a` but not `docker ps`),
@@ -1001,7 +999,7 @@ Or, try using [OpenThread Border Router in a Docker container](https://openthrea
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
