@@ -336,7 +336,7 @@ For more on OpenThread, visit  [openthread.io](https://openthread.io/).
 
 Reference docs:
 
-*  [Thread Border Router - Bidirectional IPv6 Connectivity and DNS-Based Service Discovery](https://docs.google.com/document/d/1M5o-u9PK3z8P2a4W2qJl7ueFS-KJnfkRwWzT5nPEiAc/edit?resourcekey=0-VSLF6zxOJc-71hov962NWw#heading=h.8s8krlrp7f4l)
+*  [Thread Border Router - Bidirectional IPv6 Connectivity and DNS-Based Service Discovery](https://openthread.io/codelabs/openthread-border-router)
 *  [Thread Primer](https://openthread.io/guides/thread-primer)
 *  [OpenThread Guide](https://openthread.io/guides)
 *  [OpenThread CLI Reference](https://github.com/openthread/openthread/blob/main/src/cli/README.md#openthread-cli-reference)
