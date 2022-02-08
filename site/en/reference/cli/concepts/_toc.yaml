@@ -1,0 +1,5 @@
+toc:
+- title: CLI Concepts
+  section:
+  - title: Network Data
+    path: /reference/cli/concepts/netdata
