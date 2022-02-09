@@ -34,11 +34,6 @@ adapt to topology changes to avoid single point of failure.
 [Thread Overview](https://www.threadgroup.org/What-is-Thread/Overview)
 for more on Thread.
 
-[OpenThread](https://openthread.io/) released by Google is an open-source
-implementation of Thread. Despite its small code size and memory footprint,
-OpenThread supports all features defined in the
-[Thread 1.2 Specification](https://www.threadgroup.org/support#specifications).
-
 [OpenThread Network Simulator (OTNS)](http://github.com/openthread/ot-ns) can be
 used to simulate Thread networks by running simulated OpenThread nodes on posix
 platforms. OTNS provides an easy-to-use Web interface (OTNS-Web) for visualizing

@@ -32,8 +32,7 @@ It is assumed you have good working knowledge of the following:
 *   Networking and routing concepts
 *   IPv6
 
-This primer is based on version 1.2 of the Thread Specification. It does not
-cover the full specification, which is available at
+To review the full Thread Specification, refer to
 [threadgroup.org](https://www.threadgroup.org/support#specifications).
 
 ## License
