@@ -32,9 +32,9 @@ It is assumed you have good working knowledge of the following:
 *   Networking and routing concepts
 *   IPv6
 
-This primer is based on version 1.1.1 of the Thread Specification. It does not
+This primer is based on version 1.2 of the Thread Specification. It does not
 cover the full specification, which is available at
-[threadgroup.org](http://threadgroup.org/ThreadSpec).
+[threadgroup.org](https://www.threadgroup.org/support#specifications).
 
 ## License
 
