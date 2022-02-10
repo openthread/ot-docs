@@ -33,7 +33,7 @@ adapt to topology changes to avoid single point of failure.
 > aside positive
 >
 > **Dive Deeper:** For more information, refer to
-[Thread Primer](../../guides/thread-primer).
+[Thread Primer](../../guides/thread-primer/index.md).
 
 [OpenThread Network Simulator (OTNS)](http://github.com/openthread/ot-ns) can be
 used to simulate Thread networks by running simulated OpenThread nodes on posix
