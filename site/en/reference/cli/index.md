@@ -11,11 +11,7 @@ the CLI to execute test cases.
 
 Complete our Simulation Codelab with Docker and review the CLI Command Reference.
 
-<a class="button button-primary" style="width:285px"
-   href="https://openthread.io/codelabs/openthread-simulation">Go to the Simulation Codelab</a>
-
-<a class="button button-primary" style="width:285px"
-   href="https://openthread.io/reference/cli/commands">Go to the CLI Command Reference</a>
+<a class="button button-primary" href="https://openthread.io/codelabs/openthread-simulation">Go to the Simulation Codelab</a>  <a class="button button-primary" href="https://openthread.io/reference/cli/commands">Go to the CLI Command Reference</a>
 
 ## Use OT CLI
 
