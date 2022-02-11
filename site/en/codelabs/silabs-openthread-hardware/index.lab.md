@@ -145,7 +145,7 @@ We will create two projects. The `ot-rcp` project for BRD4166A and the `ot-cli-f
 
 ![New project wizard](./img/new_project_wizard.jpg)
 
-2. The Example Project Selection dialog opens. You will notice a list of Example projects. Use the ‘**Thread**’ Technology Type and keyword filters to search for a specific example, in this case **`ot-cli-ftd`**. Select it and click **NEXT**.
+2. The Example Project Selection dialog opens. You'll notice a list of Example projects. Use the **Thread** Technology Type and keyword filters to search for a specific example. Make sure to note the **Gecko SDK Suite** version number. You'll need this version tag when you set up the Raspberry Pi as a Border Router. Select **ot-cli-ftd**, then click **NEXT**.
 
 ![New project wizard step 2](./img/new_project_wizard_2.jpg)
 
@@ -162,11 +162,6 @@ The project is configured from the **Software Components** tab by installing and
 ![Software Components](./img/software_components.png)
 
 For this demo we are going to use the default configuration of the sample applications. Repeat the above steps to create the `ot-rcp` project for your other board.
-
-> aside positive
->
-> **Note:** When you create the `ot-rcp` project, make sure to save the **Gecko SDK Suite** version number. You'll need this version tag when you set up the Raspberry Pi as a Border Router.
-
 
 ### Build and Flash the projects
 
