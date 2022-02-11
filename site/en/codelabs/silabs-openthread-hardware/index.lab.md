@@ -149,7 +149,9 @@ We will create two projects. The `ot-rcp` project for BRD4166A and the `ot-cli-f
 
 ![New project wizard step 2](./img/new_project_wizard_2.jpg)
 
-Make a note of the **Gecko SDK Suite** version number. You'll need this version tag when you set up the Raspberry Pi as a Border Router.
+> aside positive
+>
+> **Note:** Make a note of the **Gecko SDK Suite** version number. You'll need this version tag when you set up the Raspberry Pi as a Border Router.
 
 3. The Project Configuration dialog opens. Here you can rename your project, change the default project file location, and determine if you will link to or copy project files. Linked project files point to the SDK and any modifications you make end up being made in the SDK and being used for future projects. Copying project sources, allows you to edit a project-local copy so SDK files remain intact. '**Link sdk and copy project sources**' is the default and the recommended choice. Click **FINISH**.
 
