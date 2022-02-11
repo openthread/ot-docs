@@ -25,9 +25,9 @@ Duration: 3:00
 
 Google's [OpenThread](https://openthread.io/) (OT) is an open-source implementation of Thread. Google has released OpenThread to make the networking technology used in Google Nest products more broadly available to developers, in order to accelerate the development of products for the connected home and commercial buildings. With a narrow platform abstraction layer and a small memory footprint, OpenThread is highly portable. It supports both system-on-chip (SoC) and network co-processor (NCP) designs.
 
-The  [Thread specification](http://threadgroup.org/ThreadSpec) defines an IPv6-based reliable, secure, and low-power wireless device-to-device communication protocol for home and commercial building applications.
+The [Thread Specification](https://www.threadgroup.org/support#specifications) defines an IPv6-based reliable, secure, and low-power wireless device-to-device communication protocol for home and commercial building applications.
 
-[Silicon Labs](https://www.silabs.com/) has enhanced OpenThread to work with Silicon Labs hardware. This source code is available on GitHub and also as a software development kit (SDK) installed with Simplicity Studio 5 (SSv5). The SDK includes a fully tested snapshot of the GitHub source code. It supports a broader range of hardware than does the GitHub version, and includes documentation and example applications not available on GitHub.
+[Silicon Labs](https://www.silabs.com/) has enhanced OpenThread to work with Silicon Labs hardware. This source code is [available on GitHub](https://github.com/openthread/ot-efr32) and also as a software development kit (SDK) installed with Simplicity Studio 5 (SSv5). The SDK includes a fully tested snapshot of the GitHub source code. It supports a broader range of hardware than does the GitHub version, and includes documentation and example applications not available on GitHub.
 
 This guide describes how to get started developing OpenThread applications using the Silicon Labs OpenThread SDK and Simplicity Studio 5. The image below shows the boards (BRDs) and the hardware set up with an OT Border Router (OTBR) and two Thread devices used in the codelab.
 
@@ -78,9 +78,8 @@ Software:
 
 * Simplicity Studio v5 installed and updated on the Windows/Linux/Mac Host system with
 
-  * GNU ARM v7.2.1 toolchain 
+  * GNU ARM toolchain
   * Gecko SDK Suite 3.2.0 or later and Silicon Labs OpenThread SDK.
-  
 
 <button>[Download Simplicity Studio 5](https://www.silabs.com/developers/simplicity-studio)</button>
 
@@ -136,9 +135,9 @@ We will create two projects. The `ot-rcp` project for BRD4166A and the `ot-cli-f
 
    * Target Device: This field shows the microcontroller chip (MCU) onboard. The BRD4168A has an EFR32MG13 MCU onboard.
 
-   * SDK: Here you can select the SDK version of OT that you are working with. For this codelab we use OpenThread 1.2.0.0.
+   * SDK: Here you can select the SDK version of OT that you are working with. Suite information includes the SDK tag and the Silicon Labs build of OpenThread, for example `Platform 4.0.1.0` and `OpenThread 2.0.1.0 (GitHub-55af6ce2c)`.
 
-   * IDE/ Toolchain: The toolchain that will be used for compiling the OT project. We use GNU ARM 7.2.1.
+   * IDE/ Toolchain: The toolchain that will be used for compiling the OT project. We use GNU ARM.
 
 > aside positive
 >
@@ -149,6 +148,8 @@ We will create two projects. The `ot-rcp` project for BRD4166A and the `ot-cli-f
 2. The Example Project Selection dialog opens. You will notice a list of Example projects. Use the ‘**Thread**’ Technology Type and keyword filters to search for a specific example, in this case **`ot-cli-ftd`**. Select it and click **NEXT**.
 
 ![New project wizard step 2](./img/new_project_wizard_2.jpg)
+
+Make a note of the **Gecko SDK Suite** version number. You'll need this version tag when you set up the Raspberry Pi as a Border Router.
 
 3. The Project Configuration dialog opens. Here you can rename your project, change the default project file location, and determine if you will link to or copy project files. Linked project files point to the SDK and any modifications you make end up being made in the SDK and being used for future projects. Copying project sources, allows you to edit a project-local copy so SDK files remain intact. '**Link sdk and copy project sources**' is the default and the recommended choice. Click **FINISH**.
 
@@ -214,11 +215,13 @@ Duration: 30:00
 
 Silicon Labs recommends deploying the company’s Docker container with the OTBR. Running the OTBR in a container allows for creation of easily deployable artifacts and fast development prototyping and testing.
 
-Silicon Labs provides the following pre-built Docker containers (with tags), hosted on DockerHub:
+Silicon Labs OTBR images are hosted on [siliconlabsinc DockerHub](https://hub.docker.com/u/siliconlabsinc), with tags. Each tag corresponds to a GSDK version:
 
-https://hub.docker.com/r/siliconlabsinc/openthread-border-router/tags
+[https://hub.docker.com/r/siliconlabsinc/openthread-border-router/tags](https://hub.docker.com/r/siliconlabsinc/openthread-border-router/tags)
 
-https://hub.docker.com/r/siliconlabsinc/openthread-backbone-border-router/tags
+Docker containers must be used with RCPs built using Simplicity Studio 5 for a given release. Make sure to match a container tag version with the GSDK version that you're testing with. For example, if your GDSK version was `Gecko SDK Suite v4.0.1 (140)` when you selected `ot-rcp` from the **Example Project Selection** window, use the `siliconlabsinc/openthread-border-router:gsdk-4.0.1` image.
+
+![GSDK Version](./img/gsdk-version.png)
 
 ### Raspberry Pi set up
 
@@ -230,7 +233,7 @@ https://hub.docker.com/r/siliconlabsinc/openthread-backbone-border-router/tags
 >
 > **Important:** Make sure to reboot the Raspberry Pi after any updates.
 
-### Install docker image
+### Install Docker image
 
 1. Install Docker with the following command on your RPi. 
 
@@ -244,24 +247,24 @@ https://hub.docker.com/r/siliconlabsinc/openthread-backbone-border-router/tags
    sudo usermod -aG docker $USER
    ```
 
-3. Issue the following commands to install the containers. Note that you can have only one Border Router container running at one time with your RCP. Also, be sure to verify the RCP version (Thread version 1.2) that should be run against this container.
+3. Issue the following commands to install the containers. Note that you can have only one Border Router container running at one time with your RCP. Also, make sure to match your Simplicity Studio GSDK version with the correct [Docker image](https://hub.docker.com/r/siliconlabsinc/openthread-border-router/tags). For example, `gsdk-4.0.1`:
 
    ```console
-   docker pull siliconlabsinc/openthread-border-router:gsdk-3.2.0
+   docker pull siliconlabsinc/openthread-border-router:{gsdk-4.0.1}
    ```
 
 ### Configure and run docker
 
 1. You need to configure the TTY port you wish to use for the OTBR to connect your RCP at startup. Look for the TTY port of your RCP device. The easiest way to do this is to look for a `/tty/dev`... entry once the RCP is connected. It should generally either be `/dev/ttyUSB0` or `/dev/ttyACM0`.
 
-2. Run your Docker installation as follows. The example uses a Thread 1.1 Border Router container.
+2. Run your Docker installation as follows:
 
    ```console
    docker run -d --name "otbr" \
     --sysctl "net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" \
     -p 8080:80 --dns=127.0.0.1 -it \
     --volume /dev/ttyACM0:/dev/ttyACM0 \
-    --privileged siliconlabsinc/openthread-border-router:gsdk-3.2.0 \
+    --privileged siliconlabsinc/openthread-border-router:{gsdk-4.0.1} \
     --radio-url spinel+hdlc+uart:///dev/ttyACM0?uart-baudrate=460800 \
     --backbone-interface eth0
    ```
@@ -450,7 +453,7 @@ Flash the following demos on the respective boards. To flash, select your board 
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
