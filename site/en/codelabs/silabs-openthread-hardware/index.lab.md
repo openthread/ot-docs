@@ -149,10 +149,6 @@ We will create two projects. The `ot-rcp` project for BRD4166A and the `ot-cli-f
 
 ![New project wizard step 2](./img/new_project_wizard_2.jpg)
 
-> aside positive
->
-> **Note:** Make a note of the **Gecko SDK Suite** version number. You'll need this version tag when you set up the Raspberry Pi as a Border Router.
-
 3. The Project Configuration dialog opens. Here you can rename your project, change the default project file location, and determine if you will link to or copy project files. Linked project files point to the SDK and any modifications you make end up being made in the SDK and being used for future projects. Copying project sources, allows you to edit a project-local copy so SDK files remain intact. '**Link sdk and copy project sources**' is the default and the recommended choice. Click **FINISH**.
 
 ![New project wizard step 3](./img/new_project_wizard_3.jpg)
@@ -166,6 +162,11 @@ The project is configured from the **Software Components** tab by installing and
 ![Software Components](./img/software_components.png)
 
 For this demo we are going to use the default configuration of the sample applications. Repeat the above steps to create the `ot-rcp` project for your other board.
+
+> aside positive
+>
+> **Note:** When you create the `ot-rcp` project, make sure to save the **Gecko SDK Suite** version number. You'll need this version tag when you set up the Raspberry Pi as a Border Router.
+
 
 ### Build and Flash the projects
 
