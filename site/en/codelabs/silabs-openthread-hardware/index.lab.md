@@ -177,7 +177,7 @@ Build and flash both `ot-rcp` and `ot-cli-ftd` projects.
 
 2. Progress is displayed in the **Console** and a progress bar in the lower right. Any errors or warnings related to your project will also appear in this output window.
 
-![Porject build output window](./img/project_build_output.png)
+![Project build output window](./img/project_build_output.png)
 
 3. The binaries images are generated after a successful project build. You can flash the binary image from the **Project Explorer view**. Locate the .bin, .hex, or .s37 file in the compiler subdirectory. **Right-click the file** and select **Flash to Device**. If you have more than one devices connected then **select a device** to program, click **OK**. The Flash Programmer opens with the file path populated. Click **PROGRAM**.
 
@@ -252,21 +252,21 @@ Docker containers must be used with RCPs built using Simplicity Studio 5 for a g
 3. Issue the following commands to install the containers. Note that you can have only one Border Router container running at one time with your RCP. Also, make sure to match your Simplicity Studio GSDK version with the correct [Docker image](https://hub.docker.com/r/siliconlabsinc/openthread-border-router/tags). For example, `gsdk-4.0.1`:
 
    ```console
-   docker pull siliconlabsinc/openthread-border-router:{gsdk-4.0.1}
+   docker pull siliconlabsinc/openthread-border-router:gsdk-4.0.1
    ```
 
 ### Configure and run docker
 
 1. You need to configure the TTY port you wish to use for the OTBR to connect your RCP at startup. Look for the TTY port of your RCP device. The easiest way to do this is to look for a `/tty/dev`... entry once the RCP is connected. It should generally either be `/dev/ttyUSB0` or `/dev/ttyACM0`.
 
-2. Run your Docker installation as follows:
+2. Run your Docker installation with the following command. Make sure to replace your Docker image name with the matching GSDK version. For example, `gsdk-4.0.1`:
 
    ```console
    docker run -d --name "otbr" \
     --sysctl "net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" \
     -p 8080:80 --dns=127.0.0.1 -it \
     --volume /dev/ttyACM0:/dev/ttyACM0 \
-    --privileged siliconlabsinc/openthread-border-router:{gsdk-4.0.1} \
+    --privileged siliconlabsinc/openthread-border-router:gsdk-4.0.1 \
     --radio-url spinel+hdlc+uart:///dev/ttyACM0?uart-baudrate=460800 \
     --backbone-interface eth0
    ```
