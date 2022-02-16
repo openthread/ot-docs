@@ -32,13 +32,12 @@ It is assumed you have good working knowledge of the following:
 *   Networking and routing concepts
 *   IPv6
 
-This primer is based on version 1.1.1 of the Thread Specification. It does not
-cover the full specification, which is available at
-[threadgroup.org](http://threadgroup.org/ThreadSpec).
+To review the full Thread Specification, refer to
+[threadgroup.org](https://www.threadgroup.org/support#specifications).
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

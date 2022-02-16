@@ -22,11 +22,11 @@ Thread 的主要特性包括：
 * 网络及路由概念
 * IPv6
 
-本入门教程基于 Thread Specification V1.1.1。Thread Specification 可以在 [threadgroup.org](http://threadgroup.org/ThreadSpec) 中获取。
+本入门教程基于 Thread Specification。Thread Specification 可以在 [threadgroup.org](https://www.threadgroup.org/support#specifications) 中获取。
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
