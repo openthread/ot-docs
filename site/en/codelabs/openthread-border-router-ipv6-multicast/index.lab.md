@@ -28,7 +28,8 @@ Thread is an IP-based low-power wireless mesh networking protocol that enables s
 
 > aside positive
 > 
-> Dive Deeper: Refer to  [Thread Overview](https://www.threadgroup.org/What-is-Thread/Overview) for more on Thread.
+> **Dive Deeper:** For more information, refer to
+[Thread Primer](../../guides/thread-primer/index.md).
 
 ### **What is OpenThread?**
 

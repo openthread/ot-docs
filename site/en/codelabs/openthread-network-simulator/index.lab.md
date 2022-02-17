@@ -30,14 +30,13 @@ adapt to topology changes to avoid single point of failure.
 
 > aside positive
 >
-> **Dive Deeper:** Refer to
-[Thread Overview](https://www.threadgroup.org/What-is-Thread/Overview)
-for more on Thread.
+> **Dive Deeper:** For more information, refer to
+[Thread Primer](../../guides/thread-primer/index.md).
 
 [OpenThread](https://openthread.io/) released by Google is an open-source
 implementation of Thread. Despite its small code size and memory footprint,
 OpenThread supports all features defined in the
-[Thread 1.1.1 Specification](https://www.threadgroup.org/ThreadSpec).
+[Thread Specification](https://www.threadgroup.org/support#specifications).
 
 [OpenThread Network Simulator (OTNS)](http://github.com/openthread/ot-ns) can be
 used to simulate Thread networks by running simulated OpenThread nodes on posix
@@ -587,7 +586,7 @@ Check out some of these codelabs...
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
