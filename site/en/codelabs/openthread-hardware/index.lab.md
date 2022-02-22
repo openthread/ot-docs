@@ -323,7 +323,7 @@ The other two Thread nodes used in this Codelab are Full Thread Devices (FTDs)
 on the standard System-on-Chip (SoC) design. In a Production setting, one might
 use [`wpantund`](https://openthread.io/platforms/co-processor/wpantund), a
 production-grade network interface driver, to control OpenThread NCP instances,
-but in this codelab, we'll use [`ot-ctl`, the OpenThread CLI]().
+but in this codelab, we'll use `ot-ctl`, the OpenThread CLI.
 
 One device functions as the Commissioner, to securely authenticate and
 commission devices onto that network. The other device functions as a Joiner
