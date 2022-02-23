@@ -128,7 +128,7 @@ Duration: 02:00
 OpenThread comes with example application code you can use as a starting point
 for this Codelab.
 
-Clone and install OpenThread:
+Clone the OpenThread Nordic nRF528xx examples repo and build OpenThread:
 
 ```console
 $ git clone --recursive https://github.com/openthread/ot-nrf528xx
@@ -136,6 +136,9 @@ $ cd ot-nrf528xx
 $ ./script/bootstrap
 ```
 
+Note: this is the repo we will be working with throughout this codelab. All file
+paths mentioned in this codelab are relative to your local `ot-nrf528xx`
+directory containing the cloned repo.
 
 ## OpenThread API Basics
 Duration: 05:00
@@ -239,7 +242,7 @@ editor.
 
 ####  [./openthread/examples/platforms/openthread-system.h](https://github.com/openthread/openthread/blob/main/examples/platforms/openthread-system.h)
 
-**ACTION: Add platform-specific GPIO function declarations**
+**ACTION: Add platform-specific GPIO function declarations.**
 
 Add these function declarations after the `#include` for the `openthread/instance.h`
 header:
@@ -292,7 +295,7 @@ In the `./src/src` directory, create a file called
 
 #### ./src/src/gpio.c (NEW FILE)
 
-**ACTION: Add defines**
+**ACTION: Add defines.**
 
 These defines serve as abstractions between nRF52840-specific values and
 variables used at the OpenThread application level.
@@ -319,7 +322,7 @@ variables used at the OpenThread application level.
 
 For more information on nRF52840 buttons and LEDs, see the  [Nordic Semiconductor Infocenter](https://infocenter.nordicsemi.com/topic/ug_nrf52840_dk/UG/dk/hw_buttons_leds.html).
 
-**ACTION: Add header includes**
+**ACTION: Add header includes.**
 
 Next, add the header includes you'll need for GPIO functionality.
 
@@ -339,7 +342,7 @@ Next, add the header includes you'll need for GPIO functionality.
 #include "nrfx/drivers/include/nrfx_gpiote.h"
 ```
 
-**ACTION: Add callback and interrupt functions for Button 1**
+**ACTION: Add callback and interrupt functions for Button 1.**
 
 Add this code next. The `in_pin1_handler` function is the callback that is
 registered when the button press functionality is initialized (later in this file).
@@ -365,7 +368,7 @@ static void in_pin1_handler(uint32_t pin, nrf_gpiote_polarity_t action)
 }
 ```
 
-**ACTION: Add a function to configure the LEDs**
+**ACTION: Add a function to configure the LEDs.**
 
 Add this code to configure the mode and state of all LEDs during initialization.
 
@@ -513,7 +516,7 @@ Open the `./openthread/examples/apps/cli/main.c` file in your preferred text edi
 
 ####  [./openthread/examples/apps/cli/main.c](https://github.com/openthread/openthread/blob/main/examples/apps/cli/main.c)
 
-**ACTION: Add header includes**
+**ACTION: Add header includes.**
 
 In the includes section of the `main.c` file, add the API header files you'll
 need for the role change feature.
@@ -524,7 +527,7 @@ need for the role change feature.
 #include <openthread/thread_ftd.h>
 ```
 
-**ACTION: Add handler function declaration for the OpenThread instance state change**
+**ACTION: Add handler function declaration for the OpenThread instance state change.**
 
 Add this declaration to `main.c`, after the header includes and before any `#if`
 statements. This function will be defined after the main application.
@@ -533,7 +536,7 @@ statements. This function will be defined after the main application.
 void handleNetifStateChanged(uint32_t aFlags, void *aContext);
 ```
 
-**ACTION: Add a callback registration for the state change handler function**
+**ACTION: Add a callback registration for the state change handler function.**
 
 In `main.c`, add this function to the `main()` function after the
 `otAppCliInit` call. This callback registration tells OpenThread to call the
@@ -544,7 +547,7 @@ In `main.c`, add this function to the `main()` function after the
 otSetStateChangedCallback(instance, handleNetifStateChanged, instance);
 ```
 
-**ACTION: Add the state change implementation**
+**ACTION: Add the state change implementation.**
 
 In `main.c`, after the `main()` function, implement the
 `handleNetifStateChanged` function. This function checks the
@@ -614,7 +617,7 @@ Open the `./openthread/examples/apps/cli/main.c` file in your preferred text edi
 
 ####  [./openthread/examples/apps/cli/main.c](https://github.com/openthread/openthread/blob/main/examples/apps/cli/main.c)
 
-**ACTION: Add header includes**
+**ACTION: Add header includes.**
 
 In the includes section at the top of the `main.c` file, add the API header
 files you'll need for the multicast UDP feature.
@@ -648,7 +651,7 @@ will be sent to all Full Thread Devices in the network. See
 [Multicast on openthread.io](https://openthread.io/guides/thread-primer/ipv6-addressing#multicast)
 for more information on multicast support in OpenThread.
 
-**ACTION: Add function declarations**
+**ACTION: Add function declarations.**
 
 In the `main.c` file, after the `otTaskletsSignalPending` definition and before
 the `main()` function, add UDP-specific functions, as well as a static variable
@@ -674,7 +677,7 @@ function or method parameter to denote function scope.  An `s`, as in
 `sUdpSocket`, is prepended to denote static data.
 > For more information, see  [OpenThread Format and Style](https://github.com/openthread/ot-docs/blob/main/STYLE_GUIDE.md).
 
-**ACTION: Add calls to initialize the GPIO LEDs and button**
+**ACTION: Add calls to initialize the GPIO LEDs and button.**
 
 In `main.c`, add these function calls to the `main()` function after the
 `otSetStateChangedCallback` call. These functions initialize the GPIO and
@@ -686,7 +689,7 @@ otSysLedInit();
 otSysButtonInit(handleButtonInterrupt);
 ```
 
-**ACTION: Add the UDP initialization call**
+**ACTION: Add the UDP initialization call.**
 
 In `main.c`, add this function to the `main()` function after the
 `otSysButtonInit` call you just added:
@@ -698,7 +701,7 @@ initUdp(instance);
 This call ensures a UDP socket is initialized upon application start up. Without
 this, the device cannot send or receive UDP messages.
 
-**ACTION: Add call to process the GPIO button event**
+**ACTION: Add call to process the GPIO button event.**
 
 In `main.c`, add this function call to the `main()` function after the
 `otSysProcessDrivers` call, in the `while` loop. This function, declared in
@@ -709,7 +712,7 @@ In `main.c`, add this function call to the `main()` function after the
 otSysButtonProcess(instance);
 ```
 
-**ACTION: Implement Button Interrupt Handler**
+**ACTION: Implement Button Interrupt Handler.**
 
 In `main.c`, add the implementation of the `handleButtonInterrupt`
 function after the `handleNetifStateChanged` function you added in the previous
@@ -725,7 +728,7 @@ void handleButtonInterrupt(otInstance *aInstance)
 }
 ```
 
-**ACTION: Implement UDP initialization**
+**ACTION: Implement UDP initialization.**
 
 In `main.c`, add the implementation of the `initUdp` function after the
 `handleButtonInterrupt` function you just added:
@@ -755,7 +758,7 @@ binds the socket to the Thread network interface by passing `OT_NETIF_THREAD`.
 For other network interface options, refer to the `otNetifIdentifier`
 enumeration in [UDP API Reference](https://openthread.io/reference/group/api-udp). 
 
-**ACTION: Implement UDP messaging**
+**ACTION: Implement UDP messaging.**
 
 In `main.c`, add the implementation of the `sendUdp` function after the
 `initUdp` function you just added:
@@ -802,7 +805,7 @@ See the  [IPv6](https://openthread.io/reference/group/api-ip6) and
 [UDP](https://openthread.io/reference/group/api-udp) References on
 openthread.io for more information about the functions used to initialize UDP.
 
-**ACTION: Implement UDP message handling**
+**ACTION: Implement UDP message handling.**
 
 In `main.c`, add the implementation of the `handleUdpReceive` function after the
 `sendUdp` function you just added. This function simply toggles LED4.
@@ -848,7 +851,7 @@ Again, open the `./openthread/examples/apps/cli/main.c` file in your preferred t
 
 ####  [./openthread/examples/apps/cli/main.c](https://github.com/openthread/openthread/blob/main/examples/apps/cli/main.c)
 
-**ACTION: Add header include**
+**ACTION: Add header include.**
 
 Within the includes section at the top of the `main.c` file, add the API header
 file you'll need to configure the Thread network:
@@ -857,7 +860,7 @@ file you'll need to configure the Thread network:
 #include <openthread/dataset_ftd.h>
 ```
 
-**ACTION: Add function declaration for setting the network configuration**
+**ACTION: Add function declaration for setting the network configuration.**
 
 Add this declaration to `main.c`, after the header includes and before any `#if`
 statements. This function will be defined after the main application function.
@@ -866,7 +869,7 @@ statements. This function will be defined after the main application function.
 static void setNetworkConfiguration(otInstance *aInstance);
 ```
 
-**ACTION: Add the network configuration call**
+**ACTION: Add the network configuration call.**
 
 In `main.c`, add this function call to the `main()` function after the
 `otSetStateChangedCallback` call. This function configures the Thread network
@@ -877,7 +880,7 @@ dataset.
 setNetworkConfiguration(instance);
 ```
 
-**ACTION: Add calls to enable the Thread network interface and stack**
+**ACTION: Add calls to enable the Thread network interface and stack.**
 
 In `main.c`, add these function calls to the `main()` function after the
 `otSysButtonInit` call.
@@ -890,7 +893,7 @@ otIp6SetEnabled(instance, true);
 otThreadSetEnabled(instance, true);
 ```
 
-**ACTION: Implement Thread network configuration**
+**ACTION: Implement Thread network configuration.**
 
 In `main.c`, add the implementation of the `setNetworkConfiguration` function
 after the `main()` function:
@@ -1025,7 +1028,7 @@ application.
 Now add some flags to the NordicSemiconductor `CMakeLists.txt`, to ensure GPIO functions are
 defined in the application.
 
-**ACTION: Add flags to the CMakeLists.txt**
+**ACTION: Add flags to the** `CMakeLists.txt` **file.**
 
 Open `./third_party/NordicSemiconductor/CMakeLists.txt` in your preferred text editor, and add the
 following lines in `COMMON_FLAG` section.
@@ -1052,7 +1055,7 @@ set(COMMON_FLAG
 
 Now add the new `gpio.c` file to the `./src/CMakeLists.txt` file.
 
-**ACTION: Add the gpio source to the `./src/CMakeLists.txt` file**
+**ACTION: Add the gpio source to the** `./src/CMakeLists.txt` **file.**
 
 Open `./src/CMakeLists.txt` in your preferred text
 editor, and add the file to the `NRF_COMM_SOURCES` section.
@@ -1075,7 +1078,7 @@ Lastly, add the `nrfx_gpiote.c` driver file to the NordicSemiconductor
 `CMakeLists.txt` file, so it's included with the library build of the Nordic
 drivers.
 
-**ACTION: Add the gpio driver to the NordicSemiconductor CMakeLists.txt**
+**ACTION: Add the gpio driver to the NordicSemiconductor** `CMakeLists.txt` **file.**
 
 Open `./third_party/NordicSemiconductor/CMakeLists.txt` in your preferred text
 editor, and add the file to the `COMMON_SOURCES` section.
@@ -1150,7 +1153,7 @@ serial number:
 
 ```console
 $ cd ~/nrfjprog
-$ ./nrfjprog -f nrf52 -s 683704924 --chiperase --program \
+$ ./nrfjprog -f nrf52 -s 683704924 --verify --chiperase --program \
        ~/openthread/output/nrf52840/bin/ot-cli-ftd.hex --reset
 ```
 
