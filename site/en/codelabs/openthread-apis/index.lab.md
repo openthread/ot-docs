@@ -136,8 +136,10 @@ $ cd ot-nrf528xx
 $ ./script/bootstrap
 ```
 
-Note: this is the repo we will be working with throughout this codelab. All file
-paths mentioned in this codelab are relative to your local `ot-nrf528xx`
+> aside positive
+>
+> **Note**: this is the repo we will be working with throughout this codelab. All
+file paths mentioned in this codelab are relative to your local `ot-nrf528xx`
 directory containing the cloned repo.
 
 ## OpenThread API Basics
@@ -290,10 +292,10 @@ that:
 * Control the voltage on a pin
 * Enable GPIO interrupts and register a callback
 
-In the `./src/src` directory, create a file called
-`gpio.c`. In this new file, add the following content.
+In the `./src/src` directory, create a new file named `gpio.c`. In this new
+file, add the following content.
 
-#### ./src/src/gpio.c (NEW FILE)
+#### ./src/src/gpio.c (new file)
 
 **ACTION: Add defines.**
 
@@ -1053,12 +1055,12 @@ set(COMMON_FLAG
 
 ####  [./src/CMakeLists.txt](https://github.com/openthread/ot-nrf528xx/blob/main/src/CMakeLists.txt)
 
-Now add the new `gpio.c` file to the `./src/CMakeLists.txt` file.
+Edit the `./src/CMakeLists.txt` file to add the new `gpio.c` source file:
 
 **ACTION: Add the gpio source to the** `./src/CMakeLists.txt` **file.**
 
-Open `./src/CMakeLists.txt` in your preferred text
-editor, and add the file to the `NRF_COMM_SOURCES` section.
+Open `./src/CMakeLists.txt` in your preferred text editor, and add the file to
+the `NRF_COMM_SOURCES` section.
 
 ```console
 ...
