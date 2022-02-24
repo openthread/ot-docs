@@ -44,7 +44,7 @@ Thread network, and pass messages between nodes.
 * Building and flashing OpenThread CLI binaries to dev boards
 * Building an RCP consisting of a Linux machine and a dev board
 * Communicating with an RCP using OpenThread Daemon and `ot-ctl`
-* Manually managing Thread nodes with Screen and the OpenThread CLI
+* Manually managing Thread nodes with GNU Screen and the OpenThread CLI
 * Secure commissioning of devices onto a Thread network
 * How IPv6 multicast works
 * Passing messages between Thread nodes with UDP
@@ -79,8 +79,8 @@ to get familiar with basic Thread concepts and the OpenThread CLI.
 ### Serial port terminals
 
 You should be familiar with how to connect to a serial port through a terminal.
-This Codelab uses Screen and provides a usage overview, but any other terminal
-software can be used.
+This Codelab uses GNU Screen and provides a usage overview, but any other
+terminal software can be used.
 
 ### Linux machine
 
@@ -888,8 +888,8 @@ Done
 
 > aside negative
 >
-> **Warning:** If you get an error when run the `commissioner joiner` command,
-stop and restart the commissioner role with `commissioner stop` and
+> **Warning:** If you get an error when running the `commissioner joiner`
+command, stop and restart the commissioner role with `commissioner stop` and
 `commissioner start`, then try the `commissioner joiner` command again.
 
 Switch to the **FTD Joiner**, and rescan:
