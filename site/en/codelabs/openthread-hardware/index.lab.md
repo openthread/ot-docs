@@ -456,8 +456,9 @@ the command line, reattach to the existing one and make a new window within it
 $ screen -r
 ```
 
-**Create the new window within Screen with Ctrl+a →** **`c`****.** A new command
-line prompt appears. Access the OpenThread CLI for the FTD Joiner:
+**Create the new window within Screen with Ctrl+a →** `c`.
+
+A new command line prompt appears. Access the OpenThread CLI for the FTD Joiner:
 
 ```console
 $ screen /dev/ttyACM2 115200
