@@ -233,7 +233,7 @@ But instead of having `OT_COMMISSIONER` and `OT_JOINER` enabled, the CLI node re
 So the full build invocation should look like this:
 
 ```console
-$ script/build nrf52840 USB_trans -DOT_SRP_CLIENT=ON -DOT_ECDSA=ON -DOT_JOINER=ON -DOT_THREAD_VERSION=1.2
+$ script/build nrf52840 USB_trans -DOT_SRP_CLIENT=ON -DOT_ECDSA=ON
 ```
 
 ### Join the OTBR network
