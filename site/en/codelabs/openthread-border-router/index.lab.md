@@ -114,10 +114,10 @@ Reboot the Raspberry Pi to take the changes to effect.
 
 OTBR supports a 15.4 radio chip in  [Radio Co-Processor](https://openthread.io/platforms#radio-co-processor-rcp) (RCP) mode. In this mode, the OpenThread stack is running on the host side and transmits/receives frames over the IEEE802.15.4 transceiver.
 
-Follow  [step 4 of the *Build a Thread network with nRF52840 boards and OpenThread* codelab](https://openthread.io/codelabs/openthread-hardware#3) to build and flash a nRF52840 RCP device. You need an additional option `-DOT_THREAD_VERSION=1.2` for the build step:
+Follow  [step 4 of the *Build a Thread network with nRF52840 boards and OpenThread* codelab](https://openthread.io/codelabs/openthread-hardware#3) to build and flash a nRF52840 RCP device:
 
 ```console
-$ script/build nrf52840 USB_trans -DOT_THREAD_VERSION=1.2
+$ script/build nrf52840 USB_trans
 ```
 
 > aside positive
