@@ -16,7 +16,7 @@ Please only use the OpenThread name and marks when accurately referencing this s
 
 # Need help?
 
-OpenThread support is available here on Github:
+OpenThread support is available here on GitHub:
 
 - Bugs and feature requests — [submit to the Issue Tracker](https://github.com/openthread/ot-docs/issues)
 - Community discussion - [post questions, discuss, and view announcements](https://github.com/openthread/openthread/discussions)
