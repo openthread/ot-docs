@@ -44,7 +44,7 @@ Thread network, and pass messages between nodes.
 * Building and flashing OpenThread CLI binaries to dev boards
 * Building an RCP consisting of a Linux machine and a dev board
 * Communicating with an RCP using OpenThread Daemon and `ot-ctl`
-* Manually managing Thread nodes with Screen and the OpenThread CLI
+* Manually managing Thread nodes with GNU Screen and the OpenThread CLI
 * Secure commissioning of devices onto a Thread network
 * How IPv6 multicast works
 * Passing messages between Thread nodes with UDP
@@ -79,8 +79,8 @@ to get familiar with basic Thread concepts and the OpenThread CLI.
 ### Serial port terminals
 
 You should be familiar with how to connect to a serial port through a terminal.
-This Codelab uses Screen and provides a usage overview, but any other terminal
-software can be used.
+This Codelab uses GNU Screen and provides a usage overview, but any other
+terminal software can be used.
 
 ### Linux machine
 
@@ -231,11 +231,12 @@ Note the serial number of the nRF52840 board being used for the RCP:
 
 Navigate to the location of the nRFx Command Line Tools, and flash the
 OpenThread RCP hex file onto the nRF52840 board, using the board's serial
-number:
+number. Note that if you leave out the `--verify` flag, you'll see a warning
+message telling you that the flash process can fail without error.
 
 ```console
 $ cd ~/nrfjprog/
-$ ./nrfjprog -f nrf52 -s 683704924 --chiperase --program \
+$ ./nrfjprog -f nrf52 -s 683704924  --verify --chiperase --program \
        ~/src/ot-nrf528xx/build/bin/ot-rcp.hex --reset
 ```
 
@@ -301,7 +302,7 @@ manner as the other simulated Thread devices.
 In a second terminal window, start `ot-ctl`:
 
 ```console
-$ ./output/posix/bin/ot-ctl
+$ ./build/posix/bin/ot-ctl
 >
 ```
 
@@ -319,8 +320,10 @@ Duration: 15:00
 
 
 The other two Thread nodes used in this Codelab are Full Thread Devices (FTDs)
-on the standard System-on-Chip (SoC) design. They do not use `wpantund`, and the
-user manually manages them with the OpenThread CLI.
+on the standard System-on-Chip (SoC) design. In a Production setting, one might
+use [`wpantund`](https://openthread.io/platforms/co-processor/wpantund), a
+production-grade network interface driver, to control OpenThread NCP instances,
+but in this codelab, we'll use `ot-ctl`, the OpenThread CLI.
 
 One device functions as the Commissioner, to securely authenticate and
 commission devices onto that network. The other device functions as a Joiner
@@ -372,7 +375,7 @@ number:
 
 ```console
 $ cd ~/nrfjprog/
-$ ./nrfjprog -f nrf52 -s 683704924 --chiperase --program \
+$ ./nrfjprog -f nrf52 -s 683704924 --verify --chiperase --program \
        ~/src/ot-nrf528xx/build/bin/ot-cli-ftd.hex --reset
 ```
 
@@ -432,7 +435,8 @@ There is a screen on:
 ### Set up the FTD Joiner
 
 Repeat the above process to flash the third nRF52840 board, using the existing
-`ot-cli-ftd.hex` build.
+`ot-cli-ftd.hex` build. When done, be sure to reconnect the board to the PC using
+the nRF USB port and set the **nRF power source** switch to **VDD**.
 
 If the other two nodes are attached to the Linux machine when this third board
 is attached, it should appear as serial port `/dev/ttyACM2`:
@@ -452,8 +456,9 @@ the command line, reattach to the existing one and make a new window within it
 $ screen -r
 ```
 
-**Create the new window within Screen with Ctrl+a →** **`c`****.** A new command
-line prompt appears. Access the OpenThread CLI for the FTD Joiner:
+**Create the new window within Screen with Ctrl+a →** `c`.
+
+A new command line prompt appears. Access the OpenThread CLI for the FTD Joiner:
 
 ```console
 $ screen /dev/ttyACM2 115200
@@ -884,8 +889,8 @@ Done
 
 > aside negative
 >
-> **Warning:** If you get an error when run the `commissioner joiner` command,
-stop and restart the commissioner role with `commissioner stop` and
+> **Warning:** If you get an error when running the `commissioner joiner`
+command, stop and restart the commissioner role with `commissioner stop` and
 `commissioner start`, then try the `commissioner joiner` command again.
 
 Switch to the **FTD Joiner**, and rescan:
