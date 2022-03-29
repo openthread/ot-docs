@@ -329,19 +329,19 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>How many Leaders may a Thread network have?</div>
+    <div>How many Leaders may a Thread network partition have?</div>
     <div>
       <div>Either none or exactly one.</div>
-      <div>This is wrong. A Thread network cannot have fewer than one Leader.
+      <div>This is wrong. A Thread network partition cannot have fewer than one Leader.
       </div>
     </div>
     <div correct>
       <div>One and only one.</div>
-      <div>Correct. A Thread network may have one and only one Leader.</div>
+      <div>Correct. A Thread network partition may have one and only one Leader.</div>
     </div>
     <div>
       <div>More than one.</div>
-      <div>Wrong. A Thread network cannot have multiple Leaders.</div>
+      <div>Wrong. A Thread network partition cannot have multiple Leaders.</div>
     </div>
   </devsite-multiple-choice>
 </div>
