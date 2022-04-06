@@ -61,7 +61,7 @@ OpenThread POSIX, using `ot-ctl`.
     was used in the operational dataset:
     ```
     $ cd ~/ot-br-posix/build/otbr/tools
-    $ ./pskc J01NME DEAD1111DEAD2222 OpenThreadGuide
+    $ ./pskc j01Nme DEAD1111DEAD2222 OpenThreadGuide
     198886f519a8fd7c981fee95d72f4ba7
     ```
 
