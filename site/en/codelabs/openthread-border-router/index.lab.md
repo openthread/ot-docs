@@ -65,7 +65,7 @@ Duration: 05:00
 
 ### Setup Raspberry Pi
 
-It is simple to set up a fresh Raspberry Pi device with the `rpi-imager` tool by following the instructions on  [raspberrypi.org](https://www.raspberrypi.org/software/) (instead of using the latest Raspberry Pi OS in the tool, download  [2021-05-07-raspios-buster-armhf-lite](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/2021-05-07-raspios-buster-armhf-lite.zip) by yourself). To complete the mobile phone steps in this codelab, you need to connect the Raspberry Pi to a Wi-Fi AP. Follow  [this](https://www.raspberrypi.org/documentation/configuration/wireless/) guide to set up wireless connectivity. It is convenient to login to the Raspberry Pi with SSH, you can find instructions  [here](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md).
+It is simple to set up a fresh Raspberry Pi device with the `rpi-imager` tool by following the instructions on  [raspberrypi.org](https://www.raspberrypi.org/software/) (instead of using the latest Raspberry Pi OS in the tool, download  [2021-05-07-raspios-buster-armhf-lite](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/2021-05-07-raspios-buster-armhf-lite.zip) by yourself). To complete the mobile phone steps in this codelab, you need to connect the Raspberry Pi to a Wi-Fi AP. Follow  [this](https://www.raspberrypi.org/documentation/configuration/wireless/) guide to set up wireless connectivity. It is convenient to log in to the Raspberry Pi with SSH, you can find instructions  [here](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md).
 
 > aside positive
 > 
@@ -73,7 +73,7 @@ It is simple to set up a fresh Raspberry Pi device with the `rpi-imager` tool by
 
 ### Get OTBR code
 
-Login to your Raspberry Pi and clone `ot-br-posix` from GitHub:
+Log in to your Raspberry Pi and clone `ot-br-posix` from GitHub:
 
 ```console
 $ git clone https://github.com/openthread/ot-br-posix.git --depth 1
@@ -114,10 +114,10 @@ Reboot the Raspberry Pi to take the changes to effect.
 
 OTBR supports a 15.4 radio chip in  [Radio Co-Processor](https://openthread.io/platforms#radio-co-processor-rcp) (RCP) mode. In this mode, the OpenThread stack is running on the host side and transmits/receives frames over the IEEE802.15.4 transceiver.
 
-Follow  [step 4 of this codelab](https://openthread.io/codelabs/openthread-hardware#3) to build and flash a nRF52840 RCP device. You need an additional option `-DOT_THREAD_VERSION=1.2` for the build step:
+Follow  [step 4 of the *Build a Thread network with nRF52840 boards and OpenThread* codelab](https://openthread.io/codelabs/openthread-hardware#3) to build and flash a nRF52840 RCP device:
 
 ```console
-$ script/build nrf52840 USB_trans -DOT_THREAD_VERSION=1.2
+$ script/build nrf52840 USB_trans
 ```
 
 > aside positive
@@ -216,21 +216,25 @@ Done
 > * a BBR Service with service number `0x01`;
 
 
-## Setup SRP Client End Device
+## Set Up SRP Client End Device
 Duration: 05:00
 
 
 ### **Build and flash OT CLI**
 
-Follow  [step 5 of this codelab](https://openthread.io/codelabs/openthread-hardware#4) to build and flash a nRF52840 CLI end device. But instead of having `OT_COMMISSIONER` and `OT_JOINER` enabled, the CLI node requires `OT_SRP_CLIENT` and `OT_ECDSA` features:
+Follow [step 5 of the *Build a Thread network with nRF52840 boards and OpenThread* codelab](https://openthread.io/codelabs/openthread-hardware#4) to build and flash a nRF52840 CLI end device.
+
+But instead of having `OT_COMMISSIONER` and `OT_JOINER` enabled, the CLI node requires `OT_SRP_CLIENT` and `OT_ECDSA` features.
+
+> aside positive
+> 
+> **Note:** The `OT_SRP_CLIENT` build option enables the SRP client side implementation on the end device, while the option `OT_ECDSA` is required by `OT_SRP_CLIENT` to create signatures.
+
+So the full build invocation should look like this:
 
 ```console
 $ script/build nrf52840 USB_trans -DOT_SRP_CLIENT=ON -DOT_ECDSA=ON
 ```
-
-> aside positive
-> 
-> **Note:** The `OT_SRP_CLIENT` build option enables the SRP client side implementation on the end device, while the option `OT_ECDSA` is required by `OT_SRP_CLIENT` to create signatures. Here only specifies the options required for SRP Client feature, please append the other options you need.
 
 ### Join the OTBR network
 
