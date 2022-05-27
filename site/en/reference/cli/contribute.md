@@ -1,37 +1,38 @@
 # Update OT CLI Commands
 
-CLI commands provide command-line access to common API methods and functions.
-Because most commands share the same descriptions, parameters, and return
-values, they can be documented in the same API header files. This offers the
-following benefits:
+The [CLI Commands](https://openthread.io/reference/cli/commands) documented
+on [openthread.io](https://openthread.io) are automatically generated from
+the CLI source files in the
+[openthread](https://github.com/openthread/openthread/tree/main/src/cli)
+GitHub repository.
 
-*   One documentation set for similar information
-*   Keeps documentation current with API updates
-*   Provides additional context for API methods and functions
-*   Quickly find CLI commands from the Reference menu
+This guide provides instructions on how to use our custom Doxygen comments
+that are used to create the command list.
 
 ## Get started
 
 To document a CLI command, complete the following steps. It's important that
 you follow these steps in the order provided.
 
-1.  Find the associated API from the `openthread/include/openthread`
-    directory. For example, `ba state` maps to `otBorderAgentGetState`:
+1.  Find the associated `Cmd` from the `openthread/src/cli`
+    directory. For example, to find `ba state`, search for `Cmd("ba")`.
+    Each command will have an associated function template:
 
-    [otBorderAgentGetState](https://github.com/openthread/openthread/blob/main/include/openthread/border_agent.h#L73)
+    ```none
+    template <> otError Interpreter::Process<Cmd("ba")>(Arg aArgs[])
+    ```
 
-1.  Generalize the `@brief` description to work for both the API and the
-    CLI command. Brief and detailed descriptions display on API and CLI pages.
+1.  In the function template, locate the correct command logic.
+    For example, `ba state`:
+
+    ```none
+    else if (aArgs[0] == "state")
+    ```
+
+1.  Before the logic begins, start the `@cli` Doxygen block:
 
     ```none
     /**
-     * Gets the #otBorderAgentState of the Thread Border Agent role.
-     * 
-    ```
-
-1.  Use the Doxygen ALIAS `@cli` to indicate the CLI command name.
-
-    ```none
      * @cli ba state
     ```
 
@@ -45,83 +46,57 @@ you follow these steps in the order provided.
      * Started
      * Done
      * @endcode
-     * 
     ```
 
-These are the minimum steps required to document an OT CLI command, resulting in
-the following Doxygen comment:
+Because CLI commands provide command-line access to common API methods
+and functions, some of the commands share the same description as their
+corresponding API. If the command description is the same, complete the
+following steps:
+
+1.  Find the associated API from the `openthread/include/openthread`
+    directory. For example, `ba state` maps to `otBorderAgentGetState`.
+
+1.  Use the `api_copy` command, then enter the API name directly below it.
+    In front of the API definition, make sure to use the pound sign `#`
+    to create the automatic Doxygen link.
+
+    ```none
+    @par api_copy
+    #otBorderAgentGetState
+    ```
+
+Here's a complete example of the minimum Doxygen comments required to
+automatically generate an OT CLI command:
 
 ```none
 /**
- * Gets the #otBorderAgentState of the Thread Border Agent role.
- *
  * @cli ba state
  * @code
  * ba state
  * Started
  * Done
  * @endcode
- *
- * @param[in]  aInstance  A pointer to an OpenThread instance.
- *
- * @returns The current #otBorderAgentState of the Border Agent.
- *
+ * @par api_copy
+ * #otBorderAgentGetState
  */
-otBorderAgentState otBorderAgentGetState(otInstance *aInstance);
 ```
 
 To review the HTML output, refer to
 [ba state](https://openthread.io/reference/cli/commands#ba_state).
 For advanced examples and additional options, refer to the following sections.
 
-## Map API methods and functions
-
-CLI commands must only be documented in the `openthread/include/openthread`
-directory.
-
-Use the `openthread/src/cli` source files to locate the corresponding API
-methods or functions.
-
-*   If the CLI command doesn't have a direct match, use your best judgment.
-    You can link to other API methods or functions with `#otFunctionName` or
-    `@sa`.
-
-*   If a CLI command doesn't have a corresponding method or function,
-    document it at the beginning of a relevant header file. For example,
-    `netdata help` in `netdata.h`:
-
-    ```none
-    /**
-     * @addtogroup api-thread-general
-     *
-     * @{
-     *
-     * @cli netdata help
-     * @code
-     * netdata help
-     * help
-     * publish
-     * register
-     * show
-     * steeringdata
-     * unpublish
-     * Done
-     * @endcode
-     * @par
-     * Gets a list of `netdata` CLI commands.
-     * @sa @netdata
-     * 
-     */
-    ```
-
-### CLI template
+## CLI template options
 
 CLI commands are grouped by one continuous comment block, beginning with the
-ALIAS tag `@cli`. At the minimum, use `@cli` and `@code` to document a
-command. Multiple `@code` examples are supported.
+ALIAS tag `@cli`. Multiple `@code` examples are supported.
+
+The order you specify each tag is important.
+
+*   `@cparam` must come after `@code`
+*   If you're copying and API description, `@par api_copy` must come after
+    `@cparam`
 
 ```none
- *
  * @cli command name (overload1,overload2)
  * @code
  * command name arg1
@@ -130,11 +105,16 @@ command. Multiple `@code` examples are supported.
  * @cparam command name @ca{arg1} [@ca{opt-arg}] [@ca{choose-1}|@ca{choose-2}]
  * Optional parameter description; displays below the Parameter heading.
  * *   Markdown and lists are supported.
+ * @par api_copy
+ * #{apiName}
  * @par
  * Optional CLI specific paragraph. Markdown and lists are supported.
+ * @note Notes are supported.
  * @csa{other command name}
- * 
+ * @sa API method or function name
 ```
+
+Next, learn more about how each ALIAS tag is used.
 
 ## Command names
 
@@ -150,7 +130,7 @@ command:
 > Important: Do not use arguments or special characters in command names.
 
 Other commands might be more complex. For example,
-`netdata publish dnssrp unicast` provides two options:
+`netdata publish dnssrp unicast` provides a few options:
 
 1.  Publish by address and port number
 1.  Publish by port number and a device's Mesh-Local EID
@@ -160,15 +140,6 @@ If a command is overloaded, use parentheses to uniquely identify the command.
 ```none
  * @cli netdata publish dnssrp unicast (mle)
  * @cli netdata publish dnssrp unicast (addr,port)
-```
-
-If two similar commands share the same API method or function, use parentheses
-to indicate each command option. Do not use spaces inside the
-parentheses. For example, `joiner discerner set` and
-`joiner discerner clear` both map to the API method `otJoinerSetDiscerner`:
-
-```none
- * @cli joiner discerner (set,clear)
 ```
 
 ## Parameters
@@ -199,14 +170,10 @@ To review the HTML output, refer to [netdata publish prefix](https://openthread.
 
 To review the HTML output, refer to [netdata show](https://openthread.io/reference/cli/commands#netdata_show).
 
-## CLI specific descriptions
+## Add CLI paragraphs after `@api_copy`
 
-Use `@par` to add more information to the `@brief` and `@details` section.
-These paragraphs are CLI specific, and won't display on the associated API
-Reference page.
-
-Only provide a title when necessary. To create the paragraph without a title,
-make sure to drop down to the next line:
+Use `@par` to add more information to the description. Make sure to drop down to the
+next line:
 
 ```none
  * @par
@@ -226,30 +193,80 @@ make sure to drop down to the next line:
 
 To review the HTML output, refer to [netdata register](https://openthread.io/reference/cli/commands#netdata_register).
 
-## References and links
+## Provide CLI-specific paragraphs only
 
-Use `@csa` to link to other commands. If a command is overloaded, include the
-parentheses:
-
-```none
- * @csa{joiner discerner (get)}
-```
-
-Use `@sa` to link to other API functions. If `@sa` is part of the `@cli`
-block, the link only displays on the CLI Command Reference page; not the API
-Reference.
-
-### Link example
+Some CLI commands use multiple APIs, or differ from the API call.
+Others don't have an associated API, for example `netdata help`.
+To provide a separate description, use `@par`. Do not include a
+`@par` title, and start your description on the next line.
 
 ```none
- * @csa{br omrprefix}
- * @csa{br onlinkprefix}
- * @sa [NetworkData::ProcessShow
- * function](https://github.com/openthread/openthread/blob/main/src/cli/cli_network_data.cpp#L401)
- * @sa #otBorderRouterGetNetData
+/**
+ * @cli netdata help
+ * @code
+ * netdata help
+ * ...
+ * show
+ * steeringdata
+ * unpublish
+ * Done
+ * @endcode
+ * @par
+ * Gets a list of `netdata` CLI commands.
+ */
 ```
 
-To review the HTML output, refer to [netdata show](https://openthread.io/reference/cli/commands#netdata_show).
+## Automatically link APIs
+
+You can link to other API methods or functions with `#otFunctionName` or
+`@sa`. Enter these links at the end of the CLI comment block.
+
+```none
+/**
+ * @cli netdata unpublish dnssrp
+ * @code
+ * netdata unpublish dnssrp
+ * Done
+ * @endcode
+ * @par api_copy
+ * #otNetDataUnpublishDnsSrpService
+ */
+```
+
+Links display in the **CLI and API References** heading. To review the HTML
+output, refer to
+[netdata unpublish dnssrp](https://openthread.io/reference/cli/commands#netdata_unpublish_dnssrp)
+
+### Preventing automatic links
+
+Sometimes, Doxygen might mistake a normal word as a link to a CLI class, for
+example, the word `Joiner`. To prevent Doxygen from linking to keywords or class
+names used in a sentence, use the `%` percent operator in front of the word,
+for example:
+
+```none
+Clear the %Joiner discerner
+```
+
+For more information, refer to
+[Automatic link generation](https://www.doxygen.nl/manual/autolink.html)
+in the Doxygen guide.
+
+## Automatically link to other commands
+
+Use `@csa` to link to other commands.
+
+```none
+* @csa{netdata publish dnssrp anycast}
+```
+
+If a command is overloaded, include the parentheses and add a comma
+if applicable. Don't use spaces inside the parentheses:
+
+```none
+* @csa{netdata publish dnssrp unicast (addr,port)}
+* @csa{netdata publish dnssrp unicast (mle)}
+```
 
 ## Doxygen special commands
 
