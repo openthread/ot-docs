@@ -7,7 +7,7 @@ the CLI source files in the
 GitHub repository.
 
 This guide provides instructions on how to use our custom Doxygen comments
-that are used to create the command list.
+that we use to create the command list.
 
 ## Get started
 
@@ -36,7 +36,7 @@ you follow these steps in the order provided.
      * @cli ba state
     ```
 
-1.  Next, immediately after `@cli`, add examples using `@code`. Include at
+1.  Next, immediately below `@cli`, add examples using `@code`. Include at
     least one example. Do not include the `>` prompt, and make sure to
     document the full return output, including the standard `Done` response.
 
@@ -93,7 +93,7 @@ ALIAS tag `@cli`. Multiple `@code` examples are supported.
 The order you specify each tag is important.
 
 *   `@cparam` must come after `@code`
-*   If you're copying and API description, `@par api_copy` must come after
+*   If you're copying an API description, `@par api_copy` must come after
     `@cparam`
 
 ```none
@@ -176,6 +176,8 @@ Use `@par` to add more information to the description. Make sure to drop down to
 next line:
 
 ```none
+ * @par api_copy
+ * #otBorderAgentGetState
  * @par
  * CLI description here; add a few things that do not apply to the API method.
  * @par
@@ -193,12 +195,13 @@ next line:
 
 To review the HTML output, refer to [netdata register](https://openthread.io/reference/cli/commands#netdata_register).
 
-## Provide CLI-specific paragraphs only
+## Provide CLI-specific description only
 
 Some CLI commands use multiple APIs, or differ from the API call.
 Others don't have an associated API, for example `netdata help`.
 To provide a separate description, use `@par`. Do not include a
-`@par` title, and start your description on the next line.
+`@par` title, and start your description on the next line. In
+this scenario, you don't need to use `@api_copy`.
 
 ```none
 /**
@@ -241,7 +244,7 @@ output, refer to
 
 Sometimes, Doxygen might mistake a normal word as a link to a CLI class, for
 example, the word `Joiner`. To prevent Doxygen from linking to keywords or class
-names used in a sentence, use the `%` percent operator in front of the word,
+names used in a sentence, use the `%` operator in front of the word,
 for example:
 
 ```none
