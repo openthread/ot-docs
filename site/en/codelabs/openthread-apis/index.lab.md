@@ -917,7 +917,9 @@ void setNetworkConfiguration(otInstance *aInstance)
      *     Network Name, Mesh Local Prefix, Extended PAN ID, PAN ID, Delay Timer,
      *     Channel, Channel Mask Page 0, Network Key, PSKc, Security Policy
      */
-    aDataset.mActiveTimestamp                      = 1;
+    aDataset.mActiveTimestamp.mSeconds             = 1;
+    aDataset.mActiveTimestamp.mTicks               = 0;
+    aDataset.mActiveTimestamp.mAuthoritative       = false;
     aDataset.mComponents.mIsActiveTimestampPresent = true;
 
     /* Set Channel to 15 */
