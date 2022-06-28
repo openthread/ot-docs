@@ -836,7 +836,7 @@ Done
 
 ####  5. Validate connectivity
 
-Quit `ot-ctl` by using **Ctrl+D** and on your host machine's command line,
+Quit `ot-ctl` by using either **Ctrl+D** or `exit` command, and on your host machine's command line,
 ping Node 1, using its EID with the `ping6` command. If the `ot-daemon` RCP
 instance is successfully joined to and communicating with the Thread network,
 the ping succeeds:
@@ -852,13 +852,6 @@ PING fd55:cf34:dea5:7994:460:872c:e807:c4ab (fd55:cf34:dea5:7994:460:872c:e807:c
 4 packets transmitted, 4 packets received, 0% packet loss
 round-trip min/avg/max/stddev = 4.568/6.005/7.594/1.122 ms
 ```
-
-> aside negative
->
-> **Warning:** If you quit `ot-ctl` by using the `exit` command, `ot-daemon`
-will terminate as well, as the CLI processor used by `ot-ctl` is running within
-`ot-daemon`. To ensure `ot-daemon` and any related nodes continue to run,
-use **Ctrl+D** to quit `ot-ctl`.
 
 
 ## Congratulations!
