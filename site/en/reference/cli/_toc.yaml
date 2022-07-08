@@ -1,0 +1,9 @@
+toc:
+- heading: CLI Reference
+- title: OpenThread CLI Overview
+  path: /reference/cli/
+- include: /reference/cli/concepts/_toc.yaml
+- title: CLI Commands
+  path: /reference/cli/commands
+- title: Contribute
+  path: /reference/cli/contribute
