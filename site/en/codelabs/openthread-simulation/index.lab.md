@@ -69,7 +69,7 @@ on your system configuration, you may be able to run the `docker` commands using
 
 Install Docker on the OS of your choice.
 
-<button>[Download Docker](https://store.docker.com/search?type=edition&offering=community)</button>
+<button>[Download Docker](https://www.docker.com/get-started/)</button>
 
 ### Pull the Docker image
 
