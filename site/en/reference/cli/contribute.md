@@ -1,8 +1,7 @@
 # Update OT CLI Commands
 
-The [CLI Commands](https://openthread.io/reference/cli/commands) documented
-on [openthread.io](https://openthread.io) are automatically generated from
-the CLI source files in the
+We generate [CLI Commands](https://openthread.io/reference/cli/commands)
+from the CLI source files in the
 [openthread](https://github.com/openthread/openthread/tree/main/src/cli)
 GitHub repository.
 
