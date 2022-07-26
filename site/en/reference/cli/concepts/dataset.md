@@ -90,7 +90,7 @@ Security Policy: 0, onrcb
 Done
 ```
 
-In this example, `Security Policy: 0` indicates [mRotationTime](https://openthread.io/reference/struct/ot-security-policy?hl=hr#mrotationtime).
+In this example, `Security Policy: 0` indicates [mRotationTime](https://openthread.io/reference/struct/ot-security-policy#mrotationtime).
 
 `o`, `n`, `r`, `c`, `b`, `C`, `e`, `p`, `R` values map to
 [mObtainNetworkKeyEnabled](https://openthread.io/reference/struct/ot-security-policy#mobtainnetworkkeyenabled),
