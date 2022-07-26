@@ -225,19 +225,22 @@ You can link to other API methods or functions with `#otFunctionName` or
 
 ```none
 /**
- * @cli netdata unpublish dnssrp
+ * @cli netdata publish prefix
  * @code
- * netdata unpublish dnssrp
+ * netdata publish prefix fd00:1234:5678::/64 paos med
  * Done
  * @endcode
- * @par api_copy
- * #otNetDataUnpublishDnsSrpService
+ * @cparam netdata publish prefix @ca{prefix} [@ca{padcrosnD}] [@ca{high}|@ca{med}|@ca{low}]
+ * OT CLI uses mapped arguments to configure #otBorderRouterConfig values. @moreinfo{the @overview}.
+ * @par
+ * Publish an on-mesh prefix entry. @moreinfo{@netdata}.
+ * @sa otNetDataPublishOnMeshPrefix
  */
 ```
 
-Links display in the **CLI and API References** heading. To review the HTML
+`@sa` links display in the **CLI and API References** heading. To review the HTML
 output, refer to
-[netdata unpublish dnssrp](https://openthread.io/reference/cli/commands#netdata_unpublish_dnssrp)
+[netdata publish prefix](https://openthread.io/reference/cli/commands#netdata_publish_prefix).
 
 ### Preventing automatic links
 
