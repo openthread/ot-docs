@@ -19,6 +19,27 @@ across an entire Thread network. The Active Operational Dataset contains:
 *   PSKc
 *   Security Policy
 
+To easily configure a device so that it's a full member of the Thread network, you
+can use the [dataset active -x](/reference/cli/commands#dataset_active) command to
+get a hex-encoded TLV, and the
+[dataset set active](/reference/cli/commands#dataset_set_activepending) command to
+set the dataset on a new device.
+
+On an existing device, get the hex-encoded TLV:
+
+```
+> dataset active -x
+0e080000000000010000000300001035060004001fffe00208e227ac6a7f24052f0708fdb753eb517cb4d3051062b2442a928d9ea3b947a1618fc4085a030f4f70656e5468726561642d393837330102987304105330d857354330133c05e1fd7ae81a910c0402a0f7f8
+Done
+```
+
+On a new device, set the active dataset:
+
+```
+> dataset set active 0e080000000000010000000300001035060004001fffe00208e227ac6a7f24052f0708fdb753eb517cb4d3051062b2442a928d9ea3b947a1618fc4085a030f4f70656e5468726561642d393837330102987304105330d857354330133c05e1fd7ae81a910c0402a0f7f8
+Done
+```
+
 ## Pending Operational Dataset
 
 The Pending Operational Dataset is used to communicate changes to the Active
@@ -92,16 +113,18 @@ Done
 
 In this example, `Security Policy: 0` indicates [mRotationTime](https://openthread.io/reference/struct/ot-security-policy#mrotationtime).
 
-`o`, `n`, `r`, `c`, `b`, `C`, `e`, `p`, `R` values map to
-[mObtainNetworkKeyEnabled](https://openthread.io/reference/struct/ot-security-policy#mobtainnetworkkeyenabled),
-[mNativeCommissioningEnabled](https://openthread.io/reference/struct/ot-security-policy#mnativecommissioningenabled),
-[mRoutersEnabled](https://openthread.io/reference/struct/ot-security-policy#mroutersenabled),
-[mExternalCommissioningEnabled](https://openthread.io/reference/struct/ot-security-policy#mexternalcommissioningenabled),
-[mBeaconsEnabled](https://openthread.io/reference/struct/ot-security-policy#mbeaconsenabled),[mCommercialCommissioningEnabled](https://openthread.io/reference/struct/ot-security-policy#mcommercialcommissioningenabled),
-[mAutonomousEnrollmentEnabled](https://openthread.io/reference/struct/ot-security-policy#mautonomousenrollmentenabled),
-[mNetworkKeyProvisioningEnabled](https://openthread.io/reference/struct/ot-security-policy#mnetworkkeyprovisioningenabled),
-[mNonCcmRoutersEnabled](https://openthread.io/reference/struct/ot-security-policy#mnonccmroutersenabled)
-respectively.
+Here's a list of all of the Security Policy CLI arguments and
+the corresponding `otSecurityPolicy` member for each argument:
+
+*   `o`: [mObtainNetworkKeyEnabled](https://openthread.io/reference/struct/ot-security-policy#mobtainnetworkkeyenabled)
+*   `n`: [mNativeCommissioningEnabled](https://openthread.io/reference/struct/ot-security-policy#mnativecommissioningenabled)
+*   `r`: [mRoutersEnabled](https://openthread.io/reference/struct/ot-security-policy#mroutersenabled)
+*   `c`: [mExternalCommissioningEnabled](https://openthread.io/reference/struct/ot-security-policy#mexternalcommissioningenabled)
+*   `b`: [mBeaconsEnabled](https://openthread.io/reference/struct/ot-security-policy#mbeaconsenabled)
+*   `C`: [mCommercialCommissioningEnabled](https://openthread.io/reference/struct/ot-security-policy#mcommercialcommissioningenabled)
+*   `e`: [mAutonomousEnrollmentEnabled](https://openthread.io/reference/struct/ot-security-policy#mautonomousenrollmentenabled)
+*   `p`: [mNetworkKeyProvisioningEnabled](https://openthread.io/reference/struct/ot-security-policy#mnetworkkeyprovisioningenabled)
+*   `R`: [mNonCcmRoutersEnabled](https://openthread.io/reference/struct/ot-security-policy#mnonccmroutersenabled)
 
 The `dataset securitypolicy` get and set commands also use the same argument
 mappings, for example setting the `securitypolicy` and passing `o`, `n`, `r`,
@@ -129,6 +152,8 @@ of [otOperationalDatasetComponents](https://openthread.io/reference/struct/ot-op
 *   `channel`
 *   `securitypolicy`
 
+> Note: These commands are primarily used for testing only.
+
 For the `mgmtgetcommand`, you can specify these components in any order to get
 the corresponding values. Optionally, you can also pass `-x` to use a hex
 string that's treated as a byte sequence representation of TLVs. This can be vendor
@@ -146,6 +171,9 @@ arguments:
 > dataset mgmtgetcommand active address fdde:ad00:beef:0:558:f56b:d688:799 activetimestamp securitypolicy
 Done
 ```
+
+> Note: `mgmtgetcommand` will not output a response to the CLI. Instead, you can
+observe the output response from a packet sniffer.
 
 To set components, you can also supply the dataset components in any order,
 followed by the component value.
