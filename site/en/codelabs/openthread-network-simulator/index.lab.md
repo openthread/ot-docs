@@ -58,7 +58,7 @@ Python scripting, are not covered.
 
 * Linux x86_64 or Mac OS.
 *  [Git](https://git-scm.com/downloads).
-*  [Go 1.11+](https://golang.org/dl/).
+*  [Go 1.13+](https://golang.org/dl/).
 * Web browser. OTNS-Web uses a web browser for displaying simulations.
 *  [Thread Primer](https://openthread.io/guides/thread-primer). You will need to
    know the basic concepts of Thread to understand what is taught in this
@@ -127,25 +127,14 @@ $ git clone https://github.com/openthread/openthread ~/src/openthread
 
 ```console
 $ cd ~/src/openthread
-$ ./script/bootstrap
-$ ./bootstrap
-$ make -f examples/Makefile-simulation OTNS=1
+$ ./script/cmake-build simulation -DOT_OTNS=ON -DOT_SIMULATION_VIRTUAL_TIME=ON -DOT_SIMULATION_VIRTUAL_TIME_UART=ON -DOT_SIMULATION_MAX_NETWORK_SIZE=999
 ```
 
-You can find the OpenThread executables in the `output` directory:
-
-### Linux
+You can find the OpenThread executables in the `build` directory:
 
 ```console
-$ ls ~/src/openthread/output/simulation/bin
-ot-cli-ftd        ot-cli-mtd        ot-ncp-ftd        ot-ncp-mtd        ot-rcp
-```
-
-### macOS
-
-```console
-$ ls ~/src/openthread/output/simulation/bin
-ot-cli-ftd        ot-cli-mtd        ot-ncp-ftd        ot-ncp-mtd        ot-rcp
+$ ls ~/src/openthread/build/simulation/examples/apps/cli/
+ot-cli-ftd        ot-cli-mtd        ot-cli-radio
 ```
 
 Now it's time to run OTNS...
@@ -158,7 +147,7 @@ Duration: 01:00
 Run `otns`:
 
 ```console
-$ cd ~/src/openthread/output/simulation/bin
+$ cd ~/src/openthread/build/simulation/examples/apps/cli
 $ otns
 > ← OTNS-CLI prompt
 ```
@@ -186,7 +175,7 @@ Duration: 02:00
 `OTNS-CLI` provides a Command Line Interface (CLI) for managing OTNS simulations.
 
 ```console
-$ cd ~/src/openthread/output/simulation/bin
+$ cd ~/src/openthread/build/simulation/examples/apps/cli
 $ otns
 > ← OTNS-CLI prompt
 ```
