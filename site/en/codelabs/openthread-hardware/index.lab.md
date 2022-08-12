@@ -302,7 +302,7 @@ manner as the other simulated Thread devices.
 In a second terminal window, start `ot-ctl`:
 
 ```console
-$ ./build/posix/bin/ot-ctl
+$ ./build/posix/src/posix/ot-ctl
 >
 ```
 
@@ -768,6 +768,8 @@ seconds, check the state, RLOC16 and its IPv6 addresses:
 ## RCP Joiner ##
 ----------------
 
+> ifconfig up
+Done
 > thread start
 Done
 > state
