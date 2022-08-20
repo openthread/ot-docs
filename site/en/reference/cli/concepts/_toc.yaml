@@ -3,3 +3,5 @@ toc:
   section:
   - title: Network Data
     path: /reference/cli/concepts/netdata
+  - title: Operational Datasets
+    path: /reference/cli/concepts/dataset
