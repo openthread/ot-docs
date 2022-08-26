@@ -71,7 +71,7 @@ Duration: 05:00
 
 ### Install Go
 
-OTNS requires Go 1.11+ to build.
+OTNS requires Go 1.13+ to build.
 
 1. Install Go from [https://golang.org/dl/](https://golang.org/dl/)
 2. Add `$(go env GOPATH)/bin` (normally `$HOME/go/bin`) to `$PATH`:

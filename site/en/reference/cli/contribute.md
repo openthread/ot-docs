@@ -141,6 +141,67 @@ If a command is overloaded, use parentheses to uniquely identify the command.
  * @cli netdata publish dnssrp unicast (addr,port)
 ```
 
+## Command descriptions
+
+There are three ways to document command descriptions. You can copy the
+API description, use the API description but add additional information,
+or provide a completely unique description that belongs only to the
+CLI command. In the next sections, we'll go over each method.
+
+### Copy the corresponding API description
+
+Use `api_copy` to copy the corresponding API method or function. When
+you copy APIs, make sure that the description will work for both the
+API and the CLI command. Avoid using phrases that apply only to a
+function, for example `This function` or `This method`. Prefer
+an active voice, for example `Gets the` or `Sets the`.
+
+```none
+ * @par api_copy
+ * #otBorderAgentGetState
+```
+
+## Add more information to the API description
+
+If you'd like to use `api_copy` but need to add additional information that
+applies only to the CLI command, use `@par`. After the `@par` tag, make sure
+to drop down to the next line.
+
+```none
+ * @par api_copy
+ * #otBorderAgentGetState
+ * @par
+ * CLI description here; add a few things that do not apply to the API method.
+ * @par
+ * Start a new paragraph.
+```
+
+These paragraphs display after the API description.
+
+## Provide CLI-specific descriptions only
+
+Some CLI commands use multiple APIs, or differ from the API call.
+Others don't have an associated API, for example `netdata help`.
+To provide a separate description, use `@par`.
+Do not include a `@par` title, and start your description on the next
+line. In this scenario, do not use `@api_copy`.
+
+```none
+/**
+ * @cli netdata help
+ * @code
+ * netdata help
+ * ...
+ * show
+ * steeringdata
+ * unpublish
+ * Done
+ * @endcode
+ * @par
+ * Gets a list of `netdata` CLI commands.
+ */
+```
+
 ## Parameters
 
 Define command parameters using `@cparam` and `@ca`.
@@ -159,7 +220,10 @@ Define command parameters using `@cparam` and `@ca`.
 
 To review the HTML output, refer to [netdata publish prefix](https://openthread.io/reference/cli/commands#netdata_publish_prefix).
 
-### Parameters with markdown list
+### Parameters with markdown lists
+
+You can also use lists after `@cparam`. This is helpful for when you'd like to
+provide details about the command arguments that are used.
 
 ```none
  * @cparam netdata show [@ca{local}] [@ca{-x}]
@@ -169,54 +233,23 @@ To review the HTML output, refer to [netdata publish prefix](https://openthread.
 
 To review the HTML output, refer to [netdata show](https://openthread.io/reference/cli/commands#netdata_show).
 
-## Add CLI paragraphs after `@api_copy`
-
-Use `@par` to add more information to the description. Make sure to drop down to the
-next line:
-
-```none
- * @par api_copy
- * #otBorderAgentGetState
- * @par
- * CLI description here; add a few things that do not apply to the API method.
- * @par
- * Start a new paragraph.
-```
-
-### Description example
+`@cli` blocks must be one continuous comment with no spaces. If you add
+a list below `@cparam` and then need another paragraph below that list, use
+a period `.` to manually end the list.
 
 ```none
- * @par
- * OT CLI checks for `OPENTHREAD_CONFIG_BORDER_ROUTER_ENABLE`. If OTBR is enabled, it
- * registers local Network Data with the Leader. Otherwise, it calls the CLI function `otServerRegister`.
- * @moreinfo{@netdata}.
+* @cparam commandname [@ca{qmr}]
+* [`q`, `m`, and `r`] map to #otLinkMetricsValues.
+* *   `q`: Layer 2 LQI (#otLinkMetricsValues::mLqiValue).
+* *   `m`: Link Margin (#otLinkMetricsValues::mLinkMarginValue).
+* *   `r`: RSSI (#otLinkMetricsValues::mRssiValue).
+* .
+* Add another paragraph here. The dot above will end the HTML list that's generated.
+* This paragraph displays under the Parameters heading, and not the command description.
 ```
 
-To review the HTML output, refer to [netdata register](https://openthread.io/reference/cli/commands#netdata_register).
-
-## Provide CLI-specific description only
-
-Some CLI commands use multiple APIs, or differ from the API call.
-Others don't have an associated API, for example `netdata help`.
-To provide a separate description, use `@par`. Do not include a
-`@par` title, and start your description on the next line. In
-this scenario, you don't need to use `@api_copy`.
-
-```none
-/**
- * @cli netdata help
- * @code
- * netdata help
- * ...
- * show
- * steeringdata
- * unpublish
- * Done
- * @endcode
- * @par
- * Gets a list of `netdata` CLI commands.
- */
-```
+For additional examples, refer to Doxygen's
+[Lists](https://doxygen.nl/manual/lists.html).
 
 ## Automatically link APIs
 
@@ -288,6 +321,7 @@ CLI commands support the following Doxygen ALIASES and special commands:
 | @sa | @sa otBorderRouterConfig | See Also. Creates a link to an API Reference. |
 | @overview | @overview | Creates a link to the [OpenThread CLI Overview](https://openthread.io/reference/cli). |
 | @netdata | @netdata | Creates a link to [Display and Manage Network Data with OT CLI](https://openthread.io/reference/cli/concepts/netdata). |
+| @dataset | @dataset | Creates a link to [Display and Manage Datasets with OT CLI](https://openthread.io/reference/cli/concepts/dataset). |
 | @moreinfo | @moreinfo{@netdata} | Creates a referral link. |
 | @note | @note Important callout. | Creates a note callout box. |
 
