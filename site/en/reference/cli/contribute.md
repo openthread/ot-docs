@@ -161,7 +161,7 @@ an active voice, for example `Gets the` or `Sets the`.
  * #otBorderAgentGetState
 ```
 
-## Add more information to the API description
+### Add more information to the API description
 
 If you'd like to use `api_copy` but need to add additional information that
 applies only to the CLI command, use `@par`. After the `@par` tag, make sure
@@ -178,7 +178,7 @@ to drop down to the next line.
 
 These paragraphs display after the API description.
 
-## Provide CLI-specific descriptions only
+### Provide CLI-specific descriptions only
 
 Some CLI commands use multiple APIs, or differ from the API call.
 Others don't have an associated API, for example `netdata help`.

@@ -122,7 +122,7 @@ Use backticks for `inline code`. This includes file paths and file or binary nam
 In code examples, denote a replaceable variable with curly braces:
 
 ```
-make -f examples/Makefile-{platform}
+$ sudo python3 setup.py install --extcap-path={extcap-path}
 ```
 
 ### Step header numbers

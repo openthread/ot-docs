@@ -10,7 +10,7 @@ network, use a simulated RCP.
 
 ## Physical RCP
 
-Use any [supported OpenThread platform](https://openthread.io/platforms) for the 
+Use any [supported OpenThread platform](https://openthread.io/platforms) for the
 physical RCP. See the [Build and flash RCP](../../../guides/border-router/build.md#build-and-flash-rcp)
 step from the OpenThread Border Router Build and Configuration guide for more
 information.
@@ -116,7 +116,7 @@ machine.
     ```
     $ cd openthread
     $ ./bootstrap
-    $ make -f examples/Makefile-simulation
+    $ ./script/cmake-build simulation
     ```
 
 ### Set up a bidirectional data stream
@@ -131,7 +131,7 @@ to transfer data between the simulated RCP and OTBR Docker.
     ```
     $ sudo apt-get install socat
     ```
-    
+
 1.  Start `socat`:
     ```
     $ socat -d -d pty,raw,echo=0 pty,raw,echo=0
@@ -147,7 +147,7 @@ above:
 *   `/dev/pts/2` = Simulated RCP port
 *   `/dev/pts/7` = OTBR Docker
 
-> Note: The serial ports returned by `socat` might differ on your system. Always use the values 
+> Note: The serial ports returned by `socat` might differ on your system. Always use the values
 in your local `socat` output.
 
 Leave this terminal window open and running in the background.
@@ -160,7 +160,7 @@ Leave this terminal window open and running in the background.
 1.  Using the first serial port in the `socat` output, start the simulated RCP
     application. For example, if using `/dev/pts/2` from the `socat` output:
     ```
-    $ ~/openthread/output/simulation/bin/ot-rcp 1 > /dev/pts/2 < /dev/pts/2
+    $ ~/openthread/build/simulation/examples/apps/ncp/ot-rcp 1 > /dev/pts/2 < /dev/pts/2
     ```
 
 There is no output from this command. Leave this terminal window open and
@@ -236,7 +236,7 @@ down.
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

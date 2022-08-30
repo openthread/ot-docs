@@ -8,14 +8,14 @@ The quickest way to get started with Pyspinel is to try out the CLI:
     bootstraping, build the sim example:
 
     ```
-    $ make -f examples/Makefile-simulation
+    $ ./script/cmake-build simulation
     ```
 
 1.  Run the Pyspinel CLI, using the path to your simulated build:
 
     ```
     $ cd {path-to-pyspinel}
-    $ spinel-cli.py -p {path-to-openthread}/output/simulation/bin/ot-ncp-ftd -n 1
+    $ spinel-cli.py -p {path-to-openthread}/build/simulation/examples/apps/ncp/ot-ncp-ftd -n 1
     spinel-cli > 
     ```
 
@@ -23,7 +23,8 @@ The quickest way to get started with Pyspinel is to try out the CLI:
 
     ```
     spinel-cli > version
-    OPENTHREAD/20180926-01310-g9fdcef20; SIMULATION; Feb 11 2020 14:09:56
+    OPENTHREAD/thread-reference-20200818-1938-g0f10480ed; SIMULATION; Aug 30 2022 10:53:44
+    Done
     ```
 
 1.  Start Thread on the simulated NCP and verify that it has become the leader
@@ -49,7 +50,7 @@ The quickest way to get started with Pyspinel is to try out the CLI:
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

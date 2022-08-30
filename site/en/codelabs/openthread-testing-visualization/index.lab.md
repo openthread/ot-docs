@@ -101,8 +101,6 @@ Let's make sure all the prerequisites are met.
 1. Run `which otns` to check if the `otns` executable is searchable in `$PATH`.
 2. Run `which wpantund` to make sure `wpantund` is available.
 3. Make sure ARM GNU toolchain, J-Link, and `nrfjprog` packages are all available.
-4. Make sure an OpenThread binary can be made, running `make -f
-    examples/Makefile-nrf52840` under the `openthread` folder.
 
 ***Note:*** Please refer to the linked documentations for set up guidance.
 Prerequisite #1 is from [Simulate Thread Networks using OTNS](https://openthread.io/codelabs/openthread-network-simulator)
