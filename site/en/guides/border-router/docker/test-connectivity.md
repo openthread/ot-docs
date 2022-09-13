@@ -51,7 +51,7 @@ switches.
 See [Build OpenThread](../../../guides/build.md) for basic building instructions.
 
 See the [Build a Thread network with nRF52840 boards and OpenThread
-Codelab](https://codelabs.developers.google.com/codelabs/openthread-hardware/#0) for
+Codelab](https://openthread.io/codelabs/openthread-hardware) for
 detailed instructions on building and flashing the Nordic nRF52840 platform.
 
 1.  After building and flashing, attach the Thread device to the machine running
