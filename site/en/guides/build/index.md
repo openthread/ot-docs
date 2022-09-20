@@ -81,7 +81,7 @@ Binary | Description | Options
 By default, all above flags are enabled. If you explicitly disable all flags, applications are not
 built but OpenThread library files are still generated in `./build/lib` for use in a project.
 
-Check the example Makefiles for each platform to see which flags each platform
+Check the `examples/platforms` directory to see which flags each platform
 supports. For more information on FTDs and MTDs, see the
 [Thread Primer](../../guides/thread-primer/node-roles-and-types.md#device_types). For
 more information on SoC and NCP designs, see [Platforms](https://openthread.io/platforms/).
@@ -103,7 +103,7 @@ Build Support Packages (BSPs)  are found in
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

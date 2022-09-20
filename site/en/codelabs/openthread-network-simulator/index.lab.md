@@ -371,7 +371,7 @@ Duration: 01:00
 
 
 Now, the simulation should contain 2 Routers (hexagon shape) and many children,
-and runs at 10X speed. 
+and runs at 10X speed.
 
 Find the current Leader (red border) of the 2 Routers, single click to select it:
 

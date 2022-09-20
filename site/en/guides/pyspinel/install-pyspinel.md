@@ -28,7 +28,7 @@ for example, `--channel 15 --uart /dev/ttyACM0`.
 1.  Install Pyspinel:
     ```
     $ cd pyspinel
-    $ python3 setup.py install
+    $ sudo python3 setup.py install
     ```
 
 Alternatively, set up the environment by installing the `pyspinel` package. Note
@@ -58,7 +58,7 @@ To use Pyspinel without the extcap plugin, refer to [Packet Sniffing with Pyspin
 1.  Install Pyspinel, using the extcap path from Wireshark:
     ```
     $ cd pyspinel
-    $ python3 setup.py install --extcap-path={extcap-path}
+    $ sudo python3 setup.py install --extcap-path={extcap-path}
     ```
 
 Alternatively, set up the environment by installing the pyspinel package:
@@ -71,7 +71,7 @@ To use Pyspinel with the extcap plugin, refer to [Packet Sniffing using Extcap](
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

@@ -280,7 +280,7 @@ output and confirm that it is running:
 
 ```console
 $ cd ~/src/openthread
-$ ./build/posix/src/posix/ot-daemon -v \
+$ sudo ./build/posix/src/posix/ot-daemon -v \
     'spinel+hdlc+uart:///dev/ttyACM0?uart-baudrate=115200'
 ```
 
@@ -288,9 +288,10 @@ When successful, `ot-daemon` in verbose mode generates output similar to the
 following:
 
 ```console
-ot-daemon[228024]: Running OPENTHREAD/20191113-00831-gfb399104; POSIX; Jun  7 2020 18:05:15
-ot-daemon[228024]: Thread version: 2
-ot-daemon[228024]: RCP version: OPENTHREAD/20191113-00831-gfb399104; SIMULATION; Jun  7 2020 18:06:08
+ot-daemon[12463]: Running OPENTHREAD/thread-reference-20200818-1938-g0f10480ed; POSIX; Aug 30 2022 10:55:05
+ot-daemon[12463]: Thread version: 4
+ot-daemon[12463]: Thread interface: wpan0
+ot-daemon[12463]: RCP version: OPENTHREAD/thread-reference-20200818-1938-g0f10480ed; SIMULATION; Aug 30 2022 10:54:10
 ```
 
 Leave this terminal window open so that logs from `ot-daemon` can be viewed.
@@ -302,7 +303,7 @@ manner as the other simulated Thread devices.
 In a second terminal window, start `ot-ctl`:
 
 ```console
-$ ./build/posix/src/posix/ot-ctl
+$ sudo ./build/posix/src/posix/ot-ctl
 >
 ```
 
@@ -690,9 +691,9 @@ From `ot-ctl` on the **RCP Joiner**:
 ----------------
 
 > scan
-| J | Network Name     | Extended PAN     | PAN  | MAC Address      | Ch | dBm | LQI |
-+---+------------------+------------------+------+------------------+----+-----+-----+
-| 0 | OpenThread-c0de  | c0de7ab5c0de7ab5 | c0de | 1ed687a9cb9d4b1d | 11 | -36 | 232 |
+| PAN  | MAC Address      | Ch | dBm | LQI |
++------+------------------+----+-----+-----+
+| c0de | 1ed687a9cb9d4b1d | 11 | -36 | 232 |
 ```
 
 From the OpenThread CLI on the **FTD Joiner**:
@@ -702,18 +703,20 @@ From the OpenThread CLI on the **FTD Joiner**:
 ----------------
 
 > scan
-| J | Network Name     | Extended PAN     | PAN  | MAC Address      | Ch | dBm | LQI |
-+---+------------------+------------------+------+------------------+----+-----+-----+
-| 0 | OpenThread-c0de  | c0de7ab5c0de7ab5 | c0de | 1ed687a9cb9d4b1d | 11 | -38 | 229 |
+| PAN  | MAC Address      | Ch | dBm | LQI |
++------+------------------+----+-----+-----+
+| c0de | 1ed687a9cb9d4b1d | 11 | -38 | 229 |
 ```
 
 If the "codelab" network doesn't appear in the list, try scanning again.
 
-You may note that in both scans, the network seems to be not joinable
-(*J* column on the RCP Joiner and FTD Joiner). This only
-means that Thread Commissioning is not active on the network. It can still be
-joined out-of-band, by entering the network key in the joiner device
-manually.
+## Add the RCP Joiner
+Duration: 05:00
+
+
+Thread Commissioning is not active on the network, which means that
+we'll need to add the RCP Joiner to the Thread network we just created
+using an out-of-band commissioning process.
 
 > aside positive
 >
@@ -721,26 +724,20 @@ manually.
 joiner over the radio. Out-of-band commissioning is when they are given to the
 joiner by other means (for example, manual entry in the OpenThread CLI).
 
-
-## Add the RCP Joiner
-Duration: 05:00
-
-
-Let's add the RCP Joiner to the Thread network we just created, using an
-out-of-band process. Scan for networks on the **RCP Joiner**:
+On the **FTD Commissioner**, we made a note of the Network Key, for example
+`1234c0de7ab51234c0de7ab51234c0de`. If you need to lookup the Network Key
+again, run the following command on the **FTD Commissioner**:
 
 ```console
-## RCP Joiner ##
-----------------
+## FTD Commissioner ##
 
-> scan
-| J | Network Name     | Extended PAN     | PAN  | MAC Address      | Ch | dBm | LQI |
-+---+------------------+------------------+------+------------------+----+-----+-----+
-| 0 | OpenThread-c0de  | c0de7ab5c0de7ab5 | c0de | 1ed687a9cb9d4b1d | 11 | -38 | 229 |
+> dataset networkkey
+1234c0de7ab51234c0de7ab51234c0de
+Done
 ```
 
-To join, set the network key (we just obtained from the FTD commissioner)
-on the RCP Joiner in its active dataset.
+Next, on the **RCP Joiner**, set its active dataset Network Key to the
+FTD Commissioner Network Key:
 ```console
 ## RCP Joiner ##
 ----------------
@@ -844,25 +841,11 @@ Duration: 07:00
 
 
 Now let's add the third Thread device to the "codelab" network. This time we're
-going to use the more secure in-band commissioning process. On the
-**FTD Joiner**, scan for the network:
+going to use the more secure in-band commissioning process, and only allow the
+FTD Joiner to join.
 
-```console
-## FTD Joiner ##
-----------------
-
-> scan
-| J | Network Name     | Extended PAN     | PAN  | MAC Address      | Ch | dBm | LQI |
-+---+------------------+------------------+------+------------------+----+-----+-----+
-| 0 | OpenThread-c0de  | c0de7ab5c0de7ab5 | c0de | f65ae2853ff0c4e4 | 11 | -36 |  57 |
-```
-
-A `0` in the J column indicates that Thread Commissioning is not active on the
-device.
-
-Let's be specific when commissioning on this next device, and only allow the
-FTD Joiner to join. Still on the FTD Joiner, get the `eui64`, so the FTD
-Commissioner can identify it:
+On the **FTD Joiner**, get the `eui64`, so the FTD Commissioner can
+identify it:
 
 ```console
 ## FTD Joiner ##
@@ -895,21 +878,8 @@ Done
 command, stop and restart the commissioner role with `commissioner stop` and
 `commissioner start`, then try the `commissioner joiner` command again.
 
-Switch to the **FTD Joiner**, and rescan:
-
-```console
-## FTD Joiner ##
-----------------
-
-> scan
-| J | Network Name     | Extended PAN     | PAN  | MAC Address      | Ch | dBm | LQI |
-+---+------------------+------------------+------+------------------+----+-----+-----+
-| 1 | OpenThread-c0de  | c0de7ab5c0de7ab5 | c0de | 1ed687a9cb9d4b1d | 11 | -45 | 196 |
-```
-
-As indicated by the `1` in the J column, Thread Commissioning is now active on
-the network. Start the joiner role with the Joiner Credential you just set up on
-the FTD Commissioner:
+Switch to the **FTD Joiner**. Start the joiner role with the Joiner
+Credential that you just set up on the FTD Commissioner:
 
 ```console
 ## FTD Joiner ##
@@ -1536,7 +1506,7 @@ Reference:
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

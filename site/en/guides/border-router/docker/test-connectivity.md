@@ -12,7 +12,7 @@ connectivity to the internet.
 On the machine running OTBR Docker:
 
 Open a browser window and navigate to 127.0.0.1:8080. If OTBR Docker is running correctly, the OTBR Web GUI loads.
-    
+
 Select the "Form" menu option and change some of the default credentials. We recommend leaving the default Channel and On-Mesh Prefix values. Whatever you use, make a note of them so you can test a separate Thread node later.
 
 | Parameter | Sample Value |
@@ -51,7 +51,7 @@ switches.
 See [Build OpenThread](../../../guides/build.md) for basic building instructions.
 
 See the [Build a Thread network with nRF52840 boards and OpenThread
-Codelab](https://codelabs.developers.google.com/codelabs/openthread-hardware/#0) for 
+Codelab](https://openthread.io/codelabs/openthread-hardware) for
 detailed instructions on building and flashing the Nordic nRF52840 platform.
 
 1.  After building and flashing, attach the Thread device to the machine running
@@ -70,7 +70,7 @@ detailed instructions on building and flashing the Nordic nRF52840 platform.
 1.  Start the CLI application to bring up a simulated node:
     ```
     $ cd ~/openthread
-    $ ./output/simulation/bin/ot-cli-ftd 2
+    $ ./build/simulation/examples/apps/cli/ot-cli-ftd 2
     ```
 
 1.  Press the **Enter** key to bring up the `>` OpenThread CLI prompt.
@@ -80,7 +80,7 @@ detailed instructions on building and flashing the Nordic nRF52840 platform.
 Using the OpenThread CLI for your physical or simulated Thread node, join the
 node to the Thread network created by OTBR Docker.
 
-> Caution: Only the commissioner included with OTBR is supported with Docker. 
+> Caution: Only the commissioner included with OTBR is supported with Docker.
 The Thread Commissioning App is not supported.
 
 1.  Update the Thread network credentials for the node, using the minimum
@@ -91,7 +91,7 @@ The Thread Commissioning App is not supported.
     > dataset commit active
     Done
     ```
-    
+
 1. Bring up the Thread interface and start Thread:
     ```
     > ifconfig up
@@ -106,7 +106,7 @@ The Thread Commissioning App is not supported.
     > state
     router
     ```
-    
+
 1.  Check the node's IP addresses to ensure it has an IPv6 address with the
     on-mesh prefix of `fd11:22::/64` as specified during Thread network
     formation:
@@ -117,7 +117,7 @@ The Thread Commissioning App is not supported.
     fd33:3333:3344:0:1b5f:db5:ecac:a9e
     fe80:0:0:0:e0c4:5304:5404:5f70:98cd
     ```
-    
+
 ## Step 4: Ping a public address
 
 You should be able to a ping a public IPv4 address from the standalone Thread
@@ -155,7 +155,7 @@ container, which is out of scope for this guide.
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

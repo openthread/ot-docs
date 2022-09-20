@@ -36,7 +36,7 @@ Mesh Link Establishment, and Mesh Routing.
 
 This Codelab walks you through simulating a Thread network on simulated devices.
 
-###  What you'll learn 
+###  What you'll learn
 
 * How to set up the OpenThread build toolchain
 * How to simulate a Thread network
@@ -75,7 +75,7 @@ After XCode is installed, install the XCode Command Line Tools:
 $ xcode-select --install
 ```
 
-###  Build on Linux / Mac OS X 
+###  Build on Linux / Mac OS X
 
 These installation instructions have been tested on Ubuntu Server 14.04 LTS and
 Mac OS X Sierra 10.12.6.
@@ -108,14 +108,13 @@ For this Codelab we are using the simulation example.
 
 ```console
 $ cd ~/src/openthread
-$ make -f examples/Makefile-simulation
+$ ./script/cmake-build simulation
 ```
 
 Now build OpenThread Daemon:
 
 ```console
-$ cd ~/src/openthread
-$ make -f src/posix/Makefile-posix DAEMON=1
+$ ./script/cmake-build posix -DOT_DAEMON=ON
 ```
 
 
@@ -143,7 +142,7 @@ Router with a single connection between them.
 
 <img src="img/6e3aa07675f902dc.png" alt="6e3aa07675f902dc.png" width="624.00" />
 
-###  Ping a node 
+###  Ping a node
 
 #### 1. Start Node 1
 
@@ -152,7 +151,7 @@ Thread device using the `ot-cli-ftd` binary.
 
 ```console
 $ cd ~/src/openthread
-$ ./output/simulation/bin/ot-cli-ftd 1
+$ ./build/simulation/examples/apps/cli/ot-cli-ftd 1
 ```
 
 **Note:** If you don't see the `>` prompt after running this command, press `enter`.
@@ -268,7 +267,7 @@ CLI process. This is your second simulated Thread device:
 
 ```console
 $ cd ~/src/openthread
-$ ./output/simulation/bin/ot-cli-ftd 2
+$ ./build/simulation/examples/apps/cli/ot-cli-ftd 2
 ```
 
 **Note:** If you don't see the `>` prompt after running this command, press `enter`.
@@ -366,7 +365,7 @@ hlim=64 time=12ms
 
 Press `enter` to return to the `&gt;` CLI prompt.
 
-### Test the  network 
+### Test the network
 
 Now that you can successfully ping between two simulated Thread devices, test
 the mesh network by taking one node offline.
@@ -455,7 +454,7 @@ In Node 1, spawn the CLI process:
 
 ```console
 $ cd ~/src/openthread
-$ ./output/simulation/bin/ot-cli-ftd 1
+$ ./build/simulation/examples/apps/cli/ot-cli-ftd 1
 ```
 
 **Note:** If you don't see the `>` prompt after running this command, press `enter`.
@@ -508,7 +507,7 @@ leader
 Done
 ```
 
-####  2. Start the Commissioner role 
+####  2. Start the Commissioner role
 
 While still on Node 1, start the Commissioner role:
 
@@ -541,7 +540,7 @@ In a second terminal window, spawn a new CLI process. This is Node 2.
 
 ```console
 $ cd ~/src/openthread
-$ ./output/simulation/bin/ot-cli-ftd 2
+$ ./build/simulation/examples/apps/cli/ot-cli-ftd 2
 ```
 
 On Node 2, enable the Joiner role using the `J01NME` Joiner Credential.
@@ -579,7 +578,7 @@ Now that Node 2 is authenticated, start Thread:
 Done
 ```
 
-####  4. Validate network authentication 
+####  4. Validate network authentication
 
 Check the `state` on Node 2, to validate that it has now joined the network.
 Within two minutes, Node 2 transitions from `child` to `router`:
@@ -594,7 +593,7 @@ router
 Done
 ```
 
-####  5. Reset configuration 
+####  5. Reset configuration
 
 To prepare for the next exercise, reset the configuration. On each Node, stop
 Thread, do a factory reset, and exit the simulated Thread device:
@@ -645,7 +644,7 @@ device:
 
 ```console
 $ cd ~/src/openthread
-$ ./output/simulation/bin/ot-cli-ftd 1
+$ ./build/simulation/examples/apps/cli/ot-cli-ftd 1
 ```
 
 **Note:** If you don't see the `>` prompt after running this command, press `enter`.
@@ -725,21 +724,23 @@ communicate with the node.
 
 In the second terminal window, navigate to the `openthread` directory, and start
 `ot-daemon` for an RCP node, which we'll call Node 2. Use the `-v` verbose flag
-so you can see log output and confirm that it is running:
+so you can see log output and confirm that it is running, and make sure to use
+`sudo`:
 
 ```console
 $ cd ~/src/openthread
-$ ./output/posix/bin/ot-daemon -v \
-    'spinel+hdlc+forkpty://output/simulation/bin/ot-rcp?forkpty-arg=2'
+$ sudo ./build/posix/src/posix/ot-daemon -v \
+    'spinel+hdlc+forkpty://build/simulation/examples/apps/ncp/ot-rcp?forkpty-arg=2'
 ```
 
 When successful, `ot-daemon` in verbose mode generates output similar to the
 following:
 
 ```console
-ot-daemon[228024]: Running OPENTHREAD/20191113-00831-gfb399104; POSIX; Jun 7 2020 18:05:15
-ot-daemon[228024]: Thread version: 2
-ot-daemon[228024]: RCP version: OPENTHREAD/20191113-00831-gfb399104; SIMULATION; Jun 7 2020 18:06:08
+ot-daemon[12463]: Running OPENTHREAD/thread-reference-20200818-1938-g0f10480ed; POSIX; Aug 30 2022 10:55:05
+ot-daemon[12463]: Thread version: 4
+ot-daemon[12463]: Thread interface: wpan0
+ot-daemon[12463]: RCP version: OPENTHREAD/thread-reference-20200818-1938-g0f10480ed; SIMULATION; Aug 30 2022 10:54:10
 ```
 
 Leave this terminal open and running in the background. You will not enter
@@ -755,9 +756,11 @@ other simulated Thread devices.
 In a third terminal window, start `ot-ctl`:
 
 ```console
-$ ./output/posix/bin/ot-ctl
+$ sudo ./build/posix/src/posix/ot-ctl
 >
 ```
+
+**Note:** If you don't see the `>` prompt after running this command, press `enter`.
 
 You'll use `ot-ctl` in this third terminal window to manage Node 2 (the RCP node)
 that you started in the second terminal window with `ot-daemon`. Check the `state` of
@@ -819,7 +822,7 @@ Now join Node 2 to the Thread network:
 Done
 ```
 
-####  4. Validate network authentication 
+####  4. Validate network authentication
 
 Check the `state` on Node 2, to validate that it has now joined the network.
 Within two minutes, Node 2 transitions from `child` to `router`:
@@ -877,7 +880,7 @@ If you want to learn more, explore these references:
 
 ## License
 
-Copyright (c) 2021, The OpenThread Authors.
+Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
