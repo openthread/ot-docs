@@ -12,7 +12,7 @@ Contributor: https://github.com/dsyx
 
 ## Codelabs
 
-如果希望在没有 Docker 的情况下使用 OTBR，请尝试我们的 Border Router Codelab 之一。这将使用物理 RCP 在 Raspberry Pi 3B 或 4 上运行 OTBR。
+如果希望在没有 Docker 的情况下使用 OTBR，可以参考以下 Border Router 相关的 Codelab，使用物理 RCP 和 Raspberry Pi 3B 或 4 运行 OTBR。
 
 <a class="button button-primary"
    href="https://openthread.io/codelabs/openthread-border-router/">Border Router
@@ -44,7 +44,7 @@ OTBR 也可以在支持的平台上直接运行：
 
 ### QEMU OTBR
 
-OT 社区的一名成员使用 QEMU（一个开源机器模拟及虚拟器）启用了 OTBR 支持。该项目在 ARM 架构上模拟 Raspbian。
+OT 社区的一名成员 [使用 QEMU（一个开源机器模拟及虚拟器）启用了 OTBR 支持](https://github.com/ERNE196077/qemu_openthread_borderrouter)。该项目在 ARM 架构上模拟 Raspbian。
 
 ## License
 

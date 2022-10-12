@@ -29,7 +29,7 @@ OpenThread 的边界路由器实现称为 OTBR（OpenThread Border Router），�
 * 更稳定的 802.15.4 SoC 固件：RCP 只实现 sub-MAC 和 PHY，降低了 802.15.4 SoC 的固件更新频率。
 * 更容易与主机的 IPv6 网络栈集成：在主机上运行 OpenThread 可以更直接地与主机的 IPv6 栈集成。
 
-> Note: OTBR 也是在具有 [Nordic nRF52840](https://openthread.io/vendors/nordic-semiconductor) NCP 的 [Raspberry Pi 3B](raspberry-pi.md) 上的 Thread 认证组件（Thread Certified Component）。
+> Note: 使用 [Raspberry Pi 3B](raspberry-pi.md) 和 [Nordic nRF52840](https://openthread.io/vendors/nordic-semiconductor) NCP 构建的 OTBR 也是一个 Thread 认证组件（Thread Certified Component）。
 
 ## 特性和服务
 
