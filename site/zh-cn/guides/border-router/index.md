@@ -1,6 +1,6 @@
 # OpenThread Border Router
 
-Contributor: https://github.com/dsyx
+Translator: https://github.com/dsyx
 
 Thread 边界路由器（Border Router）用于将 Thread 网络连接到其他 IP-based 网络，例如 Wi-Fi 或 Ethernet（以太网）。Thread 网络至少需要一个边界路由器才能连接到其他网络。
 

@@ -1,6 +1,6 @@
 # 开始使用 OTBR
 
-Contributor: https://github.com/dsyx
+Translator: https://github.com/dsyx
 
 使用以下平台通过物理或模拟的 RCP 运行 OTBR。
 
