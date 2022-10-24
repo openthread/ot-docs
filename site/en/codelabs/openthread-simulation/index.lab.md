@@ -767,7 +767,7 @@ flag so you can see log output and confirm that it is running:
 
 ```console
 root@c0f3912a74ff:/# /openthread/build/posix/src/posix/ot-daemon -v \
-'spinel+hdlc+forkpty://openthread/build/examples/apps/ncp/ot-rcp?forkpty-arg=2'
+'spinel+hdlc+forkpty:///openthread/build/examples/apps/ncp/ot-rcp?forkpty-arg=2'
 ```
 
 When successful, `ot-daemon` in verbose mode generates output similar to the
