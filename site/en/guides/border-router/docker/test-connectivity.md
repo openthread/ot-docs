@@ -121,28 +121,31 @@ The Thread Commissioning App is not supported.
 ## Step 4: Ping a public address
 
 You should be able to a ping a public IPv4 address from the standalone Thread
-node at this point. Since Thread only uses IPv6, to ping a public IPv4 address
-you must translate it to IPv6 and combine it with the well-known prefix of
-`64:ff9b::/64` used by Network Address Translation (NAT) in OTBR.
+node at this point. Since Thread only uses IPv6, the public IPv4 address
+will be automatically translated to IPv6 by combining with the NAT64 prefix in
+the Thread network.
 
-1.  To get a translated IPv4 address, use a website like
-    [findipv6.com](https://findipv6.com/ipv4-toipv6/).
-
-1.  Translate the IPv4 address you wish to test. For example, `172.217.164.110`
-    translated to IPv6 is `::ffff:acd9:a46e`.
-
-1.  Using only the last 4 bytes of the resulting IPv6 address, combine it with
-    the well-known prefix of `64:ff9b::/64` to get a new IPv6 address:
+1.  To view the NAT64 prefix in the Thread network:
     ```
-    64:ff9b::acd9:a46e
+    > netdata show
+    Prefixes:
+    fd11:22:0:0::/64 paros med d400
+    Routes:
+    fdb5:7875:8e0e:2:0:0::/96 sn low d400
+    fd11:1111:1122:2222::/64 s med d400
+    Services:
+    44970 5d fd5179ed685532847aaa91505f016bbad11f s d400
+    44970 01 00000500000e10 s d400
+    Done
     ```
+    Here `fdb5:7875:8e0e:2:0:0::/96` is the NAT64 prefix in the Thread network.
 
-1.  Ping this new IPv6 address from the CLI of the standalone Thread node to
-    test it's internet connectivity. Pinging this address is akin to pinging the
-    original IPv4 address:
+1.  Ping an IPv4 address from the CLI of the standalone Thread node to
+    test its internet connectivity: 
     ```
-    > ping 64:ff9b::acd9:a46e
-    16 bytes from 64:ff9b:0:0:0:0:acd9:a46e: icmp_seq=1 hlim=118 time=45ms
+    > ping 8.8.8.8
+    Pinging synthesized IPv6 address: fdb5:7875:8e0e:2:0:0:808:808
+    16 bytes from fdb5:7875:8e0e:2:0:0:808:808: icmp_seq=15 hlim=119 time=48ms
     ```
 
 Success! The second Thread node can now communicate with the internet, through
