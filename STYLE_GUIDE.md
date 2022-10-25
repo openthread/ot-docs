@@ -156,3 +156,12 @@ If you wish have an author byline displayed on openthread.io for the content you
     Contributor: https://github.com/Vyrastas
 
 See the BeagleBone Black guide ([GitHub version](site/en/guides/border-router/beaglebone-black.md), [openthread.io version](https://openthread.io/guides/border-router/beaglebone-black)) for an example of what this looks like.
+
+### Translators
+
+Similar to the `Contributor` byline, you can also include your GitHub link for content that
+you've translated. This byline must be at the top, after the title.
+
+    Translator: https://github.com/Vyrastas
+
+See the Border Router guide ([GitHub version](site/zh-cn/guides/border-router/index.md), [openthread.io version](https://openthread.io/guides/border-router?hl=zh-cn)) for an example of what this looks like.
