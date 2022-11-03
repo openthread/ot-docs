@@ -30,26 +30,26 @@ Thread is an IP-based low-power wireless mesh networking protocol that enables s
 
 [OpenThread released by Google](https://github.com/openthread/openthread) is an open-source implementation of Thread®.
 
-### **What is an OpenThread Border Router?**
+### What is an OpenThread Border Router?
 
 [OpenThread Border Router](https://openthread.io/guides/border-router) (OTBR) released by Google is an open-source implementation of the Thread Border Router.
 
-### **NAT64**
+### NAT64
 
 NAT64 is a mechanism that enables hosts in IPv6-only networks to access resources in IPv4 networks. The NAT64 gateway is a translator between IPv4 protocols and IPv6 protocols.
 
 The NAT64 translator, as a part of OpenThread Border Router, supports translating TCP, UDP, and ICMP (ICMPv6) protocols.
 
-### **What you'll build**
+### What you'll build
 
 In this codelab, you are going to set up a OpenThread Border Router and a Thread device, then enable and verify communication between Thread devices and IPv4 hosts on the Internet via OpenThread Border Router.
 
-### **What you'll learn**
+### What you'll learn
 
 * How to build an OpenThread Border Router with NAT64 features.
 * How to communicate with IPv4 hosts from Thread end devices.
 
-### **What you'll need**
+### What you'll need
 
 * A Linux workstation, for building and flashing a Thread NCP, the OpenThread CLI, and testing IPv4 connectivity.
 * A Raspberry Pi 4 with 4GB RAM for the Thread border router. Your Linux workstation should be reachable over IPv4 from this device.
@@ -154,7 +154,7 @@ Duration: 05:00
 
 You can now communicate with hosts on the IPv4 network from the end device we just set up.
 
-### **Send ICMP echo requests to IPv4 hosts**
+### Send ICMP echo requests to IPv4 hosts
 
 From the CLI of our Thread end device:
 
@@ -189,7 +189,7 @@ The `fd4c:9574:3720:1:1d61:b4c1:494f:f975` should be the IPv6 address of your Th
 
 Run this command on the border router at any time to see how it counts the traffic.
 
-### **Send DNS queries to IPv4 DNS servers**
+### Send DNS queries to IPv4 DNS servers
 
 Use `dns resolve4` to resolve a hostname on the IPv4 network. The DNS server address can also be an IPv4 address:
 
@@ -204,7 +204,7 @@ Done
 > 
 > **Note:** The DNS response for `resolve4` command is a set of synthesized IPv6 addresses.
 
-### **Communicate via TCP**
+### Communicate via TCP
 
 It is possible to establish TCP connections between the end device and hosts in the IPv4 network.
 
@@ -239,7 +239,7 @@ You can also send messages from your Linux IPv4 host to Thread end device. Type 
 TCP: Received 6 bytes: world
 ```
 
-### **Communicate via UDP**
+### Communicate via UDP
 
 It is possible to communicate using UDP between Thread devices and hosts in the IPv4 network.
 
@@ -366,12 +366,12 @@ Done
 
 Congratulations, you've successfully set up a border router with NAT64 support and used it to provide internet access to Thread end devices! 
 
-### **Further reading**
+### Further reading
 
 *  [OpenThread Guides](https://openthread.io/guides)
 *  [OpenThread CLI Reference](https://openthread.io/reference/cli/commands#nat64_enabledisable)
 *  [OpenThread API Reference for NAT64](https://openthread.io/reference/group/api-nat64)
 
-### **Reference docs**
+### Reference docs
 
 *  [RFC 6146: Stateful NAT64: Network Address and Protocol Translation from IPv6 Clients to IPv4 Servers](https://datatracker.ietf.org/doc/html/rfc6146)
