@@ -69,3 +69,6 @@ toc:
 - title: OpenThread Border Router Thread 1.2 Multicast
   status: external
   path: /codelabs/openthread-border-router-ipv6-multicast
+- title: OpenThread Border Router NAT64
+  status: external
+  path: /codelabs/openthread-border-router-nat64
