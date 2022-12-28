@@ -32,6 +32,8 @@ toc:
   path: /codelabs/openthread-border-router/
 - title: OpenThread Border Router Thread 1.2 Multicast
   path: /codelabs/openthread-border-router-ipv6-multicast
+- title: OpenThread Border Router NAT64
+  path: /codelabs/openthread-border-router-nat64
 - title: OpenThread Network Simulator
   path: /codelabs/openthread-network-simulator/
 - title: Testing and Visualization
