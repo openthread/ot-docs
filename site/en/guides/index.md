@@ -123,6 +123,20 @@ network segments. With a Mac or Linux machine and a Raspberry Pi, learn how to:
    href="https://openthread.io/codelabs/openthread-border-router-ipv6-multicast/">Try the Border
   Router Thread 1.2 Multicast Codelab</a>
 
+### Border Router NAT64 Codelab
+
+NAT64 is a mechanism that enables hosts in IPv6-only networks to access
+resources in IPv4 networks. The NAT64 gateway is a translator between IPv4
+protocols and IPv6 protocols. With a Mac or Linux machine and a Raspberry Pi,
+and building off the Border Router Codelab, learn how to:
+
+*   Build an OpenThread Border Router with NAT64 features
+*   Communicate with IPv4 hosts from Thread end devices
+
+<a class="button button-primary"
+   href="https://openthread.io/codelabs/openthread-border-router-nat64/">Try the Border
+  Router NAT64 Codelab</a>
+
 ### Border Router with Docker
 
 You can also run OTBR in a Docker container on any Linux-based machine.
