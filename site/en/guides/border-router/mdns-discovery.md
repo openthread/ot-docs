@@ -1,7 +1,9 @@
 # mDNS Discovery
 
 OTBR registers a `_meshcop._udp` service named `OpenThread BorderRouter`. This
-service is configured in the [OTBR CMakeLists.txt file](https://github.com/openthread/ot-br-posix/blob/main/CMakeLists.txt#L36).
+service is configured in the [OTBR CMakeLists.txt file](https://github.com/openthread/ot-br-posix/blob/main/CMakeLists.txt#L36). The 
+Thread Specification requires Thread Border Routers to publish the `_meshcop._udp` service for the Thread Border Agent service.
+Thread Border Router devices may publish other services that they implement but that is up to each specific device and developer.
 
 There are several ways to discover your Thread network.
 
