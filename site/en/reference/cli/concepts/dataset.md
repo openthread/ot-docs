@@ -4,6 +4,8 @@ Thread network configuration parameters are managed using Active and Pending
 Operational Dataset objects. OT CLI includes commands to get and set Active
 and Pending datasets.
 
+> Key Point: Thread network management can also be done with the [Thread Network SDK for Android](https://developers.home.google.com/thread) and [iOS Thread APIs](https://developer.apple.com/documentation/threadnetwork/).
+
 ## Active Operational Dataset
 
 The Active Operational Dataset includes parameters that are currently in use

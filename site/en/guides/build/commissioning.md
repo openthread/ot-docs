@@ -21,6 +21,8 @@ Thread Commissioning](../border-router/external-commissioning/index.md).
 For an example of commissioning using virtual devices, see the
 [OpenThread Simulation Codelab](https://openthread.io/codelabs/openthread-simulation/#3).
 
+> Key Point: Thread network management can also be done with the [Thread Network SDK for Android](https://developers.home.google.com/thread) and [iOS Thread APIs](https://developer.apple.com/documentation/threadnetwork/).
+
 ## Step 1: Enable roles
 
 To enable the Commissioner and Joiner roles, use the following cmake options:

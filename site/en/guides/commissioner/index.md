@@ -16,6 +16,8 @@ A Thread Commissioner minimally supports the following functions:
 OpenThread's implementation of a Thread Commissioner is called OpenThread
 Commissioner (OT Commissioner).
 
+> Key Point: Thread network management can also be done with the [Thread Network SDK for Android](https://developers.home.google.com/thread) and [iOS Thread APIs](https://developer.apple.com/documentation/threadnetwork/).
+
 ## Get started
 
 The quickest way to get started with OT Commissioner is to build it from the
