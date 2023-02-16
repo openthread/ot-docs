@@ -6,6 +6,8 @@ build a Joiner device.
 
 To set up a Border Router, refer to [OpenThread Border Router Build and Configuration](../build.md).
 
+> Key Point: Thread network management can also be done with the [Thread Network SDK for Android](https://developers.home.google.com/thread) and [iOS Thread APIs](https://developer.apple.com/documentation/threadnetwork/).
+
 ## Form the Thread network
 
 ### Web GUI

@@ -29,6 +29,8 @@ and managed by the OTBR Web GUI.
 To learn how to commission without an external Commissioner, see
 [On-Mesh Commissioning](../../build/commissioning.md).
 
+> Key Point: Thread network management can also be done with the [Thread Network SDK for Android](https://developers.home.google.com/thread) and [iOS Thread APIs](https://developer.apple.com/documentation/threadnetwork/).
+
 ## License
 
 Copyright (c) 2021, The OpenThread Authors.
