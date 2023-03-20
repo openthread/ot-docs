@@ -31,7 +31,7 @@ Select **FORM** to form the Thread network. Check the output in the terminal win
 otbr-agent[224]: [INFO]-CLI-----: execute command: prefix add fd11:22::/64 pasor
 ```
 
-This output is required for internet connectivty for the Thread network.
+This output is required for internet connectivity for the Thread network.
 
 ## Step 2: Bring up a second Thread node
 
