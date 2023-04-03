@@ -251,6 +251,22 @@ a period `.` to manually end the list.
 For additional examples, refer to Doxygen's
 [Lists](https://doxygen.nl/manual/lists.html).
 
+### Long lists of parameters
+
+Some commands may have so many parameters that they go beyond the column width
+limit imposed by OpenThread's `make pretty` check. For multi-line support on a
+`@cparam` tag, the line break must be enclosed within an HTML comment.
+
+For example, the `dns resolve` command can take up to 6 parameters. To correctly
+render them using Doxygen while passing the `make pretty` check, they must be
+split across 3 lines in the source:
+
+```none
+* @cparam dns resolve @ca{hostname} [@ca{dns-server-IP}] <!--
+* -->                 [@ca{dns-server-port}] [@ca{response-timeout-ms}] <!--
+* -->                 [@ca{max-tx-attempts}] [@ca{recursion-desired-boolean}]
+```
+
 ## Automatically link APIs
 
 You can link to other API methods or functions with `#otFunctionName` or
