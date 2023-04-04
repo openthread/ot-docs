@@ -365,7 +365,7 @@ Duration: 03:00
 
 When NAT64 is enabled on the border router, OpenThread will try to forward the DNS queries for internet domains to upstream DNS servers.
 
-This function is supported by the internal DNSSD Server, so you need to ensure the DNSSD server is enabled.
+This function is supported by the internal DNS-SD Server, so you need to ensure the DNS-SD server is enabled.
 
 ```console
 $ sudo ot-ctl srp server state
@@ -373,9 +373,14 @@ running
 Done
 ```
 
-If it is not "`running`", run `sudo ot-ctl srp server enable` to enable it.
+If it is not `running`, then enable it:
 
-And ensure the upstream DNS proxy is enabled
+```console
+$ sudo ot-ctl srp server enable
+Done
+```
+
+Ensure the upstream DNS proxy is enabled:
 
 ```console
 $ sudo ot-ctl dns server upstream
@@ -383,7 +388,12 @@ Enabled
 Done
 ```
 
-If it is not "`Enabled`", run `sudo ot-ctl dns server upstream enable` to enable it.
+If it is not `Enabled`, then enable it:
+
+```console
+$ sudo ot-ctl dns server upstream enable
+Done
+```
 
 On end devices, ensure the SRP client is enabled so it will send DNS queries to the border router:
 
@@ -393,7 +403,12 @@ Enabled
 Done
 ```
 
-If it is not "`Enabled`" run `srp client autostart enable` to enable the SRP client.
+If it is not `Enabled`, then enable it:
+
+```console
+> srp client autostart enable
+Done
+```
 
 On your end device, ensure the default DNS server is the border router:
 
@@ -406,9 +421,9 @@ RecursionDesired: yes
 Done
 ```
 
-The `fdd2:0e53:2b87:b93f:50ad:4eea:0450:f1bf` should one of the addresses of your OpenThread Border Router.
+The server IPv6 address (`fdd2:0e53:2b87:b93f:50ad:4eea:0450:f1bf` in the example above), should be one of the addresses of your OpenThread Border Router.
 
-Finally you can send DNS queries for internet domains from the end device:
+Now you can send DNS queries for internet domains from the end device:
 
 ```console
 > dns resolve example.com
