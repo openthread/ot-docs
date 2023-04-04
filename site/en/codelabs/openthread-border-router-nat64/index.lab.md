@@ -120,12 +120,12 @@ Duration: 05:00
 
 Follow the  [Set up the FTDs step of the Build a Thread network with nRF52840 boards and OpenThread codelab](https://openthread.io/codelabs/openthread-hardware#4) to build and flash a nRF52840 CLI end device, with a change to the following step:
 
-In **Build and flash**, you have to append `-DOT_DNS_CLIENT=ON` and `-DOT_SRP_CLIENT=ON` to the command line when calling `script/build`:
+In **Build and flash**, you have to append `-DOT_DNS_CLIENT=ON`, `-DOT_SRP_CLIENT=ON` and `-DOT_ECDSA=ON` to the command line when calling `script/build`:
 
 ```console
 $ cd ~/src/ot-nrf528xx
 $ rm -rf build
-$ script/build nrf52840 USB_trans -DOT_JOINER=ON -DOT_COMMISSIONER=ON -DOT_DNS_CLIENT=ON -DOT_SRP_CLIENT=ON
+$ script/build nrf52840 USB_trans -DOT_JOINER=ON -DOT_COMMISSIONER=ON -DOT_DNS_CLIENT=ON -DOT_SRP_CLIENT=ON -DOT_ECDSA=ON
 ```
 
 Continue with the  [Build a Thread network with nRF52840 boards and OpenThread codelab](https://openthread.io/codelabs/openthread-hardware#4) as written. After the end device is flashed with the CLI image, follow  [Thread Border Router - Bidirectional IPv6 Connectivity and DNS-Based Service Discovery](https://openthread.io/codelabs/openthread-border-router#3) to set up the Thread end device.
