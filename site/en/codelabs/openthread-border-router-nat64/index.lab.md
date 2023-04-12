@@ -120,12 +120,12 @@ Duration: 05:00
 
 Follow the  [Set up the FTDs step of the Build a Thread network with nRF52840 boards and OpenThread codelab](https://openthread.io/codelabs/openthread-hardware#4) to build and flash a nRF52840 CLI end device, with a change to the following step:
 
-In **Build and flash**, you have to append `-DOT_DNS_CLIENT=ON` to the command line when calling `script/build`:
+In **Build and flash**, you have to append `-DOT_DNS_CLIENT=ON`, `-DOT_SRP_CLIENT=ON` and `-DOT_ECDSA=ON` to the command line when calling `script/build`:
 
 ```console
 $ cd ~/src/ot-nrf528xx
 $ rm -rf build
-$ script/build nrf52840 USB_trans -DOT_JOINER=ON -DOT_COMMISSIONER=ON -DOT_DNS_CLIENT=ON
+$ script/build nrf52840 USB_trans -DOT_JOINER=ON -DOT_COMMISSIONER=ON -DOT_DNS_CLIENT=ON -DOT_SRP_CLIENT=ON -DOT_ECDSA=ON
 ```
 
 Continue with the  [Build a Thread network with nRF52840 boards and OpenThread codelab](https://openthread.io/codelabs/openthread-hardware#4) as written. After the end device is flashed with the CLI image, follow  [Thread Border Router - Bidirectional IPv6 Connectivity and DNS-Based Service Discovery](https://openthread.io/codelabs/openthread-border-router#3) to set up the Thread end device.
@@ -359,6 +359,85 @@ $ sudo ot-ctl nat64 mappings
 Done
 ```
 
+## Forward DNS queries to upstream DNS servers
+Duration: 03:00
+
+
+When NAT64 is enabled on the border router, OpenThread will try to forward the DNS queries for internet domains to upstream DNS servers.
+
+This function is supported by the internal DNS-SD Server, so you need to ensure the DNS-SD server is enabled.
+
+```console
+$ sudo ot-ctl srp server state
+running
+Done
+```
+
+If it is not `running`, then enable it:
+
+```console
+$ sudo ot-ctl srp server enable
+Done
+```
+
+Ensure the upstream DNS proxy is enabled:
+
+```console
+$ sudo ot-ctl dns server upstream
+Enabled
+Done
+```
+
+If it is not `Enabled`, then enable it:
+
+```console
+$ sudo ot-ctl dns server upstream enable
+Done
+```
+
+On end devices, ensure the SRP client is enabled so it will send DNS queries to the border router:
+
+```console
+> srp client state
+Enabled
+Done
+```
+
+If it is not `Enabled`, then enable it:
+
+```console
+> srp client autostart enable
+Done
+```
+
+On your end device, ensure the default DNS server is the border router:
+
+```console
+> dns config
+Server: [fdd2:0e53:2b87:b93f:50ad:4eea:0450:f1bf]:53
+ResponseTimeout: 6000 ms
+MaxTxAttempts: 3
+RecursionDesired: yes
+Done
+```
+
+The server IPv6 address (`fdd2:0e53:2b87:b93f:50ad:4eea:0450:f1bf` in the example above), should be one of the addresses of your OpenThread Border Router.
+
+Now you can send DNS queries for internet domains from the end device:
+
+```console
+> dns resolve example.com
+DNS response for example.com. - 2606:2800:220:1:248:1893:25c8:1946 TTL:8720 
+Done
+> dns resolve4 example.com
+DNS response for example.com. - fd4c:9574:3720:2:0:0:5db8:d822 TTL:20456 
+Done
+```
+
+> aside positive
+> 
+> **Note:** The A records in responses will be synthesized into IPv6 addresses using the NAT64 prefix in the network.
+
 
 ## Congratulations
 
@@ -371,6 +450,8 @@ Congratulations, you've successfully set up a border router with NAT64 support a
 *  [OpenThread Guides](https://openthread.io/guides)
 *  [OpenThread CLI Reference](https://openthread.io/reference/cli/commands#nat64_enabledisable)
 *  [OpenThread API Reference for NAT64](https://openthread.io/reference/group/api-nat64)
+*  [OpenThread API Reference for upstream DNS](https://openthread.io/reference/group/api-dnssd-server#otdnssdupstreamqueryisenabled)
+*  [OpenThread platform abstraction for DNS](https://openthread.io/reference/group/plat-dns)
 
 ### Reference docs
 
