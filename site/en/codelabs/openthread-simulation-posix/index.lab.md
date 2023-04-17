@@ -730,7 +730,7 @@ so you can see log output and confirm that it is running, and make sure to use
 ```console
 $ cd ~/src/openthread
 $ sudo ./build/posix/src/posix/ot-daemon -v \
-    'spinel+hdlc+forkpty:///build/simulation/examples/apps/ncp/ot-rcp?forkpty-arg=2'
+    'spinel+hdlc+forkpty://build/simulation/examples/apps/ncp/ot-rcp?forkpty-arg=2'
 ```
 
 When successful, `ot-daemon` in verbose mode generates output similar to the
