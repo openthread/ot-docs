@@ -39,24 +39,17 @@ fdde:ad11:11de:0:ed8c:1681:24c4:3562
 Test the connectivity between the Joiner device in the Thread network and the
 external internet by pinging a public IPv4 address.
 
-For example, the Well-Known NAT64 prefix of `64:ff9b::/96` and an IPv4 address
-of `8.8.8.8` combine to form an IPv6 address of `64:ff9b::808:808`.
-
-Add an external route for the NAT64 Prefix:
-
-```
-$ sudo ot-ctl route add 64:ff9b::/96 s med
-Done
-$ sudo ot-ctl netdata register
+```console
+> ping 8.8.8.8
+Pinging synthesized IPv6 address: fd4c:9574:3720:2:0:0:808:808
+16 bytes from fd4c:9574:3720:2:0:0:808:808: icmp_seq=15 hlim=119 time=48ms
+1 packets transmitted, 1 packets received. Packet loss = 0.0%. Round-trip min/avg/max = 48/48.0/48 ms.
 Done
 ```
 
-Ping the synthesized IPv6 address `64:ff9b::808:808` from the OpenThread CLI on the Joiner device:
-
-```
-> ping 64:ff9b::808:808
-16 bytes from 64:ff9b:0:0:0:0:808:808: icmp_seq=3 hlim=45 time=72ms
-```
+> aside negative
+> 
+> **Note:**  NAT64 needs to be functional in order to be able to ping IPv4 addresses. For more information on NAT64, see the related colab [Thread Border Router - Provide Internet access via NAT64](https://openthread.io/codelabs/openthread-border-router-nat64).
 
 ## License
 
