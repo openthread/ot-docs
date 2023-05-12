@@ -115,7 +115,7 @@ The NAT64 prefix will be used by Thread devices when communicating with an IPv4 
 
 > aside negative
 > 
-> **Note:** OpenThread does not support the NAT64 well-known prefix `64:ff9b::/96`. Instead, Thread Border Routers dynamically generate their own NAT64 prefixes (as seen above) and publish then as necessary in the Thread Network Data. Thread End Devices must obtain this NAT64 prefix from the Thread Network Data and synthesize their own IPv6 addresses, see [`otNat64SynthesizeIp6Address()`](https://openthread.io/reference/group/api-nat64#otnat64synthesizeip6address). This is automatically done in the CLI, but needs to be specifically implemented in custom applications.
+> **Note:** OpenThread does not support the NAT64 well-known prefix `64:ff9b::/96`. Instead, Thread Border Routers dynamically generate their own NAT64 prefixes (as seen above) and publish them as necessary in the Thread Network Data. Thread End Devices must obtain this NAT64 prefix from the Thread Network Data and synthesize their own IPv6 addresses, see [`otNat64SynthesizeIp6Address()`](https://openthread.io/reference/group/api-nat64#otnat64synthesizeip6address). This is automatically done in the CLI, but needs to be specifically implemented in custom applications.
 
 
 ## Setup Thread end device
