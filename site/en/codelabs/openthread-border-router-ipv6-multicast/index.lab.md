@@ -27,8 +27,8 @@ book: /_book.yaml
 Thread is an IP-based low-power wireless mesh networking protocol that enables secure device-to-device and device-to-cloud communications. Thread networks can adapt to topology changes to avoid single-point failures.
 
 > aside positive
-> 
-> **Dive Deeper:** For more information, refer to
+>
+> Dive Deeper: For more information, refer to
 [Thread Primer](../../guides/thread-primer/index.md).
 
 ### **What is OpenThread?**
@@ -53,7 +53,7 @@ For more details, please refer to **Thread 1.2 Specification Section 5.24 Multic
 
 ### **What you will build**
 
-In this codelab, you're going to set up a Thread Border Router and two Thread devices, then enable and verify Multicast features on Thread devices and Wi-Fi devices. 
+In this codelab, you're going to set up a Thread Border Router and two Thread devices, then enable and verify Multicast features on Thread devices and Wi-Fi devices.
 
 ### **What you will learn**
 
@@ -92,24 +92,24 @@ Done
 ```
 
 > aside positive
-> 
-> Dive Deeper: 
-> 
+>
+> Dive Deeper:
+>
 > The BBR dataset shows that the OTBR has become the Primary Backbone Router (PBBR):
-> 
+>
 > * `server16` is the RLOC16 of the PBBR.
-> * `seqno` is the randomly generated BBR sequence number. PBBR can change seqno to trigger reregistrations.
-> * `delay` is the value of Registration Delay, by which Thread devices should delay before reregistrations. 
-> * `timeout` is the default duration in seconds for which a Multicast Listener Registration (MLR) remains valid. Thread devices will automatically renew their MLR registrations before expiration if they still subscribe to the multicast address. 
-> 
-> Refer to  [OpenThread CLI Reference](https://github.com/openthread/openthread/blob/main/src/cli/README.md#bbr-config-seqno-seqno-delay-delay-timeout-timeout) for more on BBR dataset configuration. 
+> * `seqno` is the randomly generated BBR sequence number. PBBR can change seqno to trigger re-registrations.
+> * `delay` is the value of Registration Delay, by which Thread devices should delay before re-registrations.
+> * `timeout` is the default duration in seconds for which a Multicast Listener Registration (MLR) remains valid. Thread devices will automatically renew their MLR registrations before expiration if they still subscribe to the multicast address.
+>
+> Refer to  [OpenThread CLI Reference](https://github.com/openthread/openthread/blob/main/src/cli/README.md#bbr-config-seqno-seqno-delay-delay-timeout-timeout) for more information on BBR dataset configuration.
 
 
 ## Build and Flash Thread devices
 Duration: 05:00
 
 
-Build the Thread 1.2 CLI application with Multicast and flash the two nRF52840 DK boards. 
+Build the Thread 1.2 CLI application with Multicast and flash the two nRF52840 DK boards.
 
 ### **Build nRF52840 DK firmware**
 
@@ -135,7 +135,7 @@ $ nrfjprog -f nrf52 --chiperase --program ot-cli-ftd.hex --reset
 ```
 
 > aside positive
-> 
+>
 > TIP: Refer to the  [OpenThread on nRF52840 Example](https://github.com/openthread/ot-nrf528xx/blob/main/src/nrf52840/README.md) for more details.
 
 
@@ -178,7 +178,7 @@ child
 
 Repeat the above steps to attach the other nRF52840 DK board to the Thread network.
 
-We have now successfully set up the Thread network with 3 Thread devices: OTBR and two nRF52840 DK boards. 
+We have now successfully set up the Thread network with 3 Thread devices: OTBR and two nRF52840 DK boards.
 
 
 ## Setup Wi-Fi Network
@@ -187,7 +187,7 @@ Duration: 03:00
 
 Setup the Wi-Fi network on OTBR and the Laptop so that they are connected to the same Wi-Fi AP.
 
-We can use  [raspi-config](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) to setup the Wi-Fi SSID and passphrase on the Raspberry Pi OTBR. 
+We can use  [raspi-config](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) to setup the Wi-Fi SSID and passphrase on the Raspberry Pi OTBR.
 
 The final network topology is shown below:
 
@@ -195,7 +195,7 @@ The final network topology is shown below:
 
 
 > aside positive
-> 
+>
 > NOTE: From this step on, the two nRF52840 DKs are used for different purposes. We refer to one as nRF52840 End Device 1 and the other nRF52840 End Device 2.
 
 
@@ -204,7 +204,7 @@ Duration: 02:00
 
 
 > aside positive
-> 
+>
 > NOTE: This codelab uses a IPv6 multicast address of `ff05::abcd`, but any IPv6 multicast address with scope &gt;= `Admin-local scope (4)` will also work.
 
 **Subscribe to ff05::abcd on nRF52840 End Device 1:**
@@ -233,7 +233,7 @@ Done
 
 We need a Python script `subscribe6.py` to subscribe to a multicast address on the Laptop.
 
-Copy the code below and save it as `subscribe6.py`: 
+Copy the code below and save it as `subscribe6.py`:
 
 ```
 import ctypes
@@ -264,7 +264,7 @@ Press ENTER to quit.
 ```
 
 > aside positive
-> 
+>
 > NOTE: If you press ENTER, the subscription ends.
 
 The final network topology with multicast subscriptions are shown below:
@@ -291,16 +291,19 @@ PING ff05::abcd(ff05::abcd) from 2401:fa00:41:801:83c1:a67:ae22:5346 wlan0: 56 d
 64 bytes from 2401:fa00:41:801:8c09:1765:4ba8:48e8: icmp_seq=2 ttl=64 time=319 ms (DUP!)
 64 bytes from fdb5:8d36:6af9:7669:e43b:8e1b:6f2a:b8fa: icmp_seq=3 ttl=64 time=57.5 ms
 64 bytes from 2401:fa00:41:801:8c09:1765:4ba8:48e8: icmp_seq=3 ttl=64 time=239 ms (DUP!)
+
+# If using MacOS, use this command. The interface is typically not "wlan0" for Mac.
+$ ping6 -h 5 -I wlan0 ff05::abcd
 ```
 
 We can see that OTBR can receive two ping replies from both the nRF52840 End Device 1 and the Laptop because they both have subscribed to `ff05::abcd`. This shows that the OTBR can forward the IPv6 Ping Request multicast packets from the Wi-Fi network to the Thread network.
 
 > aside positive
-> 
+>
 > NOTE: We need to use `-t ttl` to set the IP Time to Live, which is 1 by default on Linux, otherwise the multicast ping can not reach nRF52840 End Device 1.
 
 > aside positive
-> 
+>
 > NOTE: `ip -6 mroute show table all` is a helpful tool to view active multicast groups on a Linux host and their input/output interface(s).
 
 
@@ -311,7 +314,7 @@ Duration: 02:00
 **Ping ff05::abcd on nRF52840 End Device 2:**
 
 ```console
-$ ping ff05::abcd 100 10 1
+> ping ff05::abcd 100 10 1
 108 bytes from fdb5:8d36:6af9:7669:e43b:8e1b:6f2a:b8fa: icmp_seq=12 hlim=64 time=297ms
 108 bytes from 2401:fa00:41:801:64cb:6305:7c3a:d704: icmp_seq=12 hlim=63 time=432ms
 108 bytes from fdb5:8d36:6af9:7669:e43b:8e1b:6f2a:b8fa: icmp_seq=13 hlim=64 time=193ms
@@ -323,7 +326,7 @@ $ ping ff05::abcd 100 10 1
 nRF52840 End Device 2 can receive ping replies from both the nRF52840 End Device 1 and the Laptop. This shows that the OTBR can forward the IPv6 Ping Reply multicast packages from the Thread network to the Wi-Fi network.
 
 > aside positive
-> 
+>
 > NOTE: We rely on the OTBR Border Routing to forward unicast ping replies.
 
 
