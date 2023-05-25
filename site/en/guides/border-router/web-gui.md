@@ -5,8 +5,11 @@ check the status of a Thread network.
 
 ## Access the Web GUI
 
-Access the Web GUI by visiting the OTBR's local IPv4 address in a browser
-window. See the [Raspberry Pi IP Address page](https://www.raspberrypi.org/documentation/remote-access/ip-address.md) for more information.
+Access the Web GUI by visiting the OTBR's local IPv4 address in a browser window.
+Web GUI uses the standard TCP/IP port designated for HTTP, which is port 80.
+See the [Raspberry Pi IP Address
+page](https://www.raspberrypi.org/documentation/remote-access/ip-address.md)
+for more information.
 
 <figure>
 <img src="../images/otbr-gui-home-full.png" srcset="../images/otbr-gui-home-full.png 1x, ../images/otbr-gui-home-full_2x.png 2x" border="0" class="screenshot" alt="OTBR Web GUI Home" />
