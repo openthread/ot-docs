@@ -1,7 +1,7 @@
 # Join the Thread Network
 
-After externally commissioning a device using the [OT Commissioner CLI](cli.md) or
-the [OT Commissioner Android App](android.md), a Joiner is ready to join the Thread network.
+After externally commissioning a device using the [OT Commissioner CLI](cli.md),
+a Joiner is ready to join the Thread network.
 
 ## Join the network
 

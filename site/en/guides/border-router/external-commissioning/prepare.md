@@ -159,19 +159,12 @@ Done
 
 ## Select Commissioner type
 
-[OpenThread Commissioner](https://openthread.io/guides/commissioner) provides several ways
-to externally commission a device:
-
-* [OT Commissioner CLI](cli.md)
-* [OT Commissioner Android App](android.md)
+The [OpenThread Commissioner](https://openthread.io/guides/commissioner) provides
+the [OT Commissioner CLI](cli.md) to externally commission a device.
 
 The OT Commissioner CLI runs on the same host machine as OTBR. In the next
 guide, learn how to use the [OT Commissioner CLI](cli.md) to connect
-to a border router and commission a new device, or skip to [External
-Commissioning for Android](android.md).
-
-For Thread 1.1 networks, additional options include the [Thread 1.1 Commissioning App
-for Android](android.md#thread-group-android-app).
+to a border router and commission a new device.
 
 ## License
 
