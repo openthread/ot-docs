@@ -49,7 +49,7 @@ Done
 
 > aside negative
 > 
-> **Note:**  NAT64 needs to be functional in order to be able to ping IPv4 addresses. For more information on NAT64, see the related colab [Thread Border Router - Provide Internet access via NAT64](https://openthread.io/codelabs/openthread-border-router-nat64).
+> **Note:**  NAT64 needs to be functional in order to be able to ping IPv4 addresses. For more information on NAT64, see the related codelab [Thread Border Router - Provide Internet access via NAT64](https://openthread.io/codelabs/openthread-border-router-nat64).
 
 ## License
 
