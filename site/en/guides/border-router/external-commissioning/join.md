@@ -39,7 +39,7 @@ fdde:ad11:11de:0:ed8c:1681:24c4:3562
 Test the connectivity between the Joiner device in the Thread network and the
 external internet by pinging a public IPv4 address.
 
-```console
+```
 > ping 8.8.8.8
 Pinging synthesized IPv6 address: fd4c:9574:3720:2:0:0:808:808
 16 bytes from fd4c:9574:3720:2:0:0:808:808: icmp_seq=15 hlim=119 time=48ms
