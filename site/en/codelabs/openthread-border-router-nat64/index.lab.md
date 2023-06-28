@@ -113,6 +113,10 @@ The NAT64 prefix will be used by Thread devices when communicating with an IPv4 
 > 
 > **Note:** You may need to ensure IPv4 packet forwarding is enabled in  the system config. The content of `/proc/sys/net/ipv4/conf/default/forwarding` should be `1`.
 
+> aside negative
+> 
+> **Note:** OpenThread does not use the NAT64 well-known prefix `64:ff9b::/96`. Instead, Thread Border Routers publish their dynamically generated NAT64 prefix used by the NAT64 translator in the Thread Network Data (as seen above, the `n` stands for NAT64). Thread End Devices must obtain this NAT64 prefix from the Thread Network Data and synthesize their own IPv6 addresses, see [`otNat64SynthesizeIp6Address()`](https://openthread.io/reference/group/api-nat64#otnat64synthesizeip6address). This is automatically done in the CLI, but needs to be specifically implemented in custom applications.
+
 
 ## Setup Thread end device
 Duration: 05:00
