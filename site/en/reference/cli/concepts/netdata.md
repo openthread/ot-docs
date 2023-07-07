@@ -223,6 +223,25 @@ the complete Active Operational Dataset.
     Done
     ```
 
+## Debugging & diagnostics
+
+### `full` commands
+
+The `full` commands report the flag status or reset the flag tracking whether
+the "net data full" callback has been invoked. The callback API allows users
+to be notified when Thread Network Data is full and can be used to take action,
+such as removing service entries.
+
+This command requires OPENTHREAD_CONFIG_BORDER_ROUTER_SIGNAL_NETWORK_DATA_FULL.
+
+### `length` and `maxlength` commands
+
+The `length` command gets the current length of Thread Network Data, reported
+as number of bytes. `maxlength` commands gets the maximum observed length, or
+resets the tracked maximum length. These are convenience commands provided to 
+make debugging easier. For example, `netdata length` returns the same
+information as `netdata show -x`.
+
 ## License
 
 Copyright (c) 2021-2022, The OpenThread Authors.
