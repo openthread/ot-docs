@@ -225,22 +225,28 @@ the complete Active Operational Dataset.
 
 ## Debugging & diagnostics
 
-### `full` commands
+Network Data has a limited size of 254 bytes. If Border Routers keep adding
+entries (for example, prefixes, routes, or service entries) to Network Data it
+can get full. When this happens, new requests from a Border Router to add new
+items will be rejected or ignored by the leader. The leader does not
+necessarily signal the rejection to the Border Router so the Border Router may
+not immediately realize that Network Data is getting full.
 
-The `full` commands report the flag status or reset the flag tracking whether
-the "net data full" callback has been invoked. The callback API allows users
-to be notified when Thread Network Data is full and can be used to take action,
-such as removing service entries.
+However, there is a method to detect when Network Data is getting full 
+mplemented on both Border Routers and the leader. This method uses a callback
+API mechanism and allows users to be notified when Network Data is full. The
+callback can be used to take action, such as removing stale prefixes or
+service entries. The `netdata full` CLI command implements this callback
+mechanism in the CLI.
 
-This command requires OPENTHREAD_CONFIG_BORDER_ROUTER_SIGNAL_NETWORK_DATA_FULL.
-
-### `length` and `maxlength` commands
-
-The `length` command gets the current length of Thread Network Data, reported
-as number of bytes. `maxlength` commands gets the maximum observed length, or
-resets the tracked maximum length. These are convenience commands provided to 
-make debugging easier. For example, `netdata length` returns the same
-information as `netdata show -x`.
+For the typical use cases of Thread, it is unlikely that Network Data will get
+full, even in the scenario where there are many Border Routers and they all are
+adding route prefixes. It is technically possible however for Network Data to
+get full, however this is often due to misconfiguration or an issue on the
+Border Router. The `netdata length` and `netdata maxlength` commands can help
+debug Network Data full errors. `length` gets the current length of Network
+Data, reported as bytes and `maxlength` gets the maximum observed length and
+can also reset the tracked maximum length.
 
 ## License
 
