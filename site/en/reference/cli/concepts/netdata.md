@@ -230,23 +230,26 @@ entries (for example, prefixes, routes, or service entries) to Network Data it
 can get full. When this happens, new requests from a Border Router to add new
 items will be rejected or ignored by the leader. The leader does not
 necessarily signal the rejection to the Border Router so the Border Router may
-not immediately realize that Network Data is getting full.
+not immediately realize that Network Data is getting full. However, there is a
+method available to detect when Network Data is getting full.
 
-However, there is a method to detect when Network Data is getting full 
-mplemented on both Border Routers and the leader. This method uses a callback
-API mechanism and allows users to be notified when Network Data is full. The
-callback can be used to take action, such as removing stale prefixes or
-service entries. The `netdata full` CLI command implements this callback
-mechanism in the CLI.
+The detection method, implemented on both Border Routers and the leader, uses
+a callback API mechanism and allows users to be notified when Network Data is
+full. The callback can be used to take action, such as removing stale prefixes
+or service entries. The `netdata full` commands are used for the flag that
+tracks whether the "net data full" callback has been invoked. These commands
+can report the flag's status or reset it.
 
 For the typical use cases of Thread, it is unlikely that Network Data will get
-full, even in the scenario where there are many Border Routers and they all are
-adding route prefixes. It is technically possible however for Network Data to
-get full, however this is often due to misconfiguration or an issue on the
-Border Router. The `netdata length` and `netdata maxlength` commands can help
-debug Network Data full errors. `length` gets the current length of Network
-Data, reported as bytes and `maxlength` gets the maximum observed length and
-can also reset the tracked maximum length.
+full, even in the scenario where there are many Border Routers and they are all
+adding route prefixes. 
+
+It is technically possible for Network Data to get full, however this is often
+due to misconfiguration or an issue on the Border Router. The `netdata length`
+and `netdata maxlength` commands can help debug Network Data full errors.
+`length` gets the current length of Network Data, reported as bytes and
+`maxlength` gets the maximum observed length and can also reset the tracked
+maximum length.
 
 ## License
 
