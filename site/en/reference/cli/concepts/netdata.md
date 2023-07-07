@@ -21,6 +21,9 @@ For a list of `netdata` commands, type `help`:
 ```
 > netdata help
 help
+full
+length
+maxlength
 publish
 register
 show
@@ -28,6 +31,19 @@ steeringdata
 unpublish
 Done
 ```
+
+### `full` commands
+
+The `full` commands report the flag status or resest the flag tracking whether
+the "net data full" callback has been invoked.
+
+This command requires OPENTHREAD_CONFIG_BORDER_ROUTER_SIGNAL_NETWORK_DATA_FULL.
+
+### `length` and `maxlength` commands
+
+The `length` command gets the current length of Thread Network Data, reported
+as number of bytes. `maxlength` commands  gets the maximum observed length, or
+resets the tracked maximum length.
 
 ### `publish` commands
 
@@ -125,6 +141,15 @@ The Publisher requires `OPENTHREAD_CONFIG_NETDATA_PUBLISHER_ENABLE`.
     `otServerConfig::mStable`. The RLOC is also appended to the end of the
     record.
 
+1.  Display the current length, in number of bytes, of Partition's Thread Network
+    Data.
+
+    ```
+    > netdata length
+    23
+    Done
+    ```
+    
 1.  Display IPv6 addresses assigned to the Thread interface, including the
     added prefix.
 
@@ -174,6 +199,15 @@ the complete Active Operational Dataset.
     fd00:dead:beef:cafe::/64 paros med dc00
     Routes:
     Services:
+    Done
+    ```
+
+1.  Display the current length, in number of bytes, of Partition's Thread Network
+    Data.
+
+    ```
+    > netdata length
+    23
     Done
     ```
 
