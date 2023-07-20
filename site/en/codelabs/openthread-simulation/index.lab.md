@@ -92,6 +92,9 @@ $ docker run --name codelab_otsim_ctnr -it --rm \
    --cap-add=net_admin openthread/environment bash
 ```
 
+The --rm option deletes the container when you exit the container. Do not use this option if you do not want the 
+container to be deleted. 
+
 Note the flags, which are required for this Codelab:
 
 * `--sysctl net.ipv6.conf.all.disable_ipv6=0` — this enables IPv6 within the
@@ -912,7 +915,8 @@ Duration: 01:00
 
 
 **If you have exited the Docker container** **`bash`** **prompts**, you may need
-to check if it's running and restart / reenter as needed.
+to check if it's running and restart / reenter as needed. Any Docker containers that you created where you did not use the --rm option
+should still exist.
 
 To show which Docker containers are running:
 
@@ -943,6 +947,8 @@ $ docker run --name codelab_otsim_ctnr -it --rm \
    --sysctl net.ipv6.conf.all.disable_ipv6=0 \
    --cap-add=net_admin openthread/environment bash
 ```
+
+Only use the --rm option if you want the container to be deleted upon exiting the container. 
 
 If the container is stopped (listed in `docker ps -a` but not `docker ps`),
 restart it:
