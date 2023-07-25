@@ -1,6 +1,6 @@
 ---
 id: telink-openthread-hardware
-summary: In this Codelab, you'll program OpenThread on real hardware, create and manage a Thread network, and pass messages between nodes.
+summary: In this codelab, you'll program OpenThread on real hardware, create and manage a Thread network, and pass messages between nodes.
 status: [draft]
 authors: Zhenghuan Zhang
 categories: Nest
@@ -8,12 +8,13 @@ tags: web
 feedback link: https://github.com/openthread/ot-docs/issues
 project: /_project.yaml
 book: /_book.yaml
+layout: scrolling
 
 ---
 
 # Build a Thread Network with the TLSR9518 Development Kit and OpenThread
 
-[Codelab Feedback](https://github.com/openthread/ot-docs/issues)
+[codelab Feedback](https://github.com/openthread/ot-docs/issues)
 
 ## Introduction
 
@@ -30,8 +31,8 @@ OpenThread includes the full network layer scope within Thread, such as IPv6, 6L
 Telink has integrated the OpenThread implementation into Zephyr RTOS, enabling seamless compatibility with Telink hardware.
 The source code for this integration is readily accessible on [GitHub](https://github.com/telink-semi/zephyr), and it is also provided as a software development kit (SDK).
 
-In this Codelab, you will program OpenThread on actual hardware, create and manage a Thread network, and exchange messages between nodes.
-The image below depicts the hardware setup, featuring an OT Border Router (OTBR) and one Thread device in the Codelab.
+In this codelab, you will program OpenThread on actual hardware, create and manage a Thread network, and exchange messages between nodes.
+The image below depicts the hardware setup, featuring an OT Border Router (OTBR) and one Thread device in the codelab.
 
 <img src="img/codelab_overview.png" alt="codelab_overview.png" width="624.00" />
 
@@ -77,7 +78,7 @@ Duration: 4:00
 
 ### Thread Concepts and OpenThread CLI
 
-It might be helpful to go through the [OpenThread Simulation Codelab](https://openthread.io/codelabs/openthread-simulation/#0) to get familiar with fundamental Thread concepts and the OpenThread CLI before this Codelab.
+It might be helpful to go through the [OpenThread Simulation codelab](https://openthread.io/codelabs/openthread-simulation/#0) to get familiar with fundamental Thread concepts and the OpenThread CLI before this codelab.
 
 ### Linux Machine
 
@@ -89,14 +90,14 @@ To accomplish these tasks, the Linux machine requires two available USB ports an
 It is recommended to be familiar with establishing connections between devices using a serial port converter cable.
 Additionally, you will need a serial port terminal tool to access the devices.
 
-In this Codelab, terminal tool PuTTY is used for controlling the FTD Joiner and Raspberry Pi.
+In this codelab, terminal tool PuTTY is used for controlling the FTD Joiner and Raspberry Pi.
 It offers an overview of its usage, but other terminal software can also be employed.
 
 ### Telink TLSR9518 Development Kit
 
-This Codelab needs two TLSR9518 development kits.
+This codelab needs two TLSR9518 development kits.
 
-<img src="img/overview.jpg" alt="overview.jpg" width="624.00" />
+<img src="img/overview.png" alt="overview.png" width="624.00" />
 
 One of these kits will be used as RCP (Radio Co-Processor), while the other will function as FTD (Full Thread Device).
 If you are not yet in possession of this board, you can acquire more details of TLSR9518 development kit from the [Telink official website](http://wiki.telink-semi.cn/wiki/Hardware/B91_Generic_Starter_Kit_Hardware_Guide/).
@@ -114,7 +115,7 @@ Some components to be used are as follows:
 
 ### Raspberry Pi 3B+ or greater with Raspbian OS Image
 
-In this Codelab, a Raspberry Pi 3B+ or greater with [Raspbian Bullseye Lite OS image](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2023-05-03/2023-05-03-raspios-bullseye-armhf-lite.img.xz) or [Raspbian Bullseye with Desktop](https://downloads.raspberrypi.org/raspios_armhf/images/raspios_armhf-2023-05-03/2023-05-03-raspios-bullseye-armhf.img.xz) is needed.
+In this codelab, a Raspberry Pi 3B+ or greater with [Raspbian Bullseye Lite OS image](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2023-05-03/2023-05-03-raspios-bullseye-armhf-lite.img.xz) or [Raspbian Bullseye with Desktop](https://downloads.raspberrypi.org/raspios_armhf/images/raspios_armhf-2023-05-03/2023-05-03-raspios-bullseye-armhf.img.xz) is needed.
 It is connected to the internet via Ethernet and will be configured as the host for the OpenThread Border Router (OTBR).
 
 ### Network Connection
@@ -125,7 +126,7 @@ They are used to connect the Raspberry Pi to the Linux machine, facilitating use
 ### LinuxBDT
 
 Telink [Burning and Debugging Tool (BDT)](http://wiki.telink-semi.cn/wiki/IDE-and-Tools/Burning-and-Debugging-Tools-for-all-Series/), which applies to all Telink Chip series, allows you to erase and flash OpenThread firmware onto the Telink TLSR9518 Development Kits.
-Please install the X86-based linux version [linuxBDT](http://wiki.telink-semi.cn/tools_and_sdk/Tools/BDT/LinuxBDT.tar.bz2) on your Linux machine.
+Install the X86-based linux version [linuxBDT](http://wiki.telink-semi.cn/tools_and_sdk/Tools/BDT/LinuxBDT.tar.bz2) on your Linux machine.
 
 ### Others
 
@@ -140,16 +141,16 @@ Duration: 12:00
 
 On the Linux machine, open an CLI terminal and start by executing the following commands to ensure that your APT is up-to-date.
 
-```bash
+```console
 $ sudo apt update
 $ sudo apt upgrade
 ```
 
- Once that is done, proceed with the following steps.
+Once that is done, proceed with the following steps.
 
-1. Install the dependencies
+1. Install the dependencies.
 
-     ```bash
+     ```console
      $ wget https://apt.kitware.com/kitware-archive.sh
      $ sudo bash kitware-archive.sh
      $ sudo apt install --no-install-recommends git cmake ninja-build \
@@ -160,7 +161,7 @@ $ sudo apt upgrade
 
      Zephyr currently requires minimum versions of main dependencies, such as CMake (3.20.0), Python3 (3.6), and Devicetree Compiler (1.4.6).
 
-     ```bash
+     ```console
      $ cmake --version
      $ python3 --version
      $ dtc --version
@@ -169,9 +170,9 @@ $ sudo apt upgrade
      Verify the installed versions on your system before proceeding with the next steps.
      If the versions are not correct, switch the APT mirror to a stable and up-to-date mirror, or manually update these dependencies.
 
-2. Install west
+2. Install west.
 
-     ```bash
+     ```console
      $ pip3 install --user -U west
      $ echo 'export PATH=~/.local/bin:"$PATH"' >> ~/.bashrc
      $ source ~/.bashrc
@@ -179,9 +180,9 @@ $ sudo apt upgrade
 
      Make sure that `~/.local/bin` is in your `$PATH` environment variable.
 
-3. Get the Zephyr Project source code
+3. Get the Zephyr Project source code.
 
-     ```bash
+     ```console
      $ west init ~/zephyrproject
      $ cd ~/zephyrproject
      $ west update
@@ -189,24 +190,22 @@ $ sudo apt upgrade
      $ west zephyr-export
      ```
 
-4. Install additional Python dependencies for Zephyr
+4. Install additional Python dependencies for Zephyr.
 
-     ```bash
+     ```console
      $ pip3 install --user -r ~/zephyrproject/zephyr/scripts/requirements.txt
      ```
 
-5. Set up the Zephyr toolchain
+5. Set up the Zephyr toolchain. Download the Zephyr toolchain (about 1~2 GB) to a local directory to allow you to flash most boards.
 
-     Download the Zephyr toolchain (about 1~2 GB) to a local directory to allow you to flash most boards.
-
-     ```bash
+     ```console
      $ wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/zephyr-sdk-0.16.1_linux-x86_64.tar.xz
      $ wget -O - https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.16.1/sha256.sum | shasum --check --ignore-missing
      ```
 
      Download the Zephyr SDK and place it in the recommended path, as shown below.
 
-     ```bash
+     ```console
      $HOME/zephyr-sdk[-x.y.z]
      $HOME/.local/zephyr-sdk[-x.y.z]
      $HOME/.local/opt/zephyr-sdk[-x.y.z]
@@ -217,19 +216,17 @@ $ sudo apt upgrade
      ```
 
      Where [-x.y.z] is optional text that can be any text, such as -0.16.1. The directory cannot be moved after the SDK is installed.
-     Then install the Zephyr toolchain：
+     Then install the Zephyr toolchain.
 
-     ```bash
+     ```console
      $ tar xvf zephyr-sdk-0.16.1_linux-x86_64.tar.xz
      $ cd zephyr-sdk-0.16.1
      $ ./setup.sh -t riscv64-zephyr-elf -h -c
      ```
 
-6. Build the Hello World example
+6. Build the Hello World example. First, verify that the official Zephyr project configuration is correct using the Hello World example, then proceed with setting up your custom project.
 
-     First, verify that the official Zephyr project configuration is correct using the Hello World example, then proceed with setting up your custom project.
-
-     ```bash
+     ```console
      $ cd ~/zephyrproject/zephyr
      $ west build -p auto -b tlsr9518adk80d samples/hello_world
      ```
@@ -237,20 +234,16 @@ $ sudo apt upgrade
      Use the West build command to build the hello_world example from the root directory of the Zephyr repository.
      You can find the firmware named `zephyr.bin` under the `build/zephyr directory`.
 
-7. Add the Zephyr environment script to `~/.bashrc`
+7. Add the Zephyr environment script to `~/.bashrc`. Execute the following commands.
 
-     Execute the following commands:
-
-     ```bash
+     ```console
      $ echo "source ~/zephyrproject/zephyr/zephyr-env.sh" >> ~/.bashrc
      $ source ~/.bashrc
      ```
 
-8. Add the Telink Zephyr remote repository：
+8. Add the Telink Zephyr remote repository. Download the Telink repo locally as a development branch and update it.
 
-     Download the Telink repo locally as a development branch and update it.
-
-     ```bash
+     ```console
      $ cd ~/zephyrproject/zephyr
      $ git remote add telink-semi https://github.com/telink-semi/zephyr
      $ git fetch telink develop
@@ -259,13 +252,13 @@ $ sudo apt upgrade
      $ west blobs fetch hal_telink
      ```
 
-For more information, please refer to [Zephyr Doc -- Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html)
+For more information, you can refer to [Zephyr Doc -- Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html)
 
 ### Set up Telink LinuxBDT
 
 Download the Telink LinuxBDT tool and extract it to a local directory on your Linux machine, such as home directory `~`, enabling to flash firmware onto the TLSR9518 development board.
 
-```bash
+```console
 $ cd ~
 $ wget http://wiki.telink-semi.cn/tools_and_sdk/Tools/BDT/LinuxBDT.tar.bz2
 $ tar -vxf LinuxBDT.tar.bz2 
@@ -273,7 +266,7 @@ $ tar -vxf LinuxBDT.tar.bz2
 
 Connect the Burning Kit to the Linux machine via the USB interface, and then enter the following commands.
 
-```bash
+```console
 $ cd LinuxBDT
 $ sudo ./bdt lsusb -v
 Bus 002 Device 001: ID 1d6b:0003 xHCI Host Controller
@@ -287,7 +280,7 @@ If you see the message "Telink Web Debugger v3.6", it indicates that the BDT pro
 
 ### Firmware Compilation
 
-This Codelab will build two types of OpenThread firmware:
+This codelab will build two types of OpenThread firmware:
 
 * `ot-cli-ftd`,
 * and `ot-rcp`.
@@ -296,7 +289,7 @@ This Codelab will build two types of OpenThread firmware:
 
 1. Radio Co-Processor（`ot-rcp`)
 
-     ```bash
+     ```console
      $ cd ~/zephyrproject
      $ rm -rf build_ot_coprocessor
      $ west build -b tlsr9518adk80d -d build_ot_coprocessor zephyr/samples/net/openthread/coprocessor -- -DDTC_OVERLAY_FILE="usb.overlay" -DOVERLAY_CONFIG=overlay-rcp-usb-telink.conf
@@ -304,7 +297,7 @@ This Codelab will build two types of OpenThread firmware:
 
 2. Full-Featured Thread Device with Interactive Command Line (`ot-cli-ftd`)
 
-     ```bash
+     ```console
      $ cd ~/zephyrproject
      $ rm -rf build_ot_cli_ftd
      $ west build -b tlsr9518adk80d -d build_ot_cli_ftd zephyr/samples/net/openthread/cli -- -DOVERLAY_CONFIG=overlay-telink-fixed-mac.conf -DCONFIG_OPENTHREAD_FTD=y
@@ -314,11 +307,11 @@ This Codelab will build two types of OpenThread firmware:
 
 Connect a TLSR9518 development board to the Burning Kit using a short blue USB cable as illustrated in the figure below.
 
-<img src="img/connection_overview.jpg" alt="connection_overview.jpg" width="624.00" />
+<img src="img/connection_overview.png" alt="connection_overview.png" width="624.00" />
 
 In the command line, execute the following commands to perform firmware burning (using the flashing of the `ot-cli-ftd` firmware as an example).
 
-```bash
+```console
 $ cd ~/zephyrproject/build_ot_cli_ftd/zephyr
 $ cp zephyr.bin ~/LinuxBDT/bin/ot-cli-ftd.bin
 $ cd ~/LinuxBDT
@@ -334,7 +327,7 @@ $ sudo ./bdt 9518 wf 0 -i bin/ot-cli-ftd.bin
 ```
 
 The flash method for `ot-rcp` is basically the same as that for `ot-cli-ftd`.
-However, please be aware that there are differences in the firmware paths and  names.
+However, there are differences in the firmware paths and names.
 
 After flashing, distinguish the two TLSR9518 development boards by marking them accordingly.
 Label the board flashed with `ot-cli-ftd` as "FTD Joiner" and the board flashed with `ot-rcp` as "RCP".
@@ -361,11 +354,11 @@ Then create a new terminal, set the serial port information, and open the serial
 <img src="img/uart_console.png" alt="uart_console.png" width="624.00" />
 
  The OpenThread command line reference is here: [OpenThread CLI Reference](https://github.com/openthread/openthread/blob/f7690fe7e9d638341921808cba6a3e695ec0131e/src/cli/README.md).
- Be sure to prefix with `ot` when using it.
+ Be sure to prefix all commands with `ot`.
 
 Examples：
 
-```bash
+```console
 > ot state
 disabled
 Done
@@ -396,59 +389,59 @@ Connect the TLSR9518 development kit to a USB port on the Raspberry Pi, as depic
 
 1. Ensure that the [Raspbian Bullseye Lite OS image](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2023-05-03/2023-05-03-raspios-bullseye-armhf-lite.img.xz) or [Raspbian Bullseye with Desktop](https://downloads.raspberrypi.org/raspios_armhf/images/raspios_armhf-2023-05-03/2023-05-03-raspios-bullseye-armhf.img.xz) is properly written to the SD card.
 
-2. You have the option to either SSH onto the Raspberry Pi or work directly with the Raspbian Desktop.
-This Codelab will use SSH.
+2. You have the option to either SSH into the Raspberry Pi or work directly with the Raspbian Desktop.
+This codelab will use SSH.
 
-3. Before proceeding to install OTBR Docker in the next step, make sure to update the local repositories and package manager first.
+3. Before proceeding to install OTBR Docker in the next step, make sure to update the local repository and package manager first.
 
-     ```bash
+     ```console
      $ sudo apt-get update
      $ sudp apt-get upgrade
      ```
 
 ### Install Docker
 
-If you just update API, please reboot Raspberry Pi and then open an SSH terminal window.
+If you just update local repository and package manager APT at previous step, reboot Raspberry Pi and then open an SSH terminal window.
 
 1. Install Docker:
 
-     ```bash
+     ```console
      $ curl -sSL https://get.docker.com | sh
      ```
 
-2. Put the current account into docker group to grant the permission so that `sudo` does not need to be added in front of each command.
+2. Put the current account into a Docker group to grant the permission so that `sudo` does not need to be added in front of each command.
 
-     ```bash
+     ```console
      $ sudo usermod -aG docker $USER
      ```
 
-     You need to restart after this.
+     You need to restart Raspberry Pi to take effect.
 
 3. If Docker has not started, start it:
 
-     ```bash
+     ```console
      $ sudo dockerd
      ```
 
-4. The OTBR firewall scripts generate rules inside the Docker container. Prior to that, execute `modprobe`` to load the kernel module of iptables.
+4. The OTBR firewall scripts generate rules inside the Docker container. Prior to that, execute `modprobe` to load the kernel module of iptables.
 
-     ```bash
+     ```console
      $ sudo modprobe ip6table_filter
      ```
 
 ### Configure and Run Docker
 
-This Codelab directly pulls the OTBR Docker image from the [OpenThread Docker Hub](https://hub.docker.com/u/openthread/). This image has been tested and verified by the OpenThread team.
+This codelab directly pulls the OTBR Docker image from the [OpenThread Docker Hub](https://hub.docker.com/u/openthread/). This image has been tested and verified by the OpenThread team.
 
 1. Pull the latest image:
 
-     ```bash
+     ```console
      $ docker pull openthread/otbr:latest
      ```
 
 2. Check the image list in the Docker container:
 
-     ```bash
+     ```console
      $ docker images
      REPOSITORY        TAG       IMAGE ID       CREATED      SIZE
      openthread/otbr   latest    db081f4de15f   6 days ago   766MB
@@ -456,7 +449,7 @@ This Codelab directly pulls the OTBR Docker image from the [OpenThread Docker Hu
 
 3. Determine the serial port name of the RCP device by checking `/dev`, `ttyACM0` indicates that the RCP is correctly connected.
 
-     ```bash
+     ```console
      $ ls /dev/tty*
      ...
      /dev/ttyACM0
@@ -466,13 +459,13 @@ This Codelab directly pulls the OTBR Docker image from the [OpenThread Docker Hu
 4. Run OTBR Docker for the first time, and reference the serial port of RCP (`ttyACM0`).
 If you want to continue using this OTBR Docker, use the command **docker start otbr**.
 
-     ```bash
+     ```console
      $ docker run --name "otbr" --sysctl "net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" -p 8080:80 --dns=127.0.0.1 -it --volume /dev/ttyACM0:/dev/ttyACM0 --privileged openthread/otbr --radio-url spinel+hdlc+uart:///dev/ttyACM0
      ```
 
 5. Open a new SSH terminal window to test the connectivity between the Raspberry Pi and the RCP.
 
-     ```bash
+     ```console
      $ docker exec -ti otbr sh -c "sudo ot-ctl"
      > state 
      disabled
@@ -483,25 +476,25 @@ Optional docker commands:
 
 * Get information about the running Docker container:
 
-     ```bash
+     ```console
      $ docker ps -aq
      ```
 
 * Stop OTBR Docker:
 
-     ```bash
+     ```console
      $ docker stop otbr
      ```
 
 * Remove OTBR Docker:
 
-     ```bash
+     ```console
      $ docker rm otbr
      ```
 
 * Reload OTBR Docker:
 
-     ```bash
+     ```console
      $ docker restart otbr
      ```
 
@@ -514,9 +507,9 @@ Duration: 6:00
 ### Create a Thread Network on RCP
 
 We use the **ot-ctl** shell on the OTBR to establish a Thread network.
-If you exit the shell in last section, please enter the following command to start it again in the SSH terminal:
+If you exited the shell in last section, enter the following command to start it again in the SSH terminal:
 
-```bash
+```console
 $ docker exec -ti otbr sh -c "sudo ot-ctl"
 ```
 
@@ -530,7 +523,7 @@ Next, enter the commands in the order specified in the table, and ensure that ea
 | 4     | `thread start`          | Enable Thread protocol operation and attach to a Thread network              | Done              |
 |       |                         | Wait 10 seconds for the thread interface to be up.                           |                   |
 | 5     | `state`                 | Check the device state.This command can be called multiple times until it becomes the leader and moves on to the next step                                                                                                             | leader<br/>Done   |
-| 6     | `dataset active`        | Check the complete Active Operational Dataset, please record network key     | Active Timestamp: 1<br/>Channel: 13<br/>Channel Mask: 0x07fff800<br/>Ext PAN ID: b07476e168eda4fc<br/>Mesh Local Prefix: fd8c:60bc:a98:c7ba::/64<br/>Network Key: c312485187484ceb5992d2343baaf93d<br/>Network Name: OpenThread-599c<br/>PAN ID: 0x599c<br/>PSKc: 04f79ad752e8401a1933486c95299f60<br/>Security Policy: 672 onrc 0<br/>Done               |
+| 6     | `dataset active`        | Check the complete Active Operational Dataset and record network key     | Active Timestamp: 1<br/>Channel: 13<br/>Channel Mask: 0x07fff800<br/>Ext PAN ID: b07476e168eda4fc<br/>Mesh Local Prefix: fd8c:60bc:a98:c7ba::/64<br/>Network Key: c312485187484ceb5992d2343baaf93d<br/>Network Name: OpenThread-599c<br/>PAN ID: 0x599c<br/>PSKc: 04f79ad752e8401a1933486c95299f60<br/>Security Policy: 672 onrc 0<br/>Done               |
 
 The network key randomly generated by OTBR during network creation will be used when `ot-cli-ftd` devices join this Thread network.
 
@@ -554,9 +547,9 @@ Enter the following commands in order in the serial console to the FTD Joiner.
 
 ### Topology
 
-Enter commands such as `ipaddr`, `child table`, `router table` in the SSH terminal to get responses like the following figures.
+Enter commands such as `ipaddr`, `child table`, `router table` in the SSH terminal to get responses like the following code snippets.
 
-```bash
+```console
 > ipaddr rloc
 fd8c:60bc:a98:c7ba:0:ff:fe00:b000
 Done
@@ -588,7 +581,7 @@ Done
 ```
 
 The `RLOC16` of OTBR is `0xb000` and the `RLOC16` of the FTD Joiner initially is `0xb001`.
-Then the FTD Joiner's `RLOC16` becomes `0x8400`` after obtaining the Router ID.
+Then the FTD Joiner's `RLOC16` becomes `0x8400` after obtaining the Router ID.
 It can be seen that the FTD Joiner has been upgraded from a child to a router.
 
 > aside positive
@@ -610,7 +603,7 @@ Duration: 6:00
 We use the `ping` command to check whether Thread devices in the same network can communicate with each other.
 First, use the `ipaddr` command to get the RLOC of the device.
 
-```bash
+```console
 > ipaddr
 fd8c:60bc:a98:c7ba:0:ff:fe00:fc11
 fdbd:7274:649c:1:1d19:9613:f705:a5af
@@ -625,7 +618,7 @@ Done
 
 Enter the following command in the serial console of the FTD Joiner to execute the ping operation.
 
-```bash
+```console
 > ot ping fd8c:60bc:a98:c7ba:0:ff:fe00:b000
 16 bytes from fd8c:60bc:a98:c7ba:0:ff:fe00:b000: icmp_seq=1 hlim=64 time=19ms
 1 packets transmitted, 1 packets received. Packet loss = 0.0%. Round-trip min/avg/max = 19/19.0/19 ms.
@@ -640,12 +633,12 @@ The communication between the two devices is successful.
 The application services provided by OpenThread also include UDP.
 You can use the UDP API to pass information between nodes in the Thread network, or pass information to external networks through the Border Router.
 The detailed introduction of OpenThread's UDP API is in the [OpenThread CLI - UDP Example](https://github.com/openthread/openthread/blob/f7690fe7e9d638341921808cba6a3e695ec0131e/src/cli/README_UDP.md).
-This Codelab will use some of the APIs in it to transmit information between OTBR and FTD Joiner.
+This codelab will use some of the APIs in it to transmit information between OTBR and FTD Joiner.
 
 First, get the Mesh-Local EID of OTBR.
 This address is also one of the IPv6 addresses of the Thread device, and it can be used to access Thread devices in the same Thread network partition.
 
-```bash
+```console
 > ipaddr mleid
 fd8c:60bc:a98:c7ba:5249:34ab:26d1:aff6
 Done
@@ -653,17 +646,17 @@ Done
 
 Enter the following commands in the SSH terminal to enable OTBR UDP and bind the device's 1022 port.
 
-```bash
+```console
 > udp open
 Done
 > udp bind :: 1022
 Done
 ```
 
-Enter the following command in the serial console and enable the UDP of the FTD Joiner.
+Enter the following commands in the serial console and enable the UDP of the FTD Joiner.
 Bind the device's 1022 port, and then send a 5-byte `hello` message to OTBR.
 
-```bash
+```console
 > ot udp open 
 Done
 > ot udp bind :: 1022
@@ -675,7 +668,7 @@ Done
 The SSH terminal outputs the following information.
 OTBR receives the `hello` message from the FTD Joiner, which means the UDP communication is successful.
 
-```bash
+```console
 > 5 bytes from fd8c:60bc:a98:c7ba:9386:63cf:19d7:5a61 1022 hello
 ```
 
@@ -701,7 +694,7 @@ Check out [openthread.io](https://openthread.io/) and [GitHub](https://github.co
 * [Build OpenThread](../../guides/build/index.md)
     — further details on building and configuring OpenThread
 * [Thread Primer](../../guides/thread-primer/index.md)
-    — covers all the Thread concepts featured in this Codelab
+    — covers all the Thread concepts featured in this codelab
 
 Reference documents:
 
