@@ -5,6 +5,7 @@ status: [final]
 authors: Colin Tan
 categories: Nest
 tags: web
+layout: scrolling
 feedback link: https://github.com/openthread/silk/issues
 project: /_project.yaml
 book: /_book.yaml
