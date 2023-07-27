@@ -14,7 +14,7 @@ layout: scrolling
 
 # Build a Thread Network with the TLSR9518 Development Kit and OpenThread
 
-[codelab Feedback](https://github.com/openthread/ot-docs/issues)
+[Codelab Feedback](https://github.com/openthread/ot-docs/issues)
 
 ## Introduction
 
@@ -40,13 +40,13 @@ The image below depicts the hardware setup, featuring an OT Border Router (OTBR)
 
 1. To set up OpenThread implementation using the Telink Zephyr development environment.
 
-2. To Build the OpenThread CLI samples (`ot-cli-ftd` and `ot-rcp`) and flash them onto Telink TLSR9518 development kits.
+2. To build the OpenThread CLI samples (`ot-cli-ftd` and `ot-rcp`) and flash them onto Telink TLSR9518 development kits.
 
-3. To Set up an OpenThread Border Router (OTBR) using Docker on a Raspberry Pi 3B+ or later.
+3. To set up an OpenThread Border Router (OTBR) using Docker on a Raspberry Pi 3B+ or later.
 
 4. To create a Thread network on the OTBR.
 
-5. To Add devices to the Thread network using out-of-band debugging.
+5. To add devices to the Thread network using out-of-band debugging.
 
 6. To validate the connectivity between nodes in the Thread network using CLI.
 
@@ -252,7 +252,7 @@ Once that is done, proceed with the following steps.
      $ west blobs fetch hal_telink
      ```
 
-For more information, you can refer to [Zephyr Doc -- Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html)
+For more information, you can refer to [Zephyr Doc -- Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html).
 
 ### Set up Telink LinuxBDT
 
@@ -401,7 +401,7 @@ This codelab will use SSH.
 
 ### Install Docker
 
-If you just update local repository and package manager APT at previous step, reboot Raspberry Pi and then open an SSH terminal window.
+If you just update the local repository and package manager APT at previous step, reboot Raspberry Pi and then open an SSH terminal window.
 
 1. Install Docker:
 
@@ -415,7 +415,7 @@ If you just update local repository and package manager APT at previous step, re
      $ sudo usermod -aG docker $USER
      ```
 
-     You need to restart Raspberry Pi to take effect.
+     You need to restart the Raspberry Pi to take effect.
 
 3. If Docker has not started, start it:
 
