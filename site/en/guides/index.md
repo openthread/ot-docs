@@ -1,8 +1,3 @@
----
-layour: scrolling
-
----
-
 
 # Get Started
 
@@ -197,8 +192,7 @@ see what OpenThread services are available.
 ## Testing and certification
 
 Learn how we test OpenThread and what user testing tools are available on our
-[Testing](https://openthread.io/testing/) page, and browse the latest OpenThread peformance quality
-metrics on our [Quality Dashboards](https://openthread.io/testing/quality-dashboard).
+[Testing](https://openthread.io/testing/) page.
 
 If you're interested in Thread Certification for your product or component, see
 the [Certification](https://openthread.io/certification/) page.
