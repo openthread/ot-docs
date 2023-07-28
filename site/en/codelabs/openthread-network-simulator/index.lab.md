@@ -5,6 +5,7 @@ status: [final]
 authors: Simon Lin, Colin Tan
 categories: Nest
 tags: web
+layout: scrolling
 feedback link: https://github.com/openthread/ot-ns/issues
 project: /_project.yaml
 book: /_book.yaml

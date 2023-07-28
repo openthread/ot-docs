@@ -1,3 +1,9 @@
+---
+layour: scrolling
+
+---
+
+
 # Get Started
 
 ## Learn about Thread
