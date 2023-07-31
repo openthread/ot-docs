@@ -5,6 +5,7 @@ status: [final]
 authors: Mithil Raut
 categories: Nest
 tags: web
+layout: scrolling
 feedback link: https://github.com/openthread/ot-docs/issues
 project: /_project.yaml
 book: /_book.yaml

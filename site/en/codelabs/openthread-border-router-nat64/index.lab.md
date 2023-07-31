@@ -4,6 +4,7 @@ summary: In this codelab, you'll build an OpenThread border router with NAT64 su
 status: [final]
 authors: Song Guo
 categories: Nest
+layout: scrolling
 feedback_link: https://github.com/openthread/ot-br-posix/issues
 keywords: openthread, nat64
 project: /_project.yaml
