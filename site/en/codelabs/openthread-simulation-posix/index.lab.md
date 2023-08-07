@@ -90,7 +90,6 @@ $ cd ~/src
 $ git clone --recursive https://github.com/openthread/openthread.git
 $ cd openthread
 $ ./script/bootstrap
-$ ./bootstrap
 ```
 
 ### Using Windows
