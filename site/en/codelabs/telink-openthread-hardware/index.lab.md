@@ -1,7 +1,7 @@
 ---
 id: telink-openthread-hardware
 summary: In this codelab, you'll program OpenThread on real hardware, create and manage a Thread network, and pass messages between nodes.
-status: [draft]
+status: [final]
 authors: Zhenghuan Zhang
 categories: Nest
 tags: web
@@ -12,7 +12,7 @@ layout: scrolling
 
 ---
 
-# Build a Thread Network with the TLSR9518 Development Kit and OpenThread
+# Build a Thread Network with the B91 Development Kit and OpenThread
 
 [Codelab Feedback](https://github.com/openthread/ot-docs/issues)
 
@@ -40,7 +40,7 @@ The image below depicts the hardware setup, featuring an OT Border Router (OTBR)
 
 1. To set up OpenThread implementation using the Telink Zephyr development environment.
 
-2. To build the OpenThread CLI samples (`ot-cli-ftd` and `ot-rcp`) and flash them onto Telink TLSR9518 development kits.
+2. To build the OpenThread CLI samples (`ot-cli-ftd` and `ot-rcp`) and flash them onto Telink B91 Development Boards.
 
 3. To set up an OpenThread Border Router (OTBR) using Docker on a Raspberry Pi 3B+ or later.
 
@@ -54,13 +54,11 @@ The image below depicts the hardware setup, featuring an OT Border Router (OTBR)
 
 Hardware:
 
-* Two TLSR9518 development kits.
+* Two B91 Development Kits.
 
 * One Raspberry Pi 3B+ or greater with Raspbian OS Image.
 
 * A Linux machine with at least two USB ports.
-
-* A USB to TTL Serial Converter Cable.
 
 * An internet-connected switch (or Router) and several Ethernet cables.
 
@@ -87,31 +85,29 @@ To accomplish these tasks, the Linux machine requires two available USB ports an
 
 ### Serial Port Connection and Terminals
 
-It is recommended to be familiar with establishing connections between devices using a serial port converter cable.
+You can directly plug the device into the USB port of Linux machine.
 Additionally, you will need a serial port terminal tool to access the devices.
 
 In this codelab, terminal tool PuTTY is used for controlling the FTD Joiner and Raspberry Pi.
 It offers an overview of its usage, but other terminal software can also be employed.
 
-### Telink TLSR9518 Development Kit
+### Telink B91 Development Kit
 
-This codelab needs two TLSR9518 development kits.
+This codelab needs two sets of B91 Development Kits.
+The photo below displays the minimum required components in one set.
 
 <img src="img/overview.png" alt="overview.png" width="624.00" />
 
 One of these kits will be used as RCP (Radio Co-Processor), while the other will function as FTD (Full Thread Device).
-If you are not yet in possession of this board, you can acquire more details of TLSR9518 development kit from the [Telink official website](http://wiki.telink-semi.cn/wiki/Hardware/B91_Generic_Starter_Kit_Hardware_Guide/).
+If you are not yet in possession of the kit, you can acquire more details from the [Telink official website](http://wiki.telink-semi.cn/wiki/Hardware/B91_Generic_Starter_Kit_Hardware_Guide/).
 Some components to be used are as follows:
 
 | Index | Name                                         |
 | :---- | -------------------------------------------- |
-| 1     | Telink TLSR9518 Development Kit              |
-| 2     | Telink Burning Kit                           |
+| 1     | Telink B91 Development Board                 |
+| 2     | Telink Burning Board                         |
 | 3     | 2.4Ghz Antenna                               |
-| 4&5   | USB Cable (USB A to mini USB)                |
-| 6     | USB to TTL Serial Cable                      |
-
-> **Note**: Item 6 is not included in the kit for sale.
+| 4     | USB Cable (USB A to mini USB)                |
 
 ### Raspberry Pi 3B+ or greater with Raspbian OS Image
 
@@ -125,7 +121,7 @@ They are used to connect the Raspberry Pi to the Linux machine, facilitating use
 
 ### LinuxBDT
 
-Telink [Burning and Debugging Tool (BDT)](http://wiki.telink-semi.cn/wiki/IDE-and-Tools/Burning-and-Debugging-Tools-for-all-Series/), which applies to all Telink Chip series, allows you to erase and flash OpenThread firmware onto the Telink TLSR9518 Development Kits.
+Telink [Burning and Debugging Tool (BDT)](http://wiki.telink-semi.cn/wiki/IDE-and-Tools/Burning-and-Debugging-Tools-for-all-Series/), which applies to all Telink Chip series, allows you to erase and flash OpenThread firmware onto the Telink B91 Development Boards.
 Install the X86-based linux version [linuxBDT](http://wiki.telink-semi.cn/tools_and_sdk/Tools/BDT/LinuxBDT.tar.bz2) on your Linux machine.
 
 ### Others
@@ -256,7 +252,7 @@ For more information, you can refer to [Zephyr Doc -- Getting Started Guide](htt
 
 ### Set up Telink LinuxBDT
 
-Download the Telink LinuxBDT tool and extract it to a local directory on your Linux machine, such as home directory `~`, enabling to flash firmware onto the TLSR9518 development board.
+Download the Telink LinuxBDT tool and extract it to a local directory on your Linux machine, such as home directory `~`, enabling to flash firmware onto the B91 Development Board.
 
 ```console
 $ cd ~
@@ -264,7 +260,7 @@ $ wget http://wiki.telink-semi.cn/tools_and_sdk/Tools/BDT/LinuxBDT.tar.bz2
 $ tar -vxf LinuxBDT.tar.bz2 
 ```
 
-Connect the Burning Kit to the Linux machine via the USB interface, and then enter the following commands.
+Connect the Burning Board to the Linux machine via the USB interface, and then enter the following commands.
 
 ```console
 $ cd LinuxBDT
@@ -305,7 +301,7 @@ This codelab will build two types of OpenThread firmware:
 
 ### Firmware Flash
 
-Connect a TLSR9518 development board to the Burning Kit using a short blue USB cable as illustrated in the figure below.
+Connect a B91 Development Board to the Burning Board using a USB cable as illustrated in the figure below.
 
 <img src="img/connection_overview.png" alt="connection_overview.png" width="624.00" />
 
@@ -329,26 +325,18 @@ $ sudo ./bdt 9518 wf 0 -i bin/ot-cli-ftd.bin
 The flash method for `ot-rcp` is basically the same as that for `ot-cli-ftd`.
 However, there are differences in the firmware paths and names.
 
-After flashing, distinguish the two TLSR9518 development boards by marking them accordingly.
+After flashing, distinguish the two B91 Development Boards by marking them accordingly.
 Label the board flashed with `ot-cli-ftd` as "FTD Joiner" and the board flashed with `ot-rcp` as "RCP".
 
 ## Configure a Serial Console for the FTD Joiner Device
 
 Duration: 3:00
 
-To control the FTD Joiner device through the CLI, connect a USB to TTL Serial Convertor Cable to the following pins on the TLSR9518 development board：
+As shown in the picture, directly plug the FTD Joiner into the USB port of the computer.
 
-| Name  | Pin                 |
-| :---- | ------------------- |
-| RX    | PB3 (pin 15 of J34) |
-| TX    | PB2 (pin 18 of J34) |
-| GND   | GND (pin 23 of J50) |
+<img src="img/usb_connection.png" alt="usb_connection.png" width="624.00" />
 
-> aside positive
->
-> **Note:** Baud rate：115200 bits/s
-
-After connecting the Convertor Cable to the Linux machine, Open PuTTY.
+After connecting the FTD Joiner Device to the Linux machine, Open PuTTY.
 Then create a new terminal, set the serial port information, and open the serial port.
 
 <img src="img/uart_console.png" alt="uart_console.png" width="624.00" />
@@ -381,7 +369,7 @@ An OpenThread Border Router is a device consisting of two main parts：
 ### Radio Co-Processor（RCP）
 
 To flash the `ot-rcp` firmware, follow the same steps as the `ot-cli-ftd` firmware flashing process.
-Connect the TLSR9518 development kit to a USB port on the Raspberry Pi, as depicted in the figure below.
+Connect the B91 Development Board to a USB port on the Raspberry Pi, as depicted in the figure below.
 
 <img src="img/OTBR_overview.png" alt="OTBR_overview.png" width="624.00" />
 
@@ -517,13 +505,13 @@ Next, enter the commands in the order specified in the table, and ensure that ea
 
 | Index | Command                 | Introduction                                                                 | Expected Response |
 | :---- | ----------------------- | ---------------------------------------------------------------------------- | ----------------- |
-| 1     | `dataset init new`      | Create a new random network dataset                                          | Done              |
-| 2     | `dataset commit active` | Commit new dataset to the Active Operational Dataset in non-volatile storage | Done              |
-| 3     | `ifconfig up`           | Bring up the IPv6 interface                                                  | Done              |
-| 4     | `thread start`          | Enable Thread protocol operation and attach to a Thread network              | Done              |
+| 1     | `dataset init new`      | Create a new random network dataset.                                          | Done              |
+| 2     | `dataset commit active` | Commit new dataset to the Active Operational Dataset in non-volatile storage. | Done              |
+| 3     | `ifconfig up`           | Bring up the IPv6 interface.                                                  | Done              |
+| 4     | `thread start`          | Enable Thread protocol operation and attach to a Thread network.              | Done              |
 |       |                         | Wait 10 seconds for the thread interface to be up.                           |                   |
-| 5     | `state`                 | Check the device state.This command can be called multiple times until it becomes the leader and moves on to the next step                                                                                                             | leader<br/>Done   |
-| 6     | `dataset active`        | Check the complete Active Operational Dataset and record network key     | Active Timestamp: 1<br/>Channel: 13<br/>Channel Mask: 0x07fff800<br/>Ext PAN ID: b07476e168eda4fc<br/>Mesh Local Prefix: fd8c:60bc:a98:c7ba::/64<br/>Network Key: c312485187484ceb5992d2343baaf93d<br/>Network Name: OpenThread-599c<br/>PAN ID: 0x599c<br/>PSKc: 04f79ad752e8401a1933486c95299f60<br/>Security Policy: 672 onrc 0<br/>Done               |
+| 5     | `state`                 | Check the device state.This command can be called multiple times until it becomes the leader and moves on to the next step.                                                                                                             | leader<br/>Done   |
+| 6     | `dataset active`        | Check the complete Active Operational Dataset and record network key.     | Active Timestamp: 1<br/>Channel: 13<br/>Channel Mask: 0x07fff800<br/>Ext PAN ID: b07476e168eda4fc<br/>Mesh Local Prefix: fd8c:60bc:a98:c7ba::/64<br/>Network Key: c312485187484ceb5992d2343baaf93d<br/>Network Name: OpenThread-599c<br/>PAN ID: 0x599c<br/>PSKc: 04f79ad752e8401a1933486c95299f60<br/>Security Policy: 672 onrc 0<br/>Done               |
 
 The network key randomly generated by OTBR during network creation will be used when `ot-cli-ftd` devices join this Thread network.
 
@@ -534,12 +522,12 @@ Enter the following commands in order in the serial console to the FTD Joiner.
 
 | Index | Command                                                  | Introduction                                                                  | Expected Responses |
 | :---- | -------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------ |
-| 1     | `ot dataset networkkey c312485187484ceb5992d2343baaf93d` | Only the Network Key is necessary for a device to connect to a Thread network | Done               |
-| 2     | `ot dataset commit active`                               | Commit new dataset to the Active Operational Dataset in non-volatile storage  | Done               |
-| 3     | `ot ifconfig up`                                         | Bring up the IPv6 interface                                                   | Done               |
-| 4     | `ot thread start`                                        | Enable Thread protocol operation and attach to a Thread network               | Done               |
-|       |                                                          | Wait 20 seconds while the device joins and configures itself                  |                    |
-| 5     | `ot state`                                               | Check the device state                                                        | child/router<br/>Done               |
+| 1     | `ot dataset networkkey c312485187484ceb5992d2343baaf93d` | Only the Network Key is necessary for a device to connect to a Thread network. | Done               |
+| 2     | `ot dataset commit active`                               | Commit new dataset to the Active Operational Dataset in non-volatile storage.  | Done               |
+| 3     | `ot ifconfig up`                                         | Bring up the IPv6 interface.                                                   | Done               |
+| 4     | `ot thread start`                                        | Enable Thread protocol operation and attach to a Thread network.               | Done               |
+|       |                                                          | Wait 20 seconds while the device joins and configures itself.                  |                    |
+| 5     | `ot state`                                               | Check the device state.                                                        | child/router<br/>Done               |
 
 > aside positive
 >
@@ -679,7 +667,7 @@ You've create a simple Thread network and verified the communication within this
 You now know:
 
 * How to build and use the Telink Zephyr development environment.
-* How to build the `ot-cli-ftd` and `ot-rcp` binaries, as well as flash them to the TLSR9518 development kit.
+* How to build the `ot-cli-ftd` and `ot-rcp` binaries, as well as flash them onto Telink B91 Development Boards.
 * How to set up a Raspberry Pi 3B+ or higher version as an OpenThread Border Router (OTBR) using Docker.
 * How to create a Thread network on OTBR.
 * How to add devices to the Thread network through out-of-band commissioning.
