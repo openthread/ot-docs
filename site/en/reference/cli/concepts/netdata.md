@@ -21,6 +21,9 @@ For a list of `netdata` commands, type `help`:
 ```
 > netdata help
 help
+full
+length
+maxlength
 publish
 register
 show
@@ -28,6 +31,19 @@ steeringdata
 unpublish
 Done
 ```
+
+### `full` commands
+
+The `full` commands report the flag status or resest the flag tracking whether
+the "net data full" callback has been invoked.
+
+This command requires OPENTHREAD_CONFIG_BORDER_ROUTER_SIGNAL_NETWORK_DATA_FULL.
+
+### `length` and `maxlength` commands
+
+The `length` command gets the current length of Thread Network Data, reported
+as number of bytes. `maxlength` commands  gets the maximum observed length, or
+resets the tracked maximum length.
 
 ### `publish` commands
 
@@ -125,6 +141,15 @@ The Publisher requires `OPENTHREAD_CONFIG_NETDATA_PUBLISHER_ENABLE`.
     `otServerConfig::mStable`. The RLOC is also appended to the end of the
     record.
 
+1.  Display the current length, in number of bytes, of Partition's Thread Network
+    Data.
+
+    ```
+    > netdata length
+    23
+    Done
+    ```
+    
 1.  Display IPv6 addresses assigned to the Thread interface, including the
     added prefix.
 
@@ -177,6 +202,15 @@ the complete Active Operational Dataset.
     Done
     ```
 
+1.  Display the current length, in number of bytes, of Partition's Thread Network
+    Data.
+
+    ```
+    > netdata length
+    23
+    Done
+    ```
+
 1.  Display IPv6 addresses assigned to the Thread interface.
 
     ```
@@ -188,6 +222,34 @@ the complete Active Operational Dataset.
     fe80:0:0:0:a40b:197f:593d:ca61
     Done
     ```
+
+## Debugging & diagnostics
+
+Network Data has a limited size of 254 bytes. If Border Routers keep adding
+entries (for example, prefixes, routes, or service entries) to Network Data it
+can get full. When this happens, new requests from a Border Router to add new
+items will be rejected or ignored by the leader. The leader does not
+necessarily signal the rejection to the Border Router so the Border Router may
+not immediately realize that Network Data is getting full. However, there is a
+method available to detect when Network Data is getting full.
+
+The detection method, implemented on both Border Routers and the leader, uses
+a callback API mechanism and allows users to be notified when Network Data is
+full. The callback can be used to take action, such as removing stale prefixes
+or service entries. The `netdata full` commands are used for the flag that
+tracks whether the "net data full" callback has been invoked. These commands
+can report the flag's status or reset it.
+
+For the typical use cases of Thread, it is unlikely that Network Data will get
+full, even in the scenario where there are many Border Routers and they are all
+adding route prefixes. 
+
+It is technically possible for Network Data to get full, however this is often
+due to misconfiguration or an issue on the Border Router. The `netdata length`
+and `netdata maxlength` commands can help debug Network Data full errors.
+`length` gets the current length of Network Data, reported as bytes and
+`maxlength` gets the maximum observed length and can also reset the tracked
+maximum length.
 
 ## License
 
