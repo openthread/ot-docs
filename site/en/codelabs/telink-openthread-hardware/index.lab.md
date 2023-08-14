@@ -12,7 +12,7 @@ layout: scrolling
 
 ---
 
-# Build a Thread Network with the B91 Development Kit and OpenThread
+# Build a Thread Network with the B91 Development Board and OpenThread
 
 [Codelab Feedback](https://github.com/openthread/ot-docs/issues)
 
@@ -54,7 +54,7 @@ The image below depicts the hardware setup, featuring an OT Border Router (OTBR)
 
 Hardware:
 
-* Two B91 Development Kits.
+* Two B91 Development Boards.
 
 * One Raspberry Pi 3B+ or greater with Raspbian OS Image.
 
@@ -85,7 +85,7 @@ To accomplish these tasks, the Linux machine requires two available USB ports an
 
 ### Serial Port Connection and Terminals
 
-You can directly plug the device into the USB port of Linux machine.
+You can directly plug the device into the USB port of the Linux machine.
 Additionally, you will need a serial port terminal tool to access the devices.
 
 In this codelab, terminal tool PuTTY is used for controlling the FTD Joiner and Raspberry Pi.
@@ -332,7 +332,7 @@ Label the board flashed with `ot-cli-ftd` as "FTD Joiner" and the board flashed 
 
 Duration: 3:00
 
-As shown in the picture, directly plug the FTD Joiner into the USB port of the computer.
+As shown in the picture, directly plug the FTD Joiner into the USB port of the Linux machine.
 
 <img src="img/usb_connection.png" alt="usb_connection.png" width="624.00" />
 
