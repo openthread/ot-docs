@@ -212,7 +212,7 @@ Done
 > The example output of the `netdata show` command gives
 > 
 > * an OMR prefix `fd76:a5d1:fcb0:1707::/64` for creating an OMR address that can be reached from the Wi-Fi/Ethernet network (you may notice that there is an IPv6 address `fd76:a5d1:fcb0:1707:f3c7:d88c:efd1:24a9` that starts with the OMR prefix);
-> * an external route for the on-link prefix `fd49:7770:7fc5:0::/64` which is created by OTBR when no IPv6 network is already present on the Wi-Fi/Ethernet link.
+> * an external route for the on-link prefix `fd49:7770:7fc5:0::/64` which is created by OTBR when no IPv6 network is already present on the Wi-Fi/Ethernet link. N.B. more recent commits will always publish `fc00::/7` in netdata instead of the specific on-link prefix; `fd49:7770:7fc5:0::/64` in this case.
 > * a SRP server Service with service number `5d` and SRP server UDP port which will be used by a Thread SRP end device.
 > * a BBR Service with service number `0x01`;
 
