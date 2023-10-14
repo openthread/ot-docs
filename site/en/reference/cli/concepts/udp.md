@@ -47,17 +47,17 @@ specified with the command variables. If the IP address and port are not specifi
 
 1. On Node 1, open a UDP socket.
 
-    ```
+    ...
     > udp open
     Done
-    ```
+    ...
 
 1. On Node 1, bind the socket.
    
-   ...
-   > udp bind 1234
-   Done
-   ...
+    ...
+    > udp bind :: 1234
+    Done
+    ...
 
 The use of `::` denotes that the `bind` should use the unspecified IPv6 address,
 therby having the UDP/IPv6 stack assign the binding IPv6 address. For complete
@@ -65,10 +65,10 @@ options with `udp bind`, refer to [`udp bind`](https://openthread.io/reference/c
 
 1.  On Node 2, open a UDP socket.
 
-    ```
+    ...
     > udp open
     Done
-    ```
+    ...
 
 1. On Node 2, send a simple message to Node 1. 
 
@@ -100,10 +100,10 @@ you have in using UDP sockets.
 
 1. On Node 1, open a UDP socket.
 
-    ```
+    ...
     > udp open
     Done
-    ```
+    ...
 
 1. On Node 1, bind the socket.
 
@@ -114,10 +114,10 @@ you have in using UDP sockets.
 
 1.  On Node 2, open a UDP socket.
 
-    ```
+    ...
     > udp open
     Done
-    ```
+    ...
 
 1.  On Node 2, use the `udp connect` command to open communication to Node 1.
 
@@ -132,10 +132,10 @@ For complete options with `udp connect`, refer to
 1. On Node 2, use the `udp send` command to send a message to Node 1, but do not
    specify `ip` and `port` in the `udp send` command syntax.
 
-    ....
+    ...
     >udp send fdde:ad00:beef:0:bb1:ebd6:ad10:f33 1234 hello
     Done
-    ....
+    ...
 
     By not specifying `ip` and `port`, the `udp send` command uses the `ip` and `port`
     that were specified in the `udp connect` command.
