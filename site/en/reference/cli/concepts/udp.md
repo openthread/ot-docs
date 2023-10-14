@@ -84,7 +84,7 @@ specified with the command variables. If the IP address and port are not specifi
     as the Node 2 source. The socket chooses an IP address and port randomly in this scenario.
 
 For complete options with `udp send`, refer to
-[udp send](https://openthread.io/reference/cli/commands#bbr_state#udp_send)
+[udp send](https://openthread.io/reference/cli/commands#bbr_state#udp_send).
 
 1. On Node 1, a display such as the following should indicate that the message from Node 2
 has been received.
@@ -114,7 +114,7 @@ you have in using UDP sockets.
 
 1.  On Node 2, open a UDP socket.
 
-```.
+    ```
     > udp open
     Done
     ```
