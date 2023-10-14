@@ -59,9 +59,9 @@ specified with the command variables. If the IP address and port are not specifi
     Done
     ```
 
-The use of `::` denotes that the `bind` should use the unspecified IPv6 address,
-therby having the UDP/IPv6 stack assign the binding IPv6 address. For complete
-options with `udp bind`, refer to [`udp bind`](https://openthread.io/reference/cli/commands#bbr_state#udp_bind).
+    The use of `::` denotes that the `bind` should use the unspecified IPv6 address,
+    therby having the UDP/IPv6 stack assign the binding IPv6 address. For complete
+    options with `udp bind`, refer to [udp bind](https://openthread.io/reference/cli/commands#bbr_state#udp_bind).
 
 1.  On Node 2, open a UDP socket.
 
@@ -77,20 +77,20 @@ options with `udp bind`, refer to [`udp bind`](https://openthread.io/reference/c
    Done
    ```
 
-This command assumes that Node 2 has already discovered the address of Node 1.
-Additionally, in this example, the administrator of Node 2 has chosen to not
-bind the socket. This is because the Node 2 administrator wants to send
-a message to Node 1 without caring which of its IP addresses and ports are used
-as the Node 2 source. The socket chooses an IP address and port randomly in this scenario.
+    This command assumes that Node 2 has already discovered the address of Node 1.
+    Additionally, in this example, the administrator of Node 2 has chosen to not
+    bind the socket. This is because the Node 2 administrator wants to send
+    a message to Node 1 without caring which of its IP addresses and ports are used
+    as the Node 2 source. The socket chooses an IP address and port randomly in this scenario.
 
 For complete options with `udp send`, refer to
-[`udp send`](https://openthread.io/reference/cli/commands#bbr_state#udp_send)
+[udp send](https://openthread.io/reference/cli/commands#bbr_state#udp_send)
 
 1. On Node 1, a display such as the following should indicate that the message from Node 2
 has been received.
 
    ```
-   5 bytes from fdde:ad00:beef:0:dac3:6792:e2e:90d8 49153 hello
+   `5 bytes from fdde:ad00:beef:0:dac3:6792:e2e:90d8 49153 hello`
    ```
 
 ## Incorporating Use of `Connect` in Forming Network With Two Devices
@@ -126,8 +126,8 @@ you have in using UDP sockets.
     Done
     ```
 
-For complete options with `udp connect`, refer to
-[`udp send`](https://openthread.io/reference/cli/commands#bbr_state#udp_connect)
+    For complete options with `udp connect`, refer to
+    [udp send](https://openthread.io/reference/cli/commands#bbr_state#udp_connect)
 
 1. On Node 2, use the `udp send` command to send a message to Node 1, but do not
    specify `ip` and `port` in the `udp send` command syntax.
