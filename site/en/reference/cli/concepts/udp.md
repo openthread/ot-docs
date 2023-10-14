@@ -17,19 +17,27 @@ open
 send
 Done
 
+### `open` commmand
+
+You use the `open` command to open a socket. You can then bind the socket to
+a specific IP address and port if you wish. However, binding a socket is not
+required to use if for communication. If you do not wish to bind a socket, the
+socket will choose its own local IP address and portchoose its own local
+IP address and port.
+
 ### `bind` command
 
 After you `open` a socket, you can run a `udp bind` command to assign an IPv6 address
 and a port to the open socket. This binds the socket for communication. Assigning the
 IPv6 address and port is referred to as naming the socket.
 
-*** `connect` command
+### `connect' command
 
 A `udp connect` command can be used to establish UDP communication with a peer node
 by specifying the IP address and UDP port number of the peer. This command is typically
 followed by a `udp send` command.
 
-*** `send` command
+### `send' command
 
 A `udp send` commands sends a message to the socket whose IP address and UDP port can
 specified with the command variables. If the IP address and port are not specified in the
@@ -45,7 +53,7 @@ specified with the command variables. If the IP address and port are not specifi
     ```
 
 1. On Node 1, bind the socket.
-
+   
    ...
    > udp bind :: 1234
    Done
