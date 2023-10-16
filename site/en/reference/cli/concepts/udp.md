@@ -1,8 +1,14 @@
 # Send UDP Messages with OT CLI
 
 Thread networks offer several `udp` commands for establishing peer-to-peer communication
-using UDP sockets. Each peer needs its own socket. Two simple examples are shown below
-to demonstrate different methods establishing communication over UDP.
+using UDP sockets. Each peer needs its own socket.
+
+In addition to opening the required sockets, one requirement is that the socket
+on the receiving end of the initial communication be bound.
+
+The examples that follow demonstrate how you can open and bind sockets, how to
+to specify a peer with which to associate a local socket, and how to send messages
+using UDP sockets.
 
 ## UDP Commands
 
@@ -19,29 +25,46 @@ Done
 
 ### `open` commmand
 
-You use the `open` command to open a socket. You can then bind the socket to
-a specific IP address and port if you wish. However, binding a socket is not
-required to use if for communication. If you do not wish to bind a socket, the
-socket will choose its own local IP address and portchoose its own local
-IP address and port.
+Use the `udp open` command to open a socket to begin UDP communication.
+You then have the option to bind the socket to a specific IP address and port.
 
 ### `bind` command
 
 After you `open` a socket, you can run a `udp bind` command to assign an IPv6 address
 and a port to the open socket. This binds the socket for communication. Assigning the
-IPv6 address and port is referred to as naming the socket.
+IPv6 address and port is also referred to as naming the socket. Binding is required to
+initially receive a UDP message. However, binding a socket is not required
+on the node that is sending the first message. If the initiating node opens but
+does not bind a socket, the socket will choose its own local IP address and ephemeral port
+when sending the message.
 
 ### `connect` command
 
-A `udp connect` command can be used to establish UDP communication with a peer node
-by specifying the IP address and UDP port number of the peer. This command is typically
-followed by a `udp send` command.
+A `udp connect` command can be used to establish UDP communication with one specific peer socket
+by specifying the IP address and UDP port number of the peer. This command can later be
+followed by a `udp send` command. While the `udp connect` command is not required in
+the communication between two UDP sockets, it does provide the simplicity of not having to
+specify the destination IP address and port each time a `udp send` command is issued. This
+is because the connected peer socket would be used by default. Issuing the `udp connect`
+command will bind the local socket to an ephemeral port if the local socket has
+not already been bound. 
 
 ### `send` command
 
 A `udp send` commands sends a message to the socket whose IP address and UDP port can
 specified with the command variables. If the IP address and port are not specified in the
 `udp send` command, the message gets sent to the socket that was specified in the `udp connect` command.
+Issuing the `udp send` command will bind the local socket to an ephemeral port
+if the local socket has not already been bound.
+
+### `close` command
+
+It is recommended that you use the `udp close` command to close the socket when
+the socket is no longer needed.
+
+## `linksecurity` command
+
+The `udp linksecurity` command can be used to enable/disable MAC/link level security for messages. 
 
 ## Form a Network With Two Devices
 
@@ -61,7 +84,8 @@ specified with the command variables. If the IP address and port are not specifi
 
     The use of `::` denotes that the `bind` should use the unspecified IPv6 address,
     therby having the UDP/IPv6 stack assign the binding IPv6 address. For complete
-    options with `udp bind`, refer to [udp bind](https://openthread.io/reference/cli/commands#bbr_state#udp_bind).
+    options with `udp bind`, such as binding to a network interface, 
+    refer to [udp bind](https://openthread.io/reference/cli/commands#bbr_state#udp_bind).
 
 1.  On Node 2, open a UDP socket.
 
@@ -127,7 +151,7 @@ you have in using UDP sockets.
     ```
 
     For complete options with `udp connect`, refer to
-    [udp send](https://openthread.io/reference/cli/commands#bbr_state#udp_connect)
+    [udp connect](https://openthread.io/reference/cli/commands#bbr_state#udp_connect)
 
 1. On Node 2, use the `udp send` command to send a message to Node 1, but do not
    specify `ip` and `port` in the `udp send` command syntax.
