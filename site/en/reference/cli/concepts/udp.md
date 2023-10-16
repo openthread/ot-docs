@@ -23,7 +23,7 @@ open
 send
 Done
 
-### `open` commmand
+### `open` command
 
 Use the `udp open` command to open a socket to begin UDP communication.
 You then have the option to bind the socket to a specific IP address and port.
@@ -119,7 +119,7 @@ has been received.
 
 ## Incorporating Use of `Connect` in Forming Network With Two Devices
 
-This example is similar to the previous one, but demonstrates some of the flexibilty
+This example is similar to the previous one, but demonstrates some of the flexibility
 you have in using UDP sockets.
 
 1. On Node 1, open a UDP socket.
