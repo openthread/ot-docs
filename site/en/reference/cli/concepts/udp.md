@@ -62,7 +62,7 @@ if the local socket has not already been bound.
 It is recommended that you use the `udp close` command to close the socket when
 the socket is no longer needed.
 
-## `linksecurity` command
+### `linksecurity` command
 
 The `udp linksecurity` command can be used to enable/disable MAC/link level security for messages. 
 
