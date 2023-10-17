@@ -5,7 +5,7 @@ using UDP sockets. The `cli udp` provides one sample socket with which all `udp`
 commands interact.
 
 The examples that follow demonstrate how you can open and bind sockets, how to
-to connect a socket, and how to send messages using UDP sockets.
+connect the socket, and how to send messages using UDP sockets.
 
 ## UDP Commands
 
@@ -22,16 +22,16 @@ Done
 
 ### `open` command
 
-Use the `udp open` command to open a socket to begin UDP communication.
+Use the `udp open` command to open the socket to begin UDP communication.
 You then have the option to bind the socket to a specific IP address and port.
 
 ### `bind` command
 
-After you `open` a socket, you can run a `udp bind` command to assign an IPv6 address
+After you `open` the socket, you can run a `udp bind` command to assign an IPv6 address
 and a port to the open socket. This binds the socket for communication. Assigning the
 IPv6 address and port is also referred to as naming the socket. If you do not directly
-`bind` the socket, connecting the socket or using it in a `udp send` command binds the
-socket to an ephemeral port.
+`bind` the socket, connecting the socket (`udp connect`) or using it in
+a `udp send` command binds the socket to an ephemeral port.
 
 ### `connect` command
 
@@ -60,7 +60,7 @@ The `udp linksecurity` command can be used to enable/disable MAC/link level secu
 
 ## Form a Network With Two Devices
 
-1. On Node 1, open a UDP socket.
+1. On Node 1, open the UDP socket.
 
     ```
     > udp open
@@ -79,7 +79,7 @@ The `udp linksecurity` command can be used to enable/disable MAC/link level secu
     options with `udp bind`, such as binding to a network interface, 
     refer to [udp bind](https://openthread.io/reference/cli/commands#bbr_state#udp_bind).
 
-1.  On Node 2, open a UDP socket.
+1.  On Node 2, open the UDP socket.
 
     ```
     > udp open
@@ -114,7 +114,7 @@ has been received.
 This example is similar to the previous one, but demonstrates some of the flexibility
 you have in using UDP sockets.
 
-1. On Node 1, open a UDP socket.
+1. On Node 1, open the UDP socket.
 
     ```
     > udp open
@@ -128,7 +128,7 @@ you have in using UDP sockets.
    Done
    ```
 
-1.  On Node 2, open a UDP socket.
+1.  On Node 2, open the UDP socket.
 
     ```
     > udp open
