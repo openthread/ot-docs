@@ -1,69 +1,74 @@
 # ESP Thread Border Router
 
 Contributor: https://github.com/gjc13
+Contributor: https://github.com/zwx1995esp
 
 ESP Thread border router is a FreeRTOS-based implementation running on a combination of Espressif's Wi-Fi and 802.15.4 SoCs.
 
 Hardware requirements:
 
-* An ESP32 series Wi-Fi dev kit. (ESP32, ESP32-C3, ESP32-S2 or ESP32-S3)
-* An [ESP32-H2](https://www.espressif.com/en/news/ESP32_H2) dev kit for running RCP.
+Espressif provides an [ESP Border Router Board](https://www.espressif.com/en/news/Thread_Border_Router_Certification) which integrates the host SoC (ESP32-S3) and the RCP (ESP32-H2) into one module.
 
-## Hardware connection
-
-The ESP32-H2 RCP will be connected to the border router via UART.
+## Hardware platforms
 
 <figure>
-<a href="../../guides/images/otbr-esp-connection.jpg"><img src="../../guides/images/otbr-esp-connection.jpg" width="600" border="0" alt="ESP32-H2 UART" /></a><figcaption>ESP32-H2 UART connection</figcaption>
+<a href="../../guides/images/otbr-esp-br-board.jpg"><img src="../../guides/images/otbr-esp-br-board.jpg" width="600" border="0" alt="ESP Thread Border Router Board" /></a><figcaption>ESP Thread Border Router Board</figcaption>
 </figure>
 <br/>
 
-* Connect the ground PIN of ESP32 and ESP32-H2
-* Connect PIN 4 of ESP32 to PIN TX of ESP32-H2
-* Connect PIN 5 of ESP32 to PIN RX of ESP32-H2
+## Step 1: Set up Repositories
 
-## Step 1: Set up ESP-IDF
+To set up the environment, please follow the [official installation guide](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/get-started/index.html#installation-step-by-step).
 
-The code for running the ESP Thread border router is shipped with the Espressif development framework, ESP-IDF.
-
-To set up the environment, please follow the [official installation guide](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html#installation-step-by-step).
-
-## Step 2: Build and flash the RCP
+Clone the [esp-idf](https://github.com/espressif/esp-idf) and the [esp-thread-br](https://github.com/espressif/esp-thread-br) repository.
 
 ```
-$ cd ${IDF_PATH}/examples/openthread/ot_rcp
-$ idf.py --preview set-target esp32h2
-$ idf.py build flash
+$ git clone -b v5.1.1 --recursive https://github.com/espressif/esp-idf.git
+$ cd esp-idf
+$ ./install.sh
+$ . ./export.sh
+$ cd ..
+$ git clone --recursive https://github.com/espressif/esp-thread-br.git
 ```
 
-## Step 3: Configure the Thread and the Wi-Fi network
+## Step 2: Configure the Thread and the Wi-Fi network
 
 The border router will automatically join the Wi-Fi network and create a new Thread network if there is not one in its storage.
 The network parameters can be configured in the config menu:
 
 ```
-$ cd ${IDF_PATH}/examples/openthread/ot_br
+$ cd esp-thread-br/examples/basic_thread_border_router
 $ idf.py menuconfig
 ```
 
 The network configuration items are:
 
+* Enable automatic start mode in Thread Border Router: **ESP Thread Border Router Example > Enable the automatic start mode in Thread Border Router.**
 * Wi-Fi SSID and PSK: **Example Connection Configuration > connect using Wi-Fi interface**
-* Thread network parameters: **OpenThread network parameters**
+* Thread network parameters: **Component config > OpenThread > Thread Operational Dataset**
 
 
-## Step 4: Build and run the border router
+## Step 3: Build and run the border router
 
+Build the `esp-idf/examples/openthread/ot_rcp` example. The firmware doesn't need to be explicitly flashed to a device. It will be included in the Border Router firmware and flashed to the ESP32-H2 chip upon first boot (or the RCP firmware changed).
 ```
-$ cd ${IDF_PATH}/examples/openthread/ot_br
-$ idf.py build flash monitor
+$ cd ${IDF_PATH}/examples/openthread/ot_rcp
+$ idf.py set-target esp32h2
+$ idf.py build
 ```
 
-Now you'll see the border router output in the ESP32 monitor. It also provides an interactive OpenThread command line:
+Then go back to the `basic_thread_border_router` example folder.
+```
+$ cd esp-thread-br/examples/basic_thread_border_router
+$ idf.py set-target esp32s3
+$ idf.py build
+$ idf.py -p <your-local-port> flash monitor
+```
+
+Now you'll see the border router output in the ESP32S3 monitor. It also provides an interactive OpenThread command line:
 
 ```
 > state
-I(23374) OPENTHREAD:[INFO]-CLI-----: execute command: state
 leader
 Done
 >
@@ -75,27 +80,12 @@ Done
 * IPv6 bidirectional connectivity.
 * SRP service registration and advertising proxy.
 * mDNS discovery proxy.
+* NAT64.
+* Multicast forwarding.
+* Web GUI based REST API.
+* OTA.
 
-To set up a SRP client on a Thread end device and reach it from the Wi-Fi network, follow the border router codelab from [step 4](https://openthread.io/codelabs/openthread-border-router#3).
-
-Note that all the `ot-ctl` commands in the codelab need to be directly entered in the border router's command line.
-
-For instance, for this command:
-
-```
-$ sudo ot-ctl dataset active -x
-0e080000000000010000000300001235060004001fffe002083d3818dc1c8db63f0708fda85ce9df1e662005101d81689e4c0a32f3b4aa112994d29692030f4f70656e5468726561642d35326532010252e204103f23f6b8875d4b05541eeb4f9718d2f40c0302a0ff
-Done
-```
-
-You would enter:
-
-```
-> dataset active -x
-I(13893332) OPENTHREAD:[INFO]-CLI-----: execute command: dataset active -x
-0e080000000000010000000300001235060004001fffe002083d3818dc1c8db63f0708fda85ce9df1e662005101d81689e4c0a32f3b4aa112994d29692030f4f70656e5468726561642d35326532010252e204103f23f6b8875d4b05541eeb4f9718d2f40c0302a0ff
-Done
-```
+For more using of the ESP Thread Border Router, you can refer to [ESP Thread Border Router Codelab](https://docs.espressif.com/projects/esp-thread-br/en/latest/codelab/index.html)
 
 ## License
 
