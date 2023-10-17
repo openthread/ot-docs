@@ -99,8 +99,8 @@ The `udp linksecurity` command can be used to enable or disable data-link level 
     a message to Node 1 without caring which of its IP addresses and ports are used
     as the Node 2 source. The socket chooses an IP address and port randomly in this scenario.
 
-For complete options with `udp send`, refer to
-[udp send](https://openthread.io/reference/cli/commands#udp_send).
+    For complete options with `udp send`, refer to
+    [udp send](https://openthread.io/reference/cli/commands#udp_send).
 
 1. Node 1 confirms receipt of the message from Node 2:
 
