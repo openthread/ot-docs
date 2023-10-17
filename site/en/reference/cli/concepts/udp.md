@@ -157,7 +157,7 @@ you have in using UDP sockets.
    specify `ip` and `port` in the `udp send` command syntax.
 
     ```
-    >udp send fdde:ad00:beef:0:bb1:ebd6:ad10:f33 1234 hello
+    >udp send hello
     Done
     ```
 
