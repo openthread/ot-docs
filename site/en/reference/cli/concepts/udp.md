@@ -1,14 +1,11 @@
 # Send UDP Messages with OT CLI
 
-Thread networks offer several `udp` commands for establishing peer-to-peer communication
-using UDP sockets. Each peer needs its own socket.
-
-In addition to opening the required sockets, one requirement is that the socket
-on the receiving end of the initial communication be bound.
+Thread networks offer several `cli udp` commands for testing peer-to-peer communication
+using UDP sockets. The `cli udp` provides one sample socket with which all `udp`
+commands interact.
 
 The examples that follow demonstrate how you can open and bind sockets, how to
-to specify a peer with which to associate a local socket, and how to send messages
-using UDP sockets.
+to connect a socket, and how to send messages using UDP sockets.
 
 ## UDP Commands
 
@@ -32,30 +29,25 @@ You then have the option to bind the socket to a specific IP address and port.
 
 After you `open` a socket, you can run a `udp bind` command to assign an IPv6 address
 and a port to the open socket. This binds the socket for communication. Assigning the
-IPv6 address and port is also referred to as naming the socket. Binding is required to
-initially receive a UDP message. However, binding a socket is not required
-on the node that is sending the first message. If the initiating node opens but
-does not bind a socket, the socket will choose its own local IP address and ephemeral port
-when sending the message.
+IPv6 address and port is also referred to as naming the socket. If you do not directly
+`bind` the socket, connecting the socket or using it in a `udp send` command binds the
+socket to an ephemeral port.
 
 ### `connect` command
 
-A `udp connect` command can be used to establish UDP communication with one specific peer socket
-by specifying the IP address and UDP port number of the peer. This command can later be
-followed by a `udp send` command. While the `udp connect` command is not required in
-the communication between two UDP sockets, it does provide the simplicity of not having to
-specify the destination IP address and port each time a `udp send` command is issued. This
-is because the connected peer socket would be used by default. Issuing the `udp connect`
-command will bind the local socket to an ephemeral port if the local socket has
-not already been bound. 
+A `udp connect` command can be used to connect the example socket to a peer socket address.
+You can then issue a `udp send` command to send a message to the peer. If the socket
+is not already bound, issuing the `udp connect` command also binds the socket. 
 
 ### `send` command
 
-A `udp send` commands sends a message to the socket whose IP address and UDP port can be
-specified with the command variables. If the IP address and port are not specified in the
-`udp send` command, the message gets sent to the socket that was specified in the `udp connect` command.
-Issuing the `udp send` command will bind the local socket to an ephemeral port
-if the local socket has not already been bound.
+A `udp send` command sends a message using the example socket to a destination
+whose IP address and UDP port can be specified with the command variables.
+If the IP address and port are not specified in the
+`udp send` command, the message gets sent using the example socket
+to the destination that was specified in the `udp connect` command.
+Issuing the `udp send` command binds the socket to an ephemeral port
+if the socket has not already been bound.
 
 ### `close` command
 
