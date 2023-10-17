@@ -105,7 +105,7 @@ For complete options with `udp send`, refer to
 1. Node 1 confirms receipt of the message from Node 2:
 
    ```
-   5 bytes from fdde:ad00:beef:0:dac3:6792:e2e:90d8 49153 hello
+   > 5 bytes from fdde:ad00:beef:0:dac3:6792:e2e:90d8 49153 hello
    ```
 
 ## Connect the Socket to the Peer Socket Address, then Send a Message Between Two Nodes
