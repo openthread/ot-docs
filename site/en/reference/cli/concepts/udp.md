@@ -51,7 +51,7 @@ not already been bound.
 
 ### `send` command
 
-A `udp send` commands sends a message to the socket whose IP address and UDP port can
+A `udp send` commands sends a message to the socket whose IP address and UDP port can be
 specified with the command variables. If the IP address and port are not specified in the
 `udp send` command, the message gets sent to the socket that was specified in the `udp connect` command.
 Issuing the `udp send` command will bind the local socket to an ephemeral port
@@ -83,7 +83,7 @@ The `udp linksecurity` command can be used to enable/disable MAC/link level secu
     ```
 
     The use of `::` denotes that the `bind` should use the unspecified IPv6 address,
-    therby having the UDP/IPv6 stack assign the binding IPv6 address. For complete
+    thereby having the UDP/IPv6 stack assign the binding IPv6 address. For complete
     options with `udp bind`, such as binding to a network interface, 
     refer to [udp bind](https://openthread.io/reference/cli/commands#bbr_state#udp_bind).
 
