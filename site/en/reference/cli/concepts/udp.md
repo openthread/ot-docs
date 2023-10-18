@@ -58,7 +58,7 @@ the socket is no longer needed.
 
 The `udp linksecurity` command can be used to enable or disable data-link layer security for messages. 
 
-## Send a Message Between Two Nodes
+## Send a message between two nodes
 
 1. On Node 1, open the UDP socket.
 
@@ -108,7 +108,7 @@ The `udp linksecurity` command can be used to enable or disable data-link layer 
    > 5 bytes from fdde:ad00:beef:0:dac3:6792:e2e:90d8 49153 hello
    ```
 
-## Connect the Socket to the Peer Socket Address, then Send a Message Between Two Nodes
+## Connect the socket to the peer socket address, then send a message between two nodes
 
 This example is similar to the previous one, but demonstrates some of the flexibility
 you have in using UDP sockets. With this method, you first connect the socket to the
