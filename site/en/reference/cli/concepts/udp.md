@@ -56,7 +56,7 @@ the socket is no longer needed.
 
 ### `linksecurity` command
 
-The `udp linksecurity` command can be used to enable or disable data-link level security for messages. 
+The `udp linksecurity` command can be used to enable or disable data-link layer security for messages. 
 
 ## Send a Message Between Two Nodes
 
