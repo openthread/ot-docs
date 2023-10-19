@@ -3,7 +3,7 @@ toc:
   section:
   - title: Network Data
     path: /reference/cli/concepts/netdata
-  -title: Operational Datasets
+  - title: Operational Datasets
     path: /reference/cli/concepts/dataset
-  -title: UDP
+  - title: UDP
     path: /reference/cli/concepts/udp
