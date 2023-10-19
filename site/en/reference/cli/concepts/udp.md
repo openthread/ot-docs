@@ -62,29 +62,29 @@ The `udp linksecurity` command can be used to enable or disable data-link layer 
 
 1. On Node 1, open the UDP socket.
 
-    ```
-    > udp open
-    Done
-    ```
+   ```
+   > udp open
+   Done
+   ```
 
 1. On Node 1, bind the socket.
    
-    ```
-    > udp bind :: 1234
-    Done
-    ```
+   ```
+   > udp bind :: 1234
+   Done
+   ```
 
-    The use of `::` denotes that the `bind` should use the unspecified IPv6 address,
-    thereby having the UDP/IPv6 stack assign the binding IPv6 address. For complete
-    options with `udp bind`, such as binding to a network interface, 
-    refer to [udp bind](https://openthread.io/reference/cli/commands#udp_bind).
+   The use of `::` denotes that the `bind` should use the unspecified IPv6 address,
+   thereby having the UDP/IPv6 stack assign the binding IPv6 address. For complete
+   options with `udp bind`, such as binding to a network interface, 
+   refer to [udp bind](https://openthread.io/reference/cli/commands#udp_bind).
 
-1.  On Node 2, open the UDP socket.
+1  On Node 2, open the UDP socket.
 
-    ```
-    > udp open
-    Done
-    ```
+   ```
+   > udp open
+   Done
+   ```
 
 1. On Node 2, send a simple message to Node 1. 
 
@@ -93,14 +93,14 @@ The `udp linksecurity` command can be used to enable or disable data-link layer 
    Done
    ```
 
-    This command assumes that Node 2 has already discovered the address of Node 1.
-    Additionally, in this example, the administrator of Node 2 has chosen to not
-    bind the socket. This is because the Node 2 administrator wants to send
-    a message to Node 1 without caring which of its IP addresses and ports are used
-    as the Node 2 source. The socket chooses an IP address and port randomly in this scenario.
+   This command assumes that Node 2 has already discovered the address of Node 1.
+   Additionally, in this example, the administrator of Node 2 has chosen to not
+   bind the socket. This is because the Node 2 administrator wants to send
+   a message to Node 1 without caring which of its IP addresses and ports are used
+   as the Node 2 source. The socket chooses an IP address and port randomly in this scenario.
 
-    For complete options with `udp send`, refer to
-    [udp send](https://openthread.io/reference/cli/commands#udp_send).
+   For complete options with `udp send`, refer to
+   [udp send](https://openthread.io/reference/cli/commands#udp_send).
 
 1. Node 1 confirms receipt of the message from Node 2:
 
@@ -117,10 +117,10 @@ each time you do a `udp send`.
 
 1. On Node 1, open the UDP socket.
 
-    ```
-    > udp open
-    Done
-    ```
+   ```
+   > udp open
+   Done
+   ```
 
 1. On Node 1, bind the socket.
 
@@ -129,33 +129,33 @@ each time you do a `udp send`.
    Done
    ```
 
-1.  On Node 2, open the UDP socket.
+1. On Node 2, open the UDP socket.
 
-    ```
-    > udp open
-    Done
-    ```
+   ```
+   > udp open
+   Done
+   ```
 
-1.  On Node 2, use the `udp connect` command to open communication to Node 1.
+1. On Node 2, use the `udp connect` command to open communication to Node 1.
 
-    ```
-    > udp connect fdde:ad00:beef:0:bb1:ebd6:ad10:f33 1234
-    Done
-    ```
+   ```
+   > udp connect fdde:ad00:beef:0:bb1:ebd6:ad10:f33 1234
+   Done
+   ```
 
-    For complete options with `udp connect`, refer to
-    [udp connect](https://openthread.io/reference/cli/commands#udp_connect)
+   For complete options with `udp connect`, refer to
+   [udp connect](https://openthread.io/reference/cli/commands#udp_connect)
 
 1. On Node 2, use the `udp send` command to send a message to Node 1, but do not
    specify `ip` and `port` in the `udp send` command syntax.
 
-    ```
-    > udp send hello
-    Done
-    ```
+   ```
+   > udp send hello
+   Done
+   ```
 
-    By not specifying `ip` and `port`, the `udp send` command uses the `ip` and `port`
-    that were specified in the `udp connect` command. 
+   By not specifying `ip` and `port`, the `udp send` command uses the `ip` and `port`
+   that were specified in the `udp connect` command. 
 
 ## License
 
