@@ -338,6 +338,7 @@ CLI commands support the following Doxygen ALIASES and special commands:
 | @overview | @overview | Creates a link to the [OpenThread CLI Overview](https://openthread.io/reference/cli). |
 | @netdata | @netdata | Creates a link to [Display and Manage Network Data with OT CLI](https://openthread.io/reference/cli/concepts/netdata). |
 | @dataset | @dataset | Creates a link to [Display and Manage Datasets with OT CLI](https://openthread.io/reference/cli/concepts/dataset). |
+| @udp | @udp | Creates a link to [Test UDP Functionality With OT CLI](https://openthread.io/reference/cli/concepts/udp). |
 | @moreinfo | @moreinfo{@netdata} | Creates a referral link. |
 | @note | @note Important callout. | Creates a note callout box. |
 
