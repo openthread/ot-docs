@@ -22,6 +22,8 @@ toc:
   path: /codelabs/openthread-simulation/
 - title: Simulation with Toolchain
   path: /codelabs/openthread-simulation-posix/
+- title: Build a Thread Network (Espressif)
+  path: /codelabs/esp-openthread-hardware/
 - title: Build a Thread Network (Nordic)
   path: /codelabs/openthread-hardware/
 - title: Build a Thread Network (Silicon Labs)
