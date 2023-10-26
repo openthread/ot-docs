@@ -45,6 +45,9 @@ Dive right into hardware, where you will learn how to:
 *   Use the OpenThread CLI for Multicast and UDP (Nordic only)
 
 <a class="button button-primary"
+   href="https://openthread.io/codelabs/esp-openthread-hardware/">Try the Espressif Hardware Codelab</a>
+
+<a class="button button-primary"
    href="https://openthread.io/codelabs/openthread-hardware/">Try the Nordic Hardware Codelab</a>
 
 <a class="button button-primary"
