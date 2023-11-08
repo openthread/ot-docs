@@ -4,8 +4,9 @@ Thread networks offer several `cli tcp` commands for testing peer-to-peer commun
 using TCP endpoints. The `cli tcp` provides one sample TCP endpoint and one sample
 TCP listener with which all `tcp`commands interact.
 
-The examples that follow demonstrate how you can open and bind sockets, how to
-connect the socket, and how to send messages using UDP sockets.
+Command overviews and the example that follows provide information on initializing
+the example TCP endpoint and TCP listener, how to connect to a peer TCP endpoint,
+and how to send a message to the peer.
 
 ## TCP commands
 
@@ -32,7 +33,7 @@ The TCP commands begin alphabetically with
 
 Use the `tcp init` command to initialize the TCP module to begin TCP communication.
 The TCP module can then perform many functions, such as listening for incoming
-connections using the example TCP listener provided by the `udp` CLI.
+connections using the example TCP listener provided by the `tcp` CLI.
 If you want to deinitialize the example TCP listener and the example TCP endpoint,
 you can issue the `tcp deinit` command.
 
