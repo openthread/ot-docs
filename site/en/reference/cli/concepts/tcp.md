@@ -66,7 +66,7 @@ destination endpoint that was speciifed in a preceding `tcp connect` command.
 
 ### `benchmark` commands
 
-Once a TCP connections is established between two nodes, you can use the
+Once a TCP connection is established between two nodes, you can use the
 `benchmark` commands to send large amounts of data between the nodes to test
 network bandwidth and performance. The number of transmitted bytes in milliseconds
 as well as the TCP Goodput will be provided in the `benchmark` results.
@@ -111,12 +111,12 @@ issue this command when data transfer is complete.
 Based on the example steps shown above, the following output would be expected:
 
 1. After Node 2 runs the `tcp connect` command, Node 2 should receive:
-   the message `TCP: Connection established'.
+   the message `TCP: Connection established`.
 1. Node 1 should then receive the messages (with example IPv6 address and port):
-    * `Accepted connection from [fe80:0:0:0:8f3:f602:bf9b:52f2]:49152'
-    * `TCP: Connection established'
+    * `Accepted connection from [fe80:0:0:0:8f3:f602:bf9b:52f2]:49152`
+    * `TCP: Connection established`
 1. After Node 2 runs the `tcp send` command, Node 1 should receive:
-   the message: `TCP: Received 5 bytes: hello' 
+   the message: `TCP: Received 5 bytes: hello` 
     
 ## License
 
