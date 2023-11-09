@@ -1,8 +1,8 @@
 # Test TCP Functionality With OT CLI
 
-Thread networks offer several `cli tcp` commands for testing peer-to-peer communication
-using TCP endpoints. The `cli tcp` provides one sample TCP endpoint and one sample
-TCP listener with which all `tcp`commands interact.
+OpenThread offers TCP commands for use with a Thread network to test peer-to-peer
+communication between TCP endpoints. The `cli tcp` provides one sample TCP
+endpoint and one sample TCP listener with which all `tcp`commands interact.
 
 Command overviews and the example that follows provide information on initializing
 the example TCP endpoint and TCP listener, how to connect to a peer TCP endpoint,
@@ -34,39 +34,36 @@ The TCP commands begin alphabetically with
 Use the `tcp init` command to initialize the TCP module to begin TCP communication.
 The TCP module can then perform many functions, such as listening for incoming
 connections using the example TCP listener provided by the `tcp` CLI.
-If you want to deinitialize the example TCP listener and the example TCP endpoint,
-you can issue the `tcp deinit` command.
+To deinitialize the example TCP listener and the example TCP endpoint,
+issue the `tcp deinit` command.
 
 ### `bind` command
 
-After you initialize the example TCP endpoint, you can run a `tcp bind`
-command to assign an IPv6 address and a port to the TCP endpoint. This binds
-the endpoint for communication. Assigning the IPv6 address and port is also
-referred to as "naming the endpoint."
+To bind the example TCP endpoint once you have initialized the TCP module,
+run a `tcp bind` command to assign an IPv6 address and a port to the TCP endpoint.
+This binds the endpoint for communication. Assigning the IPv6 address and port
+is also referred to as "naming the endpoint."
 
-### `listen` command
+### `listen` command 
 
-After you initialize the TCP module, you can run a `tcp listen` command to
-use the example TCP listener to listen for incoming connections on the
-TCP endpoint specified with its IPv6 address and port number.
+To use the example TCP listener once you have initialized the TCP module,
+run a `tcp listen` command and specify the IPv6 address and listening port.
 
-If you want the example listener to stop listening for incoming TCP connections,
-you can issue the `tcp stoplistening` command. 
+To stop the example TCP listener from listening for incoming TCP connections,
+issue the `tcp stoplistening` command. 
 
 ### `connect` command
 
-A `tcp connect` command can be used to connect the example TCP endpoint to a
-peer TCP endpoint address. You can then issue a `tcp send` command to send a
-message to the peer.
+A `tcp connect` command connects the example TCP endpoint to a peer TCP endpoint address.
 
 ### `send` command
 
-A `tcp send` command sends a message using the example TCP endpoint to the
-destination endpoint that was speciifed in a preceding `tcp connect` command.
+Once a connection is established between two nodes, issue a `tcp send` command
+to send a message to the peer.
 
 ### `benchmark` commands
 
-Once a TCP connection is established between two nodes, you can use the
+Once a TCP connection is established between two nodes, optionally use the
 `benchmark` commands to send large amounts of data between the nodes to test
 network bandwidth and performance. The number of transmitted bytes in milliseconds
 as well as the TCP Goodput will be provided in the `benchmark` results.
@@ -110,13 +107,13 @@ issue this command when data transfer is complete.
 
 Based on the example steps shown above, the following output would be expected:
 
-1. After Node 2 runs the `tcp connect` command, Node 2 should receive:
+1. After Node 2 runs the `tcp connect` command, Node 2 should receive
    the message `TCP: Connection established`.
 1. Node 1 should then receive the messages (with example IPv6 address and port):
-    * `Accepted connection from [fe80:0:0:0:8f3:f602:bf9b:52f2]:49152`
-    * `TCP: Connection established`
-1. After Node 2 runs the `tcp send` command, Node 1 should receive:
-   the message: `TCP: Received 5 bytes: hello` 
+    1. `Accepted connection from [fe80:0:0:0:8f3:f602:bf9b:52f2]:49152`
+    1. `TCP: Connection established`
+1. After Node 2 runs the `tcp send` command, Node 1 should receive
+   the message `TCP: Received 5 bytes: hello` 
     
 ## License
 
