@@ -110,8 +110,8 @@ Based on the example steps shown above, the following output would be expected:
 1. After Node 2 runs the `tcp connect` command, Node 2 should receive
    the message `TCP: Connection established`.
 1. Node 1 should then receive the messages (with example IPv6 address and port):
-    1. `Accepted connection from [fe80:0:0:0:8f3:f602:bf9b:52f2]:49152`
-    1. `TCP: Connection established`
+    - `Accepted connection from [fe80:0:0:0:8f3:f602:bf9b:52f2]:49152`
+    - `TCP: Connection established`
 1. After Node 2 runs the `tcp send` command, Node 1 should receive
    the message `TCP: Received 5 bytes: hello` 
     
