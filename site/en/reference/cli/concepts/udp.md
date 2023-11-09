@@ -1,8 +1,8 @@
 # Test UDP Functionality With OT CLI
 
-Thread networks offer several `cli udp` commands for testing peer-to-peer communication
-using UDP sockets. The `cli udp` provides one sample socket with which all `udp`
-commands interact.
+OpenThread offers UDP commands for use with a Thread network to test peer-to-peer
+communication between UDP sockets. The `cli udp` provides one sample socket with
+which all `udp` commands interact.
 
 The examples that follow demonstrate how you can open and bind sockets, how to
 connect the socket, and how to send messages using UDP sockets.
