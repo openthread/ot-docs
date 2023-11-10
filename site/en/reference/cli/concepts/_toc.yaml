@@ -5,5 +5,7 @@ toc:
     path: /reference/cli/concepts/netdata
   - title: Operational Datasets
     path: /reference/cli/concepts/dataset
+  - title: TCP
+    path: /reference/cli/concepts/tcp
   - title: UDP
     path: /reference/cli/concepts/udp
