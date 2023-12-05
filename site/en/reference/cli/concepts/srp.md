@@ -67,6 +67,7 @@ INTRO TEXT
    ```
    > ./output/simulation/bin/ot-cli-ftd 1
    ```
+
 1. Set up a Thread network and start the SRP server:
 
    ```
