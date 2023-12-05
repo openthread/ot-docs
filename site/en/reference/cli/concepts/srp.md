@@ -63,8 +63,7 @@ INTRO TEXT
 ### Starting the SRP Server
 
 1. Start the SRP server node:
-
-    
+  
    ```
    > ./output/simulation/bin/ot-cli-ftd 1
    ```
