@@ -140,25 +140,27 @@ INTRO TEXT
    > srp client autostart enable
    Done
    ```
-Use the `srp client autostart enable` command to enable auto-start mode on the client.
-The client monitors network data to discover available SRP servers within
-the Thread network, then the client automatically starts itself. Alternatively,
-start the client manually by issuing the `srp client start` command, and be sure
-to include the SRP address and port in the command.
 
-The SRP Server listening UDP port, which is `c002(49154)` in the example below,
-is included in the server data that is returned by running the `netdata show` command.
+   As shown above, use the `srp client autostart enable` command to enable
+   auto-start mode on the client. The client monitors network data to discover
+   available SRP servers within the Thread network, then the client
+   automatically starts itself. Alternatively, start the client manually by
+   issuing the `srp client start` command, and be sure
+   to include the SRP address and port in the command.
 
-```
-> netdata show
-Prefixes:
-Routes:
-Services:
-44970 5d c002 s 8400
-Done
-srp client start fded:5114:8263:1fe1:68bc:ec03:c1ad:9325 49154
-Done
-```
+1. Run the `netdata show` command to display server data:
+  
+   ```
+   > netdata show
+   Prefixes:
+   Routes:
+   Services:
+   44970 5d c002 s 8400
+   Done
+   srp client start fded:5114:8263:1fe1:68bc:ec03:c1ad:9325 49154
+   Done
+   ```
+   The SRP server listening UDP port is `c002(49154)` in the example above.
 
 ### Verify the service status
 
@@ -172,9 +174,12 @@ Done
    instance:"my-service", name:"_ipps._tcp", state:Registered, port:12345, priority:0, weight:0
    Done
    ```
-1. Make sure it shows `state:Registered` for both host and service commands
-   ```
+
+   Make sure the output shows `state:Registered` for both host and service commands,
+   as in the above example.
+
 1. Check the host and service on the server node:
+
    ```
    > srp server host
    my-host.default.service.arpa.
@@ -195,9 +200,9 @@ Done
    addresses: [fded:5114:8263:1fe1:44f9:cc06:4a2d:534]
    Done
    ```
-   Make sure the output shows `deleted: false` for both the `srp server host`
-   and `srp service service` commands.
 
+   Make sure the output shows `deleted: false` for both the `srp server host`
+   and `srp service service` commands, as in the example above.
 
 ### 
 
