@@ -1,4 +1,4 @@
-# Setting Up Service Registration Protocol (SRP) Server-Client Connectivity With OT CLI
+# Set Up Service Registration Protocol (SRP) Server-Client Connectivity With OT CLI
 
 OpenThread offers SRP server and client commands for use with a Thread network
 to perform such functions as registering and leasing services, and managing
@@ -56,11 +56,12 @@ The SRP client commands begin alphabetically with
 The [OpenThread Border Router codelab](https://openthread.io/codelabs/openthread-border-router#1)
 includes information about how to set up the SRP client end device.
 
-## Example
+## Example Showing Basic SRP server and client commands
 
-INTRO TEXT
+The following steps use basic SRP commands to set up a Thread network, start
+the SRP server and client, verify server status, and remove a service.
 
-### Starting the SRP Server
+### Start the SRP Server
 
 1. Start the SRP server node:
   
@@ -104,7 +105,7 @@ INTRO TEXT
    Done
    ```
 
-### Starting the SRP client
+### Start the SRP client
 
 1. Start the SRP Client node:
 
@@ -202,10 +203,47 @@ INTRO TEXT
    ```
 
    Make sure the output shows `deleted: false` for both the `srp server host`
-   and `srp service service` commands, as in the example above.
+   and `srp service service` commands, as in the example above. 
 
-### 
+### Remove the service
 
+1. Remove the service via the client node:
+
+   ```
+   > srp client service remove my-service _ipps._tcp
+   Done
+   ```
+
+1. Confirm via the server node that the service has been removed:
+
+   ```
+   > srp server service
+   my-service._ipps._tcp.default.service.arpa.
+   deleted: true
+   Done
+   ```
+
+   The service entry is listed in the output because the name of service is
+   not removed.
+
+### Remove the host and service names
+
+1. Remove a host and service, as well as their names, via the client node:
+
+   ```
+   > srp client host remove 1
+   Done
+   ```
+
+1. Confirm on the server node that no host or service entries are listed:
+
+   ```
+   > srp server host
+   Done
+   > srp server service
+   Done
+   >
+   ```
 
 ### `XXXX` command
 
