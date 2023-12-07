@@ -4,7 +4,7 @@ OpenThread offers SRP server and client commands for use with a Thread network
 to perform such functions as registering and leasing services, and managing
 server and client hosts.
 
-This guide provides some basic tasks that use some of the more common `srp server`
+This guide provides basic tasks that use some of the more common `srp server`
 and `srp client` commands.
 
 ## SRP server commands
@@ -187,7 +187,7 @@ is used for illustrative purposes.
 
 ### Verify the service status
 
-1. Check if the host and service has been successfully registered on the client node:
+1. Check if the host and service have been successfully registered on the client node:
 
    ```
    > srp client host
