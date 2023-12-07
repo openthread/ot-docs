@@ -25,7 +25,7 @@ service
 state
 Done
 
-## SRP Client Commands
+## SRP client commands
 
 For a list of `srp client` commands, type `help`:
 
@@ -51,17 +51,44 @@ The SRP server commands begin alphabetically with
 The SRP client commands begin alphabetically with
 [srp client autostart (get)](https://openthread.io/reference/cli/commands#srp_client_autostart_get).
 
-## Thread Border Router codelab reference
+## Thread Border Router codelab
 
 The [OpenThread Border Router codelab](https://openthread.io/codelabs/openthread-border-router#1)
 includes information about how to set up the SRP client end device.
 
+## Overviews of some basic SRP commands
+
+The following commands are a subset of the `srp server` and `srp client` that
+can be used in sequence (example in the next section) to perform typical SRP tasks:
+
+1. `srp server enable` enables the SRP server once you have created the Thread network.
+
+1. `srp client host name` sets the client host name when the host is
+   not registered with the server. 
+
+1. `srp client host address (set)` either enables auto host client address mode or
+   explicitly sets the list of host client addresses.
+
+1. `srp client service add` adds  a service with a given instance name, service
+    name, and port number.
+
+1. `srp client autostart enable` enables auto-start mode. You can also manually
+   start the client by running `srp client start`. 
+
+1. `srp client host` and `srp client service` provide status about whether
+   the client host and service have been successfully registered on the client node.
+
+1. `srp client service remove` removes a service but retains the service name.
+
+1. `srp client host remove` removes the host, service, and their respective names.
+
 ## Example Showing Basic SRP server and client commands
 
 The following steps use basic SRP commands to set up a Thread network, start
-the SRP server and client, verify server status, and remove a service.
+the SRP server and client, verify server status, and remove a service. Sample data
+is used for illustrative purposes.
 
-### Start the SRP Server
+### Start the SRP server
 
 1. Start the SRP server node:
   
@@ -69,7 +96,7 @@ the SRP server and client, verify server status, and remove a service.
    > ./output/simulation/bin/ot-cli-ftd 1
    ```
 
-1. Set up a Thread network and start the SRP server:
+1. Set up a Thread network, then enable the SRP server by running the `srp server enable` command:
 
    ```
    > dataset init new
@@ -113,7 +140,8 @@ the SRP server and client, verify server status, and remove a service.
    > ./output/simulation/bin/ot-cli-ftd 2
    ```
 
-1. Join the Thread network, and register a `_ipps._tcp` service:
+1. Join the Thread network, set the client host name and address, and
+   register a service.
    
    ```
    > dataset networkkey 7fcbae4153cc2955c28440c15d4d4219
@@ -147,18 +175,12 @@ the SRP server and client, verify server status, and remove a service.
    available SRP servers within the Thread network, then the client
    automatically starts itself. Alternatively, start the client manually by
    issuing the `srp client start` command, and be sure
-   to include the SRP address and port in the command.
+   to include the SRP address and port in the command (see below).
 
-1. Run the `netdata show` command to display server data:
+1. If manually starting the client, run the following:
   
    ```
-   > netdata show
-   Prefixes:
-   Routes:
-   Services:
-   44970 5d c002 s 8400
-   Done
-   srp client start fded:5114:8263:1fe1:68bc:ec03:c1ad:9325 49154
+   > srp client start fded:5114:8263:1fe1:68bc:ec03:c1ad:9325 49154
    Done
    ```
    The SRP server listening UDP port is `c002(49154)` in the example above.
@@ -244,14 +266,6 @@ the SRP server and client, verify server status, and remove a service.
    Done
    >
    ```
-
-### `XXXX` command
-
-Use the `tcp init` command to initialize the TCP module to begin TCP communication.
-The TCP module can then perform many functions, such as listening for incoming
-connections using the example TCP listener provided by the `tcp` CLI.
-To deinitialize the example TCP listener and the example TCP endpoint,
-issue the `tcp deinit` command.
 
 ## License
 
