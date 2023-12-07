@@ -1,8 +1,9 @@
 # Set Up Service Registration Protocol (SRP) Server-Client Connectivity With OT CLI
 
-OpenThread offers SRP server and client commands for use with a Thread network
-to perform such functions as registering and leasing services, and managing
-server and client hosts.
+OpenThread offers both SRP server and client functionality, enabling devices
+to register DNS-based services using the standard DNS Update sent as unicast
+packets. This functionality enables DNS-Based Service Discovery.
+
 
 This guide provides basic tasks that use some of the more common `srp server`
 and `srp client` commands.
@@ -63,8 +64,7 @@ can be used in sequence (example in the next section) to perform typical SRP tas
 
 1. `srp server enable` enables the SRP server once you have created the Thread network.
 
-1. `srp client host name` sets the client host name when the host is
-   not registered with the server. 
+1. `srp client host name` sets the host name to be used by the client. 
 
 1. `srp client host address (set)` either enables auto host client address mode or
    explicitly sets the list of host client addresses.
@@ -78,13 +78,16 @@ can be used in sequence (example in the next section) to perform typical SRP tas
 1. `srp client host` and `srp client service` provide status about whether
    the client host and service have been successfully registered on the client node.
 
+1. `srp server host` and `srp server service` provide host and service status
+    on the server node.
+
 1. `srp client service remove` removes a service but retains the service name.
 
-1. `srp client host remove` removes the host, service, and their respective names.
+1. `srp client host remove` removes the host and all registered services.
 
 ## Example Showing Basic SRP server and client commands
 
-The following steps use basic SRP commands to set up a Thread network, start
+The following steps use basic CLI commands to set up a Thread network, start
 the SRP server and client, verify server status, and remove a service. Sample data
 is used for illustrative purposes.
 
@@ -225,7 +228,7 @@ is used for illustrative purposes.
    ```
 
    Make sure the output shows `deleted: false` for both the `srp server host`
-   and `srp service service` commands, as in the example above. 
+   and `srp server service` commands, as in the example above. 
 
 ### Remove the service
 
@@ -250,7 +253,7 @@ is used for illustrative purposes.
 
 ### Remove the host and service names
 
-1. Remove a host and service, as well as their names, via the client node:
+1. Remove the host and all its registered services:
 
    ```
    > srp client host remove 1
