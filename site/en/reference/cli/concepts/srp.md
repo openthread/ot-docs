@@ -61,11 +61,11 @@ includes information about how to set up the SRP client end device.
 
 SRP server and client commands can be used in sequence to perform typical SRP tasks:
 
-1. [Start the SRRP server](#Start-the-srrp-server).
+1. [Start the SRRP server](#start-the-srrp-server).
    
    `srp server enable` enables the SRP server once you have created the Thread network.
 
-1. [Start the SRRP client](Start-the-srrp-client).
+1. [Start the SRRP client](#start-the-srrp-client).
 
    * `srp client host name` sets the host name to be used by the client. 
 
@@ -78,7 +78,7 @@ SRP server and client commands can be used in sequence to perform typical SRP ta
    * `srp client autostart enable` enables auto-start mode. You can also manually
      start the client by running `srp client start`. 
 
-1. [Verify the service status](Verify-the-service-status).
+1. [Verify the service status](#verify-the-service-status).
 
    * `srp client host` and `srp client service` provide status about whether
       the client host and service have been successfully registered on the client node.
@@ -86,11 +86,11 @@ SRP server and client commands can be used in sequence to perform typical SRP ta
    * `srp server host` and `srp server service` provide host and service status
      on the server node.
 
-1. [Remove the service](Remove-the-service).
+1. [Remove the service](#remove-the-service).
 
    `srp client service remove` removes a service but retains the service name.
 
-1. [Remove the host and service names](remove_the_host_and_service_names).
+1. [Remove the host and service names](#remove_the_host_and_service_names).
 
    `srp client host remove` removes the host and all registered services.
 
