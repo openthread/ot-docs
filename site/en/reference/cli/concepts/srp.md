@@ -59,35 +59,44 @@ includes information about how to set up the SRP client end device.
 
 ## Overviews of some basic SRP commands
 
-The following commands are a subset of the `srp server` and `srp client` that
-can be used in sequence (example in the next section) to perform typical SRP tasks:
+SRP server and client commands can be used in sequence to perform typical SRP tasks:
 
-1. `srp server enable` enables the SRP server once you have created the Thread network.
+1. [Start the SRRP server](#start-the-srrp-server)
+   
+   `srp server enable` enables the SRP server once you have created the Thread network.
 
-1. `srp client host name` sets the host name to be used by the client. 
+1. [Start the SRRP client](start-the-srrp-client)
 
-1. `srp client host address (set)` either enables auto host client address mode or
-   explicitly sets the list of host client addresses.
+   * `srp client host name` sets the host name to be used by the client. 
 
-1. `srp client service add` adds  a service with a given instance name, service
-    name, and port number.
+   * `srp client host address (set)` either enables auto host client address mode or
+     explicitly sets the list of host client addresses.
 
-1. `srp client autostart enable` enables auto-start mode. You can also manually
-   start the client by running `srp client start`. 
+   * `srp client service add` adds  a service with a given instance name, service
+      name, and port number.
 
-1. `srp client host` and `srp client service` provide status about whether
-   the client host and service have been successfully registered on the client node.
+   * `srp client autostart enable` enables auto-start mode. You can also manually
+     start the client by running `srp client start`. 
 
-1. `srp server host` and `srp server service` provide host and service status
-    on the server node.
+1. [Verify the service status](verify-the-service-status)
 
-1. `srp client service remove` removes a service but retains the service name.
+   * `srp client host` and `srp client service` provide status about whether
+      the client host and service have been successfully registered on the client node.
 
-1. `srp client host remove` removes the host and all registered services.
+   * `srp server host` and `srp server service` provide host and service status
+     on the server node.
 
-## Example Showing Basic SRP server and client commands
+1. [Remove the service](remove-the-service)
 
-The following steps use basic CLI commands to set up a Thread network, start
+   `srp client service remove` removes a service but retains the service name.
+
+1. [Remove the host and service names](remove-the-host-and-service-names)
+
+   `srp client host remove` removes the host and all registered services.
+
+## Examples of SRP server and client command usage
+
+These examples use basic CLI commands to set up a Thread network, start
 the SRP server and client, verify server status, and remove a service. Sample data
 is used for illustrative purposes.
 
@@ -96,7 +105,7 @@ is used for illustrative purposes.
 1. Start the SRP server node:
   
    ```
-   > ./output/simulation/bin/ot-cli-ftd 1
+   $ ./output/simulation/bin/ot-cli-ftd 1
    ```
 
 1. Set up a Thread network, then enable the SRP server by running the `srp server enable` command:
@@ -140,7 +149,7 @@ is used for illustrative purposes.
 1. Start the SRP Client node:
 
    ```
-   > ./output/simulation/bin/ot-cli-ftd 2
+   $ ./output/simulation/bin/ot-cli-ftd 2
    ```
 
 1. Join the Thread network, set the client host name and address, and
@@ -176,11 +185,10 @@ is used for illustrative purposes.
    As shown above, use the `srp client autostart enable` command to enable
    auto-start mode on the client. The client monitors network data to discover
    available SRP servers within the Thread network, then the client
-   automatically starts itself. Alternatively, start the client manually by
-   issuing the `srp client start` command, and be sure
-   to include the SRP address and port in the command (see below).
+   automatically starts itself.
 
-1. If manually starting the client, run the following:
+1. If manually starting the client, run the following, and include
+   the SRP address and port:
   
    ```
    > srp client start fded:5114:8263:1fe1:68bc:ec03:c1ad:9325 49154
