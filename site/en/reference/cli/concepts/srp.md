@@ -61,11 +61,11 @@ includes information about how to set up the SRP client end device.
 
 SRP server and client commands can be used in sequence to perform typical SRP tasks:
 
-1. [Start the SRRP server](#start-the-srrp-server).
+1. [Start the SRP server](#start-the-srp-server).
    
    `srp server enable` enables the SRP server once you have created the Thread network.
 
-1. [Start the SRRP client](#start-the-srrp-client).
+1. [Start the SRP client](#start-the-srp-client).
 
    * `srp client host name` sets the host name to be used by the client. 
 
