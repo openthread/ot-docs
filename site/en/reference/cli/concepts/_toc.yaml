@@ -5,6 +5,8 @@ toc:
     path: /reference/cli/concepts/netdata
   - title: Operational Datasets
     path: /reference/cli/concepts/dataset
+  - title: SRP
+    path: /reference/cli/concepts/srp
   - title: TCP
     path: /reference/cli/concepts/tcp
   - title: UDP
