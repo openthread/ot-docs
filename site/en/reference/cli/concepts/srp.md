@@ -90,7 +90,7 @@ SRP server and client commands can be used in sequence to perform typical SRP ta
 
    `srp client service remove` removes a service but retains the service name.
 
-1. [Remove the host and service names](Remove-the-host-and-service-names).
+1. [Remove the host and service names](remove_the_host_and_service_names).
 
    `srp client host remove` removes the host and all registered services.
 
