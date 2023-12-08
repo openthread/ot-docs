@@ -153,7 +153,7 @@ is used for illustrative purposes.
    ```
 
 1. Join the Thread network, set the client host name and address, and
-   register a service.
+   register a service:
    
    ```
    > dataset networkkey 7fcbae4153cc2955c28440c15d4d4219
