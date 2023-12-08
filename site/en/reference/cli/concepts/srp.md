@@ -54,7 +54,7 @@ The SRP client commands begin alphabetically with
 
 ## Thread Border Router codelab
 
-The [OpenThread Border Router codelab](https://openthread.io/codelabs/openthread-border-router#1)
+The [OpenThread Border Router codelab](https://openthread.io/codelabs/openthread-border-router#3)
 includes information about how to set up the SRP client end device.
 
 ## Overviews of some basic SRP commands
