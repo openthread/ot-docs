@@ -23,13 +23,15 @@ To set up the environment, please follow the [official installation guide](https
 Clone the [esp-idf](https://github.com/espressif/esp-idf) and the [esp-thread-br](https://github.com/espressif/esp-thread-br) repository.
 
 ```
-$ git clone -b v5.1.1 --recursive https://github.com/espressif/esp-idf.git
+$ git clone -b v5.1.2 --recursive https://github.com/espressif/esp-idf.git
 $ cd esp-idf
 $ ./install.sh
 $ . ./export.sh
 $ cd ..
-$ git clone --recursive https://github.com/espressif/esp-thread-br.git
+$ git clone -b v1.0 --recursive https://github.com/espressif/esp-thread-br.git
 ```
+
+> Note: The `esp-thread-br` branch v1.0 with the `esp-idf` branch v5.1.2 is one of the release versions. For the latest version of `esp-thread-br`, please refer to [ESP Thread Border Router Codelab: 2.1.1. Set up the Repositories](https://docs.espressif.com/projects/esp-thread-br/en/latest/dev-guide/build_and_run.html#set-up-the-repositories).
 
 ## Step 2: Configure the Thread and the Wi-Fi network
 
