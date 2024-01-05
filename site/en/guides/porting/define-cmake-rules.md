@@ -105,7 +105,7 @@ target_include_directories(ot-config INTERFACE
 
 Now that the top-level configuration is defined, it's time to add other subdirectories to the build tree.
 
-The `src` folder is where the platform-abstration layer source code is located. The `third_party` folder contains any third-party code.
+The `src` folder is where the platform-abstraction layer source code is located. The `third_party` folder contains any third-party code.
 
 If you would like to include sample applications in the repo, create an `examples` folder and add it to the build tree as well.
 
