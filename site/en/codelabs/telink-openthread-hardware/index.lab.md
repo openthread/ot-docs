@@ -135,7 +135,7 @@ Duration: 12:00
 
 ### Set up Telink Zephyr Development Environment
 
-On the Linux machine, open an CLI terminal and start by executing the following commands to ensure that your APT is up-to-date.
+On the Linux machine, open a CLI terminal and start by executing the following commands to ensure that your APT is up-to-date.
 
 ```console
 $ sudo apt update
