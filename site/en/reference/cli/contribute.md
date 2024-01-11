@@ -326,13 +326,15 @@ CLI commands support the following Doxygen ALIASES and special commands:
 | @moreinfo | @moreinfo{@netdata} | Creates a referral link. |
 | @note | @note Important callout. | Creates a note callout box. |
 
-## Fixing broken lines from OpenThread `make pretty` script
+## Fixing lines broken by the `make pretty` script
 
-Occasionally, the `make pretty` script causes long lines to break incorrectly.
-This can happen with a long list of parameters or long lines of command output
-that go beyond the column width limit that the `make pretty` check imposes. 
-This situation can be addressed by enclosing line breaks with an HTML comment
-tag, as shown in two examples below. 
+Some code comments, such as CLI parameters or command output, must be on
+a single line for them to render correctly in the openthread.io reference.
+However, `make pretty` imposes a column-width limit, which can break the rendered
+output for long lines.
+ 
+This situation can be addressed by adding line breaks and enclosing them
+with an HTML comment tag, as shown in two examples below. 
 
 The first example is the `dns resolve` command, which can take up to six
 parameters. To correctly render the syntax using Doxygen while still passing
