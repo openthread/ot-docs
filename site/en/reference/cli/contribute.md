@@ -334,7 +334,7 @@ that go beyond the column width limit that the `make pretty` check imposes.
 This situation can be addressed by enclosing line breaks with an HTML comment
 tag, as shown in two different examples below. 
 
-The first example is the `dns resolve` command that can take up to six
+The first example is the `dns resolve` command, which can take up to six
 parameters. To correctly render the syntax using Doxygen while still passing
 the `make pretty` check, the parameters must be split across three lines
 in the source:
