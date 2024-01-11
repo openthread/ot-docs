@@ -326,7 +326,7 @@ CLI commands support the following Doxygen ALIASES and special commands:
 | @moreinfo | @moreinfo{@netdata} | Creates a referral link. |
 | @note | @note Important callout. | Creates a note callout box. |
 
-## Broken lines from OpenThread `make pretty` script
+## Fixing broken lines from OpenThread `make pretty` script
 
 Occasionally, the `make pretty` script causes long lines to break incorrectly.
 This can happen with a long list of parameters or long lines of command output
