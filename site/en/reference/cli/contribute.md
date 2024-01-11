@@ -251,22 +251,6 @@ a period `.` to manually end the list.
 For additional examples, refer to Doxygen's
 [Lists](https://doxygen.nl/manual/lists.html).
 
-### Long lists of parameters
-
-Some commands may have so many parameters that they go beyond the column width
-limit imposed by OpenThread's `make pretty` check. For multi-line support on a
-`@cparam` tag, the line break must be enclosed within an HTML comment.
-
-For example, the `dns resolve` command can take up to 6 parameters. To correctly
-render them using Doxygen while passing the `make pretty` check, they must be
-split across 3 lines in the source:
-
-```none
-* @cparam dns resolve @ca{hostname} [@ca{dns-server-IP}] <!--
-* -->                 [@ca{dns-server-port}] [@ca{response-timeout-ms}] <!--
-* -->                 [@ca{max-tx-attempts}] [@ca{recursion-desired-boolean}]
-```
-
 ## Automatically link APIs
 
 You can link to other API methods or functions with `#otFunctionName` or
@@ -341,6 +325,45 @@ CLI commands support the following Doxygen ALIASES and special commands:
 | @udp | @udp | Creates a link to [Test UDP Functionality With OT CLI](https://openthread.io/reference/cli/concepts/udp). |
 | @moreinfo | @moreinfo{@netdata} | Creates a referral link. |
 | @note | @note Important callout. | Creates a note callout box. |
+
+## Fixing lines broken by the `make pretty` script
+
+Some code comments, such as CLI parameters or command output, must be on
+a single line for them to render correctly in the openthread.io reference.
+However, `make pretty` imposes a column-width limit, which can break the rendered
+output for long lines.
+ 
+This situation can be addressed by adding line breaks and enclosing them
+with an HTML comment tag, as shown in two examples below. 
+
+The first example is the `dns resolve` command, which can take up to six
+parameters. To correctly render the syntax using Doxygen while still passing
+the `make pretty` check, the parameters must be split across three lines
+in the source:
+
+```none
+* @cparam dns resolve @ca{hostname} [@ca{dns-server-IP}] <!--
+* -->                 [@ca{dns-server-port}] [@ca{response-timeout-ms}] <!--
+* -->                 [@ca{max-tx-attempts}] [@ca{recursion-desired-boolean}]
+```
+The second example is the output of the `history ipaddr list 5` command.
+For the output to render properly and still pass the `make pretty` check,
+each of the five output lines must be split into two lines, as follows:
+
+```none
+* history ipaddr list 5
+* 00:00:20.327 -> event:Removed address:2001:dead:beef:cafe:c4cb:caba:8d55:e30b <!--
+* -->prefixlen:64 origin:slaac scope:14 preferred:yes valid:yes rloc:no
+* 00:00:59.983 -> event:Added address:2001:dead:beef:cafe:c4cb:caba:8d55:e30b <!--
+* -->prefixlen:64 origin:slaac scope:14 preferred:yes valid:yes rloc:no
+* 00:01:22.535 -> event:Added address:fd00:0:0:0:0:0:0:1 prefixlen:64 <!--
+* -->origin:manual scope:14 preferred:yes valid:yes rloc:no
+* 00:02:33.221 -> event:Added address:fdde:ad00:beef:0:0:ff:fe00:fc00 <!--
+* -->prefixlen:64 origin:thread scope:3 preferred:no valid:yes rloc:no
+* 00:02:33.221 -> event:Added address:fdde:ad00:beef:0:0:ff:fe00:5400 <!--
+* -->prefixlen:64 origin:thread scope:3 preferred:no valid:yes rloc:yes
+* Done
+```
 
 ## License
 
