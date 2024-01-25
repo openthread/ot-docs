@@ -3,7 +3,7 @@
 Contributor: https://github.com/srickardti
 
 OpenThread Border Router (OTBR) provides support for the [BeagleBone
-Black](http://www.ti.com/tool/BEAGLEBK) (BBB) platform.
+Black](http://www.ti.com/tool/BEAGL-BONE-BLACK) (BBB) platform.
 
 Hardware requirements:
 
