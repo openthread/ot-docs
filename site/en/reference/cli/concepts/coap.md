@@ -39,12 +39,15 @@ Sample data are used for illustrative purposes.
 
 On the CoAP server node, perform the following steps:
 
-1. Start the CoAP server:
+1. Start the CoAP server.
+
    ```
    > coap start
    Done
    ```
-1. Create a test resource:
+
+1. Create a test resource.
+
    ```
    > coap resource test-resource
    Done
