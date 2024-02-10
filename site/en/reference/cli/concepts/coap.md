@@ -40,13 +40,11 @@ Sample data are used for illustrative purposes.
 On the CoAP server node, perform the following steps:
 
 1. Start the CoAP server:
-  
    ```
    > coap start
    Done
    ```
 1. Create a test resource:
-
    ```
    > coap resource test-resource
    Done
@@ -73,7 +71,7 @@ On the CoAP client node, perform the following steps:
    The `with payload: 30` item in the response from the server indicates that
    the current payload for the resource is set to sent 30 blocks of information.
    For more information about sending blocks of information and using the
-   `payload` option, refer to   
+   `payload` option, refer to 
    [coap post](https://openthread.io/reference/cli/commands#coap_post). 
 
 1. You can modify the resource using the `put` command:
