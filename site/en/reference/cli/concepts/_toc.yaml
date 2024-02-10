@@ -1,6 +1,8 @@
 toc:
 - title: CLI Concepts
   section:
+  - title: CoAP
+    path: /reference/cli/concepts/coap
   - title: Network Data
     path: /reference/cli/concepts/netdata
   - title: Operational Datasets
