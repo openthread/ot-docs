@@ -1,4 +1,4 @@
-# Test  Connectivity to a Constrained Application Protocol (CoAP) Resource Using the OT CLI
+# Test Connectivity to a Constrained Application Protocol (CoAP) Resource Using the OT CLI
 
 OpenThread offers both CoAP server and client functionality, enabling devices
 to connect to resources on the CoAP server and to observe each resource for
