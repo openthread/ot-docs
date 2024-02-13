@@ -2,7 +2,8 @@
 
 OpenThread offers both CoAP server and client functionality, enabling devices
 to connect to resources on the CoAP server, and observe each resource for
-a change in its current state.
+a change in its current state. The CpAP agent provided in the CLI can act
+as either the CoAP client or server.
 
 ## CoAP commands
 
@@ -39,7 +40,7 @@ Sample data are used for illustrative purposes.
 
 On the CoAP server node, perform the following steps:
 
-1. Start the CoAP server.
+1. Start the CoAP agent.
 
    ```
    > coap start
@@ -57,7 +58,7 @@ On the CoAP server node, perform the following steps:
 
 On the CoAP client node, perform the following steps:
 
-1. Start the CoAP service:
+1. Start the CoAP agent:
 
    ```
    > coap start
@@ -71,10 +72,13 @@ On the CoAP client node, perform the following steps:
    Done
    coap response from [fdde:ad00:beef:0:2780:9423:166c:1aac] with payload: 30
    ```
-   The `with payload: 30` item in the response from the server indicates that
-   the current payload for the resource is set to sent 30 blocks of information.
-   For more information about sending blocks of information and using the
-   `payload` option, refer to 
+   The last portion of the server `response` is the term
+   `with payload:`, followed
+   by all payload bytes in hexadecimal digit format.
+   Therefore, in the example, `with payload: 30` indicates that
+   the current payload for the resource is set to
+   one byte of payload information with a 0x30 hexadecimal value.
+   For more information about using the `payload` option, refer to 
    [coap post](https://openthread.io/reference/cli/commands#coap_post). 
 
 1. You can modify the resource using the `put` command:
@@ -92,6 +96,22 @@ On the CoAP client node, perform the following steps:
    parameter when the `type` is either `con` or `non-con`."
    For more information, refer to
    [coap put](https://openthread.io/reference/cli/commands#coap_put).
+
+   The server responds with its IPv6 address to indicate the request was handled.
+
+### Responses sent to CoAP server
+
+On the server, output from this example would be similar to the following:
+
+```
+coap request from [fdde:ad00:beef:0:b3:e3f6:2dcc:4b79] GET
+coap response sent
+coap request from [fdde:ad00:beef:0:b3:e3f6:2dcc:4b79] PUT with payload: 68656c6c6f7468657265
+coap response sent
+```
+
+The `payload` value of `68656c6c6f7468657265` is the string `hellothere` converted
+to ASCII code byte sequence.
 
 
 
