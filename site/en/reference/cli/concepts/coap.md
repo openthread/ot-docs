@@ -1,8 +1,8 @@
 # Testing  Connectivity to a Constrained Application Protocol (CoAP) Resource Using the OT CLI
 
 OpenThread offers both CoAP server and client functionality, enabling devices
-to connect to resources on the CoAP server, and observe each resource for
-a change in its current state. The CpAP agent provided in the CLI can act
+to connect to resources on the CoAP server and to observe each resource for
+a change in its current state. The CoAP agent provided in the CLI can act
 as either the CoAP client or server.
 
 ## CoAP commands
@@ -27,7 +27,7 @@ Done
 ## CLI Command Reference
 
 For descriptions and syntax of all commands, refer to the CLI Command Reference.
-The SRP server commands begin alphabetically with
+The `coap` commands begin alphabetically with
 [coap cancel](https://openthread.io/reference/cli/commands#coap_cancel).
 
 ## Example of CoAP server and client command usage
