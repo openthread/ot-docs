@@ -1,19 +1,19 @@
-# Test Connectivity to a Constrained Application Protocol Secure (CoAPS) Resource Using the OT CLI
+# Test Connectivity to a Secure CoAP Resource Using the OT CLI
 
-OpenThread offers both CoAPS server and client functionality, enabling devices
-to connect to resources on the CoAPS server and to observe each resource for
+OpenThread offers both Secure CoAP server and client functionality, enabling devices
+to connect to resources on the Secure CoAP server and to observe each resource for
 a change in its current state.
 
-CoAPS uses Datagram Transport Layer Security (DTLS) to establish secure,
+Secure CoAP uses Datagram Transport Layer Security (DTLS) to establish secure,
 end-to-end connections.
 
-The CoAPS agent provided in the CLI can act as either the CoAPS client or CoAPS server.
+The Secure CoAP agent provided in the CLI can act as either the Secure CoAP client or Secure CoAP server.
 
-This guide provides basic tasks that use some of the more common `coaps` commands.
+This guide provides basic tasks that use some of the more common Secure CoAP (or `coaps`) commands.
 
-## CoAPS commands
+## Secure CoAP commands
 
-For a list of  `coaps` commands, type `help`:
+For a list of Secure CoAP commands, type `help`:
 
 > coaps help
 connect
@@ -37,14 +37,14 @@ Done
 ## CLI Command Reference
 
 For descriptions and syntax of all commands, refer to the CLI Command Reference.
-The CoAPS commands begin alphabetically with
+The Secure CoAP commands begin alphabetically with
 [coaps connect](https://openthread.io/reference/cli/commands#coaps_connect).
 
 
-## Example of CoAPS server and client command usage
+## Example of Secure CoAP server and client command usage
 
-This example uses basic CLI commands to start a CoAPS server and client,
-create a test resource on the CoAPS server, and have the CoAPS client
+This example uses basic CLI commands to start a Secure CoAP server and client,
+create a test resource on the Secure CoAP server, and have the Secure CoAP client
 interact with the resource. Sample data are used for illustrative purposes.
 
 
@@ -57,29 +57,29 @@ For command syntax and examples, refer to
 [coaps x509](https://openthread.io/reference/cli/commands#coaps_x509).
 
 
-### Set up the CoAPS server
+### Set up the Secure CoAP server
 
-On the CoAPS server node, perform the following steps:
+On the Secure CoAP server node, perform the following steps:
 
-1. Start the CoAPS agent.
+1. Start the Secure CoAP agent.
 
    ```
    > coaps start
    Done
-             ```
+   ```
 
 1. Create a test resource.
 
    ```
    > coaps resource test-resource
    Done
-            ```
+   ```
 
-### Set up the CoAPS client
+### Set up the Secure CoAP client
 
-On the CoAPS client node, perform the following steps:
+On the Secure CoAP client node, perform the following steps:
 
-1. Start the CoAPS agent:
+1. Start the Secure CoAP agent:
 
    ```
    > coaps start
@@ -127,7 +127,7 @@ On the CoAPS client node, perform the following steps:
 
    The server responds with its IPv6 address to indicate the request was handled.
 
-### Responses sent to CoAPS server
+### Responses sent to the Secure CoAP server
 
 On the server, output from this example would be similar to the following:
 
