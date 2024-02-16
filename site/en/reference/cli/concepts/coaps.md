@@ -31,6 +31,8 @@ set
 start
 stop
 x509
+Done
+
 
 ## CLI Command Reference
 
@@ -38,11 +40,13 @@ For descriptions and syntax of all commands, refer to the CLI Command Reference.
 The CoAPS commands begin alphabetically with
 [coaps connect](https://openthread.io/reference/cli/commands#coaps_connect).
 
+
 ## Example of CoAPS server and client command usage
 
 This example uses basic CLI commands to start a CoAPS server and client,
 create a test resource on the CoAPS server, and have the CoAPS client
 interact with the resource. Sample data are used for illustrative purposes.
+
 
 ### Configure DTLS ciphersuites
 
