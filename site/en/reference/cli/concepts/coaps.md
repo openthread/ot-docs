@@ -52,9 +52,9 @@ interact with the resource. Sample data are used for illustrative purposes.
 
 The `coaps` CLI provides `psk` and `x509` commands that can be used with
 the PSK key and X.509 Certificate.
-For command syntax and examples, refer to:
-- [coaps psk](https://openthread.io/reference/cli/commands#coaps_psk)
-- [coaps x509](https://openthread.io/reference/cli/commands#coaps_x509)
+For command syntax and examples, refer to
+[coaps psk](https://openthread.io/reference/cli/commands#coaps_psk) and
+[coaps x509](https://openthread.io/reference/cli/commands#coaps_x509).
 
 
 ### Set up the CoAPS server
