@@ -32,14 +32,27 @@ sure to run `sudo modprobe ip6table_filter` for OTBR firewall support.
 This allows OTBR scripts to create rules inside the Docker container
 before `otbr-agent` starts.
 
-In a new terminal window, start OTBR Docker, referencing the RCP's serial port.
-For example, if the RCP is mounted at `/dev/ttyACM0`:
+Run the following commands before starting the container. That enables
+the IPv6 in the host machine and the IP forwarding. 
 
 ```
-$ docker run --sysctl "net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1" -p 8080:80 --dns=127.0.0.1 -it --volume /dev/ttyACM0:/dev/ttyACM0 --privileged openthread/otbr --radio-url spinel+hdlc+uart:///dev/ttyACM0
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0
+sudo sysctl -w net.ipv4.conf.all.forwarding=1 
+sudo sysctl -w net.ipv6.conf.all.forwarding=1
 ```
 
-Upon success, you should have output similar to this:
+In a new terminal window, start OTBR Docker container, referencing the RCP's serial port, as in the next command.
+
+> Notes: Consult the specific documentation from the used RCP and analyze if further
+configuration is necessary, for example, setting up baudrate:
+`--radio-url 'spinel+hdlc+uart:///dev/ttyUSB0?uart-baudrate=1000000'`, also replace `enp3s0` by the name of your interface on the computer running otbr docker, ex: `wlan0`.
+
+```
+$ docker run --net=host --dns=127.0.0.1 -it --volume /dev/ttyACM0:/dev/ttyACM0 --privileged openthread/otbr --radio-url spinel+hdlc+uart:///dev/ttyACM0 -B enp3s0
+```
+
+
+Upon success, you should have the initial output similar to this:
 
 ```
 WARNING: Localhost DNS setting (--dns=127.0.0.1) may fail in containers.
