@@ -117,7 +117,7 @@ On the Secure CoAP client node, perform the following steps:
    coaps response from fdde:ad00:beef:0:9903:14b:27e0:5744
    ```
    In this example, `con` means that you want a reliable message, which is
-   obtained using a confirmable message (`con`), to be sent to the CoAPS server.
+   obtained using a confirmable message (`con`), to be sent to the Secure CoAP server.
    The default is to send a non-confirmable (`non-con`) message.
 
    The string `hellothere` is an example of using the optional `payload`
