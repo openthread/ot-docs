@@ -9,7 +9,7 @@ end-to-end connections.
 
 The Secure CoAP agent provided in the CLI can act as either the Secure CoAP client or Secure CoAP server.
 
-This guide provides basic tasks that use some of the more common Secure CoAP (or `coaps`) commands.
+This guide provides basic tasks that use some of the more common Secure CoAP (`coaps`) commands.
 
 ## Secure CoAP commands
 
@@ -121,7 +121,7 @@ On the Secure CoAP client node, perform the following steps:
    The default is to send a non-confirmable (`non-con`) message.
 
    The string `hellothere` is an example of using the optional `payload`
-   parameter when the `type` is either `con` or `non-con`."
+   parameter when the `type` is either `con` or `non-con`.
    For more information, refer to
    [coaps put](https://openthread.io/reference/cli/commands#coaps_put).
 
