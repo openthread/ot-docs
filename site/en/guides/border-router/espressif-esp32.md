@@ -9,6 +9,8 @@ Hardware requirements:
 
 Espressif provides an [ESP Border Router Board](https://www.espressif.com/en/news/Thread_Border_Router_Certification) which integrates the host SoC (ESP32-S3) and the RCP (ESP32-H2) into one module.
 
+You only need to connect the board to the ESP32-S3 (main SoC) port. The main SoC automatically programs the Thread co-processor.
+
 ## Hardware platforms
 
 <figure>
