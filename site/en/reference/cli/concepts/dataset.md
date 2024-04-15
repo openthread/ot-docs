@@ -6,6 +6,18 @@ and Pending datasets.
 
 > Key Point: Thread network management can also be done with the [Thread Network SDK for Android](https://developers.home.google.com/thread) and [iOS Thread APIs](https://developer.apple.com/documentation/threadnetwork/).
 
+### WARNING - Restrictions for production use!
+
+The CLI commands to write/change the Active and Pending Operational Datasets may allow setting invalid parameters, or 
+invalid combinations of parameters, for testing purposes. These CLI commands can only be used:
+
+- To configure network parameters for the first device in a newly created Thread network.
+- For testing (not applicable to production devices).
+
+In production Thread networks, the correct method to write/change Operational Datasets is via a [Commissioner](README_COMMISSIONER.md) 
+that performs [commissioning](README_COMMISSIONING.md). Production devices that are not an active Commissioner and are part 
+of a Thread network MUST NOT modify the Operational Datasets in any way.
+
 ## Active Operational Dataset
 
 The Active Operational Dataset includes parameters that are currently in use
