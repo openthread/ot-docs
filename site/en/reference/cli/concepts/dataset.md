@@ -16,7 +16,7 @@ invalid combinations of parameters, for testing purposes. These CLI commands can
 
 In production Thread networks, the correct method to write/change Operational Datasets is via a
 [Commissioner](https://github.com/openthread/openthread/blob/main/src/cli/README_COMMISSIONER.md)
-that performs [commissioning](https://github.com/openthread/openthread/blob/main/src/cli/README_COMMISSIOING.md).
+that performs [commissioning](https://github.com/openthread/openthread/blob/main/src/cli/README_COMMISSIONING.md).
 Production devices that are not an active Commissioner and are part
 of a Thread network MUST NOT modify the Operational Datasets in any way.
 
