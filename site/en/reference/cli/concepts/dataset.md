@@ -8,13 +8,13 @@ and Pending datasets.
 
 ### WARNING - Restrictions for production use!
 
-The CLI commands to write/change the Active and Pending Operational Datasets may allow setting invalid parameters, or 
+The CLI commands to write or change the Active and Pending Operational Datasets may allow setting invalid parameters, or 
 invalid combinations of parameters, for testing purposes. These CLI commands can only be used:
 
-- To configure network parameters for the first device in a newly created Thread network.
-- For testing (not applicable to production devices).
+* To configure network parameters for the first device in a newly created Thread network.
+* For testing (not applicable to production devices).
 
-In production Thread networks, the correct method to write/change Operational Datasets is via a
+In production Thread networks, the correct method to write or change Operational Datasets is through a
 [Commissioner](https://github.com/openthread/openthread/blob/main/src/cli/README_COMMISSIONER.md)
 that performs [commissioning](https://github.com/openthread/openthread/blob/main/src/cli/README_COMMISSIONING.md).
 Production devices that are not an active Commissioner and are part
