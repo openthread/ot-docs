@@ -18,8 +18,8 @@ OS](../../../guides/border-router/raspberry-pi.md#download-and-install-the-os) s
 the Raspberry Pi Overview, but make sure to use **Raspberry Pi OS with
 Desktop** as the OS.
 
-Note:  If you want to use the Lite version, you must access the OTBR Web GUI
-in a web browser on another computer.
+Note:  It is possible to use the Lite version, but with that version you must access
+the OTBR Web GUI in a web browser on another computer.
 
 Once installed, boot up the RPi and open a terminal window.
 
