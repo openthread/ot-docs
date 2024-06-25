@@ -115,7 +115,7 @@ machine.
 1.  Bootstrap and build the simulated application:
     ```
     $ cd openthread
-    $ ./bootstrap
+    $ ./script/bootstrap
     $ ./script/cmake-build simulation
     ```
 
