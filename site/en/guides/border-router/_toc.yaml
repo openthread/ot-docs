@@ -4,13 +4,14 @@ toc:
 - title: Get Started
   path: /guides/border-router/get-started
 
-- heading: Platforms - Linux
-- title: BeagleBone Black
+- heading: Platforms
+- title: Android
+  path: /android/build-an-android-border-router
+- title: BeagleBone Black (Linux)
   path: /guides/border-router/beaglebone-black
-- title: Raspberry Pi
+- title: Raspberry Pi (Linux)
   path: /guides/border-router/raspberry-pi
-- heading: Platforms - FreeRTOS
-- title: Espressif ESP32 Series
+- title: Espressif ESP32 Series (FreeRTOS)
   path: /guides/border-router/espressif-esp32
 
 - heading: Setup
