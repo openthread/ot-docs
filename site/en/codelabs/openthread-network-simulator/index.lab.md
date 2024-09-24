@@ -530,6 +530,62 @@ Done
 
 An alternative way to exit node context is the `node 0` command.
 
+## Viewing Node Logs and Packet Captures
+Duration: 05:00
+
+### OpenThread node logs
+
+By default, OTNS generates detailed log files for all simulated OpenThread nodes. These can be viewed in the `./tmp` 
+directory. The filename is `0_<node-number>.log`. For example, a log file excerpt is shown below:
+
+```log
+7616488 00:00:06.326 [I] MeshForwarder-: Received IPv6 UDP msg, len:90, chksum:5915, ecn:no, from:ca72650db7b856af, sec:no, prio:net, rss:-58.0
+7616488 00:00:06.326 [I] MeshForwarder-:     src:[fe80:0:0:0:c872:650d:b7b8:56af]:19788
+7616488 00:00:06.326 [I] MeshForwarder-:     dst:[ff02:0:0:0:0:0:0:1]:19788
+7616488 00:00:06.326 [D] Mle-----------: Receive MLE message
+7616488 00:00:06.326 [D] Mac-----------: Idle mode: Radio receiving on channel 11
+7657544 00:00:06.367 [D] Mac-----------: ==============================[RX len=063]==============================
+7657544 00:00:06.367 [D] Mac-----------: | 41 D8 7F CE FA FF FF 46 | 74 5A 33 9E 76 51 4E 7F | A......FtZ3.vQN. |
+7657544 00:00:06.367 [D] Mac-----------: | 3B 02 F0 4D 4C 4D 4C 81 | E6 00 15 03 00 00 00 00 | ;..MLML......... |
+7657544 00:00:06.367 [D] Mac-----------: | 00 00 00 01 46 86 7D FE | 06 CC DB 94 86 9C 88 0B | ....F.}......... |
+7657544 00:00:06.367 [D] Mac-----------: | 1C 1E 26 9B 8D 21 2E 65 | 53 5A 43 4E A2 59 D6    | ..&..!.eSZCN.Y.  |
+7657544 00:00:06.367 [D] Mac-----------: ------------------------------------------------------------------------
+7657544 00:00:06.367 [I] MeshForwarder-: Received IPv6 UDP msg, len:84, chksum:81e6, ecn:no, from:4e51769e335a7446, sec:no, prio:net, rss:-48.0
+7657544 00:00:06.367 [I] MeshForwarder-:     src:[fe80:0:0:0:4c51:769e:335a:7446]:19788
+7657544 00:00:06.367 [I] MeshForwarder-:     dst:[ff02:0:0:0:0:0:0:2]:19788
+7657544 00:00:06.367 [D] Mac-----------: Idle mode: Radio receiving on channel 11
+7833912 00:00:06.543 [I] Mle-----------: AttachState ParentReq -> Idle
+7833912 00:00:06.543 [N] RouterTable---: Allocate router id 12
+7833912 00:00:06.543 [N] Mle-----------: RLOC16 fffe -> 3000
+7833912 set node RLOC16: fffe -> 3000
+7833912 00:00:06.543 [D] SubMac--------: RadioShortAddress: 0x3000
+7833912 00:00:06.543 [N] Mle-----------: Role detached -> leader
+7833912 00:00:06.543 [N] Mle-----------: Partition ID 0x24c35f10
+7833912 00:00:06.543 [I] RouterTable---: Route table
+7833912 00:00:06.543 [I] RouterTable---:     12 0x3000 - me - leader
+```
+
+The absolute simulation time in microseconds is shown on the left. The hh:mm:ss timestamp shows the OpenThread node's 
+own log timestamp, which may differ from the absolute simulation time. 
+
+### Wireshark Packet Captures
+
+By default, all transmitted IEEE 802.15.4 frames are captures in the PCAP file `current.pcap`. This file can be read 
+by [Wireshark](https://www.wireshark.org/) during or after the simulation. Due to the link-layer encryption of 
+Thread, a one-time configuration action in Wireshark is needed to set the decryption key for OTNS properly. By 
+default, one well-known Network Key is used so that frame decryption by Wireshark is made easy.
+
+See the below screenshot for an example of OpenThread packet inspection in Wireshark.
+
+<img src="img/13_wireshark.png" alt="Screenshot of OpenThread packet analysis in Wireshark" width="720" />
+
+To configure the decryption key, select in the menu Edit -> Preferences. Then in the preferences window, select 
+Protocols -> IEEE 802.15.4. Click the `Edit...` button next to "Decryption Keys". Click `+` to create a new entry 
+and enter the key `00112233445566778899aabbccddeeff` (32 characters) and select "Thread hash" in the "Key hash" field. 
+The "Decryption key index" can be left to `0`. Then click `OK`, and `OK` again. Now the OTNS PCAP file should 
+properly decrypt when loaded. 
+
+
 ## Congratulations
 
 
