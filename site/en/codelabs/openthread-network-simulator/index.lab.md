@@ -2,7 +2,7 @@
 id: openthread-network-simulator
 summary: In this codelab, you'll use the OTNS CLI and web visualization to add/move/delete nodes in a simulated Thread network and observe how the network adapts to topology changes.
 status: [final]
-authors: Simon Lin, Colin Tan
+authors: Simon Lin, Colin Tan, Esko Dijk
 categories: Nest
 tags: web
 layout: scrolling
@@ -21,13 +21,13 @@ book: /_book.yaml
 
 
 
-<img src="img/5abd22afa2f2ee9a.png" alt="5abd22afa2f2ee9a.png" width="318.50" />
+<img src="img/5abd22afa2f2ee9a.png" alt="Impression of a Thread mesh network topology" width="318.50" />
 
 ### What is Thread & OTNS
 
 Thread is an IP-based low-power wireless mesh networking protocol that enables
 secure device-to-device and device-to-cloud communications. Thread networks can
-adapt to topology changes to avoid single point of failure.
+adapt to topology changes to avoid a single point of failure.
 
 > aside positive
 >
@@ -42,44 +42,39 @@ OpenThread supports all features defined in the
 [OpenThread Network Simulator (OTNS)](http://github.com/openthread/ot-ns) can be
 used to simulate Thread networks by running simulated OpenThread nodes on posix
 platforms. OTNS provides an easy-to-use Web interface (OTNS-Web) for visualizing
-and operating simulated Thread networks.
+and operating simulated Thread networks. Scripted simulations (with Python) is 
+also possible.
 
 ### What you'll learn
 
 * Install OTNS and its dependencies
-* Build OpenThread for OTNS
-* How to add/move/delete nodes in OTNS-Web
-* Use OTNS-Web's other useful features to operate the network simulation
+* Get to know the basics of the OTNS-CLI
+* How to add/move/delete OpenThread nodes in OTNS-Web
+* Use OTNS-Web's other useful features to control the network simulation
 * Verify OpenThread's no-single-point-of-failure
+* See the data traffic between OpenThread nodes in Wireshark
 
-This codelab is focused on OTNS-CLI and OTNS-Web. OTNS's other features, such as
-Python scripting, are not covered.
+This codelab is focused on OTNS-CLI and OTNS-Web for interactive use. OTNS's 
+other features, such as Python scripting, are not covered.
 
 ### What you'll need
 
-* Linux x86_64 or Mac OS.
+*  Preferably Linux x86_64, or Mac OS with [Homebrew](https://brew.sh/). Ubuntu 22/24 in Windows
+   [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) should also work but may require some manual 
+   tweaking of settings.
 *  [Git](https://git-scm.com/downloads).
-*  [Go 1.13+](https://golang.org/dl/).
-* Web browser. OTNS-Web uses a web browser for displaying simulations.
+*  Web browser. OTNS-Web uses a web browser for displaying simulations.
 *  [Thread Primer](https://openthread.io/guides/thread-primer). You will need to
    know the basic concepts of Thread to understand what is taught in this
    Codelab.
 
+### Terminology
+
+The term "Router" is used as the technical term for the Thread Mesh Extender, which was initially called a 
+Thread Router. "Node" refers to any simulated OpenThread device in an OTNS simulation. 
 
 ## Installation
-Duration: 05:00
-
-
-### Install Go
-
-OTNS requires Go 1.13+ to build.
-
-1. Install Go from [https://golang.org/dl/](https://golang.org/dl/)
-2. Add `$(go env GOPATH)/bin` (normally `$HOME/go/bin`) to `$PATH`:
-
-```console
-$ export PATH=$PATH:$(go env GOPATH)/bin
-```
+Duration: 10:00
 
 ### Get OTNS code
 
@@ -88,75 +83,53 @@ $ git clone https://github.com/openthread/ot-ns.git ./otns
 $ cd otns
 ```
 
-### Install Dependencies
+All subsequent console commands in this Codelab are run from the `otns` directory. 
+
+### Bootstrap and Install
+
+The `bootstrap` script will install dependencies (including Python3 and Go/Golang, if needed) and install OTNS.
+It also builds the various OT node types that can be used directly in a simulation, and it performs some basic tests.
+Due to the node builds, it can take several minutes.
 
 ```console
-$ ./script/install-deps
-grpcwebproxy installed: /usr/local/google/home/simonlin/go/bin/grpcwebproxy
+$ ./script/bootstrap
+....
+....
+OTNS installed - use 'otns' to start it.
+$
 ```
 
 You might be asked to input a password for `sudo`.
 
-### **Install otns**
+### If `otns` is not properly installed
 
-Install `otns` to `$GOPATH/bin`:
-
-```console
-$ ./script/install
-otns installed: /usr/local/google/home/simonlin/go/bin/otns
-```
-
-#### Let's check if `otns` is properly installed
-
-1. Run `which otns` to check if the `otns` executable is searchable in `$PATH.`
-2. If the `otns` command is not found, verify that you have added
-   `$(go env GOPATH)/bin` to `$PATH.`
-
-
-## Build OpenThread for OTNS
-Duration: 05:00
-
-
-### Get OpenThread code from GitHub
+The script may report an error like:
 
 ```console
-$ mkdir -p ~/src
-$ git clone https://github.com/openthread/openthread ~/src/openthread
+....
+OTNS installed - please add ~/go/bin to your PATH variable first, to use it.
+$
 ```
 
-### Build OpenThread with `OTNS=1`
+In this case, you need to add `$(go env GOPATH)/bin` to your `$PATH.`
 
-```console
-$ cd ~/src/openthread
-$ ./script/cmake-build simulation -DOT_OTNS=ON -DOT_SIMULATION_VIRTUAL_TIME=ON -DOT_SIMULATION_VIRTUAL_TIME_UART=ON -DOT_SIMULATION_MAX_NETWORK_SIZE=999
-```
+In case of other errors, a [Github issue](https://github.com/openthread/ot-ns/issues) can be created.
 
-You can find the OpenThread executables in the `build` directory:
-
-```console
-$ ls ~/src/openthread/build/simulation/examples/apps/cli/
-ot-cli-ftd        ot-cli-mtd        ot-cli-radio
-```
-
-Now it's time to run OTNS...
-
-
-## Run OTNS
+## Run OTNS For the First Time
 Duration: 01:00
 
 
 Run `otns`:
 
 ```console
-$ cd ~/src/openthread/build/simulation/examples/apps/cli
 $ otns
-> ← OTNS-CLI prompt
+>_ ← OTNS-CLI prompt
 ```
 
 When successfully started, OTNS will enter a CLI console (`OTNS-CLI`) and
 launch a web browser for network visualization and management (`OTNS-Web`):
 
-<img src="img/a0e05178d66929b1.png" alt="a0e05178d66929b1.png" width="624.00" />
+<img src="img/00_otns_web.png" alt="OTNS-Web window at start" width="624.00" />
 
 **If you can only see a blank page for OTNS-Web, chances are WebGL is not
 enabled in your browser. Please refer to**
@@ -173,12 +146,11 @@ Duration: 02:00
 
 ### OTNS-CLI
 
-`OTNS-CLI` provides a Command Line Interface (CLI) for managing OTNS simulations.
+`OTNS-CLI` is the Command Line Interface (CLI) for managing OTNS simulations.
 
 ```console
-$ cd ~/src/openthread/build/simulation/examples/apps/cli
 $ otns
-> ← OTNS-CLI prompt
+>_ ← OTNS-CLI prompt
 ```
 
 You can type in commands through `OTNS-CLI`. Refer to the
@@ -186,13 +158,37 @@ You can type in commands through `OTNS-CLI`. Refer to the
 for a full list of commands. Don't worry, you are only going to use a few of
 these commands in this Codelab.
 
+Type the `help` command for an overview of CLI commands. This list is identical to the CLI reference.
+
+```console
+> help
+add             Add a node to the simulation and get the node ID.
+....
+....
+Done
+> 
+```
+
+To get more help on a specific command, use the command's name, for example:
+
+```console
+> help add
+add
+  Add a node to the simulation and get the node ID.
+  
+Definition:
+....
+....
+> 
+```
+
 ### OTNS-Web
 
 `OTNS-Web` is OTNS's network visualization and management tool. It provides a
 visual representation of the nodes, messages, and links of the simulated Thread
 network. Note the various elements of `OTNS-Web`:
 
-<img src="img/4c5b43509a2ca0d0.png" alt="4c5b43509a2ca0d0.png" width="624.00" />
+<img src="img/00b_otns_web_elements.png" alt="OTNS-Web elements explained" width="624.00" />
 
 
 ## Add Nodes
@@ -201,10 +197,10 @@ Duration: 05:00
 
 ### Add nodes through OTNS-CLI
 
-Add a Router at position (300, 100)
+Add a Thread Router into the simulation:
 
 ```console
-> add router x 300 y 100
+> add router
 1
 Done
 ```
@@ -212,7 +208,10 @@ Done
 You should see a node created in `OTNS-Web`. The node starts as a Router and
 becomes a Leader in a few seconds:
 
-<img src="img/6ca8c2e63ed9818d.png" alt="6ca8c2e63ed9818d.png" width="624.00" />
+<img src="img/01_leader_1n.png" alt="One node in the Leader role" width="624.00" />
+
+To make it easy to start simulations interactively, each new OpenThread node is by default commissioned with a 
+standard set of network parameters.
 
 > aside positive
 >
@@ -220,14 +219,16 @@ becomes a Leader in a few seconds:
 
 ### Add more nodes through `OTNS-CLI`
 
+Now we will add some nodes of different types.
+
 ```console
-> add fed x 200 y 100
+> add fed
 2
 Done
-> add med x 400 y 100
+> add med
 3
 Done
-> add sed x 300 y 200
+> add sed
 4
 Done
 ```
@@ -235,36 +236,41 @@ Done
 Wait a few seconds for nodes to merge into one partition. You should see the
 nodes in `OTNS-WEB`:
 
-<img src="img/3ee67903c01aa612.png" alt="3ee67903c01aa612.png" width="666.80" />
+<img src="img/02_4n.png" alt="Thread Network with 4 nodes" width="720" />
 
 > aside positive
 >
 > **Tip:** The green line between nodes indicates that the nodes are linked and
-the Leader is the parent of FED, MED, and SED.
+the Leader is the parent of the FED, MED, and SED.
+
+Also in `OTNS-Web`, it's possible to select any of the nodes to get a panel with more information about the node. 
+For example, in the below figure node 1 is selected. The "Role" entry in the panel confirms that it is a Leader.
+
+<img src="img/03_4n_select1.png" alt="Thread Network with 4 nodes, node 1 is selected" width="720" />
 
 > aside positive
 >
-> **Tip:** The last added node is selected by default and highlighted using a
-green dashed square.
+> **Tip:** The selected node is highlighted using a green dashed square and green circle.
 
 ### Add nodes by `OTNS-Web`
 
 You can also add nodes through `OTNS-Web`. Click the `New Router` button of the
-`Action Bar`. You should see a node being created right above the `New Router`
-button. Drag the node to be near the Leader you created through `OTNS-CLI`. All
-the nodes should eventually merge into one partition:
+`Action Bar`. You should see a node being created to the right of the selected node.
+The new router should join the existing Thread partition:
 
-<img src="img/420258bb92561146.png" alt="420258bb92561146.png" width="661.59" />
+<img src="img/04_5n_add_router.png" alt="A Router is added, total 5 nodes" width="720" />
 
-Also click the FED, MED, and SED buttons on the Action Bar to create other types
-of nodes. Drag them to positions near existing nodes to attach them to that
-Thread network:
+Also click the FED, MED, SSED and BR buttons on the Action Bar to create these other types
+of nodes. There should now be 9 nodes in total.
+If you want, drag some nodes around to other positions, to create a different physical network topology.
 
-<img src="img/fe15d6f9726a099e.png" alt="fe15d6f9726a099e.png" width="680.71" />
+<img src="img/05_9n_add_multiple.png" alt="Multiple new nodes added, total 9 nodes" width="720" />
+
 
 > aside positive
 >
-> **Tip:** The blue line between Leader and Router indicates that they're linked.
+> **Tip:** A blue line between Leader, Router and FEDs indicates that they're linked.
+> Blue indicates it is not a Parent/Child link, but other: for example Router-to-Router.
 
 Now you have created a Thread network of one partition that contains many nodes.
 In the next section, we are going to adjust the simulating speed to make the
@@ -324,36 +330,36 @@ Setting simulating speed to a value larger than `0` resumes the simulation.
 
 #### Speed control buttons
 
-Find the speed control buttons <img src="img/9329157c1bd12672.png" alt="9329157c1bd12672.png" width="105.65" />
+Find the speed control buttons <img src="img/9329157c1bd12672.png" alt="Speed control buttons" width="105.65" />
 on the `Action Bar`. The buttons show the current simulating
 speed and can be used to adjust simulating speed and pause/resume the simulation.
 
 #### Speed up simulation
 
 You can speed up the simulation by clicking the
-<img src="img/39b88331779277ad.png" alt="39b88331779277ad.png" width="31.11" />
+<img src="img/39b88331779277ad.png" alt="Increase-speed button" width="31.11" />
 button until the speed reaches
-`MAX`: <img src="img/f5f460b2586d299b.png" alt="f5f460b2586d299b.png" width="116.35" />.
+`MAX`: <img src="img/f5f460b2586d299b.png" alt="MAX simulation speed indicator" width="116.35" />.
 
 #### Slow down simulation
 
 You can slow down the simulation by clicking the
-<img src="img/31cca8d5b52fa900.png" alt="31cca8d5b52fa900.png" width="31.11" />
+<img src="img/31cca8d5b52fa900.png" alt="Decrease-speed button" width="31.11" />
 button.
 
 #### Pause simulation
 
-Click the <img src="img/46cc2088c9aa7ab6.png" alt="46cc2088c9aa7ab6.png" width="45.30" />
+Click the <img src="img/46cc2088c9aa7ab6.png" alt="Pause button" width="45.30" />
 button to pause the simulation when it's running. The button will be changed to
-<img src="img/ce25eda3496ffcd4.png" alt="ce25eda3496ffcd4.png" width="74.31" />.
+<img src="img/ce25eda3496ffcd4.png" alt="Play button" width="74.31" />.
 
 #### Resume simulation
 
 Click the
-<img src="img/ce25eda3496ffcd4.png" alt="ce25eda3496ffcd4.png" width="74.31" />
+<img src="img/ce25eda3496ffcd4.png" alt="Play button" width="74.31" />
 button to resume the simulation when it's paused. The button will be changed
 back to
-<img src="img/46cc2088c9aa7ab6.png" alt="46cc2088c9aa7ab6.png" width="45.30" />.
+<img src="img/46cc2088c9aa7ab6.png" alt="Pause button" width="45.30" />.
 
 ### Set simulating speed to `10X`
 
@@ -371,30 +377,23 @@ Done
 Duration: 01:00
 
 
-Now, the simulation should contain 2 Routers (hexagon shape) and many children,
+Now, the simulation should contain at least 2 Routers (hexagon shape), possibly a Border Router (square shape) and many children,
 and runs at 10X speed.
 
 Find the current Leader (red border) of the 2 Routers, single click to select it:
 
-<img src="img/8c6a2e191cdae0c7.png" alt="8c6a2e191cdae0c7.png" width="664.54" />
-
-> aside positive
->
-> **Tip:** The current selected node is highlighted using a green dashed square.
+<img src="img/06_9n_select1.png" alt="Thread Network with Leader node 1 selected" width="720" />
 
 ### Turn off radio
 
-Click the <img src="img/7ca085f470491dd4.png" alt="7ca085f470491dd4.png" width="72.34" />
-button on the Action Bar to turn off the radio of the Leader node:
-
-<img src="img/a3bf58d9d125f95f.png" alt="a3bf58d9d125f95f.png" width="670.36" />
-
+Click the <img src="img/7ca085f470491dd4.png" alt="Radio Off button" width="72.34" />
+button on the Action Bar to turn off the radio of the Leader node.
 The Leader won't be able to send or receive messages with the radio off.
 
-Wait for about 12s (120s in simulating time) for the other Router to become the
+Wait for about 12s (120s in simulating time) for the other Router or Border Router to become the
 new Leader:
 
-<img src="img/e3d32f85c4a1b990.png" alt="e3d32f85c4a1b990.png" width="667.84" />
+<img src="img/08_9n_new_partition.png" alt="New partition is formed with node 9 as the new Leader" width="720" />
 
 The Thread network recovers from Leader failure automatically by forming a new
 partition with a new Leader. The new partition also has a new partition color.
@@ -402,10 +401,10 @@ partition with a new Leader. The new partition also has a new partition color.
 ### Turn on radio
 
 Select the Leader whose radio was turned off. Click the
-<img src="img/2d9cecb8612b42aa.png" alt="2d9cecb8612b42aa.png" width="74.98" />
+<img src="img/2d9cecb8612b42aa.png" alt="Radio on button" width="74.98" />
 button on `Action Bar` to restore radio connectivity:
 
-<img src="img/7370a7841861aa3a.png" alt="7370a7841861aa3a.png" width="672.87" />
+<img src="img/09_9n_radio_on_1.png" alt="Node 1 joins the partition after its radio is on again" width="720" />
 
 The Leader should reattach to the network after radio connectivity is restored.
 
@@ -418,30 +417,25 @@ OTNS enables users to move nodes easily through `OTNS-CLI` or `OTNS-Web`.
 
 ### Move node through `OTNS-CLI`
 
-Move node 5 to a new location:
+Move the Border Router node 9 to a new location:
 
 ```console
-> move 5 600 300
+> move 9 50 50
 Done
 ```
 
-Since now node 5 is far from the other Router, they should lose connectivity to
-each other, and after about 12s (120s in simulating time) both become Leaders of
-their own partition:
-
-<img src="img/c06b4d0a4f183299.png" alt="c06b4d0a4f183299.png" width="679.11" />
-
-> aside positive
->
-> **Tip:** Nodes have limited radio transmission range in OTNS simulation.
-
 ### Move node through OTNS-Web
 
-Move node 5 back to the original location by dragging. The two partitions should
-merge back into one partition:
+Move node 5 all the way to the bottom right, by dragging. Because node 5 is now out of radio coverage of 
+the other Routers, it forms its own partition with a new Partition ID. The Partition IDs can be checked 
+on the node information panel by clicking the nodes.
 
-<img src="img/9ba305c4c5a5f892.png" alt="9ba305c4c5a5f892.png" width="673.06" />
+<img src="img/10_9n_move_router_away.png" alt="Node 5 is moved away from the other nodes and forms a new partition" width="720" />
 
+Note that a single green line is still drawn between node 5 and node 9. This is often due to stale information about a 
+child, which is still kept in the child table of a former parent. Or it could be stale information about the former 
+router-to-router link between node 9 and node 5. (Or possibly, in this case, even a rendering bug.) 
+Eventually, stale information is cleaned up on the nodes after the appropriate timeout.
 
 ## Delete Nodes
 Duration: 01:00
@@ -449,39 +443,27 @@ Duration: 01:00
 
 ### Delete nodes through `OTNS-CLI`
 
-Delete node 8:
+Delete node 5:
 
 ```console
-> del 8
+> del 5
 Done
 ```
 
-Node 8 should disappear from the simulation:
+Node 5 should disappear from the simulation:
 
-<img src="img/18156770d9f8bf83.png" alt="18156770d9f8bf83.png" width="624.00" />
+<img src="img/11_8n_del_router.png" alt="Node 5 is deleted from the simulation" width="720" />
 
 ### Delete nodes through `OTNS-Web`
 
-Select node 5 and click the
-<img src="img/7ff6afd565f4eafc.png" alt="7ff6afd565f4eafc.png" width="55.25" />
-button on the `Action Bar` to delete node 5:
+Select the Border Router node 9 and click the
+<img src="img/7ff6afd565f4eafc.png" alt="Delete button" width="55.25" />
+button on the `Action Bar` to delete node 9:
 
-<img src="img/d4079cceea0105f0.png" alt="d4079cceea0105f0.png" width="642.12" />
+<img src="img/12_7n_del_br.png" alt="Border Router node 9 is deleted" width="642.12" />
 
-`Node 1` should become Leader and `Node 7` should detach since it can not reach
-any Router.
-
-#### Clear simulation (delete all nodes)
-
-You can clear the simulation by deleting all nodes through `OTNS-Web`.
-
-Click <img src="img/89618191721e79a0.png" alt="89618191721e79a0.png" width="45.64" />
-button on `Action Bar.` All nodes will disappear at once.
-
-### Before continuing...
-
-Add some nodes to the simulation by yourself so that you can continue in this
-tutorial.
+`Node 1` should become Leader of a new partition and all remaining nodes will attach as a Child 
+to node 1.
 
 
 ## OTNS-CLI Node Context
@@ -489,7 +471,7 @@ Duration: 02:00
 
 
 `OTNS-CLI` provides node context mode for easy interaction with nodes to help
-developers diagnose a node's status.
+developers diagnose a node's status. Also node actions can be initiated from this mode.
 
 ### Enter node context mode
 
@@ -519,13 +501,14 @@ node 1> panid
 0xface
 Done
 node 1> networkname
-OpenThread
+otns
 Done
 node 1> ipaddr
 fdde:ad00:beef:0:0:ff:fe00:fc00
-fdde:ad00:beef:0:0:ff:fe00:d800
-fdde:ad00:beef:0:2175:8a67:1000:6352
-fe80:0:0:0:2075:82c2:e9e9:781d
+fdde:ad00:beef:0:0:ff:fe00:b400
+fd00:f00d:cafe:0:2505:8719:3685:ebfb
+fdde:ad00:beef:0:4fd9:b9ba:44e0:96cb
+fe80:0:0:0:e86a:e07:ec97:777
 Done
 ```
 
@@ -545,6 +528,7 @@ Done
 >
 ```
 
+An alternative way to exit node context is the `node 0` command.
 
 ## Congratulations
 
@@ -552,9 +536,8 @@ Done
 
 Congratulations, you've successfully executed your first OTNS simulation!
 
-You've learned how to install OTNS and its dependencies. You built
-[OpenThread](https://github.com/openthread/openthread) for OTNS and started OTNS
-simulation with OpenThread simulation instances. You've learned how to
+You've learned how to install OTNS and its dependencies. You started an OTNS
+simulation with OpenThread simulated nodes. You've learned how to
 manipulate the simulation in various ways through both `OTNS-CLI` and `OTNS-Web`.
 
 You now know what OTNS is and how you can use OTNS to simulate OpenThread
@@ -576,7 +559,7 @@ Check out some of these codelabs...
 
 ## License
 
-Copyright (c) 2021-2022, The OpenThread Authors.
+Copyright (c) 2021-2024, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
