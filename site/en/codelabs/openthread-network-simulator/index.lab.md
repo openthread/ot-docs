@@ -113,7 +113,7 @@ $
 
 In this case, you need to add `$(go env GOPATH)/bin` to your `$PATH.`
 
-In case of other errors, a [Github issue](https://github.com/openthread/ot-ns/issues) can be created.
+In case of other errors, a [GitHub issue](https://github.com/openthread/ot-ns/issues) can be created.
 
 ## Run OTNS For the First Time
 Duration: 01:00
@@ -132,8 +132,8 @@ launch a web browser for network visualization and management (`OTNS-Web`):
 <img src="img/00_otns_web.png" alt="OTNS-Web window at start" width="624.00" />
 
 **If you can only see a blank page for OTNS-Web, chances are WebGL is not
-enabled in your browser. Please refer to**
-[**https://superuser.com/a/836833**](https://superuser.com/a/836833) **on how to
+enabled in your browser. Please refer to 
+[**https://superuser.com/a/836833**](https://superuser.com/a/836833) on how to
 enable WebGL.**
 
 In the following sections, you are going to learn to manage OTNS simulations
@@ -565,7 +565,7 @@ directory. The filename is `0_<node-number>.log`. For example, a log file excerp
 7833912 00:00:06.543 [I] RouterTable---:     12 0x3000 - me - leader
 ```
 
-The absolute simulation time in microseconds is shown on the left. The hh:mm:ss timestamp shows the OpenThread node's 
+The absolute simulation time in microseconds is shown on the left. The `hh:mm:ss` timestamp shows the OpenThread node's 
 own log timestamp, which may differ from the absolute simulation time. 
 
 ### Wireshark Packet Captures
@@ -579,10 +579,10 @@ See the below screenshot for an example of OpenThread packet inspection in Wires
 
 <img src="img/13_wireshark.png" alt="Screenshot of OpenThread packet analysis in Wireshark" width="720" />
 
-To configure the decryption key, select in the menu Edit -> Preferences. Then in the preferences window, select 
-Protocols -> IEEE 802.15.4. Click the `Edit...` button next to "Decryption Keys". Click `+` to create a new entry 
+To configure the decryption key, select in the menu **Edit -> Preferences**. Then in the preferences window, select 
+**Protocols -> IEEE 802.15.4**. Click the **Edit...** button next to "Decryption Keys". Click **+** to create a new entry 
 and enter the key `00112233445566778899aabbccddeeff` (32 characters) and select "Thread hash" in the "Key hash" field. 
-The "Decryption key index" can be left to `0`. Then click `OK`, and `OK` again. Now the OTNS PCAP file should 
+The "Decryption key index" can be left to `0`. Then click **OK**, and **OK** again. Now the OTNS PCAP file should 
 properly decrypt when loaded. 
 
 
