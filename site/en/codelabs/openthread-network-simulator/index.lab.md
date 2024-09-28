@@ -585,6 +585,10 @@ and enter the key `00112233445566778899aabbccddeeff` (32 characters) and select 
 The "Decryption key index" can be left to `0`. Then click **OK**, and **OK** again. Now the OTNS PCAP file should 
 properly decrypt when loaded. 
 
+The timestamps shown in the "Time" column (in seconds) correspond to the absolute simulation time values shown in the 
+OpenThread node logs. This makes it easier to correlate log messages with transmitted or received radio frames. 
+However, the values are typically not identical up to single microsecond precision: the simulated IEEE 802.15.4 
+radio hardware may add some additional delay, after a radio frame is requested to be sent by the OpenThread stack.
 
 ## Congratulations
 
