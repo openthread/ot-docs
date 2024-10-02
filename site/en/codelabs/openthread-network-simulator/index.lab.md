@@ -85,7 +85,7 @@ $ cd otns
 
 All subsequent console commands in this Codelab are run from the `otns` directory. 
 
-### Bootstrap and Install
+### Bootstrap and install
 
 The `bootstrap` script will install dependencies (including Python3 and Go/Golang, if needed) and install OTNS.
 It also builds the various OT node types that can be used directly in a simulation, and it performs some basic tests.
@@ -115,7 +115,7 @@ In this case, you need to add `$(go env GOPATH)/bin` to your `$PATH.`
 
 In case of other errors, a [GitHub issue](https://github.com/openthread/ot-ns/issues) can be created.
 
-## Run OTNS For the First Time
+## Run OTNS for the first time
 Duration: 01:00
 
 
@@ -260,7 +260,7 @@ The new router should join the existing Thread partition:
 
 <img src="img/04_5n_add_router.png" alt="A Router is added, total 5 nodes" width="720" />
 
-Also click the FED, MED, SSED and BR buttons on the Action Bar to create these other types
+Also click the FED, MED, SSED, and BR buttons on the Action Bar to create these other types
 of nodes. There should now be 9 nodes in total.
 If you want, drag some nodes around to other positions, to create a different physical network topology.
 
@@ -270,7 +270,7 @@ If you want, drag some nodes around to other positions, to create a different ph
 > aside positive
 >
 > **Tip:** A blue line between Leader, Router and FEDs indicates that they're linked.
-> Blue indicates it is not a Parent/Child link, but other: for example Router-to-Router.
+> Blue indicates it is not a Parent/Child link, but something else, such as a Router-to-Router link.
 
 Now you have created a Thread network of one partition that contains many nodes.
 In the next section, we are going to adjust the simulating speed to make the
@@ -530,7 +530,7 @@ Done
 
 An alternative way to exit node context is the `node 0` command.
 
-## Viewing Node Logs and Packet Captures
+## Viewing node logs and packet captures
 Duration: 05:00
 
 ### OpenThread node logs
@@ -568,7 +568,7 @@ directory. The filename is `0_<node-number>.log`. For example, a log file excerp
 The absolute simulation time in microseconds is shown on the left. The `hh:mm:ss` timestamp shows the OpenThread node's 
 own log timestamp, which may differ from the absolute simulation time. 
 
-### Wireshark Packet Captures
+### Wireshark packet captures
 
 By default, all transmitted IEEE 802.15.4 frames are captures in the PCAP file `current.pcap`. This file can be read 
 by [Wireshark](https://www.wireshark.org/) during or after the simulation. Due to the link-layer encryption of 
