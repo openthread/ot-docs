@@ -129,7 +129,7 @@ $ otns
 When successfully started, OTNS will enter a CLI console (`OTNS-CLI`) and
 launch a web browser for network visualization and management (`OTNS-Web`):
 
-<img src="img/00_otns_web.png" alt="OTNS-Web window at start" width="624.00" />
+<img src="img/00_otns_web.png" alt="OTNS-Web window at start" width="95%" />
 
 **If you can only see a blank page for OTNS-Web, chances are WebGL is not
 enabled in your browser. Please refer to 
@@ -188,7 +188,7 @@ Definition:
 visual representation of the nodes, messages, and links of the simulated Thread
 network. Note the various elements of `OTNS-Web`:
 
-<img src="img/00b_otns_web_elements.png" alt="OTNS-Web elements explained" width="624.00" />
+<img src="img/00b_otns_web_elements.png" alt="OTNS-Web elements explained" width="90%" />
 
 
 ## Add Nodes
@@ -208,7 +208,7 @@ Done
 You should see a node created in `OTNS-Web`. The node starts as a Router and
 becomes a Leader in a few seconds:
 
-<img src="img/01_leader_1n.png" alt="One node in the Leader role" width="624.00" />
+<img src="img/01_leader_1n.png" alt="One node in the Leader role" width="90%" />
 
 To make it easy to start simulations interactively, each new OpenThread node is by default commissioned with a 
 standard set of network parameters.
@@ -246,7 +246,7 @@ the Leader is the parent of the FED, MED, and SED.
 Also in `OTNS-Web`, it's possible to select any of the nodes to get a panel with more information about the node. 
 For example, in the below figure node 1 is selected. The "Role" entry in the panel confirms that it is a Leader.
 
-<img src="img/03_4n_select1.png" alt="Thread Network with 4 nodes, node 1 is selected" width="720" />
+<img src="img/03_4n_select1.png" alt="Thread Network with 4 nodes, node 1 is selected" width="100%" />
 
 > aside positive
 >
@@ -264,7 +264,7 @@ Also click the FED, MED, SSED, and BR buttons on the Action Bar to create these 
 of nodes. There should now be 9 nodes in total.
 If you want, drag some nodes around to other positions, to create a different physical network topology.
 
-<img src="img/05_9n_add_multiple.png" alt="Multiple new nodes added, total 9 nodes" width="720" />
+<img src="img/05_9n_add_multiple.png" alt="Multiple new nodes added, total 9 nodes" width="100%" />
 
 
 > aside positive
