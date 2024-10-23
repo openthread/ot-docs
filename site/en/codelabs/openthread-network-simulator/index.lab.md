@@ -21,7 +21,7 @@ book: /_book.yaml
 
 
 
-<img src="img/5abd22afa2f2ee9a.png" alt="Impression of a Thread mesh network topology" width="318.50" />
+<img src="img/5abd22afa2f2ee9a.png" alt="Impression of a Thread mesh network topology" width="320" />
 
 ### What is Thread & OTNS
 
@@ -188,7 +188,7 @@ Definition:
 visual representation of the nodes, messages, and links of the simulated Thread
 network. Note the various elements of `OTNS-Web`:
 
-<img src="img/00b_otns_web_elements.png" alt="OTNS-Web elements explained" width="90%" />
+<img src="img/00b_otns_web_elements.png" alt="OTNS-Web elements explained" width="95%" />
 
 
 ## Add Nodes
@@ -208,7 +208,7 @@ Done
 You should see a node created in `OTNS-Web`. The node starts as a Router and
 becomes a Leader in a few seconds:
 
-<img src="img/01_leader_1n.png" alt="One node in the Leader role" width="90%" />
+<img src="img/01_leader_1n.png" alt="One node in the Leader role" width="95%" />
 
 To make it easy to start simulations interactively, each new OpenThread node is by default commissioned with a 
 standard set of network parameters.
@@ -234,9 +234,9 @@ Done
 ```
 
 Wait a few seconds for nodes to merge into one partition. You should see the
-nodes in `OTNS-WEB`:
+nodes in `OTNS-Web`:
 
-<img src="img/02_4n.png" alt="Thread Network with 4 nodes" width="720" />
+<img src="img/02_4n.png" alt="Thread Network with 4 nodes" width="95%" />
 
 > aside positive
 >
@@ -258,7 +258,7 @@ You can also add nodes through `OTNS-Web`. Click the `New Router` button of the
 `Action Bar`. You should see a node being created to the right of the selected node.
 The new router should join the existing Thread partition:
 
-<img src="img/04_5n_add_router.png" alt="A Router is added, total 5 nodes" width="720" />
+<img src="img/04_5n_add_router.png" alt="A Router is added, total 5 nodes" width="100%" />
 
 Also click the FED, MED, SSED, and BR buttons on the Action Bar to create these other types
 of nodes. There should now be 9 nodes in total.
@@ -330,36 +330,36 @@ Setting simulating speed to a value larger than `0` resumes the simulation.
 
 #### Speed control buttons
 
-Find the speed control buttons <img src="img/9329157c1bd12672.png" alt="Speed control buttons" width="105.65" />
+Find the speed control buttons <img src="img/9329157c1bd12672.png" alt="Speed control buttons" width="105" />
 on the `Action Bar`. The buttons show the current simulating
 speed and can be used to adjust simulating speed and pause/resume the simulation.
 
 #### Speed up simulation
 
 You can speed up the simulation by clicking the
-<img src="img/39b88331779277ad.png" alt="Increase-speed button" width="31.11" />
+<img src="img/39b88331779277ad.png" alt="Increase-speed button" width="32" />
 button until the speed reaches
-`MAX`: <img src="img/f5f460b2586d299b.png" alt="MAX simulation speed indicator" width="116.35" />.
+`MAX`: <img src="img/f5f460b2586d299b.png" alt="MAX simulation speed indicator" width="116" />.
 
 #### Slow down simulation
 
 You can slow down the simulation by clicking the
-<img src="img/31cca8d5b52fa900.png" alt="Decrease-speed button" width="31.11" />
+<img src="img/31cca8d5b52fa900.png" alt="Decrease-speed button" width="32" />
 button.
 
 #### Pause simulation
 
-Click the <img src="img/46cc2088c9aa7ab6.png" alt="Pause button" width="45.30" />
+Click the <img src="img/46cc2088c9aa7ab6.png" alt="Pause button" width="45" />
 button to pause the simulation when it's running. The button will be changed to
-<img src="img/ce25eda3496ffcd4.png" alt="Play button" width="74.31" />.
+<img src="img/ce25eda3496ffcd4.png" alt="Play button" width="74" />.
 
 #### Resume simulation
 
 Click the
-<img src="img/ce25eda3496ffcd4.png" alt="Play button" width="74.31" />
+<img src="img/ce25eda3496ffcd4.png" alt="Play button" width="74" />
 button to resume the simulation when it's paused. The button will be changed
 back to
-<img src="img/46cc2088c9aa7ab6.png" alt="Pause button" width="45.30" />.
+<img src="img/46cc2088c9aa7ab6.png" alt="Pause button" width="45" />.
 
 ### Set simulating speed to `10X`
 
@@ -382,18 +382,18 @@ and runs at 10X speed.
 
 Find the current Leader (red border) of the 2 Routers, single click to select it:
 
-<img src="img/06_9n_select1.png" alt="Thread Network with Leader node 1 selected" width="720" />
+<img src="img/06_9n_select1.png" alt="Thread Network with Leader node 1 selected" width="90%" />
 
 ### Turn off radio
 
-Click the <img src="img/7ca085f470491dd4.png" alt="Radio Off button" width="72.34" />
+Click the <img src="img/7ca085f470491dd4.png" alt="Radio Off button" width="72" />
 button on the Action Bar to turn off the radio of the Leader node.
 The Leader won't be able to send or receive messages with the radio off.
 
 Wait for about 12s (120s in simulating time) for the other Router or Border Router to become the
 new Leader:
 
-<img src="img/08_9n_new_partition.png" alt="New partition is formed with node 9 as the new Leader" width="720" />
+<img src="img/08_9n_new_partition.png" alt="New partition is formed with node 9 as the new Leader" width="90%" />
 
 The Thread network recovers from Leader failure automatically by forming a new
 partition with a new Leader. The new partition also has a new partition color.
@@ -401,10 +401,10 @@ partition with a new Leader. The new partition also has a new partition color.
 ### Turn on radio
 
 Select the Leader whose radio was turned off. Click the
-<img src="img/2d9cecb8612b42aa.png" alt="Radio on button" width="74.98" />
+<img src="img/2d9cecb8612b42aa.png" alt="Radio on button" width="75" />
 button on `Action Bar` to restore radio connectivity:
 
-<img src="img/09_9n_radio_on_1.png" alt="Node 1 joins the partition after its radio is on again" width="720" />
+<img src="img/09_9n_radio_on_1.png" alt="Node 1 joins the partition after its radio is on again" width="90%" />
 
 The Leader should reattach to the network after radio connectivity is restored.
 
@@ -430,7 +430,7 @@ Move node 5 all the way to the bottom right, by dragging. Because node 5 is now 
 the other Routers, it forms its own partition with a new Partition ID. The Partition IDs can be checked 
 on the node information panel by clicking the nodes.
 
-<img src="img/10_9n_move_router_away.png" alt="Node 5 is moved away from the other nodes and forms a new partition" width="720" />
+<img src="img/10_9n_move_router_away.png" alt="Node 5 is moved away from the other nodes and forms a new partition" width="100%" />
 
 Note that a single green line is still drawn between node 5 and node 9. This is often due to stale information about a 
 child, which is still kept in the child table of a former parent. Or it could be stale information about the former 
@@ -452,15 +452,15 @@ Done
 
 Node 5 should disappear from the simulation:
 
-<img src="img/11_8n_del_router.png" alt="Node 5 is deleted from the simulation" width="720" />
+<img src="img/11_8n_del_router.png" alt="Node 5 is deleted from the simulation" width="100%" />
 
 ### Delete nodes through `OTNS-Web`
 
 Select the Border Router node 9 and click the
-<img src="img/7ff6afd565f4eafc.png" alt="Delete button" width="55.25" />
+<img src="img/7ff6afd565f4eafc.png" alt="Delete button" width="55" />
 button on the `Action Bar` to delete node 9:
 
-<img src="img/12_7n_del_br.png" alt="Border Router node 9 is deleted" width="642.12" />
+<img src="img/12_7n_del_br.png" alt="Border Router node 9 is deleted" width="100%" />
 
 `Node 1` should become Leader of a new partition and all remaining nodes will attach as a Child 
 to node 1.
@@ -577,7 +577,7 @@ default, one well-known Network Key is used so that frame decryption by Wireshar
 
 See the below screenshot for an example of OpenThread packet inspection in Wireshark.
 
-<img src="img/13_wireshark.png" alt="Screenshot of OpenThread packet analysis in Wireshark" width="720" />
+<img src="img/13_wireshark.png" alt="Screenshot of OpenThread packet analysis in Wireshark" width="100%" />
 
 To configure the decryption key, select in the menu **Edit -> Preferences**. Then in the preferences window, select 
 **Protocols -> IEEE 802.15.4**. Click the **Edit...** button next to "Decryption Keys". Click **+** to create a new entry 
