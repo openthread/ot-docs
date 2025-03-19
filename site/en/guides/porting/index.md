@@ -15,10 +15,15 @@ Porting the OpenThread stack to a new hardware platform consists of a few steps:
 
 OpenThread requires the following platform services:
 
--   [IEEE 802.15.4-2006](https://standards.ieee.org/findstds/standard/802.15.4-2006.html)
+-   IEEE 802.15.4-2006 for Thread 1.1
     2.4 GHz radio
     -   Send and receive IEEE 802.15.4 frames
     -   Generate IEEE 802.15.4 Acknowledgment frames
+    -   Provide Received Signal Strength Indicator (RSSI) measurements on
+        received frames
+-   IEEE 802.15.4-2015 for Thread 1.2+
+    -   Send and receive IEEE 802.15.4-2015 frames having Header IEs or Payload IEs
+    -   Generate Enh-Ack frames
     -   Provide Received Signal Strength Indicator (RSSI) measurements on
         received frames
 -   A millisecond-resolution free-running timer with alarm
