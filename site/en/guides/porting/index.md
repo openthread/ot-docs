@@ -24,8 +24,6 @@ OpenThread requires the following platform services:
 -   IEEE 802.15.4-2015 for Thread 1.2+
     -   Send and receive IEEE 802.15.4-2015 frames having Header IEs or Payload IEs
     -   Generate Enh-Ack frames
-    -   Provide Received Signal Strength Indicator (RSSI) measurements on
-        received frames
 -   A millisecond-resolution free-running timer with alarm
 -   Non-volatile storage for storing network configuration settings
 -   A true random number generator (TRNG)
