@@ -5,44 +5,74 @@ connectivity to the internet.
 
 ## Step 1: Form the Thread Network
 
-<figure class="attempt-right">
-<img src="../../../guides/images/otbr-gui-home-full.png" srcset="../../../guides/images/otbr-gui-home-full.png 1x, ../../../guides/images/otbr-gui-home-full_2x.png 2x" border="0" alt="OTBR Web GUI Home" />
-</figure>
-
-On the machine running OTBR Docker:
-
-Open a browser window and navigate to 127.0.0.1:8080. If OTBR Docker is running correctly, the OTBR Web GUI loads.
-
-Select the "Form" menu option and change some of the default credentials. We recommend leaving the default Channel and On-Mesh Prefix values. Whatever you use, make a note of them so you can test a separate Thread node later.
-
-| Parameter | Sample Value |
-| ---- | ---- |
-| Network name | OTBR4444 |
-| PAN ID | 0x4444 |
-| Network Key | 33334444333344443333444433334444 |
-| Extended PAN ID | 3333333344444444 |
-| Passphrase | 444444 |
-| Channel | 15 |
-| On-Mesh Prefix | fd11:22:: |
-
-Select **FORM** to form the Thread network. Check the output in the terminal window running OTBR Docker. You should see `otbr-agent` log output for the addition of the on-mesh prefix and a SLAAC address:
+Start an `ot-ctl` session.
 
 ```
-otbr-agent[224]: [INFO]-CLI-----: execute command: prefix add fd11:22::/64 pasor
+$ docker exec -it otbr ot-ctl
 ```
 
-This output is required for internet connectivty for the Thread network.
+Generate and view new network configuration.
+
+```
+> dataset init new
+Done
+> dataset
+Active Timestamp: 1
+Channel: 15
+Wake-up Channel: 16
+Channel Mask: 0x07fff800
+Ext PAN ID: 39758ec8144b07fb
+Mesh Local Prefix: fdf1:f1ad:d079:7dc0::/64
+Network Key: f366cec7a446bab978d90d27abe38f23
+Network Name: OpenThread-5938
+PAN ID: 0x5938
+PSKc: 3ca67c969efb0d0c74a4d8ee923b576c
+Security Policy: 672 onrc 0
+Done
+```
+
+Commit new dataset to the Active Operational Dataset in non-volatile storage.
+
+```
+> dataset commit active
+Done
+```
+
+Enable Thread interface.
+
+```
+> ifconfig up
+Done
+> thread start
+Done
+```
+
+Exit the `ot-ctl` session:
+
+```
+> exit
+```
+
+Use `ifconfig` to view the new Thread network interface:
+
+```
+> ifconfig wpan0
+wpan0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1280
+        inet6 fe80::3c98:89e8:ddec:bda7  prefixlen 64  scopeid 0x20<link>
+        inet6 fd4d:b3e5:9738:3193:0:ff:fe00:fc00  prefixlen 64  scopeid 0x0<global>
+        inet6 fd4d:b3e5:9738:3193:0:ff:fe00:f800  prefixlen 64  scopeid 0x0<global>
+        inet6 fd4d:b3e5:9738:3193:39c4:ee02:ca9e:2b1d  prefixlen 64  scopeid 0x0<global>
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 500  (UNSPEC)
+        RX packets 16  bytes 1947 (1.9 KiB)
+        RX errors 0  dropped 3  overruns 0  frame 0
+        TX packets 7  bytes 1152 (1.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
 
 ## Step 2: Bring up a second Thread node
 
 With OTBR Docker up and running, add a standalone Thread node to the Thread
 network and test that it has connectivity to the internet.
-
-If using a physical RCP with OTBR Docker, use a second physical Thread node to
-test. If using a simulated RCP with OTBR Docker, use a second simulated node to
-test.
-
-### Physical Thread node
 
 Build and flash a standalone Thread node on the [supported platform](https://openthread.io/platforms)
 of your choice. This node does not have to be built with any specific build
@@ -54,39 +84,24 @@ See the [Build a Thread network with nRF52840 boards and OpenThread
 Codelab](https://openthread.io/codelabs/openthread-hardware) for
 detailed instructions on building and flashing the Nordic nRF52840 platform.
 
-1.  After building and flashing, attach the Thread device to the machine running
-    OTBR Docker via USB. Use `screen` in a new terminal window to access the
-    CLI. For example, if the device is mounted on port `/dev/ttyACM1`:
+1.  After building and flashing, use `screen` in a new terminal window
+    to access the CLI. For example, if the device is mounted on port
+    `/dev/ttyACM1`:
     ```
     $ screen /dev/ttyACM1 115200
     ```
 
 1.  Press the **Enter** key to bring up the `>` OpenThread CLI prompt.
 
-### Simulated Thread node
-
-1.  Open a new terminal window on the machine running OTBR Docker.
-
-1.  Start the CLI application to bring up a simulated node:
-    ```
-    $ cd ~/openthread
-    $ ./build/simulation/examples/apps/cli/ot-cli-ftd 2
-    ```
-
-1.  Press the **Enter** key to bring up the `>` OpenThread CLI prompt.
-
 ## Step 3: Join the second node to the Thread network
 
-Using the OpenThread CLI for your physical or simulated Thread node, join the
-node to the Thread network created by OTBR Docker.
-
-> Caution: Only the commissioner included with OTBR is supported with Docker.
-The Thread Commissioning App is not supported.
+Using the OpenThread CLI for your second Thread node, join the node to
+the Thread network created by OTBR Docker.
 
 1.  Update the Thread network credentials for the node, using the minimum
     required values from OTBR Docker:
     ```
-    > dataset networkkey 33334444333344443333444433334444
+    > dataset networkkey f366cec7a446bab978d90d27abe38f23
     Done
     > dataset commit active
     Done
@@ -107,17 +122,6 @@ The Thread Commissioning App is not supported.
     router
     ```
 
-1.  Check the node's IP addresses to ensure it has an IPv6 address with the
-    on-mesh prefix of `fd11:22::/64` as specified during Thread network
-    formation:
-    ```
-    > ipaddr
-    fd11:22:0:0:614e:4588:57a1:a473
-    fd33:3333:3344:0:0:ff:fe00:f801
-    fd33:3333:3344:0:1b5f:db5:ecac:a9e
-    fe80:0:0:0:e0c4:5304:5404:5f70:98cd
-    ```
-
 ## Step 4: Ping a public address
 
 You should be able to a ping a public IPv4 address from the standalone Thread
@@ -129,23 +133,26 @@ the Thread network.
     ```
     > netdata show
     Prefixes:
-    fd11:22:0:0::/64 paros med d400
+    fd3e:d39b:d91:1::/64 paros low 1800
     Routes:
-    fdb5:7875:8e0e:2:0:0::/96 sn low d400
-    fd11:1111:1122:2222::/64 s med d400
+    ::/0 s med 1800
+    fd3e:d39b:d91:2:0:0::/96 sn low 1800
     Services:
-    44970 5d fd5179ed685532847aaa91505f016bbad11f s d400
-    44970 01 00000500000e10 s d400
-    Done
+    Contexts:
+    fd3e:d39b:d91:1::/64 1 c
+    Commissioning:
+    12156 - - -
     ```
-    Here `fdb5:7875:8e0e:2:0:0::/96` is the NAT64 prefix in the Thread network.
+    Here `fd3e:d39b:d91:2:0:0::/96` is the NAT64 prefix in the Thread network.
 
 1.  Ping an IPv4 address from the CLI of the standalone Thread node to
     test its internet connectivity: 
     ```
     > ping 8.8.8.8
-    Pinging synthesized IPv6 address: fdb5:7875:8e0e:2:0:0:808:808
-    16 bytes from fdb5:7875:8e0e:2:0:0:808:808: icmp_seq=15 hlim=119 time=48ms
+    Pinging synthesized IPv6 address: fd3e:d39b:d91:2:0:0:808:808
+    16 bytes from fd3e:d39b:d91:2:0:0:808:808: icmp_seq=1 hlim=113 time=73ms
+    1 packets transmitted, 1 packets received. Packet loss = 0.0%. Round-trip min/avg/max = 73/73.0/73 ms.
+    Done
     ```
 
 Success! The second Thread node can now communicate with the internet, through
@@ -158,7 +165,7 @@ container, which is out of scope for this guide.
 
 ## License
 
-Copyright (c) 2021-2022, The OpenThread Authors.
+Copyright (c) 2021-2025, The OpenThread Authors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -183,4 +190,3 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
-
