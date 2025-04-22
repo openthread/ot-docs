@@ -282,7 +282,7 @@ output and confirm that it is running:
 ```console
 $ cd ~/src/openthread
 $ sudo ./build/posix/src/posix/ot-daemon -v \
-    'spinel+hdlc+uart:///dev/ttyACM0?uart-baudrate=115200'
+    'spinel+hdlc+uart:///dev/ttyACM0?uart-baudrate=460800'
 ```
 
 When successful, `ot-daemon` in verbose mode generates output similar to the
@@ -404,10 +404,10 @@ operational.
 ### Verify build
 
 Verify a successful build by accessing the OpenThread CLI using GNU Screen from
-a terminal window. The nRF52840 boards use a baud rate of 115200.
+a terminal window.
 
 ```console
-$ screen /dev/ttyACM1 115200
+$ screen /dev/ttyACM1
 ```
 
 In the new window, press Return on the keyboard a few times to bring up the
@@ -463,7 +463,7 @@ $ screen -r
 A new command line prompt appears. Access the OpenThread CLI for the FTD Joiner:
 
 ```console
-$ screen /dev/ttyACM2 115200
+$ screen /dev/ttyACM2
 ```
 
 In this new window, press Return on the keyboard a few times to bring up the
