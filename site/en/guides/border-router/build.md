@@ -2,7 +2,7 @@
 
 This guide covers the basic build and configuration of OpenThread Border Router
 (OTBR). Upon completion of this procedure, you will have an OTBR that functions
-as a as a Full Thread Device (FTD) in a
+as a Full Thread Device (FTD) in a
 [radio co-processor (RCP) design](/platforms/co-processor#radio_co-processor_rcp).
 
 ## Step 1: Configure Platform
