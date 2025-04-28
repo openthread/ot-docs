@@ -1,20 +1,20 @@
 ---
 id: openthread-border-router-ipv6-multicast
-summary: Thread 1.2 introduces Multicast across Thread Networks, which allows multicast communication between Thread network and Infrastructure (Wi-Fi/ethernet) network segments.  This codelab will guide you through the process to set up and play with Thread 1.2 Multicast features.
+summary: Thread border routers support multicast forwarding, which allows multicast communication between Thread network and Infrastructure (Wi-Fi/ethernet) network segments.  This codelab will guide you through the process to set up and play with Thread Multicast features.
 status: [final]
-authors: Simon Lin
+authors: Simon Lin, Jonathan Hui
 categories: Nest
 tags: web
 layout: scrolling
-feedback link: https://github.com/openthread/ot-br-posix/issues
+feedback link: https://github.com/orgs/openthread/discussions
 project: /_project.yaml
 book: /_book.yaml
 
 ---
 
-# Thread Border Router - Thread 1.2 Multicast
+# Thread Border Router - IPv6 Multicast
 
-[Codelab Feedback](https://github.com/openthread/ot-br-posix/issues)
+[Codelab Feedback](https://github.com/orgs/openthread/discussions)
 
 
 ## Introduction
@@ -23,7 +23,7 @@ book: /_book.yaml
 
 <img src="img/608c4c35050eb280.png" alt="608c4c35050eb280.png"  width="624.00" />
 
-### **What is Thread?**
+### What is Thread?
 
 Thread is an IP-based low-power wireless mesh networking protocol that enables secure device-to-device and device-to-cloud communications. Thread networks can adapt to topology changes to avoid single-point failures.
 
@@ -32,7 +32,7 @@ Thread is an IP-based low-power wireless mesh networking protocol that enables s
 > Dive Deeper: For more information, refer to
 [Thread Primer](../../guides/thread-primer/index.md).
 
-### **What is OpenThread?**
+### What is OpenThread?
 
 [OpenThread released by Google](https://github.com/openthread/openthread) is an open-source implementation of Thread®.
 
@@ -40,17 +40,17 @@ Thread is an IP-based low-power wireless mesh networking protocol that enables s
 
 [OpenThread Border Router](https://openthread.io/guides/border-router) (OTBR) released by Google is an open-source implementation of the Thread Border Router.
 
-### **Thread 1.2 Multicast**
+### IPv6 Multicast
 
-Thread 1.2 defines a series of features to support multicast across a heterogeneous network (Thread and Wi-Fi/Ethernet Network segments) for multicast addresses with scope larger than realm local.
+Thread defines a series of features to support multicast across a heterogeneous network (Thread and Wi-Fi/Ethernet Network segments) for multicast addresses with scope larger than realm local.
 
-A Thread 1.2 Border Router registers its Backbone Router (BBR) Dataset, and the selected BBR service is the Primary Backbone Router (PBBR), which is responsible for the multicast inbounding/outbounding forward.
+A Thread Border Router registers its Backbone Router (BBR) Dataset, and the selected BBR service is the Primary Backbone Router (PBBR), which is responsible for the multicast inbounding/outbounding forward.
 
-A Thread 1.2 Device sends a CoAP message to register the multicast address to the PBBR (Multicast Listener Registration, MLR for short) if the address is larger than realm local. PBBR uses MLDv2 on its External Interface to communicate to the wider IPv6 LAN/WAN about IPv6 multicast groups it needs to listen to, on behalf of its local Thread Network. And PBBR only forwards multicast traffic into the Thread Network if the destination is subscribed to by at least one Thread device.
+A Thread Device sends a CoAP message to register the multicast address to the PBBR (Multicast Listener Registration, MLR for short) if the address is larger than realm local. PBBR uses MLDv2 on its External Interface to communicate to the wider IPv6 LAN/WAN about IPv6 multicast groups it needs to listen to, on behalf of its local Thread Network. And PBBR only forwards multicast traffic into the Thread Network if the destination is subscribed to by at least one Thread device.
 
-For Thread 1.2 Minimal End Devices, they may depend on their parent to aggregate the multicast address and do MLR on their behalf, or register themselves if their parent is of Thread 1.1.
+For Thread Minimal End Devices, they may depend on their parent to aggregate the multicast address and do MLR on their behalf, or register themselves if their parent is of Thread 1.1.
 
-For more details, please refer to **Thread 1.2 Specification Section 5.24 Multicast Forwarding  for larger than Realm-Local Scope**.
+For more details, please refer to **Thread Specification**.
 
 ### **What you will build**
 
@@ -58,36 +58,33 @@ In this codelab, you're going to set up a Thread Border Router and two Thread de
 
 ### **What you will learn**
 
-* How to build nRF52840 firmware with Thread 1.2 Multicast features.
+* How to build nRF52840 firmware with support for IPv6 Multicast.
 * How to subscribe to IPv6 multicast addresses on Thread devices.
 
 ### **What you will need**
 
-* A Raspberry Pi 3/4 device and a SD card with at least 8 GB capability.
-* 3 Nordic Semiconductor  [nRF52840 DK](https://www.nordicsemi.com/Software-and-Tools/Development-Kits/nRF52840-DK) boards.
-* A Wi-Fi AP without  [IPv6 Router Advertisement Guard](https://tools.ietf.org/html/rfc6105) enabled on the router.
-* Linux/macOS Laptop (Raspberry Pi also works) with Python3 installed.
+* A Linux workstation, for building and flashing a Thread RCP, the OpenThread CLI, and testing IPv6 multicast.
+* A Raspberry Pi for the Thread border router.
+* 2 Nordic Semiconductor nRF52840 USB Dongles (one for the RCP and two for Thread end devices).
 
 
 ## Setup OTBR
 Duration: 05:00
 
 
-**Follow the**  [**Thread Border Router - Bidirectional IPv6 Connectivity and DNS-Based Service Discovery**](https://openthread.io/codelabs/openthread-border-router#1) **codelab to set up a Thread Border Router on the Raspberry Pi.**
+The quickest way to set up an OTBR is by using Docker following the [OTBR with Docker Guide](https://openthread.io/guides/border-router/docker).
 
-When completed, the Raspberry Pi should have created a working Thread network and be connected to a Wi-Fi network.
-
-OTBR should become the Primary Backbone Router within seconds.
+After OTBR setup is complete, use [`ot-ctl`](https://openthread.io/guides/border-router/docker/run#run_ot-ctl) to validate that the OTBR became the Primary Backbone Router within seconds.
 
 ```console
-$ sudo ot-ctl bbr state
+> bbr state
 Primary
 Done
-$ sudo ot-ctl bbr
+> bbr
 BBR Primary:
-server16: 0xD800
-seqno:    23
-delay:    1200 secs
+server16: 0xF800
+seqno:    21
+delay:    5 secs
 timeout:  3600 secs
 Done
 ```
@@ -110,94 +107,19 @@ Done
 Duration: 05:00
 
 
-Build the Thread 1.2 CLI application with Multicast and flash the two nRF52840 DK boards.
+Build the Thread CLI application with Multicast and flash the two nRF52840 DK boards.
 
 ### **Build nRF52840 DK firmware**
 
 Follow instructions to clone the project and build nRF52840 firmware.
 
 ```console
-$ mkdir -p ~/src
-$ cd ~/src
-$ git clone --recurse-submodules --depth 1 https://github.com/openthread/ot-nrf528xx.git
-$ cd ot-nrf528xx/
-$ script/build nrf52840 USB_trans -DOT_MLR=ON -DOT_THREAD_VERSION=1.2
-$ arm-none-eabi-objcopy -O ihex build/bin/ot-cli-ftd ot-cli-ftd.hex
+$ cd ~/src/ot-nrf528xx
+$ rm -rf build
+$ script/build nrf52840 USB_trans -DOT_MLR=ON
 ```
 
-We can find the successfully built HEX firmware at `ot-cli-ftd.hex`.
-
-### **Flash nRF52840 DK firmware**
-
-Flash the firmware onto nRF52840 DK using `nrfjprog`, which is part of the  [nRF Command Line Tools](https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF-Command-Line-Tools).
-
-```console
-$ nrfjprog -f nrf52 --chiperase --program ot-cli-ftd.hex --reset
-```
-
-> aside positive
->
-> TIP: Refer to the  [OpenThread on nRF52840 Example](https://github.com/openthread/ot-nrf528xx/blob/main/src/nrf52840/README.md) for more details.
-
-
-## Attach Thread devices to the Thread network
-Duration: 03:00
-
-
-OTBR has created a Thread network in previous steps. We can now add the nRF52840 DKs to the Thread network:
-
-Get raw Active Dataset from OTBR:
-
-```console
-$ sudo ot-ctl dataset active -x
-0e080000000000000000000300000b35060004001fffc00208dead00beef00cafe0708fddead00beef00000510e50d3d0931b3430a59c261c684585a07030a4f70656e54687265616401022715041021cf5e5f1d80d2258d5cfd43416525e90c0302a0ff
-```
-
-Connect to a nRF52840 DK board:
-
-```console
-$ screen /dev/ttyACM0 115200
-```
-
-Configure the Active Dataset for the nRF52840 DK:
-
-```console
-> dataset set active 0e080000000000000000000300000b35060004001fffc00208dead00beef00cafe0708fddead00beef00000510e50d3d0931b3430a59c261c684585a07030a4f70656e54687265616401022715041021cf5e5f1d80d2258d5cfd43416525e90c0302a0ff
-Done
-```
-
-Start the Thread stack and wait for a few seconds and verify the device has successfully attached:
-
-```console
-> ifconfig up
-Done
-> thread start
-Done
-> state
-child
-```
-
-Repeat the above steps to attach the other nRF52840 DK board to the Thread network.
-
-We have now successfully set up the Thread network with 3 Thread devices: OTBR and two nRF52840 DK boards.
-
-
-## Setup Wi-Fi Network
-Duration: 03:00
-
-
-Setup the Wi-Fi network on OTBR and the Laptop so that they are connected to the same Wi-Fi AP.
-
-We can use  [raspi-config](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) to setup the Wi-Fi SSID and passphrase on the Raspberry Pi OTBR.
-
-The final network topology is shown below:
-
-<img src="img/5d0f36fd69ebcc9a.png" alt="5d0f36fd69ebcc9a.png"  width="624.00" />
-
-
-> aside positive
->
-> NOTE: From this step on, the two nRF52840 DKs are used for different purposes. We refer to one as nRF52840 End Device 1 and the other nRF52840 End Device 2.
+Continue with the [Build a Thread network with nRF52840 boards and OpenThread codelab](https://openthread.io/codelabs/openthread-hardware#4) as written. After the end device is flashed with the CLI image, follow [Join the second node to the Thread network](https://openthread.io/guides/border-router/docker/test-connectivity#join-the-second-node-to-the-thread-network) to add the Thread device to the Thread network. Repeat for the second Thread end device.
 
 
 ## Subscribe to the IPv6 multicast address
@@ -219,9 +141,9 @@ Verify `ff05::abcd` is successfully subscribed:
 
 ```console
 > ipmaddr
+ff05:0:0:0:0:0:0:abcd            <--- ff05::abcd subscribed
 ff33:40:fdde:ad00:beef:0:0:1
 ff32:40:fdde:ad00:beef:0:0:1
-ff05:0:0:0:0:0:0:abcd            <--- ff05::abcd subscribed
 ff02:0:0:0:0:0:0:2
 ff03:0:0:0:0:0:0:2
 ff02:0:0:0:0:0:0:1
