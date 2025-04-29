@@ -33,10 +33,13 @@ toc:
 - title: OpenThread APIs
   path: /codelabs/openthread-apis/
 - title: OpenThread Border Router
+  status: external
   path: /codelabs/openthread-border-router/
 - title: OpenThread Border Router IPv6 Multicast
+  status: external
   path: /codelabs/openthread-border-router-ipv6-multicast
 - title: OpenThread Border Router NAT64
+  status: external
   path: /codelabs/openthread-border-router-nat64
 - title: OpenThread Network Simulator
   path: /codelabs/openthread-network-simulator/

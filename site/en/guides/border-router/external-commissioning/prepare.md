@@ -10,26 +10,6 @@ To set up a Border Router, refer to [OpenThread Border Router Build and Configur
 
 ## Form the Thread network
 
-### Web GUI
-
-The recommended way to form a Thread network is via the [OTBR Web
-GUI](../web-gui.md). When doing so, change
-all the default values on the **Form** menu option, except for the On-Mesh
-Prefix.
-
-Make note of the **Passphrase** used. This passphrase is the Commissioner
-Credential and is used (along with the Extended PAN ID and Network Name) to
-generate the Pre-Shared Key for the Commissioner (PSKc). The PSKc is needed to
-authenticate the Thread Commissioner (the external device) to the network.
-
-> Note: The Commissioner Credential is a user-defined string between 6
-and 255 characters, UTF-8 encoded.
-
-### Manual
-
-The Thread network can also be formed manually on the command line of
-OpenThread POSIX, using `ot-ctl`.
-
 1.  Initialize a new operational dataset:
     ```
     $ sudo ot-ctl dataset init new

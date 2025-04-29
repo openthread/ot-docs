@@ -1,84 +1,89 @@
-# Test Connectivity
+# Form Thread Network
 
-Once you have started OTBR Docker, form a Thread network and test its
-connectivity to the internet.
+Form a Thread network and test its connectivity to the internet.
 
-## Step 1: Form the Thread Network
+## Step 1: Start an `ot-ctl` session
 
-Start an `ot-ctl` session.
+`ot-ctl` exposes the OpenThread CLI commands, see [OpenThread CLI
+Guide](https://github.com/openthread/openthread/blob/main/src/cli/README.md)
+for more details.
+
+If using Docker, start an `ot-ctl` session as follows:
 
 ```
 $ docker exec -it otbr ot-ctl
 ```
 
-Generate and view new network configuration.
+If using native host, start an `ot-ctl` session as follows:
 
 ```
-> dataset init new
-Done
-> dataset
-Active Timestamp: 1
-Channel: 15
-Wake-up Channel: 16
-Channel Mask: 0x07fff800
-Ext PAN ID: 39758ec8144b07fb
-Mesh Local Prefix: fdf1:f1ad:d079:7dc0::/64
-Network Key: f366cec7a446bab978d90d27abe38f23
-Network Name: OpenThread-5938
-PAN ID: 0x5938
-PSKc: 3ca67c969efb0d0c74a4d8ee923b576c
-Security Policy: 672 onrc 0
-Done
+$ sudo ot-ctl
 ```
 
-Commit new dataset to the Active Operational Dataset in non-volatile storage.
+## Step 2: Form a Thread Network
 
-```
-> dataset commit active
-Done
-```
+1.  Generate a new network configuration.
 
-Enable Thread interface.
+    ```
+    > dataset init new
+    Done
+    ```
 
-```
-> ifconfig up
-Done
-> thread start
-Done
-```
+1.  View the new network configuration.
 
-Exit the `ot-ctl` session:
+    ```
+    > dataset
+    Active Timestamp: 1
+    Channel: 15
+    Wake-up Channel: 16
+    Channel Mask: 0x07fff800
+    Ext PAN ID: 39758ec8144b07fb
+    Mesh Local Prefix: fdf1:f1ad:d079:7dc0::/64
+    Network Key: f366cec7a446bab978d90d27abe38f23
+    Network Name: OpenThread-5938
+    PAN ID: 0x5938
+    PSKc: 3ca67c969efb0d0c74a4d8ee923b576c
+    Security Policy: 672 onrc 0
+    Done
+    ```
 
-```
-> exit
-```
+1.  Commit new dataset to the Active Operational Dataset in non-volatile storage.
 
-Use `ifconfig` to view the new Thread network interface:
+    ```
+    > dataset commit active
+    Done
+    ```
 
-```
-> ifconfig wpan0
-wpan0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1280
-        inet6 fe80::3c98:89e8:ddec:bda7  prefixlen 64  scopeid 0x20<link>
-        inet6 fd4d:b3e5:9738:3193:0:ff:fe00:fc00  prefixlen 64  scopeid 0x0<global>
-        inet6 fd4d:b3e5:9738:3193:0:ff:fe00:f800  prefixlen 64  scopeid 0x0<global>
-        inet6 fd4d:b3e5:9738:3193:39c4:ee02:ca9e:2b1d  prefixlen 64  scopeid 0x0<global>
-        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 500  (UNSPEC)
-        RX packets 16  bytes 1947 (1.9 KiB)
-        RX errors 0  dropped 3  overruns 0  frame 0
-        TX packets 7  bytes 1152 (1.1 KiB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-```
+1.  Enable Thread interface.
 
-## Step 2: Bring up a second Thread node
+    ```
+    > ifconfig up
+    Done
+    > thread start
+    Done
+    ```
 
-With OTBR Docker up and running, add a standalone Thread node to the Thread
+1.  In the Linux host console (not within an `ot-ctl` session), use
+    `ifconfig` to view the new Thread network interface:
+
+    ```
+    > ifconfig wpan0
+    wpan0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1280
+            inet6 fe80::3c98:89e8:ddec:bda7  prefixlen 64  scopeid 0x20<link>
+            inet6 fd4d:b3e5:9738:3193:0:ff:fe00:fc00  prefixlen 64  scopeid 0x0<global>
+            inet6 fd4d:b3e5:9738:3193:0:ff:fe00:f800  prefixlen 64  scopeid 0x0<global>
+            inet6 fd4d:b3e5:9738:3193:39c4:ee02:ca9e:2b1d  prefixlen 64  scopeid 0x0<global>
+            unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 500  (UNSPEC)
+            RX packets 16  bytes 1947 (1.9 KiB)
+            RX errors 0  dropped 3  overruns 0  frame 0
+            TX packets 7  bytes 1152 (1.1 KiB)
+            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+    ```
+
+## Step 3: Bring up a second Thread node
+
+With OTBR up and running, add a standalone Thread node to the Thread
 network and test that it has connectivity to the internet.
-
-Build and flash a standalone Thread node on the [supported platform](https://openthread.io/platforms)
-of your choice. This node does not have to be built with any specific build
-switches.
-
-See [Build OpenThread](../../../guides/build.md) for basic building instructions.
 
 See the [Build a Thread network with nRF52840 boards and OpenThread
 Codelab](https://openthread.io/codelabs/openthread-hardware) for
@@ -93,13 +98,13 @@ detailed instructions on building and flashing the Nordic nRF52840 platform.
 
 1.  Press the **Enter** key to bring up the `>` OpenThread CLI prompt.
 
-## Step 3: Join the second node to the Thread network
+## Step 4: Join the second node to the Thread network
 
 Using the OpenThread CLI for your second Thread node, join the node to
-the Thread network created by OTBR Docker.
+the Thread network created by OTBR.
 
 1.  Update the Thread network credentials for the node, using the minimum
-    required values from OTBR Docker:
+    required values from OTBR:
     ```
     > dataset networkkey f366cec7a446bab978d90d27abe38f23
     Done
@@ -122,7 +127,7 @@ the Thread network created by OTBR Docker.
     router
     ```
 
-## Step 4: Ping a public address
+## Step 5: Ping a public address
 
 You should be able to a ping a public IPv4 address from the standalone Thread
 node at this point. Since Thread only uses IPv6, the public IPv4 address
@@ -156,12 +161,12 @@ the Thread network.
     ```
 
 Success! The second Thread node can now communicate with the internet, through
-OTBR Docker.
+OTBR.
 
-> Note: This configuration only illustrates public internet connectivity using
-IPv4 and NAT64. Direct public connectivity to IPv6 addresses requires
-additional configuration of a public IPv6 address or prefix for the OTBR Docker
-container, which is out of scope for this guide.
+> Note: This configuration only illustrates public internet
+connectivity using IPv4 and NAT64. Direct public connectivity to IPv6
+addresses requires additional configuration of a public IPv6 address
+or prefix for the OTBR, which is out of scope for this guide.
 
 ## License
 

@@ -72,9 +72,9 @@ In this codelab, you're going to set up a Thread Border Router and two Thread de
 Duration: 05:00
 
 
-The quickest way to set up an OTBR is by using Docker following the [OTBR with Docker Guide](https://openthread.io/guides/border-router/docker).
+The quickest way to set up an OTBR is by following the [OTBR Setup Guide](https://openthread.io/guides/border-router).
 
-After OTBR setup is complete, use [`ot-ctl`](https://openthread.io/guides/border-router/docker/run#run_ot-ctl) to validate that the OTBR became the Primary Backbone Router within seconds.
+After OTBR setup is complete, use [`ot-ctl`](https://openthread.io/guides/border-router/form-network) to validate that the OTBR became the Primary Backbone Router within seconds.
 
 ```console
 > bbr state
@@ -119,7 +119,7 @@ $ rm -rf build
 $ script/build nrf52840 USB_trans -DOT_MLR=ON
 ```
 
-Continue with the [Build a Thread network with nRF52840 boards and OpenThread codelab](https://openthread.io/codelabs/openthread-hardware#4) as written. After the end device is flashed with the CLI image, follow [Join the second node to the Thread network](https://openthread.io/guides/border-router/docker/test-connectivity#join-the-second-node-to-the-thread-network) to add the Thread device to the Thread network. Repeat for the second Thread end device.
+Continue with the [Build a Thread network with nRF52840 boards and OpenThread codelab](https://openthread.io/codelabs/openthread-hardware#4) as written. After the end device is flashed with the CLI image, follow [Join the second node to the Thread network](https://openthread.io/guides/border-router/form-network#join-the-second-node-to-the-thread-network) to add the Thread device to the Thread network. Repeat for the second Thread end device.
 
 
 ## Subscribe to the IPv6 multicast address
@@ -266,7 +266,7 @@ Reference docs:
 *  [Thread Border Router - Bidirectional IPv6 Connectivity and DNS-Based Service Discovery](https://openthread.io/codelabs/openthread-border-router)
 *  [Thread Primer](https://openthread.io/guides/thread-primer)
 *  [OpenThread Guide](https://openthread.io/guides)
-*  [OpenThread CLI Reference](https://github.com/openthread/openthread/blob/main/src/cli/README.md#openthread-cli-reference)
+*  [OpenThread CLI Reference](https://openthread.io/reference/cli/commands)
 
 ## License
 

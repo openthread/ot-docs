@@ -1351,7 +1351,7 @@ Building off of this Codelab, try the following exercises:
   [Router/Leader API](https://openthread.io/reference/group/api-thread-router)
   to locate and ping an individual device
 * Connect your mesh network to the internet by using an
-  [OpenThread Border Router](https://openthread.io/guides/border-router/build)
+  [OpenThread Border Router](https://openthread.io/guides/border-router)
   and multicast them from outside the Thread network to light the LEDs
 
 ### Further reading

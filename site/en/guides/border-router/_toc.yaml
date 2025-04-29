@@ -1,70 +1,56 @@
 toc:
 - title: Overview
   path: /guides/border-router/
-- title: Get Started
-  path: /guides/border-router/get-started
 
-- heading: Platforms
-- title: Android
-  path: /android/build-an-android-border-router
-- title: BeagleBone Black (Linux)
-  path: /guides/border-router/beaglebone-black
-- title: Raspberry Pi (Linux)
-  path: /guides/border-router/raspberry-pi
-- title: Espressif ESP32 Series (FreeRTOS)
-  path: /guides/border-router/espressif-esp32
-
-- heading: Setup
-- title: Build and Configuration
-  path: /guides/border-router/build
+- heading: Raspberry Pi Setup
+- title: Prepare
+  path: /guides/border-router/prepare
   step_group: otbr_setup
-- title: Web GUI
-  path: /guides/border-router/web-gui
+- title: Setup (Docker)
+  path: /guides/border-router/build-docker
+  step_group: otbr_setup
+- title: Setup (Native)
+  path: /guides/border-router/build-native
+  step_group: otbr_setup
+- title: Form Thread Network
+  path: /guides/border-router/form-network
   step_group: otbr_setup
 - title: mDNS Discovery
   path: /guides/border-router/mdns-discovery
   step_group: otbr_setup
 
+- heading: Other Platforms
+- title: Android
+  path: /android/build-an-android-border-router
+- title: Espressif ESP32 Series (FreeRTOS)
+  path: /guides/border-router/espressif-esp32
+
+- heading: Codelabs
+- title: OpenThread Border Router
+  path: /codelabs/openthread-border-router/
+- title: OpenThread Border Router IPv6 Multicast
+  path: /codelabs/openthread-border-router-ipv6-multicast
+- title: OpenThread Border Router NAT64
+  path: /codelabs/openthread-border-router-nat64
+
+- heading: Thread Commissioning
 - title: External Commissioning
   section:
-  - title: External Commissioning
+  - title: Overview
     path: /guides/border-router/external-commissioning
-    step_group: otbr_setup
+    step_group: external_commissioning
   - title: Prepare Network and Joiner
     path: /guides/border-router/external-commissioning/prepare
-    step_group: otbr_setup
+    step_group: external_commissioning
   - title: OT Commissioner CLI
     path: /guides/border-router/external-commissioning/cli
-    step_group: otbr_setup
+    step_group: external_commissioning
   - title: Join the Thread Network
     path: /guides/border-router/external-commissioning/join
-    step_group: otbr_setup
+    step_group: external_commissioning
 
 - heading: Other
 - title: Tools and Scripts
   path: /guides/border-router/tools
 - title: Serial Cables
   path: /guides/border-router/serial-cables
-- heading: Docker Support
-- title: Overview
-  path: /guides/border-router/docker/
-  step_group: otbr_docker
-- title: Run OTBR Docker
-  path: /guides/border-router/docker/run
-  step_group: otbr_docker
-- title: Test Connectivity
-  path: /guides/border-router/docker/test-connectivity
-  step_group: otbr_docker
-- title: Cleanup and Docker Basics
-  path: /guides/border-router/docker/cleanup-and-basics
-  step_group: otbr_docker
-- heading: Codelabs
-- title: OpenThread Border Router
-  status: external
-  path: /codelabs/openthread-border-router/
-- title: OpenThread Border Router IPv6 Multicast
-  status: external
-  path: /codelabs/openthread-border-router-ipv6-multicast
-- title: OpenThread Border Router NAT64
-  status: external
-  path: /codelabs/openthread-border-router-nat64
