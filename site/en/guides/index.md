@@ -117,18 +117,18 @@ With a Mac or Linux machine, learn how to:
    href="https://openthread.io/codelabs/openthread-border-router/">Try the Border Router
   Codelab</a>
 
-### Border Router Thread 1.2 Multicast Codelab
+### Border Router IPv6 Multicast Codelab
 
-Thread 1.2 introduces Multicast across Thread Networks, allowing multicast
+Thread supports IPv6 Multicast across Thread Networks, allowing multicast
 communication between Thread network and Infrastructure (Wi-Fi/ethernet)
 network segments. With a Mac or Linux machine and a Raspberry Pi, learn how to:
 
-*   Build nRF52840 firmware with Thread 1.2 Multicast features
+*   Build nRF52840 firmware with IPv6 Multicast features
 *   Subscribe to IPv6 multicast addresses on Thread devices
 
 <a class="button button-primary"
    href="https://openthread.io/codelabs/openthread-border-router-ipv6-multicast/">Try the Border
-  Router Thread 1.2 Multicast Codelab</a>
+  Router IPv6 Multicast Codelab</a>
 
 ### Border Router NAT64 Codelab
 
