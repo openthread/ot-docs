@@ -40,15 +40,10 @@ When choosing your platform, consider the following benefits of using RCP:
 *   Easier integration with host IPv6 network stack: having OpenThread run on
     the host allows for more direct integration with the host IPv6 stack.
 
-> Note: OTBR is also a Thread Certified Component on the [Raspberry Pi
-3B](raspberry-pi.md) with a [Nordic
-nRF52840](https://openthread.io/vendors/nordic-semiconductor) NCP.
-
 ## Features and services
 
 OTBR includes a number of features, including:
 
-*   [Web GUI](web-gui.md) for configuration and management
 *   Thread Border Agent to support [external
     commissioning](external-commissioning/index.md)
 *   DHCPv6 Prefix Delegation to obtain IPv6 prefixes for a Thread network
@@ -56,7 +51,6 @@ OTBR includes a number of features, including:
 *   DNS64 to allow Thread devices to initiate communications by name to an
     IPv4-only server
 *   Thread interface driver using OpenThread's built-in feature
-*   [Docker support](docker/index.md)
 
 ### Border Router services
 
@@ -65,10 +59,6 @@ OTBR provides the following services:
 *   [mDNS Publisher](mdns-discovery.md) — Allows an External Commissioner
     to discover an OTBR and its associated Thread network
 *   [PSKc Generator](tools.md) — For generation of PSKc keys
-*   Web Service — [Web UI](web-gui.md) for management of a Thread network
-
-Third-party components for Border Router Services include Simple Web Server
-and Material Design Lite for the framework of the web UI.
 
 ### OTBR firewall
 

@@ -2,7 +2,7 @@
 
 OTBR registers a `_meshcop._udp` service named `OpenThread BorderRouter`. This
 service is configured in the
-[OTBR CMakeLists.txt file](https://github.com/openthread/ot-br-posix/blob/main/CMakeLists.txt#L36).
+[OTBR CMakeLists.txt file](https://github.com/openthread/ot-br-posix/blob/43981a3c2583deaf67edf3c421bb3f3f1ddffb6d/CMakeLists.txt#L37).
 The  Thread Specification requires Thread Border Routers to publish the
 `_meshcop._udp` service for the Thread Border Agent service. Thread Border
 Router devices may publish other services that they implement but that is up

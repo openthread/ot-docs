@@ -65,9 +65,9 @@ The network topology for this codelab:
 Duration: 07:00
 
 
-The quickest way to set up an OTBR is by using Docker following the [OTBR with Docker Guide](https://openthread.io/guides/border-router/docker).
+The quickest way to set up an OTBR is by following the [OTBR Setup Guide](https://openthread.io/guides/border-router).
 
-After OTBR setup is complete, use [`ot-ctl`](https://openthread.io/guides/border-router/docker/run#run_ot-ctl) to validate that the NAT64 service is enabled on the border router:
+After OTBR setup is complete, use [`ot-ctl`](https://openthread.io/guides/border-router/form-network) to validate that the NAT64 service is enabled on the border router:
 
 ```console
 > nat64 state
@@ -117,7 +117,7 @@ $ rm -rf build
 $ script/build nrf52840 USB_trans -DOT_DNS_CLIENT=ON -DOT_SRP_CLIENT=ON -DOT_ECDSA=ON
 ```
 
-Continue with the [Build a Thread network with nRF52840 boards and OpenThread codelab](https://openthread.io/codelabs/openthread-hardware#4) as written. After the end device is flashed with the CLI image, follow [Join the second node to the Thread network](https://openthread.io/guides/border-router/docker/test-connectivity#join-the-second-node-to-the-thread-network) to add the Thread device to the Thread network.
+Continue with the [Build a Thread network with nRF52840 boards and OpenThread codelab](https://openthread.io/codelabs/openthread-hardware#4) as written. After the end device is flashed with the CLI image, follow [Join the second node to the Thread network](https://openthread.io/guides/border-router/form-network#join-the-second-node-to-the-thread-network) to add the Thread device to the Thread network.
 
 Wait for a few seconds after setting up the Thread end device and verify if joining the Thread network is successful. As above, you can view the published NAT64 prefix in the Thread Network Data.
 
