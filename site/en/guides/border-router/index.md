@@ -11,8 +11,8 @@ to other networks.
 A Thread Border Router minimally supports the following functions:
 
 *   Bidirectional IP connectivity between Thread and Wi-Fi/Ethernet networks.
-*   Bidirectional service discovery via mDNS (on a Wi-Fi/Ethernet link) and SRP
-    (on a Thread network).
+*   Bidirectional DNS-based service discovery via mDNS (on a
+    Wi-Fi/Ethernet link) and SRP (on a Thread network).
 *   Thread-over-infrastructure that merges Thread partitions over IP-based
     links.
 *   External Thread Commissioning (for example, a mobile phone) to authenticate
@@ -44,13 +44,10 @@ When choosing your platform, consider the following benefits of using RCP:
 
 OTBR includes a number of features, including:
 
+*   NAT64 for connecting to IPv4 networks
+*   DHCPv6 Prefix Delegation to obtain IPv6 prefixes for a Thread network
 *   Thread Border Agent to support [external
     commissioning](external-commissioning/index.md)
-*   DHCPv6 Prefix Delegation to obtain IPv6 prefixes for a Thread network
-*   NAT64 for connecting to IPv4 networks
-*   DNS64 to allow Thread devices to initiate communications by name to an
-    IPv4-only server
-*   Thread interface driver using OpenThread's built-in feature
 
 ### Border Router services
 
