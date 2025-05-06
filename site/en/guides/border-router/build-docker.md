@@ -53,7 +53,7 @@ and building the included Dockerfile locally.
     ```
     $ docker images
     REPOSITORY                 TAG       IMAGE ID       CREATED       SIZE
-    openthread/border-router   latest    08666d77013d   2 hours ago   171MB
+    openthread/border-router   latest    08666d77013d   2 hours ago   132MB
     ```
 
 ### Build the Dockerfile
