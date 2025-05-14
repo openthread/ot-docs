@@ -129,7 +129,7 @@ $ otns
 When successfully started, OTNS will enter a CLI console (`OTNS-CLI`) and
 launch a web browser for network visualization and management (`OTNS-Web`):
 
-<img src="img/00_otns_web.png" alt="OTNS-Web window at start" width="95%" />
+<img src="img/00_otns_web.png" alt="OTNS-Web window at start" />
 
 **If you can only see a blank page for OTNS-Web, chances are WebGL is not
 enabled in your browser. Please refer to 
@@ -188,7 +188,7 @@ Definition:
 visual representation of the nodes, messages, and links of the simulated Thread
 network. Note the various elements of `OTNS-Web`:
 
-<img src="img/00b_otns_web_elements.png" alt="OTNS-Web elements explained" width="95%" />
+<img src="img/00b_otns_web_elements.png" alt="OTNS-Web elements explained" />
 
 
 ## Add Nodes
@@ -208,7 +208,7 @@ Done
 You should see a node created in `OTNS-Web`. The node starts as a Router and
 becomes a Leader in a few seconds:
 
-<img src="img/01_leader_1n.png" alt="One node in the Leader role" width="95%" />
+<img src="img/01_leader_1n.png" alt="One node in the Leader role" />
 
 To make it easy to start simulations interactively, each new OpenThread node is by default commissioned with a 
 standard set of network parameters.
@@ -236,7 +236,7 @@ Done
 Wait a few seconds for nodes to merge into one partition. You should see the
 nodes in `OTNS-Web`:
 
-<img src="img/02_4n.png" alt="Thread Network with 4 nodes" width="95%" />
+<img src="img/02_4n.png" alt="Thread Network with 4 nodes" />
 
 > aside positive
 >
@@ -246,7 +246,7 @@ the Leader is the parent of the FED, MED, and SED.
 Also in `OTNS-Web`, it's possible to select any of the nodes to get a panel with more information about the node. 
 For example, in the below figure node 1 is selected. The "Role" entry in the panel confirms that it is a Leader.
 
-<img src="img/03_4n_select1.png" alt="Thread Network with 4 nodes, node 1 is selected" width="100%" />
+<img src="img/03_4n_select1.png" alt="Thread Network with 4 nodes, node 1 is selected" />
 
 > aside positive
 >
@@ -258,13 +258,13 @@ You can also add nodes through `OTNS-Web`. Click the `New Router` button of the
 `Action Bar`. You should see a node being created to the right of the selected node.
 The new router should join the existing Thread partition:
 
-<img src="img/04_5n_add_router.png" alt="A Router is added, total 5 nodes" width="100%" />
+<img src="img/04_5n_add_router.png" alt="A Router is added, total 5 nodes" />
 
 Also click the FED, MED, SSED, and BR buttons on the Action Bar to create these other types
 of nodes. There should now be 9 nodes in total.
 If you want, drag some nodes around to other positions, to create a different physical network topology.
 
-<img src="img/05_9n_add_multiple.png" alt="Multiple new nodes added, total 9 nodes" width="100%" />
+<img src="img/05_9n_add_multiple.png" alt="Multiple new nodes added, total 9 nodes" />
 
 
 > aside positive
@@ -382,7 +382,7 @@ and runs at 10X speed.
 
 Find the current Leader (red border) of the 2 Routers, single click to select it:
 
-<img src="img/06_9n_select1.png" alt="Thread Network with Leader node 1 selected" width="90%" />
+<img src="img/06_9n_select1.png" alt="Thread Network with Leader node 1 selected" width="700" />
 
 ### Turn off radio
 
@@ -393,7 +393,7 @@ The Leader won't be able to send or receive messages with the radio off.
 Wait for about 12s (120s in simulating time) for the other Router or Border Router to become the
 new Leader:
 
-<img src="img/08_9n_new_partition.png" alt="New partition is formed with node 9 as the new Leader" width="90%" />
+<img src="img/08_9n_new_partition.png" alt="New partition is formed with node 9 as the new Leader" width="700" />
 
 The Thread network recovers from Leader failure automatically by forming a new
 partition with a new Leader. The new partition also has a new partition color.
@@ -404,7 +404,7 @@ Select the Leader whose radio was turned off. Click the
 <img src="img/2d9cecb8612b42aa.png" alt="Radio on button" width="75" />
 button on `Action Bar` to restore radio connectivity:
 
-<img src="img/09_9n_radio_on_1.png" alt="Node 1 joins the partition after its radio is on again" width="90%" />
+<img src="img/09_9n_radio_on_1.png" alt="Node 1 joins the partition after its radio is on again" width="700" />
 
 The Leader should reattach to the network after radio connectivity is restored.
 
@@ -430,7 +430,7 @@ Move node 5 all the way to the bottom right, by dragging. Because node 5 is now 
 the other Routers, it forms its own partition with a new Partition ID. The Partition IDs can be checked 
 on the node information panel by clicking the nodes.
 
-<img src="img/10_9n_move_router_away.png" alt="Node 5 is moved away from the other nodes and forms a new partition" width="100%" />
+<img src="img/10_9n_move_router_away.png" alt="Node 5 is moved away from the other nodes and forms a new partition" />
 
 Note that a single green line is still drawn between node 5 and node 9. This is often due to stale information about a 
 child, which is still kept in the child table of a former parent. Or it could be stale information about the former 
@@ -452,7 +452,7 @@ Done
 
 Node 5 should disappear from the simulation:
 
-<img src="img/11_8n_del_router.png" alt="Node 5 is deleted from the simulation" width="100%" />
+<img src="img/11_8n_del_router.png" alt="Node 5 is deleted from the simulation" />
 
 ### Delete nodes through `OTNS-Web`
 
@@ -460,7 +460,7 @@ Select the Border Router node 9 and click the
 <img src="img/7ff6afd565f4eafc.png" alt="Delete button" width="55" />
 button on the `Action Bar` to delete node 9:
 
-<img src="img/12_7n_del_br.png" alt="Border Router node 9 is deleted" width="100%" />
+<img src="img/12_7n_del_br.png" alt="Border Router node 9 is deleted" />
 
 `Node 1` should become Leader of a new partition and all remaining nodes will attach as a Child 
 to node 1.
@@ -577,7 +577,7 @@ default, one well-known Network Key is used so that frame decryption by Wireshar
 
 See the below screenshot for an example of OpenThread packet inspection in Wireshark.
 
-<img src="img/13_wireshark.png" alt="Screenshot of OpenThread packet analysis in Wireshark" width="100%" />
+<img src="img/13_wireshark.png" alt="Screenshot of OpenThread packet analysis in Wireshark" />
 
 To configure the decryption key, select in the menu **Edit -> Preferences**. Then in the preferences window, select 
 **Protocols -> IEEE 802.15.4**. Click the **Edit...** button next to "Decryption Keys". Click **+** to create a new entry 
