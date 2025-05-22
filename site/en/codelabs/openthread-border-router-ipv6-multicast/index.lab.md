@@ -52,16 +52,16 @@ For Thread Minimal End Devices, they may depend on their parent to aggregate the
 
 For more details, please refer to **Thread Specification**.
 
-### **What you will build**
+### What you'll build
 
 In this codelab, you're going to set up a Thread Border Router and two Thread devices, then enable and verify Multicast features on Thread devices and Wi-Fi devices.
 
-### **What you will learn**
+### What you'll learn
 
 * How to build nRF52840 firmware with support for IPv6 Multicast.
 * How to subscribe to IPv6 multicast addresses on Thread devices.
 
-### **What you will need**
+### What you'll need
 
 * A Linux workstation, for building and flashing a Thread RCP, the OpenThread CLI, and testing IPv6 multicast.
 * A Raspberry Pi for the Thread border router.
@@ -128,7 +128,7 @@ Duration: 02:00
 
 > aside positive
 >
-> NOTE: This codelab uses a IPv6 multicast address of `ff05::abcd`, but any IPv6 multicast address with scope &gt;= `Admin-local scope (4)` will also work.
+> **Note:** This codelab uses a IPv6 multicast address of `ff05::abcd`, but any IPv6 multicast address with scope &gt;= `Admin-local scope (4)` will also work.
 
 **Subscribe to ff05::abcd on nRF52840 End Device 1:**
 
@@ -188,7 +188,7 @@ Press ENTER to quit.
 
 > aside positive
 >
-> NOTE: If you press ENTER, the subscription ends.
+> **Note:** If you press ENTER, the subscription ends.
 
 The final network topology with multicast subscriptions are shown below:
 
@@ -223,11 +223,11 @@ We can see that OTBR can receive two ping replies from both the nRF52840 End Dev
 
 > aside positive
 >
-> NOTE: We need to use `-t ttl` to set the IP Time to Live, which is 1 by default on Linux, otherwise the multicast ping can not reach nRF52840 End Device 1.
+> **Note:** We need to use `-t ttl` to set the IP Time to Live, which is 1 by default on Linux, otherwise the multicast ping can not reach nRF52840 End Device 1.
 
 > aside positive
 >
-> NOTE: `ip -6 mroute show table all` is a helpful tool to view active multicast groups on a Linux host and their input/output interface(s).
+> **Note:** `ip -6 mroute show table all` is a helpful tool to view active multicast groups on a Linux host and their input/output interface(s).
 
 
 ## Verify Outbound IPv6 Multicast
@@ -250,7 +250,7 @@ nRF52840 End Device 2 can receive ping replies from both the nRF52840 End Device
 
 > aside positive
 >
-> NOTE: We rely on the OTBR Border Routing to forward unicast ping replies.
+> **Note:** We rely on the OTBR Border Routing to forward unicast ping replies.
 
 
 ## Congratulations
