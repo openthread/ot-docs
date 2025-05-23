@@ -2,11 +2,11 @@
 id: openthread-border-router
 summary: In this codelab, you will use OTBR as a standard Thread Border Router, discover and reach Thread end devices from a mobile phone connected in the same Wi-Fi network.
 status: [final]
-authors: Kangping Dong
+authors: Kangping Dong, Jonathan Hui
 categories: Nest
 tags: web
 layout: scrolling
-feedback link: https://github.com/openthread/ot-br-posix/issues
+feedback link: https://github.com/orgs/openthread/discussions
 project: /_project.yaml
 book: /_book.yaml
 
@@ -14,7 +14,7 @@ book: /_book.yaml
 
 # Thread Border Router - Bidirectional IPv6 Connectivity and DNS-Based Service Discovery
 
-[Codelab Feedback](https://github.com/openthread/ot-br-posix/issues)
+[Codelab Feedback](https://github.com/orgs/openthread/discussions)
 
 
 ## Introduction
@@ -23,13 +23,20 @@ book: /_book.yaml
 
 <img src="img/699d673d05a55535.png" alt="699d673d05a55535.png"  width="624.00" />
 
-### **What is a Thread Border Router?**
+### What is Thread?
 
-Thread is an IP-based low-power wireless mesh networking protocol that enables secure device-to-device and device-to-cloud communications. Thread networks can adapt to topology changes to avoid single point of failure. 
+Thread is an IP-based low-power wireless mesh networking protocol that enables secure device-to-device and device-to-cloud communications. Thread networks can adapt to topology changes to avoid single-point failures.
 
 > aside positive
-> 
-> Dive Deeper: Refer to  [Thread Overview](https://www.threadgroup.org/What-is-Thread/Overview) for more on Thread.
+>
+> Dive Deeper: For more information, refer to
+[Thread Primer](../../guides/thread-primer/index.md).
+
+### What is OpenThread?
+
+[OpenThread released by Google](https://github.com/openthread/openthread) is an open-source implementation of Thread®.
+
+### What is a Thread Border Router?
 
 A Thread Border Router connects a Thread network to other IP-based networks, such as Wi-Fi or Ethernet. A Thread network requires a Border Router to connect to other networks. A Thread  Border Router minimally supports the following functions:
 
@@ -40,7 +47,7 @@ A Thread Border Router connects a Thread network to other IP-based networks, suc
 
 [OpenThread Border Router](https://openthread.io/guides/border-router) (OTBR) released by Google is an open-source implementation of the Thread Border Router.
 
-### **What you'll build**
+### What you'll build
 
 In this codelab, you're going to set up a Thread Border Router and connect your mobile phone to a Thread End Device via the Border Router.
 
@@ -50,141 +57,32 @@ In this codelab, you're going to set up a Thread Border Router and connect your 
 * How to form a Thread network with OTBR
 * How to build an OpenThread CLI device with the SRP feature
 * How to register a service with SRP
-* How to discover and reach a Thread end device.
+* How to discover and reach a Thread end device
 
 ### What you'll need
 
-* A Raspberry Pi 3/4 device and a SD card with at least 8 GB capability.
-* 2 Nordic Semiconductor  [nRF52840](https://www.nordicsemi.com/Software-and-Tools/Development-Kits/nRF52840-DK) dev boards.
-* A Wi-Fi AP without  [IPv6 Router Advertisement Guard](https://tools.ietf.org/html/rfc6105) enabled on the router.
-* An  iOS phone with at least iOS 14 or Android phone with at least Android 8.1.
+* A Linux workstation, for building and flashing a Thread RCP, the OpenThread CLI, and testing IPv6 multicast.
+* A Raspberry Pi for the Thread border router.
+* 2 Nordic Semiconductor nRF52840 USB Dongles (one for the RCP and one for the Thread end device).
+* An iOS phone with at least iOS 14 or Android phone with at least Android 8.1.
 
 
-## Setup OTBR
+## Set Up OTBR
 Duration: 05:00
 
 
-### Setup Raspberry Pi
+The quickest way to set up an OTBR is by following the [OTBR Setup Guide](https://openthread.io/guides/border-router).
 
-It is simple to set up a fresh Raspberry Pi device with the `rpi-imager` tool by following the instructions on  [raspberrypi.org](https://www.raspberrypi.org/software/) (instead of using the latest Raspberry Pi OS in the tool, download  [2021-05-07-raspios-buster-armhf-lite](https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/2021-05-07-raspios-buster-armhf-lite.zip) by yourself). To complete the mobile phone steps in this codelab, you need to connect the Raspberry Pi to a Wi-Fi AP. Follow  [this](https://www.raspberrypi.org/documentation/configuration/wireless/) guide to set up wireless connectivity. It is convenient to log in to the Raspberry Pi with SSH, you can find instructions  [here](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md).
-
-> aside positive
-> 
-> **Note:** Make sure that  [RA-guard](https://tools.ietf.org/html/rfc6105) is not enabled on your Wi-Fi router! RA-guard is enabled in many enterprise networks for security. But for your personal/home Wi-Fi router, it is usually disabled by default. Consult the network administrator if you are not sure about it.
-
-### Get OTBR code
-
-Log in to your Raspberry Pi and clone `ot-br-posix` from GitHub:
-
-```console
-$ git clone https://github.com/openthread/ot-br-posix.git --depth 1
-```
-
-### **Build and install OTBR**
-
-OTBR has two scripts that bootstrap and set up the Thread Border Router:
-
-```console
-$ cd ot-br-posix
-$ ./script/bootstrap
-$ INFRA_IF_NAME=wlan0 ./script/setup
-```
-
-OTBR works on both a Thread interface and infrastructure network interface (e.g. Wi-Fi/Ethernet) which is specified with `INFRA_IF_NAME`. The Thread interface is created by OTBR itself and named `wpan0` by default and the infrastructure interface has a default value of `wlan0` if `INFRA_IF_NAME` is not explicitly specified. If your Raspberry Pi is connected by an Ethernet cable, specify the Ethernet interface name (e.g. `eth0`):
-
-```console
-$ INFRA_IF_NAME=eth0 ./script/setup
-```
-
-Check if OTBR is successfully installed:
-
-```console
-$ sudo service otbr-agent status
-● otbr-agent.service - Border Router Agent
-   Loaded: loaded (/lib/systemd/system/otbr-agent.service; enabled; vendor preset: enabled)
-   Active: activating (auto-restart) (Result: exit-code) since Mon 2021-03-01 05:43:38 GMT; 2s ago
-  Process: 2444 ExecStart=/usr/sbin/otbr-agent $OTBR_AGENT_OPTS (code=exited, status=2)
- Main PID: 2444 (code=exited, status=2)
-```
-
-It is expected that the `otbr-agent` service is not active, because it requires an `RCP` chip to run. 
-
-Reboot the Raspberry Pi to take the changes to effect.
-
-### **Build and flash RCP firmware**
-
-OTBR supports a 15.4 radio chip in  [Radio Co-Processor](https://openthread.io/platforms#radio-co-processor-rcp) (RCP) mode. In this mode, the OpenThread stack is running on the host side and transmits/receives frames over the IEEE802.15.4 transceiver.
-
-Follow  [step 4 of the *Build a Thread network with nRF52840 boards and OpenThread* codelab](https://openthread.io/codelabs/openthread-hardware#3) to build and flash a nRF52840 RCP device:
-
-```console
-$ script/build nrf52840 USB_trans
-```
-
-> aside positive
-> 
-> The OTBR has the Thread 1.2 backbone router features enabled by default, option `-DOT_THREAD_VERSION=1.2` is required to be compatible with the OTBR.
-
-### Start OTBR and verify status
-
-Connect the nRF52840 board to your Raspberry Pi and start the `otbr-agent` service:
-
-```console
-$ sudo service otbr-agent restart
-```
-
-Verify that the `otbr-agent` service is active:
-
-```console
-$ sudo service otbr-agent status
-● otbr-agent.service - Border Router Agent
-   Loaded: loaded (/lib/systemd/system/otbr-agent.service; enabled; vendor preset: enabled)
-   Active: active (running) since Mon 2021-03-01 05:46:26 GMT; 2s ago
- Main PID: 2997 (otbr-agent)
-    Tasks: 1 (limit: 4915)
-   CGroup: /system.slice/otbr-agent.service
-           └─2997 /usr/sbin/otbr-agent -I wpan0 -B wlan0 spinel+hdlc+uart:///dev/ttyACM0
-
-Mar 01 05:46:26 raspberrypi otbr-agent[2997]: Stop publishing service
-Mar 01 05:46:26 raspberrypi otbr-agent[2997]: [adproxy] Stopped
-Mar 01 05:46:26 raspberrypi otbr-agent[2997]: PSKc is not initialized
-Mar 01 05:46:26 raspberrypi otbr-agent[2997]: Check if PSKc is initialized: OK
-Mar 01 05:46:26 raspberrypi otbr-agent[2997]: Initialize OpenThread Border Router Agent: OK
-Mar 01 05:46:26 raspberrypi otbr-agent[2997]: Border router agent started.
-Mar 01 05:46:26 raspberrypi otbr-agent[2997]: [INFO]-CORE----: Notifier: StateChanged (0x00038200) [NetData PanId NetName ExtPanId]
-Mar 01 05:46:26 raspberrypi otbr-agent[2997]: [INFO]-PLAT----: Host netif is down
-```
-
-> aside positive
-> 
-> If you receive an "InvalidArguments" error, make sure your RCP board is connected as `/dev/ttyACM0`. It happens that the device path may change to `/dev/ttyACM1` after flashing the nRF board. Re-plugging the nRF board should solve this.
-
-
-## Form a Thread network
-Duration: 02:00
-
-
-There is an `ot-ctl` command which can be used to control the `otbr-agent` service. `ot-ctl` accepts all OpenThread CLI commands, see  [OpenThread CLI Guide](https://github.com/openthread/openthread/blob/main/src/cli/README.md) for more details.
-
-Form a Thread network with OTBR:
-
-```console
-$ sudo ot-ctl dataset init new
-Done
-$ sudo ot-ctl dataset commit active
-Done
-$ sudo ot-ctl ifconfig up
-Done
-$ sudo ot-ctl thread start
-Done
-```
-
-Wait a few seconds, we should be able to see that OTBR is acting as a Thread `leader` and there is an `off-mesh-routable` (OMR) prefix in the Thread Network Data:
+After OTBR setup is complete, use [`ot-ctl`](https://openthread.io/guides/border-router/form-network) to validate that the OTBR is acting as a Thread `leader`.
 
 ```console
 $ sudo ot-ctl state
 leader
 Done
+```
+Also validate that the OTBR has automatically configured an `off-mesh-routable` (OMR) prefix in the Thread Network Data.
+
+```console
 $ sudo ot-ctl netdata show
 Prefixes:
 Prefixes:
@@ -221,9 +119,9 @@ Done
 Duration: 05:00
 
 
-### **Build and flash OT CLI**
+### Build and flash OT CLI
 
-Follow [step 5 of the *Build a Thread network with nRF52840 boards and OpenThread* codelab](https://openthread.io/codelabs/openthread-hardware#4) to build and flash a nRF52840 CLI end device.
+Follow [step 5 of the *Build a Thread network with nRF52840 boards and OpenThread* codelab](https://openthread.io/codelabs/openthread-hardware#4) to build and flash an nRF52840 CLI end device.
 
 But instead of having `OT_COMMISSIONER` and `OT_JOINER` enabled, the CLI node requires `OT_SRP_CLIENT` and `OT_ECDSA` features.
 
@@ -237,9 +135,9 @@ So the full build invocation should look like this:
 $ script/build nrf52840 USB_trans -DOT_SRP_CLIENT=ON -DOT_ECDSA=ON
 ```
 
-### Join the OTBR network
+### Join the Thread network
 
-To join the Thread network created by the `otbr-agent` service, we need to get the Active Operational Dataset from the OTBR device. Let's go back to the `otbr-agent` command line and get the active dataset:
+To join the Thread network, we need to get the Active Operational Dataset from the OTBR device. Let's go back to `ot-ctl` and get the active dataset:
 
 ```console
 $ sudo ot-ctl dataset active -x
@@ -354,13 +252,13 @@ We have completed all setup work and the `_ipps._tcp` service should have been a
 Duration: 03:00
 
 
-### **Discover the service with a mobile phone**
+### Discover the service with a mobile phone
 
 <img src="img/54a136a8940897cc.png" alt="54a136a8940897cc.png"  width="172.50" />
 
 We use the  [Service Browser](https://play.google.com/store/apps/details?id=com.druk.servicebrowser) App to discover mDNS services with the Android phone, an  [equivalent App](https://apps.apple.com/cn/app/discovery-dns-sd-browser/id305441017) can also be found for iOS mobile devices. Open the App and the service  `_ipps._tcp` should just show up.
 
-### **Discover the service with a Linux host**
+### Discover the service with a Linux host
 
 If you want to discover the service from another Linux host, you can use the `avahi-browse` command.
 
@@ -384,7 +282,7 @@ $ avahi-browse -r _ipps._tcp
 ...
 ```
 
-### **Discover the service with a macOS host**
+### Discover the service with a macOS host
 
 You can use `dns-sd` on macOS to resolve the service:
 
@@ -412,7 +310,7 @@ ot-service._ipps._tcp                           TXT     ""
 Duration: 02:00
 
 
-### **Ping from a mobile phone**
+### Ping from a mobile phone
 
 Take the Pixel phone as an example, we can find out the OMR address of the previously registered service "ot-service" in the details page of the service instance in the Service Browser App.
 
@@ -426,7 +324,7 @@ Unfortunately, the Android version of the Network Analyzer App doesn't support m
 
 Thread Border Router sends ICMPv6 Router Advertisements (RA) to advertise prefixes (via Prefix Information Option) and routes (via Route Information Option) on the Wi-Fi/Ethernet link. 
 
-#### **Prepare Linux host**
+#### Prepare Linux host
 
 It is important to make sure that RA and RIO are enabled on your host:
 
@@ -490,11 +388,11 @@ You need to reboot to take the change into effect.
 > 
 > **Note:**  Remember to persist your `accept_ra_rt_info_max_plen` configuration in `/etc/sysctl.conf` before rebooting.
 
-#### **Prepare macOS host**
+#### Prepare macOS host
 
 Both `accept_ra*` options are enabled by default, but you need to upgrade your system to at least macOS Big Sur.
 
-#### **Ping the hostname or IPv6 address**
+#### Ping the hostname or IPv6 address
 
 We can now ping the hostname `ot-host.local` with command `ping -6` (`ping6` for macOS):
 
@@ -553,13 +451,14 @@ You should **not** be able to discover the `_ipps._tcp` service now.
 
 Congratulations, you've successfully set up OTBR as a Thread Border Router to provide bidirectional IP connectivity and service discovery for Thread end devices.
 
-### **What's next?**
+### What's next?
 
 Check out some of these codelabs...
 
-*  [Build a Thread network with nRF52840 boards and OpenThread](https://openthread.io/codelabs/openthread-hardware/#0)
+*  [OpenThread Border Router - NAT64](https://openthread.io/codelabs/openthread-border-router-nat64#0)
+*  [OpenThread Border Router - IPv6 Multicast](https://openthread.io/codelabs/openthread-border-router-ipv6-multicast#0)
 
-### **Reference docs**
+### Reference docs
 
 *  [Thread Primer](https://openthread.io/guides/thread-primer)
 *  [OpenThread Guides](https://openthread.io/guides)
