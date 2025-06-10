@@ -1,20 +1,53 @@
 # OpenThread Border Router Setup
 
-This guide covers the basic build and configuration of OpenThread Border Router
-(OTBR). Upon completion of this procedure, you will have an OTBR that functions
-as a Full Thread Device (FTD) in a
-[radio co-processor (RCP) design](/platforms/co-processor#radio_co-processor_rcp).
+OpenThread Border Router (OTBR) currently offers support for both [Radio Co-processor (RCP)](/platforms/co-processor#radio_co-processor_rcp) and [Network Co-Processor (NCP)](/platforms/co-processor#network_co-processor_ncp) designs. You can select either design for your OTBR.
+
+> Note: The NCP design is currently experimental and limited to Thread 1.3 features.
+
+Upon completion of this procedure, you will have an OTBR that functions
+as a Full Thread Device (FTD) in the design you chose.
 
 ## Step 1: What you'll need
 
 * A Raspberry Pi for the Thread border router.
-* 2 Nordic Semiconductor nRF52840 USB Dongles (one for the RCP and one for the Thread end device).
+* 2 Nordic Semiconductor nRF52840 USB Dongles (one for the Co-Processor and one for the Thread end device).
 
-## Step 2: Build and flash RCP
+## Step 2: Build and flash Co-Processor firmware
 
-OTBR depends on an IEEE 802.15.4 radio to send/receive Thread messages. This guide will focus on using a [Radio Co-Processor](https://openthread.io/platforms#radio-co-processor-rcp) (RCP).
+Follow the instructions based on the design you chose.
+
+### RCP design
+
+In RCP design, OTBR depends on an IEEE 802.15.4 radio to send/receive Thread messages.
 
 Follow [step 4 of the *Build a Thread network with nRF52840 boards and OpenThread* codelab](https://openthread.io/codelabs/openthread-hardware#3) to build and flash a nRF52840 RCP device.
+
+### NCP design
+
+In NCP design, the full Thread stack runs on the 802.15.4 radio chip.
+
+Follow the instructions below to build the NCP firmware from the [`ot-nrf528xx`](https://github.com/openthread/ot-nrf528xx) repository you cloned in the previous step:
+
+```
+$ script/build nrf52840 USB_trans \
+    -DOT_THREAD_VERSION=1.3 \
+    -DOT_APP_CLI=OFF \
+    -DOT_APP_RCP=OFF \
+    -DOT_RCP=OFF \
+    -DOT_MTD=OFF \
+    -DOT_BORDER_ROUTER=ON \
+    -DOT_BORDER_ROUTING=ON \
+    -DOT_NCP_INFRA_IF=ON \
+    -DOT_SRP_SERVER=ON \
+    -DOT_SRP_ADV_PROXY=ON \
+    -DOT_PLATFORM_DNSSD=ON \
+    -DOT_NCP_DNSSD=ON \
+    -DOT_ECDSA=ON \
+    -DOT_SERVICE=ON \
+    -DOT_NCP_CLI_STREAM=ON
+```
+
+Then follow the same steps as RCP design to convert the firmware into hex format and flash.
 
 ## Step 3: Prepare Raspberry Pi
 
@@ -27,11 +60,11 @@ Follow [step 4 of the *Build a Thread network with nRF52840 boards and OpenThrea
     $ sudo apt-get upgrade
     ```
 
-## Step 4: Attach the RCP
+## Step 4: Attach the Co-Processor
 
-1.  Attach the RCP device to the Raspberry Pi.
+1.  Attach the Co-Processor device to the Raspberry Pi.
 
-1.  Determine the serial port name for the RCP device by checking `/dev`:
+1.  Determine the serial port name for the Co-Processor device by checking `/dev`:
     ```
     $ ls /dev/tty*
     /dev/ttyACMO
