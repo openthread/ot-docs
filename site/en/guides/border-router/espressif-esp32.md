@@ -20,7 +20,9 @@ You only need to connect the board to the ESP32-S3 (main SoC) port. The main SoC
 
 ## Step 1: Set up Repositories
 
-To set up the environment, please follow the [official installation guide](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/get-started/index.html#installation-step-by-step).
+> Note: This guide is specific to Linux/macOS.
+
+To set up the environment and for information specific to Windows, please follow the [official installation guide](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/get-started/index.html#installation-step-by-step).
 
 Clone the [esp-idf](https://github.com/espressif/esp-idf) and the [esp-thread-br](https://github.com/espressif/esp-thread-br) repository.
 
