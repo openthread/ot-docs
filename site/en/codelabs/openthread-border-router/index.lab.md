@@ -70,6 +70,9 @@ In this codelab, you're going to set up a Thread Border Router and connect your 
 ## Set Up OTBR
 Duration: 05:00
 
+> aside positive
+>
+> Both RCP and NCP designs are compatible with this codelab. You can select the design you prefer for your OTBR.
 
 The quickest way to set up an OTBR is by following the [OTBR Setup Guide](https://openthread.io/guides/border-router).
 
