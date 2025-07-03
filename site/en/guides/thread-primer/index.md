@@ -8,7 +8,7 @@
 networking protocol designed for low-power Internet of Things devices in an IEEE
 802.15.4-2006 wireless mesh network, commonly called a Wireless Personal Area
 Network (WPAN). Thread is independent of other 802.15 mesh networking
-protocols, such a ZigBee, Z-Wave, and Bluetooth LE.
+protocols, such as ZigBee, Z-Wave, and Bluetooth LE.
 
 Thread's primary features include:
 
