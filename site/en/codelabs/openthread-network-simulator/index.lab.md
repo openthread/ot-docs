@@ -74,7 +74,7 @@ other features, such as Python scripting, are not covered.
    * If not available from the package manager, manual installation is required.
    * Note that Ubuntu 24.04 or lower does not support Go 1.23 automatically. See [this page](https://documentation.ubuntu.com/ubuntu-for-developers/reference/availability/go/) for details. Manual installation, using `snap`, or other procedures, is possible. 
 *  [Python](https://www.python.org/) version 3.9 or higher. 
-   * The installation script will check for for the installed Python version. 
+   * The installation script will check for the installed Python version. 
    * If Python 3 is not yet installed, it will install a version >= 3.9 if available from the package manager.
    * If not available from the package manager, manual installation is required.
 
