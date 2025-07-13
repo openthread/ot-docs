@@ -59,14 +59,24 @@ other features, such as Python scripting, are not covered.
 
 ### What you'll need
 
-*  Preferably Linux x86_64, or Mac OS with [Homebrew](https://brew.sh/). Ubuntu 22/24 in Windows
+*  [Thread Primer](https://openthread.io/guides/thread-primer). You will need to
+   know the basic concepts of Thread to understand what is taught in this
+   Codelab.
+*  Preferably Linux x86_64, or Mac OS with [Homebrew](https://brew.sh/). Ubuntu version 24 or higher in Windows
    [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) should also work but may require some manual 
    tweaking of settings.
 *  [Git](https://git-scm.com/downloads).
 *  Web browser. OTNS-Web uses a web browser for displaying simulations.
-*  [Thread Primer](https://openthread.io/guides/thread-primer). You will need to
-   know the basic concepts of Thread to understand what is taught in this
-   Codelab.
+*  [Wireshark](https://www.wireshark.org/) network protocol analyzer (optional).
+*  [Go](https://go.dev/) version 1.23 or higher.
+   * The installation script will check for the installed Go version. 
+   * If Go is not installed, it will install a version >= 1.23, if available from the package manager.
+   * If not available from the package manager, manual installation is required.
+   * Note that Ubuntu 24.04 or lower does not support Go 1.23 automatically. See [this page](https://documentation.ubuntu.com/ubuntu-for-developers/reference/availability/go/) for details. Manual installation, using `snap`, or other procedures, is possible. 
+*  [Python](https://www.python.org/) version 3.9 or higher. 
+   * The installation script will check for for the installed Python version. 
+   * If Python 3 is not yet installed, it will install a version >= 3.9 if available from the package manager.
+   * If not available from the package manager, manual installation is required.
 
 ### Terminology
 
@@ -87,9 +97,12 @@ All subsequent console commands in this Codelab are run from the `otns` director
 
 ### Bootstrap and install
 
-The `bootstrap` script will install dependencies (including Python3 and Go/Golang, if needed) and install OTNS.
-It also builds the various OT node types that can be used directly in a simulation, and it performs some basic tests.
-Due to the node builds, it can take several minutes.
+The `bootstrap` script will install dependencies (including Python 3 and Go/Golang, if needed) and install OTNS.
+Note that the script may stop if it is unable to automatically install certain dependencies, such as Python version >= 3.9 or Go version >= 1.23.
+Automatic installation requires that the packages can be found in the operating system's configured package repository. 
+
+The script also builds the various OT node types that can be used directly in a simulation, and it performs some basic tests.
+Due to these node builds, it can take several minutes.
 
 ```console
 $ ./script/bootstrap
@@ -99,7 +112,7 @@ OTNS installed - use 'otns' to start it.
 $
 ```
 
-You might be asked to input a password for `sudo`.
+You might be asked to input a password for `sudo` during execution of the script.
 
 ### If `otns` is not properly installed
 
@@ -111,7 +124,7 @@ OTNS installed - please add ~/go/bin to your PATH variable first, to use it.
 $
 ```
 
-In this case, you need to add `$(go env GOPATH)/bin` to your `$PATH.`
+In this case, you need to add `$(go env GOPATH)/bin` to your `$PATH` variable.
 
 In case of other errors, a [GitHub issue](https://github.com/openthread/ot-ns/issues) can be created.
 
