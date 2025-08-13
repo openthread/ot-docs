@@ -85,20 +85,6 @@ machine, learn how to:
    href="https://openthread.io/codelabs/openthread-network-simulator/">Try the Network Simulator
   Codelab</a>
 
-### Testing and Visualization Codelab
-
-OTNS can be used with [Silk](https://github.com/openthread/silk), a fully automated test
-platform for validating OpenThread function, feature, and system performance
-with real devices. With a Mac or Linux machine, learn how to:
-
-*   Build OpenThread for real devices with the OTNS feature enabled
-*   Use OTNS-Web to monitor the status of the Thread network formed by running
-    Silk test cases
-
-<a class="button button-primary"
-   href="https://openthread.io/codelabs/openthread-testing-visualization/">Try the Testing and
-  Visualization Codelab</a>
-
 ### Border Router Codelab
 
 A Thread Border Router connects a Thread network to other IP-based networks,

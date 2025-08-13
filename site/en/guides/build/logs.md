@@ -205,38 +205,6 @@ buffer, defined as `OPENTHREAD_CONFIG_CLI_MAX_LINE_LENGTH` in
 `OPENTHREAD_CONFIG_CLI_UART_TX_BUFFER_SIZE` in the platform's configuration file, such as
 `/src/nrf52840/openthread-core-nrf52840-config.h`.
 
-### View logs for an NCP
-
-Logs for an NCP may be sent through `wpantund` to the `syslog` of a host. For a
-Linux host, this is `/var/log/syslog.`
-
-Use an `OPENTHREAD_CONFIG_LOG_OUTPUT` value of
-`OPENTHREAD_CONFIG_LOG_OUTPUT_APP` to enable NCP logging. Change this in
-the platform's configuration file.
-
-For example, to enable this for an nrf52840 connected to a Linux host:
-
-1.  Edit the configuration file for the platform and change the log output to
-    the app. For nrf52840, this is
-    `./src/nrf52840/openthread-core-nrf52840-config.h` in [ot-nrf528xx](https://github.com/openthread/ot-nrf528xx) repository:
-
-        #define OPENTHREAD_CONFIG_LOG_OUTPUT OPENTHREAD_CONFIG_LOG_OUTPUT_APP
-
-1.  Build the nrf52840 example with the desired level of logs and other
-    NCP-specific flags. To build a joiner with all logs enabled:
-
-        $ ./script/build nrf52840 UART_trans -DOT_JOINER=ON -DOT_FULL_LOGS=ON
-
-1.  Flash the NCP, connect it to the Linux host, and start `wpantund` as
-    detailed in the [wpantund](https://github.com/openthread/wpantund/blob/main/INSTALL.md#configuring-and-using-wpantund) repository.
-
-1.  Once the NCP is running, check the `syslog` on the Linux machine:
-
-        $ tail -F /var/log/syslog | grep "wpantund"
-
-1.  You should see OpenThread logs display in real time for the NCP. You may
-    also see them in the `wpantund` output.
-
 ### Change the log level at run time
 
 Log levels may be changed at run time if dynamic log level control is enabled.
@@ -245,13 +213,8 @@ Log levels may be changed at run time if dynamic log level control is enabled.
 
         $ ./script/build nrf52840 UART_trans -DOT_JOINER=ON -DOT_FULL_LOGS=ON -DOT_LOG_LEVEL_DYNAMIC=ON
 
-1.  Change the log level depending on your implementation:
-    1.  For a [system-on-chip (SoC)](https://openthread.io/platforms#single-chip-thread-only-soc),
-        use the [Logging API](https://openthread.io/reference/group/api-logging) within your
-        OpenThread application.
-    1.  For an NCP, use `wpanctl` on the command line. See [`wpan-properties.h`](https://github.com/openthread/wpantund/tree/master/src/wpantund/wpan-properties.h) in the `wpantund` repository for all the properties exposed to `wpanctl` and the  [Spinel API](https://github.com/openthread/openthread/blob/da12dca4d9e82cda08aba272567affa188bf8b12/src/ncp/spinel.h#L308) for its log level definitions.
-
-            $ wpanctl set OpenThread:LogLevel 5
+1.  Use the [Logging API](https://openthread.io/reference/group/api-logging) within your
+    OpenThread application.
 
 ## License
 
