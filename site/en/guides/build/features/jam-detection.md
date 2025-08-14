@@ -32,10 +32,10 @@ When Jam Detection is enabled:
 
 ### History Bitmap
 
-In the [OpenThread API](#openthread) and [`wpantund` properties](#wpantund), a
-bitmap of the preceding 63 seconds is available for retrieval. This bitmap
-indicates whether the RSSI crossed the configured RSSI Threshold at each of the
-preceding 63 seconds.
+In the [OpenThread API](#openthread), a bitmap of the preceding 63
+seconds is available for retrieval. This bitmap indicates whether the
+RSSI crossed the configured RSSI Threshold at each of the preceding 63
+seconds.
 
 For example, you might retrieve the following bitmap:
 
@@ -96,10 +96,9 @@ $ ./script/build -DOT_JAM_DETECTION=ON
 
 ## Parameters
 
-Jam Detection parameters can only be configured through the OpenThread API, the
-Spinel protocol, or `wpanctl`, the `wpantund` command line tool for Network
-Co-Processor (NCP) management. Default values are applied if the feature is
-enabled without subsequent configuration.
+Jam Detection parameters can only be configured through the OpenThread
+API or the Spinel protocol. Default values are applied if the feature
+is enabled without subsequent configuration.
 
 Customize this feature using the following parameters:
 
@@ -215,192 +214,6 @@ that provide the following functionality:
 ### OpenThread
 
 There are no OpenThread CLI commands related to this feature.
-
-### wpantund
-
-Use the `wpanctl` CLI to manage the Jam Detection feature for an OpenThread NCP
-configuration. `wpantund` retains all Jam Detection configuration upon NCP
-reset.
-
-`wpanctl` provides access to the following `wpantund` properties:
-
-<table class="details responsive">
-  <thead>
-    <th colspan="2">Properties</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td id="wpan-status"><code>JamDetection:Status</code></td>
-      <td>
-        <table class="function param responsive">
-          <tbody>
-            <tr>
-              <td>
-                <b>Format</b>
-              </td>
-              <td>
-                <div>boolean</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Description</b>
-              </td>
-              <td>
-                <div>Read only. Jam Detection State. Indicates if a signal jam is currently detected.</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td id="wpan-enable"><code>JamDetection:Enable</code></td>
-      <td>
-        <table class="function param responsive">
-          <tbody>
-            <tr>
-              <td>
-                <b>Format</b>
-              </td>
-              <td>
-                <div>boolean</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Description</b>
-              </td>
-              <td>
-                <div>Enable or disable the Jam Detection feature.</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td id="wpan-threshold"><code>JamDetection:RssiThreshold</code></td>
-      <td>
-        <table class="function param responsive">
-          <tbody>
-            <tr>
-              <td>
-                <b>Format</b>
-              </td>
-              <td>
-                <div>dBm</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Description</b>
-              </td>
-              <td>
-                <div>Specifies the threshold RSSI level in dBm above which to consider the channel blocked.</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td id="wpan-window"><code>JamDetection:Window</code></td>
-      <td>
-        <table class="function param responsive">
-          <tbody>
-            <tr>
-              <td>
-                <b>Format</b>
-              </td>
-              <td>
-                <div>seconds</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Description</b>
-              </td>
-              <td>
-                <div>Specifies the window in seconds in which to check for signal jamming. Range: 1-63.</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td id="wpan-busy-period"><code>JamDetection:BusyPeriod</code></td>
-      <td>
-        <table class="function param responsive">
-          <tbody>
-            <tr>
-              <td>
-                <b>Format</b>
-              </td>
-              <td>
-                <div>seconds</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Description</b>
-              </td>
-              <td>
-                <div>Specifies the number of aggregate seconds within <code>JamDetection:Window</code> in which the RSSI must be above <code>JamDetection:RssiThreshold</code> to trigger Jam Detection. Must be smaller than <code>JamDetection:Window</code>. Range: 1-63.</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td id="wpan-bitmap"><code>JamDetection:Debug:HistoryBitmap</code></td>
-      <td>
-        <table class="function param responsive">
-          <tbody>
-            <tr>
-              <td>
-                <b>Format</b>
-              </td>
-              <td>
-                <div>64-bit value</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Description</b>
-              </td>
-              <td>
-                <div>Provides information about the Jam Detection State history for monitoring and debugging purposes.</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-For example, to get the Jam Detection State for an NCP:
-
-```
-$ sudo wpanctl getprop JamDetection:Status
-JamDetection:Status = false
-```
-
-To set the Jam Detection RSSI Threshold to -45 dBm on an NCP:
-
-```
-$ sudo wpanctl setprop JamDetection:RssiThreshold -45
-$ sudo wpanctl getprop JamDetection:RssiThreshold
-JamDetection:RssiThreshold = -45
-```
-
-For more information on `wpantund` properties, see the [`wpantund` GitHub
-repository](https://github.com/openthread/wpantund/tree/master/src/wpantund/wpan-properties.h).
-
-> Note: To learn more about managing an NCP using `wpantund` and `wpanctl`, see the [Build a Thread Network Codelab](https://openthread.io/codelabs/openthread-hardware/).
 
 ## License
 

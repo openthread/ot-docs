@@ -43,5 +43,3 @@ toc:
   path: /codelabs/openthread-border-router-nat64
 - title: OpenThread Network Simulator
   path: /codelabs/openthread-network-simulator/
-- title: Testing and Visualization
-  path: /codelabs/openthread-testing-visualization/
