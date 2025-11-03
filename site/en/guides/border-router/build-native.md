@@ -16,7 +16,8 @@ On Raspberry Pi:
 1.  Clone `ot-br-posix` from GitHub:
 
     ```
-    $ git clone --depth=1 https://github.com/openthread/ot-br-posix
+    $ git clone https://github.com/openthread/ot-br-posix
+    $ git submodule update --init --recursive
     ```
 
 ## Step 2: Build and install OTBR
@@ -33,6 +34,7 @@ OTBR works on both a Thread interface and infrastructure network interface (e.g.
 
 ```
 $ INFRA_IF_NAME=eth0 ./script/setup
+$ ./script/server
 ```
 
 Verify that the `otbr-agent` service is active:
