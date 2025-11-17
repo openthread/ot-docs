@@ -35,6 +35,12 @@ OTBR works on both a Thread interface and infrastructure network interface (e.g.
 $ INFRA_IF_NAME=eth0 ./script/setup
 ```
 
+The `otbr-agent` service is now enabled and will start upon reboot. To instead start the service immediately without rebooting, use the `server` script:
+
+```
+$ ./script/server
+```
+
 Verify that the `otbr-agent` service is active:
 
 ```
