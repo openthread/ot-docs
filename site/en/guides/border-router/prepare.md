@@ -13,7 +13,7 @@ as a Full Thread Device (FTD) in the design you chose.
 * 2 Nordic Semiconductor nRF52840 USB Dongles (one for the Co-Processor and one for the Thread end device).
 
 When building firmware for the nRF52840 USB dongles, you must use the flag `-DOT_BOOTLOADER=USB` to enable the USB DFU trigger.
-This flag  must be present when building for both the RCP and NCP design.  If the flag is not present, the compiled firmware cannot be loaded onto the dongle.
+This flag must be present when building for both the RCP and NCP design. If the flag is not present, the compiled firmware cannot be loaded onto the dongle.
 
 ## Step 2: Build and flash Co-Processor firmware
 
