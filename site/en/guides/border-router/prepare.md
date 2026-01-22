@@ -15,6 +15,8 @@ as a Full Thread Device (FTD) in the design you chose.
 When building firmware for the nRF52840 USB dongles, you must use the flag `-DOT_BOOTLOADER=USB` to enable the USB DFU trigger.
 This flag must be present when building for both the RCP and NCP design. If the flag is not present, the compiled firmware cannot be loaded onto the dongle.
 
+When building firmware for the nRF52840 USB dongles, you must use the flag `-DOT_BOOTLOADER=USB`. This flag is required for both RCP and NCP designs to configure the correct memory map for the pre-installed Bootloader and to enable the USB DFU trigger. If the flag is not present, the compiled firmware cannot be loaded onto the dongle.
+
 ## Step 2: Build and flash Co-Processor firmware
 
 Follow the instructions based on the design you chose.
