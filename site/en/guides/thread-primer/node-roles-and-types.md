@@ -8,13 +8,16 @@
 
 In a Thread network, nodes are split into two forwarding roles:
 
-### Router
+### Router or Thread Mesh Extender
 
 A Router is a node that:
 
 *   forwards packets for network devices
 *   provides secure commissioning services for devices trying to join the network
 *   keeps its transceiver enabled at all times
+
+Routers must be denominated "Thread Mesh Extenders" for all consumer-facing communications,
+but documentation and technical publications might also use the legacy "Router" terminology.
 
 ### End Device
 
