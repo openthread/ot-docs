@@ -36,6 +36,12 @@ $ curl -sSL
 https://raw.githubusercontent.com/openthread/ot-br-posix/refs/heads/main/etc/docker/border-router/setup-host | bash
 ```
 
+The `setup-host` script attempts to automatically detect the infrastructure interface,
+checking for `wlan0` and then `eth0`.
+If you are using a different interface,you can specify it by setting the
+`OT_INFRA_IF` environment variable before running the script
+(for example, `OT_INFRA_IF=myeth0 curl ... | bash`).
+
 ## Step 3: Get the OTBR Docker image
 
 Get the OTBR Docker image by pulling it directly from the [OpenThread Docker
