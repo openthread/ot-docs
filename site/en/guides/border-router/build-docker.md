@@ -31,16 +31,17 @@ Linux typically disables IP forwarding by default. Run the
 [`setup-host`](https://raw.githubusercontent.com/openthread/ot-br-posix/refs/heads/main/etc/docker/border-router/setup-host)
 script to enable IP forwarding on the host system.
 
-```
-$ curl -sSL
-https://raw.githubusercontent.com/openthread/ot-br-posix/refs/heads/main/etc/docker/border-router/setup-host | bash
-```
+The `setup-host` script defaults to using the `wlan0` interface.
+If you are using a different infrastructure interface (for example, `eth0`), you must specify it
+by setting the `INFRA_IF_NAME` environment variable before running the script. For example:
 
-The `setup-host` script attempts to automatically detect the infrastructure interface,
-checking for `wlan0` and then `eth0`.
-If you are using a different interface, you can specify it by setting the
-`OT_INFRA_IF` environment variable before running the script
-(for example, `OT_INFRA_IF=myeth0 curl ... | bash`).
+<pre class="devsite-click-to-copy"><code class="devsite-terminal">INFRA_IF_NAME=eth0 curl -sSL https://raw.githubusercontent.com/openthread/ot-br-posix/refs/heads/main/etc/docker/border-router/setup-host | bash</code>
+</pre>
+
+If you are using `wlan0`, you can run the script without setting the variable:
+
+<pre class="devsite-click-to-copy"><code class="devsite-terminal">curl -sSL https://raw.githubusercontent.com/openthread/ot-br-posix/refs/heads/main/etc/docker/border-router/setup-host | bash</code>
+</pre>
 
 ## Step 3: Get the OTBR Docker image
 
