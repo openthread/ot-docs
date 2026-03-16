@@ -31,8 +31,8 @@ Linux typically disables IP forwarding by default. Run the
 [`setup-host`](https://raw.githubusercontent.com/openthread/ot-br-posix/refs/heads/main/etc/docker/border-router/setup-host)
 script to enable IP forwarding on the host system.
 
-The `setup-host` script defaults to using the `wlan0` interface, as shown
-in this example:
+The `setup-host` script defaults to using the `wlan0` interface
+and can be run as shown below:
 
 
 ```
