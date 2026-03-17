@@ -34,7 +34,6 @@ script to enable IP forwarding on the host system.
 The `setup-host` script defaults to using the `wlan0` interface
 and can be run as shown below:
 
-
 ```
 $ curl -sSL https://raw.githubusercontent.com/openthread/ot-br-posix/refs/heads/main/etc/docker/border-router/setup-host | bash
 ```
