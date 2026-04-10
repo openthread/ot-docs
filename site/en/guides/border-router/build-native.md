@@ -65,7 +65,7 @@ Mar 01 05:46:26 raspberrypi otbr-agent[2997]: [INFO]-PLAT----: Host netif is dow
 
 > Note: If you receive an "InvalidArguments" error, make sure your RCP board is connected as `/dev/ttyACM0`. It happens that the device path may change to `/dev/ttyACM1` after flashing the RCP. Re-plugging the RCP should solve this.
 
-## How to edit the Radio URL path
+## Edit the Radio URL path
 
 The OTBR agent uses the `/etc/default/otbr-agent` configuration file for its
 startup parameters. This file contains the `OTBR_AGENT_OPTS` variable, which
