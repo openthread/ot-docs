@@ -79,14 +79,27 @@ source file. It is then fed into the system service as the
 
 To change the Radio URL path on your target system:
 
-1. Open the OTBR agent configuration file in a text editor (for example,
-   `sudo nano /etc/default/otbr-agent`).
-1. Locate the `OTBR_AGENT_OPTS` variable.
-1. Update the Radio URL portion of the string (for example, change
-   `spinel+hdlc+uart:///dev/ttyACM0` to your new path).
-1. Save the file and exit the editor.
-1. Restart the `otbr-agent` service to apply the changes (for example,
-   `sudo systemctl restart otbr-agent`).
+1.  Open the OTBR agent configuration file in a text editor:
+    ```
+    $ sudoedit /etc/default/otbr-agent
+    ```
+
+1.  Locate the `OTBR_AGENT_OPTS` variable.
+
+1.  Locate the Radio URL portion of the string. For example:
+
+    ```
+    $ spinel+hdlc+uart:///dev/ttyACM0
+    ```
+
+1.  Change that string to your new path.
+
+1.  Save the file and exit the editor.
+
+1.  Restart the `otbr-agent` service to apply the changes:
+    ```
+    $ sudo systemctl restart otbr-agent
+    ```
 
 ## License
 
