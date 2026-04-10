@@ -86,9 +86,7 @@ To change the Radio URL path on your target system:
 
 1.  Locate the `OTBR_AGENT_OPTS` variable.
 
-1.  Locate the Radio URL portion of the string. For example:
-`
-    `spinel+hdlc+uart:///dev/ttyACM0`
+1.  Locate the Radio URL portion of the string. For example: `spinel+hdlc+uart:///dev/ttyACM0`
 
 1.  Change that string to your new path.
 
