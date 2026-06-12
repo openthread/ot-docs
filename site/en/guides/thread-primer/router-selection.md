@@ -1,4 +1,4 @@
-# Router Selection
+# Active Mesh Extender Selection
 
 ## Connected Dominating Set
 
@@ -6,53 +6,56 @@
 <a href="../images/ot-primer-cds.png"><img src="../images/ot-primer-cds.png" width="350" border="0" alt="OT Connected Dominating Set" /></a><figcaption style="text-align: center"><i>Example of a Connected Dominating Set</i></figcaption>
 </figure>
 
-Routers must form a Connected Dominating Set (CDS), which means:
+Active Mesh Extenders must form a Connected Dominating Set (CDS), which means:
 
-1.  There is a Router-only path between any two Routers.
-1.  Any one Router in a Thread network can reach any other Router by staying
-    entirely within the set of Routers.
-1.  Every End Device in a Thread network is directly connected to a Router.
+1.  There is an Active Mesh Extender-only path between any two Active Mesh Extenders.
+1.  Any one Active Mesh Extender in a Thread network can reach any other Active Mesh Extender by staying
+    entirely within the set of Active Mesh Extenders.
+1.  Every End Device in a Thread network is directly connected to an Active Mesh Extender.
 
 A distributed algorithm maintains the CDS, which ensures a minimum level of
 redundancy. Every device initially attaches to the network as an End Device
 (Child). As the state of the Thread network changes, the algorithm adds or
-removes Routers to maintain the CDS.
+removes Active Mesh Extenders to maintain the CDS.
 
-Thread adds Routers to:
+Thread adds Active Mesh Extenders to:
 
-*   Increase coverage if the network is below the Router threshold of 16
+*   Increase coverage if the network is below the Active Mesh Extender threshold of 16
 *   Increase path diversity
 *   Maintain a minimum level of redundancy
 *   Extend connectivity and support more Children
 
-Thread removes Routers to:
+Thread removes Active Mesh Extenders (switching them to Standby Mesh Extenders) to:
 
-*   Reduce the Routing state below the maximum of 32 Routers
-*   Allow new Routers in other parts of the network when needed
+*   Keep the Routing state below the maximum of 32 Active Mesh Extenders
+*   Allow new Active Mesh Extenders in other parts of the network when needed
 
-## Upgrade to a Router
+## Upgrade to an Active Mesh Extender
 
-After attaching to a Thread network, the Child device may elect to become a
-Router. Before initiating the MLE Link Request process, the Child sends an
-Address Solicit message to the Leader, asking for a Router ID. If the Leader
-accepts, it responds with a Router ID and the Child upgrades itself to a Router.
+After attaching to a Thread network, a Child device that is a Standby Mesh Extender may elect to
+become an Active Mesh Extender. Before initiating the MLE Link
+Request process, the Child sends an Address Solicit message to the
+Leader, asking for a Router ID. If the Leader accepts, it responds
+with a Router ID and the Child upgrades itself from a Standby Mesh Extender to an Active Mesh
+Extender.
 
 The MLE Link Request process is then used to establish bi-directional
-Router-Router links with neighboring Routers.
+Active Mesh Extender links with neighboring Active Mesh Extenders.
 
-1.  The new Router sends a multicast [Link Request](#1_link_request) to
-    neighboring Routers.
-1.  Routers respond with [Link Accept and Request](#2_link_accept_and_request)
+1.  The new Active Mesh Extender sends a multicast [Link Request](#1_link_request) to
+    neighboring Active Mesh Extenders.
+1.  Active Mesh Extenders respond with [Link Accept and Request](#2_link_accept_and_request)
     messages.
-1.  The new Router responds to each Router with a unicast [Link
-    Accept](#3_link_accept) to establish the Router-Router link.
+1.  The new Active Mesh Extender responds to each Active Mesh Extender with a unicast [Link
+    Accept](#3_link_accept) to establish the Active Mesh Extender link.
 
 ### 1. Link Request
 
-A Link Request is a request from the Router to all other Routers in the Thread
-network. When first becoming a Router, the device sends a multicast Link Request
-to `ff02::2`. Later, after discovering the other Routers via MLE Advertisements,
-the devices send unicast Link Requests.
+A Link Request is a request from the Active Mesh Extender to all other
+Active Mesh Extenders in the Thread network. When first becoming an
+Active Mesh Extender, the device sends a multicast Link Request to
+`ff02::2`. Later, after discovering the other Active Mesh Extenders
+via MLE Advertisements, the devices send unicast Link Requests.
 
 <figure>
 <a href="../images/ot-primer-network-mle-link-request-01.png"><img src="../images/ot-primer-network-mle-link-request-01.png" width="350" border="0" alt="OT MLE Link Request" /></a>
@@ -80,7 +83,7 @@ the devices send unicast Link Requests.
     <tr>
       <td width="25%"><b>Leader
         Data</b></td>
-      <td>Information about the Router's Leader, as stored on the sender (RLOC,
+      <td>Information about the Active Mesh Extender's Leader, as stored on the sender (RLOC,
         Partition ID, Partition weight)</td>
     </tr>
   </tbody>
@@ -98,9 +101,9 @@ reduce the number of messages from four to three.
 
 ### 3. Link Accept
 
-A Link Accept is a unicast response to a Link Request from a neighboring Router
+A Link Accept is a unicast response to a Link Request from a neighboring Active Mesh Extender
 that provides information about itself and accepts the link to the neighboring
-Router.
+Active Mesh Extender.
 
 <figure>
 <a href="../images/ot-primer-network-mle-link-request-03.png"><img src="../images/ot-primer-network-mle-link-request-03.png" width="350" border="0" alt="OT MLE Link Accept" /></a>
@@ -138,17 +141,17 @@ Router.
     <tr>
       <td width="25%"><b>Leader
         Data</b></td>
-      <td>Information about the Router's Leader, as stored on the sender (RLOC,
+      <td>Information about the Active Mesh Extender's Leader, as stored on the sender (RLOC,
         Partition ID, Partition weight)</td>
     </tr>
   </tbody>
 </table>
 
-## Downgrade to a REED
+## Downgrade to a Standby Mesh Extender
 
-When a Router downgrades to a REED, its Router-Router links are disconnected,
-and the device initiates the MLE Attach process to establish a Child-Parent
-link.
+When an Active Mesh Extender downgrades to a Standby Mesh Extender,
+its Active Mesh Extender links are disconnected, and the device initiates the
+MLE Attach process to establish a Child-Parent link.
 
 See [Join an existing
 network](network-discovery.md)
@@ -158,22 +161,24 @@ for more information on the MLE Attach process.
 
 In some scenarios, it may be necessary to establish a one-way receive link.
 
-After a Router reset, neighboring Routers may still have a valid receive link
-with the reset Router. In this case, the reset Router sends a Link Request
-message to re-establish the Router-Router link.
+After an Active Mesh Extender reset, neighboring Active Mesh Extenders
+may still have a valid receive link with the reset Active Mesh
+Extender. In this case, the reset Active Mesh Extender sends a Link
+Request message to re-establish the existing valid link.
 
-An End Device may also wish to establish a receive link with neighboring
-non-Parent Routers to improve multicast reliability. We'll learn more about this
-when we get to Multicast Routing.
+An End Device may also wish to establish a receive link with
+neighboring non-Parent Active Mesh Extenders to improve multicast
+reliability. We'll learn more about this when we get to Multicast
+Routing.
 
 ## Recap
 
 What you've learned:
 
-*   Routers in a Thread network must form a Connected Dominating Set (CDS)
-*   Thread devices are upgraded to Routers or downgraded to End Devices to
+*   Active Mesh Extenders in a Thread network must form a Connected Dominating Set (CDS)
+*   Thread devices (of the Mesh Extender device type) can be upgraded to Active Mesh Extenders or downgraded to Standby Mesh Extenders to
     maintain the CDS
-*   The MLE Link Request process is used to establish Router-Router links
+*   The MLE Link Request process is used to establish Active Mesh Extender links
 
 ## Check your understanding
 
@@ -182,21 +187,21 @@ What you've learned:
     <div>Which of these rules are not enforced by a Connected Dominating Set
     (CDS)?</div>
     <div>
-      <div>There is a Router-only path between any two Routers.</div>
+      <div>There is an Active Mesh Extender-only path between any two Active Mesh Extenders.</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>Any one Router in a Thread network can reach any other Router by
-        staying entirely within the set of Routers.</div>
+      <div>Any one Active Mesh Extender in a Thread network can reach any other Active Mesh Extender by
+        staying entirely within the set of Active Mesh Extenders.</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>Every End Device in a Thread network is directly connected to a
-        Router.</div>
+      <div>Every End Device in a Thread network is directly connected to an
+        Active Mesh Extender.</div>
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>Only one Router in a Thread network may be a Border Router.</div>
+      <div>Only one Active Mesh Extender in a Thread network may be a Border Router.</div>
       <div>Correct. A Thread network may have multiple Border Routers.</div>
     </div>
   </devsite-multiple-choice>
@@ -204,22 +209,22 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Why might a Router be removed from a Thread network?</div>
+    <div>Why might an Active Mesh Extender be removed (i.e. downgraded to a Standby Mesh Extender) from a Thread network?</div>
     <div correct>
-      <div>To reduce the Routing state below the maximum of 32 Routers.</div>
+      <div>To keep the Routing state below the maximum of 32 Active Mesh Extenders.</div>
       <div>Correct. Thread networks strive to maintain an optimal number of
-        Routers. The most Routers that any Thread network should have is 32.
+        Active Mesh Extenders. The most Active Mesh Extenders that any Thread network should have is 32.
       </div>
     </div>
     <div>
       <div>To free up channels.</div>
-      <div>Incorrect. The number of routers has no relation to channel usage
+      <div>Incorrect. The number of Active Mesh Extenders has no relation to channel usage
       or capacity.</div>
     </div>
     <div correct>
-      <div>To allow the election of new Routers in other parts of the network
+      <div>To allow the election of new Active Mesh Extenders in other parts of the network
       when needed.</div>
-      <div>Correct. Reducing the number of active Routers in one part of a
+      <div>Correct. Reducing the number of Active Mesh Extenders in one part of a
       Thread network increases its ability to ramp up routing capacity
       elsewhere.</div>
     </div>
@@ -228,21 +233,21 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>What must happen before a REED that is attempting to become
-    a Router can establish direct links with the other Routers?</div>
+    <div>What must happen before a Standby Mesh Extender that is attempting to become
+    an Active Mesh Extender can establish direct links with the other Active Mesh Extenders?</div>
     <div correct>
-      <div>The REED must send an Address Solicit message to the network Leader.
+      <div>The Standby Mesh Extender must send an Address Solicit message to the network Leader.
       </div>
       <div>Correct.</div>
     </div>
     <div correct>
-      <div>The Leader must grant a Router ID to the REED.</div>
-      <div>Correct. Without a Router ID, the REED remains a Child device.</div>
+      <div>The Leader must grant a Router ID to the Standby Mesh Extender.</div>
+      <div>Correct. Without a Router ID, the Standby Mesh Extender remains an End Device (Child).</div>
     </div>
     <div>
-      <div>The REED must send an MLE Link Request.</div>
+      <div>The Standby Mesh Extender must send an MLE Link Request.</div>
       <div>Wrong. The MLE Link Request is how the device establishes links to
-      other Routers once it has become a Router.</div>
+      other Active Mesh Extenders once it has become an Active Mesh Extender.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -250,16 +255,16 @@ What you've learned:
 <div>
   <devsite-multiple-choice>
     <div>Which of the following statements accurately describes what happens
-      when a Router downgrades?</div>
+      when an Active Mesh Extender downgrades?</div>
     <div>
-      <div>The device automatically remains on the network but as a Child (REED).
+      <div>The device automatically remains on the network but as a Child (Standby Mesh Extender).
       </div>
-      <div>Wrong. There are more steps involved when a Router downgrades.</div>
+      <div>Wrong. There are more steps involved when an Active Mesh Extender downgrades.</div>
     </div>
     <div correct>
       <div>The device must initiate the MLE Attach process to establish a new
         connection to the network.</div>
-      <div>Correct. A device that downgrades from Router to REED is
+      <div>Correct. A device that downgrades from an Active Mesh Extender to a Standby Mesh Extender is
         disconnected and must renegotiate its connection to the network.</div>
     </div>
   </devsite-multiple-choice>
@@ -267,7 +272,7 @@ What you've learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>What process is used to establish Router-Router links?</div>
+    <div>What process is used to establish Active Mesh Extender links?</div>
     <div correct>
       <div>The MLE Link Request process.</div>
       <div>Correct.</div>
@@ -275,7 +280,7 @@ What you've learned:
     <div>
       <div>The Link Accept and Request process.</div>
       <div>Incorrect. There's no such thing as a Link Accept and Request process.
-        Link Accept and Request <em>messages</em> are sent by Routers in
+        Link Accept and Request <em>messages</em> are sent by Active Mesh Extenders in
         response to Link Request messages as part of the MLE Link Request
         process.</div>
     </div>

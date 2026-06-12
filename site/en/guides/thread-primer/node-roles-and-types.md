@@ -8,9 +8,9 @@
 
 In a Thread network, nodes are split into two forwarding roles:
 
-### Router
+### Active Mesh Extender
 
-A Router is a node that:
+An Active Mesh Extender is a node that:
 
 *   forwards packets for network devices
 *   provides secure commissioning services for devices trying to join the network
@@ -20,12 +20,13 @@ A Router is a node that:
 
 An End Device (ED) is a node that:
 
-*   communicates primarily with a single Router
+*   communicates primarily with a single Active Mesh Extender
 *   does not forward packets for other network devices
 *   can disable its transceiver to reduce power
 
-Key Point: The relationship between Router and End Device is a Parent-Child
-relationship. An End Device attaches to exactly one Router. The Router is always
+Key Point: The relationship between an Active Mesh Extender and an End
+Device is a Parent-Child relationship. An End Device attaches to
+exactly one Active Mesh Extender. The Active Mesh Extender is always
 the Parent, the End Device the Child.
 
 ## Device types
@@ -40,13 +41,15 @@ Furthermore, nodes comprise a number of types.
 
 A Full Thread Device (FTD) always has its radio on, subscribes to the
 all-routers multicast address, and maintains IPv6 address mappings. There are
-three types of FTDs:
+two types of FTDs:
 
-*   Router
-*   Router Eligible End Device (REED) — can be promoted to a Router
-*   Full End Device (FED) — cannot be promoted to a Router
+*   Mesh Extender
+*   Full End Device (FED)
 
-An FTD can operate as a Router (Parent) or an End Device (Child).
+A Mesh Extender can be in either the Active or Standby role. In the Standby role,
+it's always an End Device (Child).
+
+A FED is always an End Device (Child).
 
 ### Minimal Thread Device
 
@@ -63,18 +66,19 @@ An MTD can only operate as an End Device (Child).
 
 ### Upgrading and downgrading
 
-When a REED is the only node in reach of a new End Device wishing to join the
-Thread network, it can upgrade itself and operate as a Router:
+When a Standby Mesh Extender is the only node in reach of a new Thread
+device wishing to join the Thread network, it can upgrade itself and
+operate as an Active Mesh Extender:
 
 <figure>
-<a href="../images/ot-primer-router-upgrade_2x.png"><img src="../images/ot-primer-router-upgrade.png" srcset="../images/ot-primer-router-upgrade.png 1x, ../images/ot-primer-router-upgrade_2x.png 2x" border="0" width="400" alt="OT End Device to Router" /></a>
+<a href="../images/ot-primer-router-upgrade_2x.png"><img src="../images/ot-primer-router-upgrade.png" srcset="../images/ot-primer-router-upgrade.png 1x, ../images/ot-primer-router-upgrade_2x.png 2x" border="0" width="400" alt="OT End Device to Active Mesh Extender" /></a>
 </figure>
 
-Conversely, when a Router has no children, it can downgrade itself and operate
-as an End Device:
+Conversely, when an Active Mesh Extender has no children, it can
+downgrade itself and operate as an End Device:
 
 <figure>
-<a href="../images/ot-primer-router-downgrade_2x.png"><img src="../images/ot-primer-router-downgrade.png" srcset="../images/ot-primer-router-downgrade.png 1x, ../images/ot-primer-router-downgrade_2x.png 2x" border="0" width="400" alt="OT Router to End Device" /></a>
+<a href="../images/ot-primer-router-downgrade_2x.png"><img src="../images/ot-primer-router-downgrade.png" srcset="../images/ot-primer-router-downgrade.png 1x, ../images/ot-primer-router-downgrade_2x.png 2x" border="0" width="400" alt="OT Active Mesh Extender to End Device" /></a>
 </figure>
 
 ## Other roles and types
@@ -85,9 +89,10 @@ as an End Device:
 <a href="../images/ot-primer-leader_2x.png"><img src="../images/ot-primer-leader.png" srcset="../images/ot-primer-leader.png 1x, ../images/ot-primer-leader_2x.png 2x" border="0" alt="OT Leader and Border Router" /></a>
 </figure>
 
-The Thread Leader is a Router that is responsible for managing the set of
-Routers in a Thread network. It is dynamically self-elected for fault tolerance,
-and aggregates and distributes network-wide configuration information.
+The Thread Leader is an Active Mesh Extender that is responsible for
+managing the set of Active Mesh Extenders in a Thread network. It is
+dynamically self-elected for fault tolerance, and aggregates and
+distributes network-wide configuration information.
 
 Note: There is always a single Leader in each Thread network
 [partition](#partitions).
@@ -132,22 +137,23 @@ There are limits to the number of device types a single Thread network supports.
 Role | Limit
 ----|----
 Leader | 1
-Router | 32
-End Device | 511 per Router
+Active Mesh Extender | 32
+End Device | 511 per Active Mesh Extender
 
-Thread tries to keep the number of Routers between 16 and 23. If a REED attaches
-as an End Device and the number of Routers in the network is below 16, it
-automatically promotes itself to a Router.
+Thread tries to keep the number of Active Mesh Extenders between 16
+and 23. If a Mesh Extender attaches as an End Device and the
+number of Active Mesh Extenders in the network is below 16, it
+automatically promotes itself to an Active Mesh Extender.
 
 ## Recap
 
 What you learned:
 
-*   A Thread device is either a Router (Parent) or an End Device (Child)
+*   A Thread device is either an Active Mesh Extender (Parent) or an End Device (Child)
 *   A Thread device is either a Full Thread Device (maintains IPv6 address
     mappings) or a Minimal Thread Device (forwards all messages to its Parent)
-*   A Router Eligible End Device can promote itself to a Router, and vice versa
-*   Every Thread network partition has a Leader to manage Routers
+*   A Standby Mesh Extender can promote itself to an Active Mesh Extender, and vice versa
+*   Every Thread network partition has a Leader to manage Active Mesh Extenders
 *   A Border Router is used to connect Thread and non-Thread networks
 *   A Thread network might be composed of multiple partitions
 
@@ -162,7 +168,7 @@ What you learned:
       <div>Incorrect.</div>
     </div>
     <div correct>
-      <div>Router.</div>
+      <div>Active Mesh Extender.</div>
       <div>Correct.</div>
     </div>
     <div correct>
@@ -201,46 +207,46 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>Which of the following statements about Routers is not true?</div>
+    <div>Which of the following statements about Active Mesh Extenders is not true?</div>
     <div correct>
-      <div>A Router can disable its transceiver to reduce power.</div>
-      <div>Devices that are functioning as Routers do not disable their
-        transceiver. (If they did, they'd be unable to function properly as a
-        Router.)</div>
+      <div>An Active Mesh Extender can disable its transceiver to reduce power.</div>
+      <div>Devices that are functioning as Active Mesh Extenders do not disable their
+        transceivers. (If they did, they'd be unable to function properly as an
+        Active Mesh Extender.)</div>
     </div>
     <div>
-      <div>A Router forwards packets for network devices.</div>
+      <div>An Active Mesh Extender forwards packets for network devices.</div>
       <div>This statement is true.</div>
     </div>
     <div>
-      <div>A Router keeps its transceiver enabled at all times.</div>
-      <div>This statement is true. In order to function properly as a Router,
+      <div>An Active Mesh Extender keeps its transceiver enabled at all times.</div>
+      <div>This statement is true. In order to function properly as an Active Mesh Extender,
       a device must keep its transceiver online at all times.</div>
     </div>
     <div>
-      <div>A Router provides secure commissioning services for devices trying 
+      <div>An Active Mesh Extender provides secure commissioning services for devices trying 
       to join the network.</div>
       <div>This statement is true. Commissioning is an important function of a
-      Thread Router.</div>
+      Mesh Extender.</div>
     </div>
   </devsite-multiple-choice>
 </div>
 
 <div>
   <devsite-multiple-choice>
-    <div>When can a device upgrade itself to a Router?</div>
+    <div>When can a device upgrade itself to an Active Mesh Extender?</div>
     <div correct>
-      <div>When it is a REED and it is the only node in reach of a new End
-        Device seeking to join the Thread network.</div>
-      <div>That's right. Under these circumstances, a REED can promote itself
-        to a Router.</div>
+      <div>When it is a Standby Mesh Extender and it is the only node in reach of a new Thread
+        device seeking to join the Thread network.</div>
+      <div>That's right. Under these circumstances, a Standby Mesh Extender can promote itself
+        to an Active Mesh Extender.</div>
     </div>
     <div>
       <div>When it is an End Device seeking to join the Thread network.</div>
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>When it is a REED and the Thread network has merged with a larger
+      <div>When it is a Standby Mesh Extender and the Thread network has merged with a larger
         network.</div>
       <div>Incorrect.</div>
     </div>
@@ -249,24 +255,24 @@ What you learned:
 
 <div>
   <devsite-multiple-choice>
-    <div>When can a Router cause itself to stop acting as a Router?</div>
+    <div>When can an Active Mesh Extender cause itself to stop acting as an Active Mesh Extender?</div>
     <div correct>
       <div>When it has no children.</div>
-      <div>That's correct. A Router with no children may revert to
+      <div>That's correct. An Active Mesh Extender with no children may revert to
         an End Device on its own.</div>
     </div>
     <div>
       <div>When a new End Device is seeking to join the
         Thread network.</div>
-      <div>Wrong. A Router cannot revert to an End Device in this scenario.
+      <div>Wrong. An Active Mesh Extender cannot revert to an End Device in this scenario.
       </div>
     </div>
     <div correct>
-      <div>When another device on the network elects to become a Router.
+      <div>When another device on the network elects to become an Active Mesh Extender.
       </div>
-      <div>This could be true. If the number of Thread routers increases to 24
-      or more, existing Thread routers can start evaluating whether to become an
-      end device.
+      <div>This could be true. If the number of Active Mesh Extenders increases to 24
+      or more, existing Active Mesh Extenders can start evaluating whether to become an
+      End Device.
       </div>
     </div>
   </devsite-multiple-choice>
@@ -292,7 +298,7 @@ What you learned:
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>All the Routers in the network have gone offline.</div>
+      <div>All the Mesh Extenders in the network have gone offline.</div>
       <div>Incorrect. In that case, none of the nodes would be able to
       communicate with one another.</div>
     </div>    
