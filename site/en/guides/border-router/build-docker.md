@@ -43,7 +43,7 @@ specify it by setting the `INFRA_IF_NAME` environment variable before running th
 For example:
 
 ```
-$ INFRA_IF_NAME=eth0 curl -sSL https://raw.githubusercontent.com/openthread/ot-br-posix/refs/heads/main/etc/docker/border-router/setup-host | bash
+$ curl -sSL https://raw.githubusercontent.com/openthread/ot-br-posix/refs/heads/main/etc/docker/border-router/setup-host | INFRA_IF_NAME=eth0 bash
 ```
 
 ## Step 3: Get the OTBR Docker image
