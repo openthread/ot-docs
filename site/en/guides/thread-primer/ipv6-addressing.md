@@ -34,20 +34,22 @@ location in the network topology.
 
 ### How a Routing Locator is generated
 
-All devices are assigned a Router ID and a Child ID. Each Router maintains a
-table of all their Children, the combination of which uniquely identifies a
-device within the topology.  For example, consider the highlighted nodes in the
-following topology, where the number in a Router (pentagon) is the Router ID,
-and the number in an End Device (circle) is the Child ID:
+All devices are assigned a Router ID and a Child ID. Each Parent
+maintains a table of all its Children, the combination of which
+uniquely identifies a device within the topology.  For example,
+consider the highlighted nodes in the following topology, where the
+number in a Parent (pentagon) is the Router ID, and the number in an
+End Device (circle) is the Child ID:
 
 <figure>
 <a href="../images/ot-primer-rloc-topology_2x.png"><img src="../images/ot-primer-rloc-topology.png" srcset="../images/ot-primer-rloc-topology.png 1x, ../images/ot-primer-rloc-topology_2x.png 2x" border="0" width="600" alt="OT RLOC Topology" /></a>
 </figure>
 
-Each Child's Router ID corresponds to their Parent (Router). Because a Router is
-not a Child, the Child ID for a Router is always 0. Together, these values are
-unique for each device in the Thread network, and are used to create the RLOC16,
-which represents the last 16 bits of the RLOC.
+Each Child's Router ID corresponds to its Parent (Active Mesh
+Extender). Because an Active Mesh Extender is not a Child, the Child ID for an
+Active Mesh Extender is always 0. Together, these values are unique for each
+device in the Thread network, and are used to create the RLOC16, which
+represents the last 16 bits of the RLOC.
 
 For example, here's how the RLOC16 is calculated for the upper-left node (Router
 ID = 1 and Child ID = 1):
@@ -81,9 +83,10 @@ This same logic can be used to determine the RLOC for all highlighted nodes in t
 However, because the RLOC is based on the location of the node in the topology,
 the RLOC of a node can change as the topology changes.
 
-For example, perhaps node `0x400` is removed from the Thread network. Nodes
-`0x401` and `0x402` establish new links to different Routers, and as a result
-they are each assigned a new RLOC16 and RLOC:
+For example, perhaps node `0x400` is removed from the Thread
+network. Nodes `0x401` and `0x402` establish new links to different
+Active Mesh Extenders, and as a result they are each assigned a new RLOC16
+and RLOC:
 
 <figure>
 <a href="../images/ot-primer-rloc-topology-change_2x.png"><img src="../images/ot-primer-rloc-topology-change.png" srcset="../images/ot-primer-rloc-topology-change.png 1x, ../images/ot-primer-rloc-topology-change_2x.png 2x" border="0" width="600" alt="OT Topology after Change" /></a>
@@ -272,7 +275,7 @@ What you've learned:
 *   A Thread device has multiple unicast IPv6 addresses
     *   An RLOC represents a device's location in the Thread network
     *   An ML-EID is unique to a Thread device within a partition and should be used by applications
-*   Thread uses multicast to forward data to groups of nodes and routers
+*   Thread uses multicast to forward data to groups of nodes
 *   Thread uses anycast when the RLOC of a destination is unknown
 
 To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
@@ -319,12 +322,12 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>The device is a REED.</div>
+      <div>The device is a Standby Mesh Extender.</div>
       <div>Close, but incorrect.</div>
     </div>
     <div correct>
-      <div>The device is a Router.</div>
-      <div>Correct. A Router always has a Child ID of 0.</div>
+      <div>The device is an Active Mesh Extender.</div>
+      <div>Correct. An Active Mesh Extender always has a Child ID of 0.</div>
     </div>
   </devsite-multiple-choice>
 </div>
@@ -339,10 +342,10 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
         network.</div>
     </div>
     <div correct>
-      <div>A router dropped off the network.</div>
-      <div>Correct. When a router drops off a network, the network
-        topology changes, which may result in the device promoting itself to a
-        router and obtaining a new RLOC.</div>
+      <div>An Active Mesh Extender dropped off the network.</div>
+      <div>Correct. When an Active Mesh Extender drops off a network, the network
+        topology changes, which may result in the device promoting itself to an
+        Active Mesh Extender and obtaining a new RLOC.</div>
     </div>
     <div>
       <div>The camera entered sleep mode, which changed the network topology.
@@ -381,7 +384,7 @@ To learn more about Thread's IPv6 addressing, see sections 5.2 and 5.3 of the
 <div>
   <devsite-multiple-choice>
     <div>What type of addressing and routing does Thread use to forward data to
-    groups of nodes and routers?</div>
+    groups of nodes?</div>
     <div>
       <div>unicast</div>
       <div>Incorrect.</div>
