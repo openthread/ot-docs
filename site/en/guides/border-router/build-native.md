@@ -16,7 +16,7 @@ On Raspberry Pi:
 1.  Clone `ot-br-posix` from GitHub:
 
     ```
-    $ git clone --recursive https://github.com/openthread/ot-br-posix
+    $ git clone --recursive --depth=1 https://github.com/openthread/ot-br-posix
     ```
 
 ## Step 2: Build and install OTBR

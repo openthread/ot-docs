@@ -78,7 +78,7 @@ build the included Dockerfile.
 
 1.  Clone the OTBR repository:
     ```
-    $ git clone --recursive https://github.com/openthread/ot-br-posix
+    $ git clone --recursive --depth=1 https://github.com/openthread/ot-br-posix
     $ cd ot-br-posix
     ```
 
