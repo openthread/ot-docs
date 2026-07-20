@@ -24,9 +24,8 @@ When creating a new Thread network, or searching for an existing one to join, a
 Thread device performs an active scan for 802.15.4 networks within radio range:
 
 1.  The device broadcasts an 802.15.4 Beacon Request on a specific Channel.
-1.  In return, any Routers or Router Eligible End Devices (REEDs) in range
-    broadcast a Beacon that contains their Thread network PAN ID, XPAN ID, and
-    Network Name.
+1.  In return, any Extender-Capable Devices (ECDs) in range broadcast a Beacon that contains
+    their Thread network PAN ID, XPAN ID, and Network Name.
 1.  The device repeats the previous two steps for each Channel.
 
 Once a Thread device has discovered all networks in range, it can either attach
@@ -62,11 +61,12 @@ device has already been commissioned.
 
 ## Create a new network
 
-If the device elects to create a new network, it selects the least busy Channel
-and a PAN ID not in use by other networks, then becomes a Router and elects
-itself the Leader. This device sends MLE Advertisement messages to other
-802.15.4 devices to inform them of its link state, and responds to Beacon
-Requests by other Thread devices performing an active scan.
+If the device elects to create a new network, it selects the least
+busy Channel and a PAN ID not in use by other networks, then becomes a
+Mesh Extender and elects itself the Leader. This device sends MLE
+Advertisement messages to other 802.15.4 devices to inform them of its
+link state, and responds to Beacon Requests by other Thread devices
+performing an active scan.
 
 ## Join an existing network
 
@@ -75,13 +75,13 @@ ID, XPAN ID, and Network Name to match that of the target network via Thread
 Commissioning, then goes through the MLE Attach process to attach as a Child
 (End Device). This process is used for Child-Parent links.
 
-Key Point: Every device, router-capable or not, initially attaches to a Thread
+Key Point: Every device, ECD or not, initially attaches to a Thread
 network as a Child (End Device).
 
 1.  The Child sends a multicast [Parent Request](#1_parent_request) to all
-    neighboring Routers and REEDs in the target network.
-1.  All neighboring Routers and REEDs (if the Parent Request Scan Mask includes
-    REEDs) send [Parent Responses](#2_parent_response) with information about
+    neighboring Extender-Capable Devices in the target network.
+1.  All neighboring Mesh Extenders (and standby ECDs, if the Parent Request Scan Mask includes
+    standby ECDs) send [Parent Responses](#2_parent_response) with information about
     themselves.
 1.  The Child chooses a Parent device and sends a [Child ID
     Request](#3_child_id_request) to it.
@@ -91,8 +91,7 @@ network as a Child (End Device).
 ### 1. Parent Request
 
 A Parent Request is a multicast request from the attaching device that is used
-to discover neighboring Routers and Router Eligible End Devices (REEDs) in the
-target network.
+to discover neighboring Extender-Capable Devices in the target network.
 
 <figure>
 <a href="../images/ot-primer-network-mle-attach-01.png"><img src="../images/ot-primer-network-mle-attach-01.png" width="350" border="0" alt="OT MLE Attach Parent Request" /></a>
@@ -113,15 +112,16 @@ target network.
     </tr>
     <tr>
       <td width="25%"><b>Scan Mask</b></td>
-      <td>Limits the request to only Routers or to both Routers and REEDs</td>
+      <td>Limits the request to only Mesh Extenders or to all Extender-Capable Devices</td>
     </tr>
   </tbody>
 </table>
 
 ### 2. Parent Response
 
-A Parent Response is a unicast response to a Parent Request that provides
-information about a Router or REED to the attaching device.
+A Parent Response is a unicast response to a Parent Request that
+provides information about an Extender-Capable Device to the attaching
+device.
 
 <figure>
 <a href="../images/ot-primer-network-mle-attach-02.png"><img src="../images/ot-primer-network-mle-attach-02.png" width="350" border="0" alt="OT MLE Attach Parent Response" /></a>
@@ -143,31 +143,31 @@ information about a Router or REED to the attaching device.
     <tr>
       <td width="25%"><b>Link Frame
         Counter</b></td>
-      <td>802.15.4 Frame Counter on the Router/REED</td>
+      <td>802.15.4 Frame Counter on the Extender-Capable Device</td>
     </tr>
     <tr>
       <td width="25%"><b>MLE Frame
         Counter</b></td>
-      <td>MLE Frame Counter on the Router/REED</td>
+      <td>MLE Frame Counter on the Extender-Capable Device</td>
     </tr>
     <tr>
       <td width="25%"><b>Source
         Address</b></td>
-      <td>RLOC16 of the Router/REED</td>
+      <td>RLOC16 of the Extender-Capable Device</td>
     </tr>
     <tr>
       <td width="25%"><b>Link
         Margin</b></td>
-      <td>Receive signal quality of the Router/REED</td>
+      <td>Receive signal quality of the Extender-Capable Device</td>
     </tr>
     <tr>
       <td width="25%"><b>Connectivity</b></td>
-      <td>Describes the Router/REED’s level of connectivity</td>
+      <td>Describes the Extender-Capable Device's level of connectivity</td>
     </tr>
     <tr>
       <td width="25%"><b>Leader
         Data</b></td>
-      <td>Information about the Router/REED’s Leader</td>
+      <td>Information about the Extender-Capable Device's Leader</td>
     </tr>
     <tr>
       <td width="25%"><b>Challenge</b></td>
@@ -179,11 +179,11 @@ information about a Router or REED to the attaching device.
 
 ### 3. Child ID Request
 
-A Child ID Request is a unicast request from the attaching device (Child) that
-is sent to the Router or REED (Parent) for the purpose of establishing a
-Child-Parent link. If the request is sent to a REED, it [upgrades itself to a
-Router](router-selection.md) before
-accepting the request.
+A Child ID Request is a unicast request from the attaching device
+(Child) that is sent to the Extender-Capable Device (Parent) for the
+purpose of establishing a Child-Parent link. If the request is sent to
+a standby Extender-Capable Device, it [upgrades itself to a Mesh
+Extender](router-selection.md) before accepting the request.
 
 <figure>
 <a href="../images/ot-primer-network-mle-attach-03.png"><img src="../images/ot-primer-network-mle-attach-03.png" width="350" border="0" alt="OT MLE Attach Child ID Request" /></a>
@@ -242,8 +242,7 @@ Child to confirm that a Child-Parent link has been established.
       <th colspan=2>Child ID Response Message Contents</th>
     </tr>
     <tr>
-      <td width="25%"><b>Source
-        Address</b></td>
+      <td width="25%"><b>Source Address</b></td>
       <td>Parent's RLOC16</td>
     </tr>
     <tr>
@@ -251,20 +250,17 @@ Child to confirm that a Child-Parent link has been established.
       <td>Child's RLOC16</td>
     </tr>
     <tr>
-      <td width="25%"><b>Leader
-        Data</b></td>
+      <td width="25%"><b>Leader Data</b></td>
       <td>Information about the Parent’s Leader (RLOC, Partition ID, Partition
         weight)</td>
     </tr>
     <tr>
-      <td width="25%"><b>Network
-        Data</b></td>
+      <td width="25%"><b>Network Data</b></td>
       <td>Information about the Thread network (on-mesh prefixes, address
         autoconfiguration, more-specific routes)</td>
     </tr>
     <tr>
-      <td width="25%"><b>Route
-        (REED only)</b></td>
+      <td width="25%"><b>Route (standby ECDs only)</b></td>
       <td>Route propagation</td>
     </tr>
     <tr>
@@ -272,8 +268,7 @@ Child to confirm that a Child-Parent link has been established.
       <td>Inactivity duration before the Parent removes the Child</td>
     </tr>
     <tr>
-      <td width="25%"><b>Address
-        Registration (MEDs and SEDs only)</b></td>
+      <td width="25%"><b>Address Registration (MEDs and SEDs only)</b></td>
       <td>Confirm registered addresses</td>
     </tr>
   </tbody>
@@ -323,19 +318,18 @@ What you've learned:
   <devsite-multiple-choice>
     <div>What is a Parent Request used for?</div>
     <div correct>
-      <div>To discover neighboring Routers and Router Eligible End Devices
-      (REEDs) in the target network.</div>
+      <div>To discover neighboring Extender-Capable Devices in the target network.</div>
       <div>Correct. A Parent Request is issued by a device seeking to attach to
       a network.</div>
       </div>
     <div>
-      <div>To announce that a Router is becoming a parent.</div>
-      <div>Incorrect. A Router does not initiate a Parent-Child relationship
-      with another network device. Instead, a network device selects a Router
-      to become its Child.</div>
+      <div>To announce that an Extender-Capable Device is becoming a parent.</div>
+      <div>Incorrect. A Mesh Extender does not initiate a Parent-Child relationship
+      with another network device. Instead, a network device selects an Extender-Capable Device
+      to become its Parent.</div>    
     </div>
     <div>
-      <div>To request that a Router Eligible End Device be promoted to a Router.
+      <div>To request that an Extender-Capable Device be promoted to a Mesh Extender.
       </div>
       <div>Incorrect.</div>
     </div>
@@ -378,7 +372,7 @@ What you've learned:
       <div>Incorrect.</div>
     </div>
     <div>
-      <div>REED (Router-Eligible End Device) </div>
+      <div>Mesh Extender</div>
       <div>Incorrect.</div>
     </div>
   </devsite-multiple-choice>
