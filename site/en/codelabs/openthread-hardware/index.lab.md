@@ -828,9 +828,10 @@ follows:
 
 <img src="img/b75a527be4563215.png" alt="b75a527be4563215.png" width="172.50" />
 
-Routers are always pentagons, and End Devices are always circles. The numbers on
-each node represent the Router ID or Child ID shown in the CLI output, depending
-on each node's current role and state at that time.
+Mesh Extenders are always pentagons, and End Devices are always
+circles. The numbers on each node represent the Router ID or Child ID
+shown in the CLI output, depending on each node's current role and
+state at that time.
 
 
 ## Commission the FTD Joiner
@@ -958,7 +959,7 @@ Done
 > aside negative
 >
 > **Important:** It's possible that by the time you check the router and child
-tables, you see two Routers and one End Device (child). If so, don't worry! You
+tables, you see two Mesh Extenders and one End Device (child). If so, don't worry! You
 did nothing wrong. Continue on to learn why this happened.
 
 Based on the RLOC16, the FTD Joiner has attached to the network as an End Device
@@ -972,15 +973,16 @@ Based on the RLOC16, the FTD Joiner has attached to the network as an End Device
 Duration: 12:00
 
 
-The Thread devices in this Codelab are a specific kind of Full Thread Device
-(FTD) called a Router Eligible End Device (REED). This means they can function
-as either a Router or End Device, and can promote themselves from an End Device
-to a Router.
+The Thread devices in this Codelab are a specific kind of Full Thread
+Device (FTD) called an Extender-Capable Device (ECD). This means they
+can function as either a Mesh Extender or a standby ECD, and can
+promote themselves from a standby ECD to a Mesh Extender.
 
-Thread can support up to 32 Routers, but tries to keep the number of Routers
-between 16 and 23. If a REED attaches as an End Device (child) and the number
-of Routers is below 16, after a random time period within two minutes it
-automatically promotes itself to a Router.
+Thread can support up to 32 Mesh Extenders, but tries to keep the
+number of Mesh Extenders between 16 and 23. If an ECD attaches as an
+End Device (child) and the number of Mesh Extenders is below 16, after
+a random time period within two minutes it automatically promotes
+itself to a Mesh Extender.
 
 If you had two children in your Thread network after adding the FTD Joiner,
 wait at least two minutes, and then recheck the router and child tables on the
@@ -1003,11 +1005,12 @@ wait at least two minutes, and then recheck the router and child tables on the
 Done
 ```
 
-The FTD Joiner (Extended MAC = `e6cdd2d93249a243`) has promoted itself to a
-Router. Note that the RLOC16 is different (`b800` instead of `0c02`). That's
-because the RLOC16 is based on the Router ID and Child ID of a device. When it
-transitions from End Device to Router, its Router ID and Child ID values change,
-and so does the RLOC16.
+The FTD Joiner (Extended MAC = `e6cdd2d93249a243`) has promoted itself
+to a Mesh Extender. Note that the RLOC16 is different (`b800` instead
+of `0c02`). That's because the RLOC16 is based on the Router ID and
+Child ID of a device. When it transitions from an End Device to a Mesh
+Extender, its Router ID and Child ID values change, and so does the
+RLOC16.
 
 <img src="img/otcodelab_top01C.png" alt="otcodelab_top01C.png" width="400" />
 
@@ -1027,8 +1030,9 @@ Done
 
 ### Downgrade the FTD Joiner
 
-You can test this behavior by manually downgrading the **FTD Joiner** from a
-Router back to an End Device. Change the state to child and check the RLOC16:
+You can test this behavior by manually downgrading the **FTD Joiner**
+from a Mesh Extender back to an End Device. Change the state to child
+and check the RLOC16:
 
 ```console
 ## FTD Joiner ##
@@ -1065,15 +1069,16 @@ table (ID = 3).  It may even be in both while it transitions:
 Done
 ```
 
-After some time, it will switch back to a Router with an RLOC of `b800`.
+After some time, it will switch back to a Mesh Extender with an RLOC
+of `b800`.
 
 <img src="img/otcodelab_top01C.png" alt="otcodelab_top01C.png" width="400" />
 
 ### Remove the Leader
 
-The Leader is self-elected among all Thread Routers. This means if the current
-Leader is removed from the Thread network, one of the other Routers will become
-the new Leader.
+The Leader is self-elected among all ECDs. This means if the current
+Leader is removed from the Thread network, one of the other ECDs will
+become the new Leader.
 
 On the **FTD Commissioner**, shut down Thread to remove it from the Thread
 network:
@@ -1109,11 +1114,11 @@ Done
 <img src="img/otcodelab_top02C_01.png" alt="otcodelab_top02C_01.png"
      width="400"/>
 
-Check the child table. Notice that there's a new RLOC16. This is the RCP Joiner,
-as indicated by its ID and Extended MAC. In order to keep the Thread network
-together, it has switched parent Routers, from the FTD Commissioner to the FTD
-Joiner. This results in a new RLOC16 for the RCP Joiner (because its Router ID
-changed, from 3 to 46).
+Check the child table. Notice that there's a new RLOC16. This is the
+RCP Joiner, as indicated by its ID and Extended MAC. In order to keep
+the Thread network together, it has switched parents, from the FTD
+Commissioner to the FTD Joiner. This results in a new RLOC16 for the
+RCP Joiner (because its Router ID changed, from 3 to 46).
 
 ```console
 ## FTD Joiner ##
@@ -1156,8 +1161,8 @@ Done
 Done
 ```
 
-Within two minutes, it automatically reattaches to the "codelab" network as an
-End Device, and then promotes itself to a Router.
+Within two minutes, it automatically reattaches to the "codelab"
+network as an End Device, and then promotes itself to a Mesh Extender.
 
 ```console
 ## FTD Commissioner ##
@@ -1199,7 +1204,7 @@ Our Thread network consists of three nodes again.
 > You may have noticed this mentioned a few times throughout the Codelab, when
 waiting for a device to change states. 120 seconds is the default value of a
 Thread Network parameter called ROUTER_SELECTION_JITTER. Devices changing from
-End Device to Router or vice versa delay the change for a random period between
+End Device to Mesh Extender or vice versa delay the change for a random period between
 0 and the ROUTER_SELECTION_JITTER (in seconds). See the  [Thread Specification](http://threadgroup.org/technology/ourtechnology#specifications) for more
 information on Thread Network parameters.
 
@@ -1364,9 +1369,10 @@ took much longer to reach the FTD Commissioner (68ms) than it did to reach the
 FTD Joiner (23ms). That's because it has to make two hops to reach the FTD
 Commissioner, compared to one hop for the FTD Joiner.
 
-You may have also noticed that the mesh-local multicast ping responded with the
-RLOC only for the two FTDs—not the RCP Joiner. This is because the FTDs are
-Routers within the network, while the RCP is an End Device.
+You may have also noticed that the mesh-local multicast ping responded
+with the RLOC only for the two FTDs—not the RCP Joiner. This is
+because the FTDs are ECDs within the network, while the RCP is an End
+Device.
 
 Check the state of the **RCP Joiner** to confirm:
 
@@ -1471,7 +1477,7 @@ On the **FTD Joiner**, the UDP message has been received!
 Building off of this Codelab, try the following exercises:
 
 * Reflash the FTD Joiner board as an MTD using the `ot-cli-mtd` binary, and
-  observe that it never upgrades itself to a Router or tries to become the Leader
+  observe that it never upgrades itself to a Mesh Extender or tries to become the Leader
 * Add more devices (try a different platform!) to the network and sketch out
   the topology by using router and child tables, along with pings to the multicast
   addresses
