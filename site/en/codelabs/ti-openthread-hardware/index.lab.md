@@ -58,7 +58,7 @@ Duration: 5:00
    >
    > **Note:** The CC2745R10-Q1 is an automotive-grade (AEC-Q100 qualified) Thread-certified IEEE 802.15.4 wireless MCU in TI's SimpleLink CC27xx family. The LP-EM-CC2745R10-Q1 is the corresponding LaunchPad Evaluation Module and supports RCP, FTD, MTD, and NCP Thread roles.
    >
-   > **Low-cost alternative:** The [CC2340R5](https://www.ti.com/product/CC2340R5) with the [LP-EM-CC2340R5](https://www.ti.com/tool/LP-EM-CC2340R5) LaunchPad is a lower-cost option that can serve as the **RCP only** — it does not support FTD, MTD, or NCP roles. If you substitute an LP-EM-CC2340R5 for Board 1 (RCP), the two FTD boards must still be LP-EM-CC2745R10-Q1.
+   > **Lower memory alternative:** The [CC2340R5](https://www.ti.com/product/CC2340R5) with the [LP-EM-CC2340R5](https://www.ti.com/tool/LP-EM-CC2340R5) LaunchPad is a lower memory option that can serve as the **RCP only** — it does not support FTD, MTD, or NCP roles. If you substitute an LP-EM-CC2340R5 for Board 1 (RCP), the two FTD boards must still be LP-EM-CC2745R10-Q1.
 
 2. **3 LP-XDS110ET debug probes** — one per LaunchPad board, used for programming and debug over USB.
 
