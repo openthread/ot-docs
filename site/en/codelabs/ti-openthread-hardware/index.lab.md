@@ -47,7 +47,7 @@ Duration: 5:00
 
 ### Hardware
 
-1. **3 LP-EM-CC2745R10-Q1 LaunchPad boards** — one configured as an RCP connected to the Border Router, and two configured as Full Thread Devices (FTD).
+1. **3 LP-EM-CC2745R10-Q1 LaunchPad boards**: one configured as an RCP connected to the Border Router, and two configured as Full Thread Devices (FTD).
 
    * [CC2745R10-Q1 product page](https://www.ti.com/product/CC2745R10-Q1)
    * [LP-EM-CC2745R10-Q1 LaunchPad page](https://www.ti.com/tool/LP-EM-CC2745R10-Q1)
@@ -58,9 +58,9 @@ Duration: 5:00
    >
    > **Note:** The CC2745R10-Q1 is an automotive-grade (AEC-Q100 qualified) Thread-certified IEEE 802.15.4 wireless MCU in TI's SimpleLink CC27xx family. The LP-EM-CC2745R10-Q1 is the corresponding LaunchPad Evaluation Module and supports RCP, FTD, MTD, and NCP Thread roles.
    >
-   > **Lower memory alternative:** The [CC2340R5](https://www.ti.com/product/CC2340R5) with the [LP-EM-CC2340R5](https://www.ti.com/tool/LP-EM-CC2340R5) LaunchPad is a lower memory option that can serve as the **RCP only** — it does not support FTD, MTD, or NCP roles. If you substitute an LP-EM-CC2340R5 for Board 1 (RCP), the two FTD boards must still be LP-EM-CC2745R10-Q1.
+   > **Lower memory alternative:** The [CC2340R5](https://www.ti.com/product/CC2340R5) with the [LP-EM-CC2340R5](https://www.ti.com/tool/LP-EM-CC2340R5) LaunchPad is a lower memory option that can serve as the **RCP only**. It does not support FTD, MTD, or NCP roles. If you substitute an LP-EM-CC2340R5 for Board 1 (RCP), the two FTD boards must still be LP-EM-CC2745R10-Q1.
 
-2. **3 LP-XDS110ET debug probes** — one per LaunchPad board, used for programming and debug over USB.
+2. **3 LP-XDS110ET debug probes**: one per LaunchPad board, used for programming and debug over USB.
 
    * [LP-XDS110ET product page](https://www.ti.com/tool/LP-XDS110ET)
 
@@ -88,14 +88,14 @@ Duration: 5:00
 
 ### Software
 
-* **TI ot-ti repository** — [https://github.com/TexasInstruments/ot-ti](https://github.com/TexasInstruments/ot-ti)
+* **TI ot-ti repository**:  [https://github.com/TexasInstruments/ot-ti](https://github.com/TexasInstruments/ot-ti)
 * **GNU ARM Embedded Toolchain 12.2** (installed automatically by the bootstrap script)
 * **SysConfig 1.27.0** (installed automatically by the bootstrap script)
-* **TI UniFlash** — for flashing firmware to the LaunchPad boards
+* **TI UniFlash**: for flashing firmware to the LaunchPad boards
 
 <button>[Download UniFlash](https://www.ti.com/tool/UNIFLASH)</button>
 
-* **ot-br-posix** — [https://github.com/openthread/ot-br-posix](https://github.com/openthread/ot-br-posix)
+* **ot-br-posix**:  [https://github.com/openthread/ot-br-posix](https://github.com/openthread/ot-br-posix)
 * **A serial terminal** such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (Windows), minicom (Linux), or screen (macOS/Linux)
 
 ## Hardware Setup
@@ -169,16 +169,16 @@ ot-cli-ftd.out  ot-cli-mtd.out  ot-ncp-ftd.out  ot-rcp.out
 
 The two images used in this codelab are:
 
-* `ot-rcp.out` — Radio Co-Processor firmware for the Border Router board.
-* `ot-cli-ftd.out` — Full Thread Device CLI firmware for the two FTD boards.
+* `ot-rcp.out`: Radio Co-Processor firmware for the Border Router board.
+* `ot-cli-ftd.out`: Full Thread Device CLI firmware for the two FTD boards.
 
 > aside positive
 >
-> **Optional — Minimal Thread Device:** If you want to explore a sleepy end device instead of a Full Thread Device, you can flash `ot-cli-mtd.out` in place of `ot-cli-ftd.out` on Boards 2 and 3. An MTD does not route Thread traffic and can enter low-power sleep states, making it well suited for battery-powered applications. The Thread network formation steps in this codelab are the same for both device types.
+> **Optional Minimal Thread Device:** If you want to explore a sleepy end device instead of a Full Thread Device, you can flash `ot-cli-mtd.out` in place of `ot-cli-ftd.out` on Boards 2 and 3. An MTD does not route Thread traffic and can enter low-power sleep states, making it well suited for battery-powered applications. The Thread network formation steps in this codelab are the same for both device types.
 
 > aside positive
 >
-> **Note — Network Co-Processor (NCP):** The `ot-ncp-ftd.out` binary implements the NCP architecture, where the OpenThread stack runs on the device and a host processor drives it via the Spinel protocol. NCP usage is outside the scope of this codelab; refer to the [NCP README](https://github.com/TexasInstruments/ot-ti/blob/main/examples/apps/ncp/README.md) for details.
+> **Optional Network Co-Processor (NCP):** The `ot-ncp-ftd.out` binary implements the NCP architecture, where the OpenThread stack runs on the device and a host processor drives it via the Spinel protocol. NCP usage is outside the scope of this codelab; refer to the [NCP README](https://github.com/TexasInstruments/ot-ti/blob/main/examples/apps/ncp/README.md) for details.
 
 ## Flash Firmware
 
@@ -211,8 +211,8 @@ Use [TI UniFlash](https://www.ti.com/tool/UNIFLASH) to flash the ELF images to t
 Code Composer Studio can be used as an alternative to UniFlash, and additionally provides a full debug environment:
 
 1. Download and install [Code Composer Studio](https://www.ti.com/tool/CCSTUDIO).
-2. Create a target connection (CCXML) for the LP-EM-CC2745R10-Q1 with the XDS110 debugger. Refer to the [CCS User's Guide — Manual Method](https://software-dl.ti.com/ccs/esd/documents/users_guide/ccs_debug-main.html#manual-method).
-3. Start a project-less debug session as described in [CCS User's Guide — Manual Launch](https://software-dl.ti.com/ccs/esd/documents/users_guide/ccs_debug-main.html#manual-launch).
+2. Create a target connection (CCXML) for the LP-EM-CC2745R10-Q1 with the XDS110 debugger. Refer to the [CCS User's Guide: Manual Method](https://software-dl.ti.com/ccs/esd/documents/users_guide/ccs_debug-main.html#manual-method).
+3. Start a project-less debug session as described in [CCS User's Guide: Manual Launch](https://software-dl.ti.com/ccs/esd/documents/users_guide/ccs_debug-main.html#manual-launch).
 4. Connect to the Arm Cortex-M33 core and click **Load** to load the ELF image.
 
 > aside positive
@@ -246,9 +246,9 @@ Duration: 1:00
 
 At this point, all three boards should be flashed:
 
-* **Board 1:** `ot-rcp.out` — Disconnect from the host computer and connect to the Raspberry Pi via USB.
-* **Board 2:** `ot-cli-ftd.out` — Keep connected to the host computer.
-* **Board 3:** `ot-cli-ftd.out` — Keep connected to the host computer.
+* **Board 1:** `ot-rcp.out`: Disconnect from the host computer and connect to the Raspberry Pi via USB.
+* **Board 2:** `ot-cli-ftd.out`: Keep connected to the host computer.
+* **Board 3:** `ot-cli-ftd.out`: Keep connected to the host computer.
 
 Your hardware setup will look like the diagram below. Board 1 connects to the Raspberry Pi as the radio co-processor for the OTBR, while Boards 2 and 3 remain connected to the host computer for serial console access.
 
@@ -288,7 +288,7 @@ Done
 
 ![Serial Terminal FTDs](./img/serial_terminal_ftds.png)
 
-You will not yet set up a serial console for the RCP board — the OTBR on the Raspberry Pi communicates with the RCP directly. In the next step, you will configure the Raspberry Pi as the OpenThread Border Router.
+You will not yet set up a serial console for the RCP board. The OTBR on the Raspberry Pi communicates with the RCP directly. In the next step, you will configure the Raspberry Pi as the OpenThread Border Router.
 
 ## Set Up the Raspberry Pi as a Border Router
 
@@ -499,32 +499,23 @@ You now know:
 
 Check out [openthread.io](https://openthread.io/) and [GitHub](https://github.com/openthread) for a variety of OpenThread resources, including:
 
-* [Supported Platforms](https://openthread.io/platforms/)
-   — discover all the platforms that support OpenThread
+* [Supported Platforms](https://openthread.io/platforms/) — discover all the platforms that support OpenThread
 
-* [Build OpenThread](../../guides/build/index.md)
-   — further details on building and configuring OpenThread
+* [Build OpenThread](../../guides/build/index.md) — further details on building and configuring OpenThread
 
-* [Thread Primer](../../guides/thread-primer/index.md)
-   — covers all the Thread concepts featured in this codelab
+* [Thread Primer](../../guides/thread-primer/index.md) — covers all the Thread concepts featured in this codelab
 
-* [TI ot-ti Repository](https://github.com/TexasInstruments/ot-ti)
-   — TI's OpenThread implementation for SimpleLink devices, with build instructions and release notes
+* [TI ot-ti Repository](https://github.com/TexasInstruments/ot-ti) — TI's OpenThread implementation for SimpleLink devices, with build instructions and release notes
 
-* [CC2745R10-Q1 Product Page](https://www.ti.com/product/CC2745R10-Q1)
-   — device datasheet, reference designs, and other documentation
+* [CC2745R10-Q1 Product Page](https://www.ti.com/product/CC2745R10-Q1) — device datasheet, reference designs, and other documentation
 
-* [LP-EM-CC2745R10-Q1 LaunchPad](https://www.ti.com/tool/LP-EM-CC2745R10-Q1)
-   — evaluation board user guide and hardware files
+* [LP-EM-CC2745R10-Q1 LaunchPad](https://www.ti.com/tool/LP-EM-CC2745R10-Q1) — evaluation board user guide and hardware files
 
-* [OpenThread CLI Reference](https://openthread.io/reference/cli)
-   — overview of the OpenThread CLI and its usage
+* [OpenThread CLI Reference](https://openthread.io/reference/cli) — overview of the OpenThread CLI and its usage
 
-* [OpenThread CLI Commands](https://openthread.io/reference/cli/commands)
-   — complete reference for all OpenThread CLI commands
+* [OpenThread CLI Commands](https://openthread.io/reference/cli/commands) — complete reference for all OpenThread CLI commands
 
-* [TI E2E Community — Thread & Zigbee](https://e2e.ti.com/support/wireless-connectivity/zigbee-and-thread)
-   — technical support community for TI wireless connectivity products
+* [TI E2E Community — Thread & Zigbee](https://e2e.ti.com/support/wireless-connectivity/zigbee-and-thread) — technical support community for TI wireless connectivity products
 
 ## License
 
