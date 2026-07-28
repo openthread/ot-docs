@@ -318,7 +318,7 @@ variables used at the OpenThread application level.
 
 #define LED_GPIO_PORT 0x50000300UL
 #define LED_1_PIN 13 // turn on to indicate leader role
-#define LED_2_PIN 14 // turn on to indicate router role
+#define LED_2_PIN 14 // turn on to indicate mesh extender role
 #define LED_3_PIN 15 // turn on to indicate child role
 #define LED_4_PIN 16 // turn on to indicate UDP receive
 ```
@@ -502,12 +502,12 @@ void otSysButtonProcess(otInstance *aInstance)
 Duration: 05:00
 
 
-In our application, we want different LEDs to light up depending on the device
-role. Let's track the following roles: Leader, Router, End Device. We can assign
-them to LEDs like so:
+In our application, we want different LEDs to light up depending on
+the device role. Let's track the following roles: Leader, Mesh
+Extender, End Device. We can assign them to LEDs like so:
 
 * LED1 = Leader
-* LED2 = Router
+* LED2 = Mesh Extender
 * LED3 = End Device
 
 To enable this functionality, the application needs to know when the device role
@@ -979,15 +979,17 @@ or testing purposes.
 **These APIs should not be used in a production deployment of an application
 using OpenThread.**
 
-For example, the `otThreadSetRouterSelectionJitter` function adjusts the time
-(in seconds) that it takes for an End Device to promote itself to a Router. The
-default for this value is 120, per the Thread Specification. For ease of use in
-this Codelab, we're going to change it to 20, so you don't have to wait very
-long for a Thread node to change roles.
+For example, the `otThreadSetRouterSelectionJitter` function adjusts
+the time (in seconds) that it takes for an End Device to promote
+itself to a Mesh Extender. The default for this value is 120, per the
+Thread Specification. For ease of use in this Codelab, we're going to
+change it to 20, so you don't have to wait very long for a Thread node
+to change roles.
 
-Note: MTD devices do not become routers, and support for a function like
-`otThreadSetRouterSelectionJitter` is not included in an MTD build. Later we need
-to specify CMake option `-DOT_MTD=OFF`, otherwise we will encounter a build failure.
+Note: MTD devices do not become Mesh Extenders, and support for a
+function like `otThreadSetRouterSelectionJitter` is not included in an
+MTD build. Later we need to specify CMake option `-DOT_MTD=OFF`,
+otherwise we will encounter a build failure.
 
 You can confirm this by looking at the `otThreadSetRouterSelectionJitter`
 function definition, which is contained within a preprocessor directive of
@@ -1209,7 +1211,7 @@ application. As detailed earlier, this application has two primary features.
 The lit LED on each board reflects the current role of the Thread node:
 
 * LED1 = Leader
-* LED2 = Router
+* LED2 = Mesh Extender
 * LED3 = End Device
 
 **As the role changes, so does the lit LED.** You should have already seen these
@@ -1238,52 +1240,57 @@ message and react to it.
 Duration: 03:00
 
 
-The devices you've flashed are a specific kind of Full Thread Device (FTD)
-called a Router Eligible End Device (REED). This means they can function as
-either a Router or End Device, and can promote themselves from an End Device to
-a Router.
+The devices you've flashed are a specific kind of Full Thread Device
+(FTD) called an Extender-Capable Device (ECD). This means they can
+function as either a Mesh Extender or a standby ECD, and can promote
+themselves from a standby ECD to a Mesh Extender.
 
-Thread can support up to 32 Routers, but tries to keep the number of Routers
-between 16 and 23. If a REED attaches as an End Device and the number of Routers
-is below 16, it automatically promotes itself to a Router. This change should
+Thread can support up to 32 Mesh Extenders, but tries to keep the
+number of Mesh Extenders between 16 and 23. If an ECD attaches as an
+End Device and the number of Mesh Extenders is below 16, it
+automatically promotes itself to a Mesh Extender. This change should
 occur at a random time within the number of seconds that you set the
-`otThreadSetRouterSelectionJitter` value to in the application (20 seconds).
+`otThreadSetRouterSelectionJitter` value to in the application (20
+seconds).
 
-Every Thread network also has a Leader, which is a Router that is responsible
-for managing the set of Routers in a Thread network. With all the devices on,
-after 20 seconds one of them should be a Leader (LED1 on) and the other two
-should be Routers (LED2 on).
+Every Thread network also has a Leader, which is a Mesh Extender that
+is responsible for managing the set of Mesh Extenders in a Thread
+network. With all the devices on, after 20 seconds one of them should
+be a Leader (LED1 on) and the other two should be Mesh Extenders (LED2
+on).
 
 <img src="img/4e1e885861a66570.png" alt="4e1e885861a66570.png" width="716.50" />
 
 ### Remove the Leader
 
-If the Leader is removed from the Thread network, a different Router promotes
-itself to a Leader, to ensure the network still has a Leader.
+If the Leader is removed from the Thread network, a different Mesh
+Extender promotes itself to a Leader, to ensure the network still has
+a Leader.
 
-Turn off the Leader board (the one with LED1 lit) using the **Power** switch.
-Wait about 20  seconds. On one of the remaining two boards, LED2 (Router) will
-turn off and LED1 (Leader) will turn on. This device is now the Leader of the
-Thread network.
+Turn off the Leader board (the one with LED1 lit) using the **Power**
+switch.  Wait about 20 seconds. On one of the remaining two boards,
+LED2 (Mesh Extender) will turn off and LED1 (Leader) will turn
+on. This device is now the Leader of the Thread network.
 
 <img src="img/4c57c87adb40e0e3.png" alt="4c57c87adb40e0e3.png" width="718.50" />
 
-Turn the original Leader board back on. It should automatically rejoin the
-Thread network as an End Device (LED3 is lit). Within 20 seconds (the Router
-Selection Jitter) it promotes itself to a Router (LED2 is lit).
+Turn the original Leader board back on. It should automatically rejoin
+the Thread network as an End Device (LED3 is lit). Within 20 seconds
+(the Router Selection Jitter) it promotes itself to a Mesh Extender
+(LED2 is lit).
 
 <img src="img/5f40afca2dcc4b5b.png" alt="5f40afca2dcc4b5b.png" width="716.84" />
 
 ### Reset the boards
 
-Turn off all three boards, then turn them back on again and observe the LEDs.
-The first board that was powered up should start in the Leader role
-(LED1 is lit)—the first Router in a Thread network automatically becomes the
-Leader.
+Turn off all three boards, then turn them back on again and observe
+the LEDs.  The first board that was powered up should start in the
+Leader role (LED1 is lit)—the first Mesh Extender in a Thread network
+automatically becomes the Leader.
 
 The other two boards initially connect to the network as End Devices
-(LED3 is lit) but should promote themselves to Routers (LED2 is lit) within 20
-seconds.
+(LED3 is lit) but should promote themselves to Mesh Extenders (LED2 is
+lit) within 20 seconds.
 
 ### Network partitions
 
@@ -1345,7 +1352,7 @@ Thread network and UDP messaging should work correctly.
 Building off of this Codelab, try the following exercises:
 
 * Modify the GPIO module to use GPIO pins instead of the onboard LEDs, and
-  connect external RGB LEDs that change color based on Router role
+  connect external RGB LEDs that change color based on Mesh Extender role
 * Add GPIO support for a different example platform
 * Instead of using multicast to ping all devices from a button press, use the
   [Router/Leader API](https://openthread.io/reference/group/api-thread-router)
