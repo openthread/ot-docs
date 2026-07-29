@@ -356,7 +356,7 @@ With the out-of-band method, we know all security information and add the node m
 
 > aside positive
 >
-> **Note:** Because of the self configuring nature of a Thread network and these being Full Thread devices, either or both the FTDs may eventually become  routers. This can be found out using the `state` command.
+> **Note:** Because of the self configuring nature of a Thread network and these being Full Thread devices, either or both the FTDs may eventually become Mesh Extenders. This can be found out using the `state` command.
 
 ### Communication between Thread devices
 
