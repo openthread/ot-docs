@@ -115,7 +115,7 @@ fe80:0:0:0:6447:6e10:cf7:ee29
 Done
 ```
 
-Send an ICMPv6 ping from Router to Leader's Mesh-Local EID IPv6 address:
+Send an ICMPv6 ping from Mesh Extender to Leader's Mesh-Local EID IPv6 address:
 
 ```
 > ping fdde:ad00:beef:0:5b:3bcd:deff:7786
