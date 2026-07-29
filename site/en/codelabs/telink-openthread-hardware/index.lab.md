@@ -531,7 +531,7 @@ Enter the following commands in order in the serial console to the FTD Joiner.
 
 > aside positive
 >
-> **Note:** The FTD Joiner starts as a child and will turn into a router after a while, which is normal.
+> **Note:** The FTD Joiner starts as a child and will turn into a Mesh Extender after a while, which is normal.
 
 ### Topology
 
@@ -570,7 +570,7 @@ Done
 
 The `RLOC16` of OTBR is `0xb000` and the `RLOC16` of the FTD Joiner initially is `0xb001`.
 Then the FTD Joiner's `RLOC16` becomes `0x8400` after obtaining the Router ID.
-It can be seen that the FTD Joiner has been upgraded from a child to a router.
+It can be seen that the FTD Joiner has been upgraded from a child to a Mesh Extender.
 
 > aside positive
 >
