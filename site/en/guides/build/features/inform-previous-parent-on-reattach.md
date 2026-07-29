@@ -1,7 +1,7 @@
 # Inform Previous Parent on Reattach
 
 To allow end devices (EDs) in a Thread network to inform their previous parent
-router that they have attached to a new parent router, enable the Inform
+that they have attached to a new parent, enable the Inform
 Previous Parent on Reattach feature.
 
 This updates the previous parent's child table quicker than the configured
@@ -11,15 +11,15 @@ actuality has a new parent.
 
 ## How it works
 
-After an ED attaches to a new parent router, it sends a single unicast IPv6
-message containing the following information to its previous parent router:
+After an ED attaches to a new parent, it sends a single unicast IPv6
+message containing the following information to its previous parent:
 
 *   The [Mesh-Local EID](../../../guides/thread-primer/ipv6-addressing.md#mesh-local-eid-ml-eid) of the ED
     as the source address.
-*   The [Routing Locator](../../../guides/thread-primer/ipv6-addressing.md#routing-locator-rloc) of the previous parent router as the destination address.
+*   The [Routing Locator](../../../guides/thread-primer/ipv6-addressing.md#routing-locator-rloc) of the previous parent as the destination address.
 *   An empty payload.
 
-This type of IPv6 message prompts the old parent router to immediately remove
+This type of IPv6 message prompts the previous parent to immediately remove
 all registered IPv6 addresses for that ED from its child table.
 
 ## How to enable
