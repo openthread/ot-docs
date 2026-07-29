@@ -272,7 +272,7 @@ child
 Done
 ```
 
-Set the role to Mesh Extender (referred to as "router" in the CLI and logs).
+Set the role to Mesh Extender (referred to as `router` in the CLI and logs).
 
 ```console
 > state router
@@ -397,7 +397,7 @@ I(37007) OPENTHREAD:[N] Mle-----------: Role detached -> child
 
 ```
 
-Set the role to Mesh Extender (referred to as "router" in the CLI and logs).
+Set the role to Mesh Extender (referred to as `router` in the CLI and logs).
 
 ```console
 > state router
