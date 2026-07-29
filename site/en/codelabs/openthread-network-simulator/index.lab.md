@@ -213,7 +213,7 @@ Duration: 05:00
 
 ### Add nodes through OTNS-CLI
 
-Add a Thread Router into the simulation:
+Add a Mesh Extender (using the `router` node type) into the simulation:
 
 ```console
 > add router
@@ -221,7 +221,7 @@ Add a Thread Router into the simulation:
 Done
 ```
 
-You should see a node created in `OTNS-Web`. The node starts as a Router and
+You should see a node created in `OTNS-Web`. The node starts as a Mesh Extender and
 becomes a Leader in a few seconds:
 
 <img src="img/01_leader_1n.png" alt="One node in the Leader role" />
@@ -272,9 +272,9 @@ For example, in the below figure node 1 is selected. The "Role" entry in the pan
 
 You can also add nodes through `OTNS-Web`. Click the `New Router` button of the
 `Action Bar`. You should see a node being created to the right of the selected node.
-The new router should join the existing Thread partition:
+The new Mesh Extender should join the existing Thread partition:
 
-<img src="img/04_5n_add_router.png" alt="A Router is added, total 5 nodes" />
+<img src="img/04_5n_add_router.png" alt="A Mesh Extender is added, total 5 nodes" />
 
 Also click the FED, MED, SSED, and BR buttons on the Action Bar to create these other types
 of nodes. There should now be 9 nodes in total.
@@ -285,8 +285,8 @@ If you want, drag some nodes around to other positions, to create a different ph
 
 > aside positive
 >
-> **Tip:** A blue line between Leader, Router and FEDs indicates that they're linked.
-> Blue indicates it is not a Parent/Child link, but something else, such as a Router-to-Router link.
+> **Tip:** A blue line between Leader, Mesh Extenders, and FEDs indicates that they're linked.
+> Blue indicates it is not a Parent/Child link, but something else, such as a Mesh Extender link.
 
 Now you have created a Thread network of one partition that contains many nodes.
 In the next section, we are going to adjust the simulating speed to make the
@@ -393,10 +393,10 @@ Done
 Duration: 01:00
 
 
-Now, the simulation should contain at least 2 Routers (hexagon shape), possibly a Border Router (square shape) and many children,
+Now, the simulation should contain at least 2 Mesh Extenders (hexagon shape), possibly a Border Router (square shape) and many children,
 and runs at 10X speed.
 
-Find the current Leader (red border) of the 2 Routers, single click to select it:
+Find the current Leader (red border) of the 2 Mesh Extenders, single click to select it:
 
 <img src="img/06_9n_select1.png" alt="Thread Network with Leader node 1 selected" width="700" />
 
@@ -406,7 +406,7 @@ Click the <img src="img/7ca085f470491dd4.png" alt="Radio Off button" width="72" 
 button on the Action Bar to turn off the radio of the Leader node.
 The Leader won't be able to send or receive messages with the radio off.
 
-Wait for about 12s (120s in simulating time) for the other Router or Border Router to become the
+Wait for about 12s (120s in simulating time) for the other Mesh Extender or Border Router to become the
 new Leader:
 
 <img src="img/08_9n_new_partition.png" alt="New partition is formed with node 9 as the new Leader" width="700" />
@@ -443,14 +443,14 @@ Done
 ### Move node through OTNS-Web
 
 Move node 5 all the way to the bottom right, by dragging. Because node 5 is now out of radio coverage of 
-the other Routers, it forms its own partition with a new Partition ID. The Partition IDs can be checked 
+the other Mesh Extenders, it forms its own partition with a new Partition ID. The Partition IDs can be checked 
 on the node information panel by clicking the nodes.
 
 <img src="img/10_9n_move_router_away.png" alt="Node 5 is moved away from the other nodes and forms a new partition" />
 
 Note that a single green line is still drawn between node 5 and node 9. This is often due to stale information about a 
 child, which is still kept in the child table of a former parent. Or it could be stale information about the former 
-router-to-router link between node 9 and node 5. (Or possibly, in this case, even a rendering bug.) 
+Mesh Extender link between node 9 and node 5. (Or possibly, in this case, even a rendering bug.) 
 Eventually, stale information is cleaned up on the nodes after the appropriate timeout.
 
 ## Delete Nodes
