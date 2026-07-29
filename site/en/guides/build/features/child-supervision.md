@@ -1,19 +1,19 @@
 # Child Supervision
 
 To provide an energy-efficient mechanism for a sleepy end device (SED) to
-verify that it is still connected to its parent router (listed in the parent
-router's child table), enable the Child Supervision feature.
+verify that it is still connected to its parent (listed in the parent's
+child table), enable the Child Supervision feature.
 
 The Thread Specification requires an SED to periodically perform an MLE Child
-Update Request and Response exchange with its parent router to verify
+Update Request and Response exchange with its parent to verify
 connectivity. Child Supervision is an alternate solution for verification of
-SED-router connectivity that places the burden of message transmission on the
-parent router instead of on the energy-constrained SED.
+SED-to-parent connectivity that places the burden of message transmission on the
+parent instead of on the energy-constrained SED.
 
 Note: Most 802.15.4 radios generate an AUTO ACK in response to a received MAC
-frame. An SED cannot solely rely on the 802.15.4 ACKs it receives from a parent
-router as an indication that it is still connected to that router and listed in
-its child table.
+frame. An SED cannot solely rely on the 802.15.4 ACKs it receives from a
+parent as an indication that it is still connected to that parent and listed in
+the parent's child table.
 
 ## How it works
 
@@ -21,9 +21,9 @@ This feature works in two ways, depending on the node type and which
 [parameters](#parameters) are configured:
 
 ### On the parent
-If a parent router does not transmit to its child SED within the
+If a parent does not transmit to its child SED within the
 [`OPENTHREAD_CONFIG_CHILD_SUPERVISION_INTERVAL`](#interval),
-the parent router enqueues and sends a Child Supervision message to the child
+the parent enqueues and sends a Child Supervision message to the child
 SED. The Child Supervision message is a MAC frame containing the following
 information:
 
@@ -37,12 +37,12 @@ request in the Child Supervision message, set the
 
 ### On the child
 
-If an SED does not hear from its parent router within the
+If an SED does not hear from its parent within the
 [`OPENTHREAD_CONFIG_CHILD_SUPERVISION_CHECK_TIMEOUT`](#check-timeout),
-it assumes that it has lost its connection to the parent router and initiates
+it assumes that it has lost its connection to the parent and initiates
 the [MLE
 Attach](../../../guides/thread-primer/network-discovery.md#join_an_existing_network)
-process to reattach to the parent router.
+process to reattach to the network.
 
 ## How to enable
 
