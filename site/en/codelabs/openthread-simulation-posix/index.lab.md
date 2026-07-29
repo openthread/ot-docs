@@ -313,8 +313,8 @@ child
 Done
 ```
 
-Within 2 minutes you should see the state switch from `child` to `router`. A
-Mesh Extender is capable of routing traffic between Thread devices. It is also
+Within 2 minutes you should see the state switch from `child` to `router`.
+A Mesh Extender is capable of routing traffic between Thread devices. It is also
 referred to as a Parent.
 
 ```console
