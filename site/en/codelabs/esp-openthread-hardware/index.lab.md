@@ -272,7 +272,7 @@ child
 Done
 ```
 
-Set the role to Router.
+Set the role to Mesh Extender.
 
 ```console
 > state router
@@ -397,7 +397,7 @@ I(37007) OPENTHREAD:[N] Mle-----------: Role detached -> child
 
 ```
 
-Set the role to Router.
+Set the role to Mesh Extender.
 
 ```console
 > state router
