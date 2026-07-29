@@ -144,7 +144,7 @@ OpenThread currently implements default values for network parameters
 
 The figure below describes a basic Thread network topology. For this exercise,
 we'll emulate the two nodes within the green circle: a Thread Leader and
-Thread Router with a single connection between them.
+a Mesh Extender with a single connection between them.
 
 <img src="img/6e3aa07675f902dc.png" alt="6e3aa07675f902dc.png" width="624.00" />
 
@@ -232,7 +232,7 @@ Done
 ```
 
 Wait a few seconds and verify that the device has become the Thread Leader. The
-Leader is the device responsible for managing router ID assignment.
+Leader is the device responsible for managing Router ID assignment.
 
 ```console
 > state
@@ -334,7 +334,7 @@ Done
 ```
 
 Within 2 minutes you should see the state switch from `child` to `router`. A
-Thread Router is capable of routing traffic between Thread devices. It is also
+Mesh Extender is capable of routing traffic between Thread devices. It is also
 referred to as a Parent.
 
 ```console
@@ -456,8 +456,8 @@ Thread devices, and the authorizer for providing the network credentials
 required for the devices to join the network.
 
 In this exercise, we will use the same two-node topology as before. For
-authentication, the Thread Leader will act as the Commissioner, the
-Thread Router as a Joiner.
+authentication, the Thread Leader will act as the Commissioner, and
+the Mesh Extender as a Joiner.
 
 <img src="img/d6a67e8a0d0b5dcb.png" alt="d6a67e8a0d0b5dcb.png" width="624.00" />
 
