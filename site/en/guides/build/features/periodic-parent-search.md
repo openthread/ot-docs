@@ -1,38 +1,38 @@
 # Periodic Parent Search
 
 To allow end devices (EDs) in a Thread network to switch to a better parent
-router than their current one&mdash;while still attached to the
+than their current one&mdash;while still attached to the
 network&mdash;enable the Periodic Parent Search feature.
 
-To determine whether a router is a better parent for the ED, this feature checks
-a variety of router attributes, including:
+To determine whether a candidate parent is better for the ED, this feature checks
+a variety of its attributes, including:
 
 *   RSSI (received signal strength indicator)
 *   Link Quality
-*   Connectedness of the router to other routers
-*   Number of existing children for the router
+*   Connectedness of the candidate parent to other Mesh Extenders
+*   Number of existing children for the candidate parent
 
-This ensures that EDs connect to the best possible router rather than remaining
-attached to a router with poor link quality or connectedness. This feature is
-particularly useful when a new router is added to an existing Thread network.
+This ensures that EDs connect to the best possible parent rather than remaining
+attached to a parent with poor link quality or connectedness. This feature is
+particularly useful when a new Mesh Extender is added to an existing Thread network.
 
 ## How it works
 
-1.  The ED checks the average RSSI value for its current parent router,
+1.  The ED checks the average RSSI value for its current parent,
     according to the configured check interval
     ([`OPENTHREAD_CONFIG_PARENT_SEARCH_CHECK_INTERVAL`](#check-interval)).
-1.  If the average RSSI value for the ED's current parent router is below the
+1.  If the average RSSI value for the ED's current parent is below the
     configured threshold
     ([`OPENTHREAD_CONFIG_PARENT_SEARCH_RSS_THRESHOLD`](#rss-threshold)),
     a parent search is initiated:
-    1.  If the parent search discovers a better parent router, the ED dissolves
+    1.  If the parent search discovers a better parent, the ED dissolves
         its current Child-Parent link and initiates the [MLE
         Attach](../../../guides/thread-primer/network-discovery.md#join_an_existing_network)
-        process with the new router.
-    1.  If the parent search does not discover a better parent router, the
+        process with the new parent.
+    1.  If the parent search does not discover a better parent, the
         existing Child-Parent link remains.
 1.  After the parent search attempt, the ED waits to check the average RSSI
-    value for its current parent router according to the configured backoff
+    value for its current parent according to the configured backoff
     interval
     ([`OPENTHREAD_CONFIG_PARENT_SEARCH_BACKOFF_INTERVAL`](#backoff-interval)).
     This backoff occurs regardless of the outcome of the parent search.
