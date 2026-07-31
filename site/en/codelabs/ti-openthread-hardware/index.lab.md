@@ -363,11 +363,11 @@ Locate the `OTBR_AGENT_OPTS` line and update it to reference the RCP Application
 
 ```
 OTBR_AGENT_OPTS="-I wpan0 -B eth0 spinel+hdlc+uart:///dev/ttyACM1?uart-baudrate=921600"
+```
 
 > aside positive
 >
 > **Note:** Replace `eth0` with `wlan0` if your Raspberry Pi is connected via Wi-Fi.
-```
 
 > aside positive
 >
