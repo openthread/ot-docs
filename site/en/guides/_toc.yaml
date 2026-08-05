@@ -14,7 +14,7 @@ toc:
 - title: Network Discovery and Formation
   path: /guides/thread-primer/network-discovery
   step_group: thread_primer
-- title: Router Selection
+- title: Mesh Extender Selection
   path: /guides/thread-primer/router-selection
   step_group: thread_primer
 - heading: Codelabs
