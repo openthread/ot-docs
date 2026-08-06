@@ -15,7 +15,7 @@ toc:
   path: /guides/thread-primer/network-discovery
   step_group: thread_primer
 - title: Mesh Extender Selection
-  path: /guides/thread-primer/router-selection
+  path: /guides/thread-primer/mesh-extender-selection
   step_group: thread_primer
 - heading: Codelabs
 - title: Simulation with Docker
