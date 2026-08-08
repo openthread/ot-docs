@@ -12,7 +12,7 @@ book: /_book.yaml
 
 ---
 
-# Build a Thread Network with TI SimpleLink F3 and OpenThread
+# Build a Thread Network with Texas Instruments SimpleLink F3 and OpenThread
 
 [Codelab Feedback](https://github.com/openthread/ot-docs/issues)
 
@@ -26,15 +26,15 @@ Google's [OpenThread](https://openthread.io/) (OT) is an open-source implementat
 
 The [Thread Specification](https://www.threadgroup.org/support#specifications) defines an IPv6-based reliable, secure, and low-power wireless device-to-device communication protocol for home and commercial building applications.
 
-[Texas Instruments](https://www.ti.com) has implemented OpenThread for the SimpleLink™ CC27xx device family. The [ot-ti repository](https://github.com/TexasInstruments/ot-ti) on GitHub contains the platform drivers and example applications needed to run OpenThread on TI SimpleLink Connected MCUs. The [CC2745R10-Q1](https://www.ti.com/product/CC2745R10-Q1) is an automotive-grade (AEC-Q100 qualified), Thread-certified IEEE 802.15.4 wireless MCU from TI's SimpleLink CC27xx family.
+[Texas Instruments](https://www.ti.com) has implemented OpenThread for the SimpleLink™ CC27xx device family. The [ot-ti repository](https://github.com/TexasInstruments/ot-ti) on GitHub contains the platform drivers and example applications needed to run OpenThread on Texas Instruments SimpleLink Connected MCUs. The [CC2745R10-Q1](https://www.ti.com/product/CC2745R10-Q1) is an automotive-grade (AEC-Q100 qualified), Thread-certified IEEE 802.15.4 wireless MCU from TI's SimpleLink CC27xx family.
 
-This codelab describes how to get started developing OpenThread applications with the [LP-EM-CC2745R10-Q1](https://www.ti.com/tool/LP-EM-CC2745R10-Q1) LaunchPad evaluation board and the TI ot-ti repository. The image below shows the hardware setup used in this codelab, with an OT Border Router (OTBR) and two Thread Full Thread Devices (FTDs).
+This codelab describes how to get started developing OpenThread applications with the [LP-EM-CC2745R10-Q1](https://www.ti.com/tool/LP-EM-CC2745R10-Q1) LaunchPad evaluation board and the ot-ti repository. The image below shows the hardware setup used in this codelab, with an OT Border Router (OTBR) and two Thread Full Thread Devices (FTDs).
 
 ![CC2745R10 Hardware Setup](./img/CC2745R10_hardware_setup.jpg)
 
 ### What you'll learn
 
-* How to set up the TI ot-ti build environment.
+* How to set up the Texas Instruments ot-ti build environment.
 * How to build and flash OpenThread CLI binaries to LP-EM-CC2745R10-Q1 boards.
 * How to set up a Raspberry Pi as an OpenThread Border Router (OTBR) using ot-br-posix.
 * How to create a Thread network on the OTBR.
@@ -108,7 +108,7 @@ Each LP-EM-CC2745R10-Q1 appears as two virtual serial ports when connected via U
 
 Duration: 10:00
 
-The TI ot-ti build system uses CMake and requires a Bash shell. All commands in this section are run on the **Linux or macOS host** (or WSL2 on Windows).
+The ot-ti build system uses CMake and requires a Bash shell. All commands in this section are run on the **Linux or macOS host** (or WSL2 on Windows).
 
 ### 1. Clone the repository
 
@@ -447,7 +447,7 @@ Duration: 1:00
 
 You now know:
 
-* How to set up the TI ot-ti build environment.
+* How to set up the Texas Instruments ot-ti build environment.
 * How to build and flash OpenThread CLI binaries to the LP-EM-CC2745R10-Q1 LaunchPad.
 * How to set up a Raspberry Pi as an OpenThread Border Router (OTBR) using ot-br-posix.
 * How to create a Thread network on the OTBR.
@@ -474,7 +474,7 @@ Check out [openthread.io](https://openthread.io/) and [GitHub](https://github.co
 
 * [OpenThread CLI Commands](https://openthread.io/reference/cli/commands) — complete reference for all OpenThread CLI commands
 
-* [TI E2E Community — Thread & Zigbee](https://e2e.ti.com/support/wireless-connectivity/zigbee-and-thread) — technical support community for TI wireless connectivity products
+* [TI E2E Community — Thread & Zigbee](https://e2e.ti.com/support/wireless-connectivity/zigbee-and-thread) — technical support community for Texas Instruments wireless connectivity products
 
 ## License
 
