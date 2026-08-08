@@ -54,11 +54,7 @@ Duration: 5:00
 
    ![LP-EM-CC2745R10-Q1 Angled View](./img/lp-em-cc2745r10-q1-angled.png)
 
-   > aside positive
-   >
-   > **Note:** The CC2745R10-Q1 is an automotive-grade (AEC-Q100 qualified) Thread-certified IEEE 802.15.4 wireless MCU in TI's SimpleLink CC27xx family. The LP-EM-CC2745R10-Q1 is the corresponding LaunchPad Evaluation Module and supports RCP, FTD, MTD, and NCP Thread roles.
-   >
-   > **Lower memory alternative:** The [CC2340R5](https://www.ti.com/product/CC2340R5) with the [LP-EM-CC2340R5](https://www.ti.com/tool/LP-EM-CC2340R5) LaunchPad is a lower memory option that can serve as the **RCP only**. It does not support FTD, MTD, or NCP roles. If you substitute an LP-EM-CC2340R5 for Board 1 (RCP), the two FTD boards must still be LP-EM-CC2745R10-Q1.
+   The CC2745R10-Q1 is an automotive-grade (AEC-Q100 qualified) Thread-certified IEEE 802.15.4 wireless MCU in TI's SimpleLink CC27xx family. The LP-EM-CC2745R10-Q1 is the corresponding LaunchPad Evaluation Module and supports RCP, FTD, MTD, and NCP Thread roles. The [CC2340R5](https://www.ti.com/product/CC2340R5) with the [LP-EM-CC2340R5](https://www.ti.com/tool/LP-EM-CC2340R5) LaunchPad is a lower memory option that can serve as the RCP only. It does not support FTD, MTD, or NCP roles. If you substitute an LP-EM-CC2340R5 for Board 1 (RCP), the two FTD boards must still be LP-EM-CC2745R10-Q1.
 
 2. **3 LP-XDS110ET debug probes**: one per LaunchPad board, used for programming and debug over USB.
 
@@ -66,11 +62,7 @@ Duration: 5:00
 
    ![LP-XDS110ET Angled View](./img/lp-xds11oet-angled.png)
 
-   > aside positive
-   >
-   > **Note:** The LP-XDS110ET is a separate USB debug probe required for LaunchPads in the LP-EM form factor. It includes [EnergyTrace](https://www.ti.com/tool/ENERGYTRACE) support for power profiling. The [LP-XDS110](https://www.ti.com/tool/LP-XDS110) is a lower-cost alternative that provides the same programming and debug capability but does **not** include EnergyTrace.
-   >
-   > As a further alternative, a LaunchPad with an on-board XDS110 debug probe (such as the LP-CC2745R10) can be used in place of the LP-EM board and a separate debug probe entirely. See the [LaunchPad debug connectivity guide](https://dev.ti.com/tirex/explore/node?isTheia=false&node=A__AFLJffDDRMNN.R1VCer3oA__lpf3_devtools__FUz-xrs__LATEST) for details.
+   The LP-XDS110ET is a separate USB debug probe required for LaunchPads in the LP-EM form factor. It includes [EnergyTrace](https://www.ti.com/tool/ENERGYTRACE) support for power profiling. The [LP-XDS110](https://www.ti.com/tool/LP-XDS110) is a lower-cost alternative that provides the same programming and debug capability but does not include EnergyTrace. As a further alternative, a LaunchPad with an on-board XDS110 debug probe (such as the LAUNCHXL-CC26X2R1) can be used in place of the LP-EM board and a separate debug probe entirely. See the [LaunchPad debug connectivity guide](https://dev.ti.com/tirex/explore/node?isTheia=false&node=A__AFLJffDDRMNN.R1VCer3oA__lpf3_devtools__FUz-xrs__LATEST) for details.
 
 3. **3 micro-USB cables** to connect and power the LaunchPad boards and debug probes.
 
@@ -80,11 +72,7 @@ Duration: 5:00
 
 5. **A Linux or macOS host system** with at least 2 USB ports and internet access. The build environment requires a Bash-compatible shell. Windows users should use WSL2 (Windows Subsystem for Linux 2) with Ubuntu.
 
-6. **At least one Ethernet cable** for connecting the Raspberry Pi to the internet.
-
-   > aside positive
-   >
-   > **Note:** An Ethernet cable is the simplest option. Alternatively, you can connect the Raspberry Pi to Wi-Fi and use `wlan0` as the infrastructure interface — see the OTBR setup step for details.
+6. **At least one Ethernet cable** for connecting the Raspberry Pi to the internet. Alternatively, you can connect the Raspberry Pi to Wi-Fi and use `wlan0` as the infrastructure interface — see the OTBR setup step for details.
 
 ### Software
 
@@ -112,9 +100,7 @@ This codelab uses three LP-EM-CC2745R10-Q1 boards:
 
 Connect each LaunchPad to your host computer via micro-USB. The USB connection provides both power and debug/programming capability through the onboard XDS110 debug probe.
 
-> aside positive
->
-> **Note:** Each LP-EM-CC2745R10-Q1 appears as two virtual serial ports when connected via USB: one for the XDS110 debug interface and one for the application UART. When opening a serial console, connect to the **Application UART** port, not the XDS110 port.
+Each LP-EM-CC2745R10-Q1 appears as two virtual serial ports when connected via USB: one for the XDS110 debug interface and one for the application UART. When opening a serial console, connect to the **Application/User UART** port, not the Auxiliary Data port.
 
 ![Hardware Connection Diagram](./img/hardware_connections.jpg)
 
@@ -140,9 +126,7 @@ The bootstrap script installs required dependencies including the GNU ARM toolch
 $ ./script/bootstrap
 ```
 
-> aside positive
->
-> **Note:** The bootstrap script requires `cmake`, `git`, `wget`, and standard build tools. On Ubuntu/Debian, install prerequisites with: `sudo apt-get install -y cmake git make wget tar ninja-build`
+The bootstrap script requires `cmake`, `git`, `wget`, and standard build tools. On Ubuntu/Debian, install prerequisites with: `sudo apt-get install -y cmake git make wget tar ninja-build`
 
 > aside positive
 >
@@ -156,9 +140,7 @@ Build all firmware images for the LP-EM-CC2745R10-Q1 board:
 $ ./script/build LP_EM_CC2745R10_Q1
 ```
 
-> aside positive
->
-> **Note:** The `LP_EM_CC2745R10_Q1` build target corresponds to the CC2745R10-Q1 device in the CC27xx SimpleLink family (Arm Cortex-M33F core). To see all supported boards, run `./script/build` without arguments.
+The `LP_EM_CC2745R10_Q1` build target corresponds to the CC2745R10-Q1 device in the CC27xx SimpleLink family (Arm Cortex-M33F core). To see all supported boards, run `./script/build` without arguments.
 
 After a successful build, ELF binaries are in `build/bin/`:
 
@@ -172,13 +154,9 @@ The two images used in this codelab are:
 * `ot-rcp.out`: Radio Co-Processor firmware for the Border Router board.
 * `ot-cli-ftd.out`: Full Thread Device CLI firmware for the two FTD boards.
 
-> aside positive
->
-> **Optional Minimal Thread Device:** If you want to explore a sleepy end device instead of a Full Thread Device, you can flash `ot-cli-mtd.out` in place of `ot-cli-ftd.out` on Boards 2 and 3. An MTD does not route Thread traffic and can enter low-power sleep states, making it well suited for battery-powered applications. The Thread network formation steps in this codelab are the same for both device types.
+**Optional Minimal Thread Device:** If you want to explore a sleepy end device instead of a Full Thread Device, you can flash `ot-cli-mtd.out` in place of `ot-cli-ftd.out` on Boards 2 and 3. An MTD does not route Thread traffic and can enter low-power sleep states, making it well suited for battery-powered applications. The Thread network formation steps in this codelab are the same for both device types.
 
-> aside positive
->
-> **Optional Network Co-Processor (NCP):** The `ot-ncp-ftd.out` binary implements the NCP architecture, where the OpenThread stack runs on the device and a host processor drives it via the Spinel protocol. NCP usage is outside the scope of this codelab; refer to the [NCP README](https://github.com/TexasInstruments/ot-ti/blob/main/examples/apps/ncp/README.md) for details.
+**Optional Network Co-Processor (NCP):** The `ot-ncp-ftd.out` binary implements the NCP architecture, where the OpenThread stack runs on the device and a host processor drives it via the Spinel protocol. NCP usage is outside the scope of this codelab, refer to the [NCP README](https://github.com/TexasInstruments/ot-ti/blob/thread-v1.4-ti/examples/apps/ncp/README.md) for details.
 
 ## Flash Firmware
 
@@ -192,9 +170,7 @@ Use [TI UniFlash](https://www.ti.com/tool/UNIFLASH) to flash the ELF images to t
 
    ![UniFlash Detected Devices](./img/uniflash_detected_devices.png)
 
-   > aside positive
-   >
-   > **Note:** If your board is not detected automatically, click **New Configuration**, select the `LP-EM-CC2745R10-Q1` target, and choose the XDS110 USB debug probe.
+   If your board is not detected automatically, click **New Configuration**, select the `LP-EM-CC2745R10-Q1` target, and choose the XDS110 USB debug probe.
 
 2. Select **Board 1** (to be flashed with `ot-rcp.out`) and click **Start**.
 
@@ -215,9 +191,7 @@ Code Composer Studio can be used as an alternative to UniFlash, and additionally
 3. Start a project-less debug session as described in [CCS User's Guide: Manual Launch](https://software-dl.ti.com/ccs/esd/documents/users_guide/ccs_debug-main.html#manual-launch).
 4. Connect to the Arm Cortex-M33 core and click **Load** to load the ELF image.
 
-> aside positive
->
-> **Note:** The default CCXML configuration uses 2-wire cJTAG to match the default LP-EM-CC2745R10-Q1 jumper configuration. After programming via JTAG, power-cycle the board to clear the halt-in-boot flag.
+The default CCXML configuration uses 2-wire cJTAG to match the default LP-EM-CC2745R10-Q1 jumper configuration. After programming via JTAG, power-cycle the board to clear the halt-in-boot flag.
 
 ## Program the HSM
 
@@ -270,13 +244,9 @@ Open a serial terminal to the Application UART COM port (Windows) or `/dev/ttyAC
 | Parity       | `None`   |
 | Flow control | `None`   |
 
-> aside positive
->
-> **Tip (Linux/macOS):** Identify the correct device node by running `ls /dev/ttyACM*` before and after plugging in a board and noting which entry appears. Each LP-EM-CC2745R10-Q1 creates two entries: the lower-numbered port is the XDS110 debug UART and the higher-numbered port is the Application UART. For example, if the board creates `/dev/ttyACM0` and `/dev/ttyACM1`, use `/dev/ttyACM1`.
+**Tip (Linux/macOS):** Identify the correct device node by running `ls /dev/ttyACM*` before and after plugging in a board and noting which entry appears. Each LP-EM-CC2745R10-Q1 creates two entries: the lower-numbered port is the XDS110 debug UART and the higher-numbered port is the Application UART. For example, if the board creates `/dev/ttyACM0` and `/dev/ttyACM1`, use `/dev/ttyACM1`.
 
-> aside positive
->
-> **Tip (Windows):** Open Device Manager and look under **Ports (COM & LPT)** for two new COM ports when a board is plugged in. The XDS110 debug port typically appears first; use the second (higher-numbered) COM port for the application console.
+**Tip (Windows):** Open Device Manager and look under **Ports (COM & LPT)** for two new COM ports when a board is plugged in. The XDS110 debug data port typically appears first, use the second (higher-numbered) COM port for the application console.
 
 Press **Enter** in the terminal to get an OpenThread CLI prompt (`>`). For a full list of available commands, see the [OpenThread CLI Reference](https://openthread.io/reference/cli/commands). Verify the FTD is operational:
 
@@ -307,9 +277,7 @@ The OTBR is built from [ot-br-posix](https://github.com/openthread/ot-br-posix),
    $ sudo apt-get upgrade -y
    ```
 
-> aside positive
->
-> **Important:** Reboot the Raspberry Pi after updates before proceeding: `sudo reboot`
+Reboot the Raspberry Pi after updates before proceeding: `sudo reboot`
 
 ### Connect Board 1 (RCP) to the Raspberry Pi
 
@@ -321,11 +289,7 @@ $ ls /dev/ttyACM*
 /dev/ttyACM1
 ```
 
-The Application UART of the RCP board is typically `/dev/ttyACM1` (the XDS110 debug UART is `/dev/ttyACM0`). Verify which port is the application UART by checking that it responds when the OTBR agent is started in a later step.
-
-> aside positive
->
-> **Note:** If other USB serial devices are connected, the device node number may differ. Adjust the path in the OTBR configuration accordingly.
+The Application UART of the RCP board is typically `/dev/ttyACM1` (the XDS110 debug UART is `/dev/ttyACM0`). Verify which port is the application UART by checking that it responds when the OTBR agent is started in a later step. If other USB serial devices are connected, the device node number may differ. Adjust the path in the OTBR configuration accordingly.
 
 ### Build and Install ot-br-posix
 
@@ -343,13 +307,9 @@ Run the setup script, specifying your Ethernet interface as the backbone (infras
 $ INFRA_IF_NAME=eth0 ./script/setup
 ```
 
-> aside positive
->
-> **Note:** `eth0` is the typical name for the wired Ethernet interface. If you are connecting the Raspberry Pi via Wi-Fi instead of Ethernet, replace `eth0` with `wlan0` (and ensure the Pi is already connected to your Wi-Fi network). Verify the active interface name with `ip link show`.
+`eth0` is the typical name for the wired Ethernet interface. If you are connecting the Raspberry Pi via Wi-Fi instead of Ethernet, replace `eth0` with `wlan0` (and ensure the Pi is already connected to your Wi-Fi network). Verify the active interface name with `ip link show`.
 
-> aside positive
->
-> **Note:** The setup script builds ot-br-posix from source, installs the `otbr-agent` and `otbr-web` system services, and configures the networking stack. This process typically takes 10–20 minutes on a Raspberry Pi 4B.
+The setup script builds ot-br-posix from source, installs the `otbr-agent` and `otbr-web` system services, and configures the networking stack. This process typically takes 10–20 minutes on a Raspberry Pi 4B.
 
 ### Configure the OTBR Agent
 
@@ -365,13 +325,14 @@ Locate the `OTBR_AGENT_OPTS` line and update it to reference the RCP Application
 OTBR_AGENT_OPTS="-I wpan0 -B eth0 spinel+hdlc+uart:///dev/ttyACM1?uart-baudrate=921600"
 ```
 
-> aside positive
->
-> **Note:** Replace `eth0` with `wlan0` if your Raspberry Pi is connected via Wi-Fi.
 
-> aside positive
->
-> **Important:** The LP-EM-CC2745R10-Q1 RCP Application UART operates at **921600 baud**. Verify the device path (`/dev/ttyACM1` in this example) matches the Application UART of your RCP board.
+Replace `eth0` with `wlan0` if your Raspberry Pi is connected via Wi-Fi.
+
+```
+OTBR_AGENT_OPTS="-I wpan0 -B wlan0 spinel+hdlc+uart:///dev/ttyACM1?uart-baudrate=921600"
+```
+
+The LP-EM-CC2745R10-Q1 RCP Application UART operates at **921600 baud**. Verify the device path (`/dev/ttyACM1` in this example) matches the Application UART of your RCP board.
 
 Restart the OTBR agent to apply the configuration:
 
@@ -451,9 +412,7 @@ Using the out-of-band commissioning method, you provide the network credentials 
 |       |                                                       | Wait 20 seconds while the device joins and configures itself.                           |                   |
 | 6     | `state`                                               | Check device state.                                                                     | child<br/>Done    |
 
-> aside positive
->
-> **Note:** Because of the self-configuring nature of Thread networks and these being Full Thread Devices, either or both FTDs may eventually become routers. You can verify the current role at any time with the `state` command.
+Because of the self-configuring nature of Thread networks and these being Full Thread Devices, either or both FTDs may eventually become routers. You can verify the current role at any time with the `state` command.
 
 ### Communication Between Thread Devices
 

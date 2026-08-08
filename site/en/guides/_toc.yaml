@@ -30,6 +30,8 @@ toc:
   path: /codelabs/silabs-openthread-hardware/
 - title: Build a Thread Network (Telink)
   path: /codelabs/telink-openthread-hardware/
+- title: Build a Thread Network (Texas Instruments)
+  path: /codelabs/ti-openthread-hardware/
 - title: OpenThread APIs
   path: /codelabs/openthread-apis/
 - title: OpenThread Border Router
