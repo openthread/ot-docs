@@ -1,7 +1,7 @@
 # What is Thread?
 
 <figure class="attempt-right">
-<img src="../images/ot-logo-thread.png" srcset="../images/ot-logo-thread.png 1x, ../images/ot-logo-thread_2x.png 2x" border="0" alt="Thread" />
+<img src="../images/ot-logo-thread.png" alt="Thread" />
 </figure>
 
 <a href="http://threadgroup.org/">Thread<sup>®</sup></a> is an IPv6-based

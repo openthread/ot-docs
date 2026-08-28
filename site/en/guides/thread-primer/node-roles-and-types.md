@@ -3,7 +3,7 @@
 ## Forwarding roles
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-roles_2x.png"><img src="../images/ot-primer-roles.png" srcset="../images/ot-primer-roles.png 1x, ../images/ot-primer-roles_2x.png 2x" border="0" alt="OT Node Roles" /></a>
+<a href="../images/ot-primer-roles.png"><img src="../images/ot-primer-roles.png" alt="OT Node Roles" /></a>
 </figure>
 
 In a Thread network, nodes are split into two forwarding roles:
@@ -34,7 +34,7 @@ the Child.
 Furthermore, nodes comprise a number of types.
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-taxonomy.png"><img src="../images/ot-primer-taxonomy.png" border="0" alt="OT Device Taxonomy" /></a>
+<a href="../images/ot-primer-taxonomy.png"><img src="../images/ot-primer-taxonomy.png" alt="OT Device Taxonomy" /></a>
 </figure>
 
 ### Full Thread Device
@@ -72,14 +72,14 @@ wishing to join the Thread network, it can upgrade itself and operate
 as a Mesh Extender:
 
 <figure>
-<a href="../images/ot-primer-router-upgrade_2x.png"><img src="../images/ot-primer-router-upgrade.png" srcset="../images/ot-primer-router-upgrade.png 1x, ../images/ot-primer-router-upgrade_2x.png 2x" border="0" width="400" alt="OT End Device to Mesh Extender" /></a>
+<a href="../images/ot-primer-router-upgrade.png"><img src="../images/ot-primer-router-upgrade.png" width="400" alt="OT End Device to Mesh Extender" /></a>
 </figure>
 
 Conversely, when a Mesh Extender has no children, it can downgrade
 itself and operate as a standby ECD:
 
 <figure>
-<a href="../images/ot-primer-router-downgrade_2x.png"><img src="../images/ot-primer-router-downgrade.png" srcset="../images/ot-primer-router-downgrade.png 1x, ../images/ot-primer-router-downgrade_2x.png 2x" border="0" width="400" alt="OT Mesh Extender to End Device" /></a>
+<a href="../images/ot-primer-router-downgrade.png"><img src="../images/ot-primer-router-downgrade.png" width="400" alt="OT Mesh Extender to End Device" /></a>
 </figure>
 
 ## Other roles and types
@@ -87,7 +87,7 @@ itself and operate as a standby ECD:
 ### Thread Leader
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-leader_2x.png"><img src="../images/ot-primer-leader.png" srcset="../images/ot-primer-leader.png 1x, ../images/ot-primer-leader_2x.png 2x" border="0" alt="OT Leader and Border Router" /></a>
+<a href="../images/ot-primer-leader.png"><img src="../images/ot-primer-leader.png" alt="OT Leader and Border Router" /></a>
 </figure>
 
 The Thread Leader is a Mesh Extender that is responsible for managing
@@ -111,7 +111,7 @@ Note: There can be multiple Border Routers in a Thread network.
 ## Partitions
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-partitions_2x.png"><img src="../images/ot-primer-partitions.png" srcset="../images/ot-primer-partitions.png 1x, ../images/ot-primer-partitions_2x.png 2x" border="0" alt="OT Partitions" /></a>
+<a href="../images/ot-primer-partitions.png"><img src="../images/ot-primer-partitions.png" alt="OT Partitions" /></a>
 </figure>
 
 A Thread network might be composed of partitions. This occurs when a group of
