@@ -10,7 +10,7 @@ a single Thread interface.
 ## Scopes
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-scopes_2x.png"><img src="../images/ot-primer-scopes.png" srcset="../images/ot-primer-scopes.png 1x, ../images/ot-primer-scopes_2x.png 2x" border="0" alt="OT Scopes" /></a>
+<a href="../images/ot-primer-scopes.png"><img src="../images/ot-primer-scopes.png" alt="OT Scopes" /></a>
 </figure>
 
 There are three scopes in a Thread network for unicast addressing:
@@ -42,7 +42,7 @@ number in a Mesh Extender (pentagon) is the Router ID, and the number
 in an End Device (circle) is the Child ID:
 
 <figure>
-<a href="../images/ot-primer-rloc-topology_2x.png"><img src="../images/ot-primer-rloc-topology.png" srcset="../images/ot-primer-rloc-topology.png 1x, ../images/ot-primer-rloc-topology_2x.png 2x" border="0" width="600" alt="OT RLOC Topology" /></a>
+<a href="../images/ot-primer-rloc-topology.png"><img src="../images/ot-primer-rloc-topology.png" width="600" alt="OT RLOC Topology" /></a>
 </figure>
 
 Each Child's Router ID corresponds to its Parent (Mesh
@@ -55,7 +55,7 @@ For example, here's how the RLOC16 is calculated for the upper-left node (Router
 ID = 1 and Child ID = 1):
 
 <figure>
-<a href="../images/ot-primer-rloc16_2x.png"><img src="../images/ot-primer-rloc16.png" srcset="../images/ot-primer-rloc16.png 1x, ../images/ot-primer-rloc16_2x.png 2x" border="0" width="400" alt="OT RLOC16" /></a>
+<a href="../images/ot-primer-rloc16.png"><img src="../images/ot-primer-rloc16.png" width="400" alt="OT RLOC16" /></a>
 </figure>
 
 The RLOC16 is part of the Interface Identifier (IID), which corresponds to the
@@ -71,13 +71,13 @@ using a Mesh-Local Prefix of `fde5:8dba:82e1:1::/64`, the RLOC for a node where
 RLOC16 = `0x401` is:
 
 <figure>
-<a href="../images/ot-primer-rloc_2x.png"><img src="../images/ot-primer-rloc.png" srcset="../images/ot-primer-rloc.png 1x, ../images/ot-primer-rloc_2x.png 2x" border="0" width="600" alt="OT RLOC" /></a>
+<a href="../images/ot-primer-rloc.png"><img src="../images/ot-primer-rloc.png" width="600" alt="OT RLOC" /></a>
 </figure>
 
 This same logic can be used to determine the RLOC for all highlighted nodes in the sample topology above:
 
 <figure>
-<a href="../images/ot-primer-rloc-topology-address_2x.png"><img src="../images/ot-primer-rloc-topology-address.png" srcset="../images/ot-primer-rloc-topology-address.png 1x, ../images/ot-primer-rloc-topology-address_2x.png 2x" border="0" width="600" alt="OT Topology w/ Address" /></a>
+<a href="../images/ot-primer-rloc-topology-address.png"><img src="../images/ot-primer-rloc-topology-address.png" width="600" alt="OT Topology w/ Address" /></a>
 </figure>
 
 However, because the RLOC is based on the location of the node in the topology,
@@ -89,7 +89,7 @@ Mesh Extenders, and as a result they are each assigned a new RLOC16
 and RLOC:
 
 <figure>
-<a href="../images/ot-primer-rloc-topology-change_2x.png"><img src="../images/ot-primer-rloc-topology-change.png" srcset="../images/ot-primer-rloc-topology-change.png 1x, ../images/ot-primer-rloc-topology-change_2x.png 2x" border="0" width="600" alt="OT Topology after Change" /></a>
+<a href="../images/ot-primer-rloc-topology-change.png"><img src="../images/ot-primer-rloc-topology-change.png" width="600" alt="OT Topology after Change" /></a>
 </figure>
 
 ## Unicast address types

@@ -17,7 +17,7 @@ XPAN ID | `0xBEEF1111CAFE2222`
 Network Name | `yourThreadCafe`
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-network-active-scan.png"><img src="../images/ot-primer-network-active-scan.png" border="0" alt="OT Active Scan" /></a>
+<a href="../images/ot-primer-network-active-scan.png"><img src="../images/ot-primer-network-active-scan.png" alt="OT Active Scan" /></a>
 </figure>
 
 When creating a new Thread network, or searching for an existing one to join, a
@@ -94,7 +94,7 @@ A Parent Request is a multicast request from the attaching device that is used
 to discover neighboring Extender-Capable Devices in the target network.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-01.png"><img src="../images/ot-primer-network-mle-attach-01.png" width="350" border="0" alt="OT MLE Attach Parent Request" /></a>
+<a href="../images/ot-primer-network-mle-attach-01.png"><img src="../images/ot-primer-network-mle-attach-01.png" width="350" alt="OT MLE Attach Parent Request" /></a>
 </figure>
 
 <table>
@@ -124,7 +124,7 @@ provides information about an Extender-Capable Device to the attaching
 device.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-02.png"><img src="../images/ot-primer-network-mle-attach-02.png" width="350" border="0" alt="OT MLE Attach Parent Response" /></a>
+<a href="../images/ot-primer-network-mle-attach-02.png"><img src="../images/ot-primer-network-mle-attach-02.png" width="350" alt="OT MLE Attach Parent Response" /></a>
 </figure>
 
 <table>
@@ -186,7 +186,7 @@ a standby Extender-Capable Device, it [upgrades itself to a Mesh
 Extender](router-selection.md) before accepting the request.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-03.png"><img src="../images/ot-primer-network-mle-attach-03.png" width="350" border="0" alt="OT MLE Attach Child ID Request" /></a>
+<a href="../images/ot-primer-network-mle-attach-03.png"><img src="../images/ot-primer-network-mle-attach-03.png" width="350" alt="OT MLE Attach Child ID Request" /></a>
 </figure>
 
 <table>
@@ -233,7 +233,7 @@ A Child ID Response is a unicast response from the Parent that is sent to the
 Child to confirm that a Child-Parent link has been established.
 
 <figure>
-<a href="../images/ot-primer-network-mle-attach-04.png"><img src="../images/ot-primer-network-mle-attach-04.png" width="350" border="0" alt="OT MLE Attach Child ID Response" /></a>
+<a href="../images/ot-primer-network-mle-attach-04.png"><img src="../images/ot-primer-network-mle-attach-04.png" width="350" alt="OT MLE Attach Child ID Response" /></a>
 </figure>
 
 <table>

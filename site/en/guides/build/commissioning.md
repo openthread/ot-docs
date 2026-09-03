@@ -1,7 +1,7 @@
 # On-Mesh Commissioning
 
 <figure class="attempt-right">
-<a href="../../guides/images/ot-primer-joiner_2x.png"><img src="../../guides/images/ot-primer-joiner.png" srcset="../../guides/images/ot-primer-joiner.png 1x, ../../guides/images/ot-primer-joiner_2x.png 2x" border="0" alt="Commissioner and Joiner" /></a>
+<a href="../../guides/images/ot-primer-joiner.png"><img src="../../guides/images/ot-primer-joiner.png" alt="Commissioner and Joiner" /></a>
 </figure>
 
 Commissioning requires one device with the Commissioner role, and one device

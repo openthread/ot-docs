@@ -3,7 +3,7 @@
 ## Connected Dominating Set
 
 <figure class="attempt-right">
-<a href="../images/ot-primer-cds.png"><img src="../images/ot-primer-cds.png" width="350" border="0" alt="OT Connected Dominating Set" /></a><figcaption style="text-align: center"><i>Example of a Connected Dominating Set</i></figcaption>
+<a href="../images/ot-primer-cds.png"><img src="../images/ot-primer-cds.png" width="350" alt="OT Connected Dominating Set" /></a><figcaption style="text-align: center"><i>Example of a Connected Dominating Set</i></figcaption>
 </figure>
 
 Mesh Extenders must form a Connected Dominating Set (CDS), which means:
@@ -59,7 +59,7 @@ discovering the other Mesh Extenders via MLE Advertisements, the
 devices send unicast Link Requests.
 
 <figure>
-<a href="../images/ot-primer-network-mle-link-request-01.png"><img src="../images/ot-primer-network-mle-link-request-01.png" width="350" border="0" alt="OT MLE Link Request" /></a>
+<a href="../images/ot-primer-network-mle-link-request-01.png"><img src="../images/ot-primer-network-mle-link-request-01.png" width="350" alt="OT MLE Link Request" /></a>
 </figure>
 
 <table>
@@ -97,7 +97,7 @@ messages. Thread uses this optimization in the MLE Link Request process to
 reduce the number of messages from four to three.
 
 <figure>
-<a href="../images/ot-primer-network-mle-link-request-02.png"><img src="../images/ot-primer-network-mle-link-request-02.png" width="350" border="0" alt="OT MLE Link Accept and Request" /></a>
+<a href="../images/ot-primer-network-mle-link-request-02.png"><img src="../images/ot-primer-network-mle-link-request-02.png" width="350" alt="OT MLE Link Accept and Request" /></a>
 </figure>
 
 ### 3. Link Accept
@@ -107,7 +107,7 @@ neighboring Mesh Extender that provides information about itself and
 accepts the link to the neighboring Mesh Extender.
 
 <figure>
-<a href="../images/ot-primer-network-mle-link-request-03.png"><img src="../images/ot-primer-network-mle-link-request-03.png" width="350" border="0" alt="OT MLE Link Accept" /></a>
+<a href="../images/ot-primer-network-mle-link-request-03.png"><img src="../images/ot-primer-network-mle-link-request-03.png" width="350" alt="OT MLE Link Accept" /></a>
 </figure>
 
 <table>
