@@ -10,7 +10,7 @@ requirements.
     *   macOS — 64 bit OS X 10.6 or later
     *   Linux
     *   Windows — 10 or later (only supported for packet sniffing with the
-        [Wireshark extcap plugin](sniffer-extcap.md); building OpenThread and
+        [Wireshark extcap plugin](sniffer-extcap.md). Building OpenThread and
         running the Pyspinel CLI or standalone sniffer require Linux or macOS)
 
 *   1 [OpenThread device](https://openthread.io/vendors) flashed with an `ot-ncp-ftd`
