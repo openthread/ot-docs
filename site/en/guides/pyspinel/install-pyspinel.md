@@ -71,6 +71,11 @@ To use Pyspinel with the extcap plugin, refer to [Packet Sniffing using Extcap](
 
 ## License
 
+> Note: On Windows, install the dependencies and package
+(`pip3 install pyserial ipaddress pyspinel`), then copy `extcap_ot.py` and
+`extcap_ot.bat` from the cloned `pyspinel` repository into the Wireshark
+Extcap path directory.
+
 Copyright (c) 2021-2022, The OpenThread Authors.
 All rights reserved.
 
