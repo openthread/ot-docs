@@ -67,12 +67,11 @@ Alternatively, set up the environment by installing the pyspinel package:
 $ pip3 install pyspinel --install-option="--extcap-path={extcap-path}"
 ```
 
-To use Pyspinel with the extcap plugin, refer to [Packet Sniffing using Extcap](sniffer-extcap.md).
+> Note: On Windows, clone the `pyspinel` repository, install the package from
+the cloned directory (`cd pyspinel && pip3 install .`), then copy `extcap_ot.py`
+and `extcap_ot.bat` into the Wireshark Extcap path directory.
 
-> Note: On Windows, install the dependencies and package
-(`pip3 install pyserial ipaddress pyspinel`), then copy `extcap_ot.py` and
-`extcap_ot.bat` from the cloned `pyspinel` repository into the Wireshark
-Extcap path directory.
+To use Pyspinel with the extcap plugin, refer to [Packet Sniffing using Extcap](sniffer-extcap.md).
 
 ## License
 

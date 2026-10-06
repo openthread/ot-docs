@@ -14,7 +14,8 @@ Pyspinel is used to:
 *   Convert an OpenThread Co-Processor into a packet sniffer.
 
 > Note: Pyspinel is only supported for NCP and RCP builds of OpenThread on Linux
-or MacOS.
+or macOS (Windows 10 or later is only supported for packet sniffing with the
+[Wireshark extcap plugin](sniffer-extcap.md)).
 
 ## Contribute
 
