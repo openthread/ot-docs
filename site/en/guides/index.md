@@ -57,6 +57,10 @@ Dive right into hardware, where you will learn how to:
 <a class="button button-primary"
    href="https://openthread.io/codelabs/telink-openthread-hardware/">Try the Telink Hardware Codelab</a>
 
+<a class="button button-primary"
+   href="https://openthread.io/codelabs/ti-openthread-hardware/">Try the Texas Instruments Hardware
+    Codelab</a>
+
 ### API Codelab
 
 Want to use OpenThread APIs in an application? Using real hardware, learn how
