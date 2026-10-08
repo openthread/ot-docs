@@ -39,7 +39,7 @@ on a Mac or Linux machine.
 
 Dive right into hardware, where you will learn how to:
 
-*   Flash OpenThread on Nordic nRF52840 or Silicon Labs EFR32 development boards
+*   Flash OpenThread on development boards
 *   Build a real Thread network
 *   Authenticate Thread nodes with Commissioning
 *   Use the OpenThread CLI for Multicast and UDP (Nordic only)
